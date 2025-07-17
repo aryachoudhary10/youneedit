@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Place for Ananya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 50%, #FF99AC 100%);
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        .quote-card {
+             background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Hero Section -->
+    <header class="relative text-white min-h-screen flex items-center justify-center text-center p-6 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1508615039623-a25605d2b022?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Beautiful sunrise sky" 
+                 class="w-full h-full object-cover"
+                 onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/FF9A8B/FFFFFF?text=You+Are+Sunshine';">
+            <div class="absolute inset-0 bg-black opacity-40"></div>
+        </div>
+        <div class="relative z-10 animate-fade-in-up">
+            <h1 class="font-display text-5xl md:text-7xl font-bold mb-4 tracking-tight">For Ananya</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto">A reminder of the incredible, strong, and brilliant person you are.</p>
+            <div class="mt-8 p-6 max-w-2xl mx-auto bg-white/20 backdrop-blur-sm rounded-2xl">
+                <p class="text-lg italic">
+                    Dearest Ananya,
+                    <br>
+                    I know things with Priyanshu have been incredibly tough. It hurts to see you hurting. I wanted to create this little corner of the internet just for you—a place to breathe, reflect, and remember your own magic. You deserve all the happiness in the world.
+                    <br>
+                    With all my love,
+                    <br>
+                    Your Best Friend
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 md:py-24 space-y-24">
+
+        <!-- Pep Talk Section -->
+        <section class="text-center">
+            <h2 class="font-display text-4xl font-bold text-pink-500 mb-4">You're Not Imagining It</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">On lies, realizations, and protecting your peace.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Trust Your Gut -->
+                <div class="card p-8 text-left">
+                    <h3 class="font-bold text-xl mb-3 text-gray-900">Trust Your Gut</h3>
+                    <p class="text-gray-700">You are intelligent and intuitive. If something feels off, it probably is. Don't let anyone's denial make you question your own reality.</p>
+                </div>
+                <!-- Card 2: You Can't Force an Apology -->
+                <div class="card p-8 text-left">
+                    <h3 class="font-bold text-xl mb-3 text-gray-900">You Can't Force an Apology</h3>
+                    <p class="text-gray-700">A genuine apology comes from remorse. You can't make someone see they're wrong if they aren't ready. Focus on what you can control: your response.</p>
+                </div>
+                <!-- Card 3: Protect Your Peace -->
+                <div class="card p-8 text-left">
+                    <h3 class="font-bold text-xl mb-3 text-gray-900">Protect Your Peace</h3>
+                    <p class="text-gray-700">Your emotional well-being is the priority. It's not just okay, but necessary, to step back and create distance to protect yourself from repeated hurt.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operation Cheer-Up Section -->
+        <section class="gradient-bg rounded-3xl p-8 md:p-16 text-white">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl font-bold mb-4">Operation Cheer-Up!</h2>
+                <p class="text-lg opacity-90">A curated collection of happiness boosters, just for you.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 text-gray-800">
+                <div class="card p-8">
+                    <h3 class="font-bold text-2xl mb-4">The Ultimate "Feel Good" Playlist</h3>
+                    <p class="mb-4">Time for some empowering anthems. I've put together a list of songs to remind you of the queen you are!</p>
+                    <a href="https://www.youtube.com/watch?v=Oa_RSwwpPaA&list=PLplXQ2cg9B_pJEOfM6nzFHTebKQ-DnUvu&index=1" target="_blank" class="inline-block bg-pink-500 text-white font-bold py-3 px-6 rounded-full hover:bg-pink-600 transition-colors">Open Playlist</a>
+                </div>
+                <div class="card p-8">
+                    <h3 class="font-bold text-2xl mb-4">A Gallery of Good Times</h3>
+                    <p class="mb-4">Remember all the amazing moments we've shared? Let's take a walk down memory lane and smile together.</p>
+                    <button onclick="window.open('https://photos.google.com/search/CgAiMRIvCi0KKwopEidBRjFRaXBQOXhXVC1BZmpmcUFLYWFUdWhOWlNaNGlIV2FNNTB1V0ko4vSozoEz', '_blank')" class="inline-block bg-pink-500 text-white font-bold py-3 px-6 rounded-full hover:bg-pink-600 transition-colors">
+                    View Photos
+                    </button>
+                    <button onclick="window.open('https://static3.depositphotos.com/1007162/256/i/450/depositphotos_2564880-stock-photo-throwing-shit.jpg', '_blank')" class="inline-block bg-pink-500 text-white font-bold py-3 px-6 rounded-full hover:bg-pink-600 transition-colors">
+                    First Click Me
+                    </button>
+                </div>
+                <div class="card p-8 md:col-span-2">
+                     <h3 class="font-bold text-2xl mb-4">Let's Make New Memories</h3>
+                     <p class="mb-4">The best is yet to come! Here are some ideas for our next adventure:</p>
+                     <ul class="list-disc list-inside space-y-2">
+                        <li>Visiting the Buddha temple to feel calm and peaceful.</li>
+                        <li>Going on a trip to Mussoorie for some fun and fresh air.</li>
+                        <li>Late night outings just to chill and enjoy.</li>
+                        <li>Playing games together for hours.</li>
+                        <li>Watching movies in the theatre with popcorn and cold drinks.</li>
+                        <li>Spending our own money on things we like, just because we can.</li>
+                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wisdom & Worth Section -->
+        <section>
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl font-bold text-pink-500 mb-4">Your Daily Dose of Wisdom & Worth</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">A few powerful words to live by.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="quote-card p-8 rounded-2xl border-l-4 border-pink-400">
+                    <p class="text-xl italic text-gray-700">"The moment you start to wonder if you deserve better, you do."</p>
+                </div>
+                <div class="quote-card p-8 rounded-2xl border-l-4 border-teal-400">
+                    <p class="text-xl italic text-gray-700">"Your value doesn't decrease based on someone's inability to see your worth."</p>
+                </div>
+                <div class="quote-card p-8 rounded-2xl border-l-4 border-purple-400">
+                    <p class="text-xl italic text-gray-700">"Respect yourself enough to walk away from anything that no longer serves you, grows you, or makes you happy."</p>
+                </div>
+                 <div class="quote-card p-8 rounded-2xl border-l-4 border-yellow-400">
+                    <p class="text-xl italic text-gray-700">"You can't change someone who doesn't see an issue in their actions."</p>
+                </div>
+                 <div class="quote-card p-8 rounded-2xl border-l-4 border-green-400">
+                    <p class="text-xl italic text-gray-700">"Sometimes the most powerful thing you can say is nothing at all."</p>
+                </div>
+                 <div class="quote-card p-8 rounded-2xl border-l-4 border-red-400">
+                    <p class="text-xl italic text-gray-700">"You are not a rehab center for badly raised men."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ananya is Awesome Wall -->
+        <section class="text-center">
+            <h2 class="font-display text-4xl font-bold text-pink-500 mb-12">The "Ananya is Awesome" Wall</h2>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+                <h3 class="font-bold text-2xl mb-6">Just a few of the million reasons why you're amazing:</h3>
+                <ul class="text-left space-y-4 text-lg">
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-pink-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <span>Your infectious laugh that can brighten any room.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-pink-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <span>Your unwavering loyalty and kindness as a friend.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-pink-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <span>Your incredible talent for [mention a specific talent here!].</span>
+                    </li>
+                    <li class="flex items-start">
+                       <svg class="w-6 h-6 text-pink-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <span>Your strength and resilience, which are more powerful than you know.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 bg-gray-100">
+        <p class="text-gray-600">Made with ❤️ for the best friend anyone could ask for.</p>
+    </footer>
+
+</body>
+</html>
