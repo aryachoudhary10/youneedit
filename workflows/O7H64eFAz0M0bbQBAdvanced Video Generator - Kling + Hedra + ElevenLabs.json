@@ -1,0 +1,824 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "All Scripts Done?": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Process One Script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Check Hedra Status": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Hedra Ready?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Check Kling Status": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Kling Ready?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download All Assets": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "FFmpeg - Stitch Everything",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "ElevenLabs - Generate Voice": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload Voice to Cloud",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Every Hour": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Approved Scripts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "FFmpeg - Stitch Everything": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Generate Metadata Filename",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Generate Metadata Filename": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload to Google Drive",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Generate Visual Prompt": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Kling AI - Generate B-Roll",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Approved Scripts": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Process One Script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Hedra - Generate Avatar": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait for Hedra Processing",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Hedra Ready?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Download All Assets",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Wait Hedra Retry",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Kling AI - Generate B-Roll": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait for Kling Processing",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Kling Ready?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Download All Assets",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Wait and Retry",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Notify Success": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait Before Next",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Process One Script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ElevenLabs - Generate Voice",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Generate Visual Prompt",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Save to Database": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Notify Success",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upload Voice to Cloud": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Hedra - Generate Avatar",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upload to Google Drive": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Save to Database",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait Before Next": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "All Scripts Done?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait Hedra Retry": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check Hedra Status",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait and Retry": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check Kling Status",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait for Hedra Processing": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check Hedra Status",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait for Kling Processing": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check Kling Status",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-16T19:52:33.896Z",
+  "id": "O7H64eFAz0M0bbQB",
+  "isArchived": false,
+  "meta": null,
+  "name": "Advanced Video Generator - Kling + Hedra + ElevenLabs",
+  "nodes": [
+    {
+      "id": "fe19149a-8e50-462f-b95c-ab6d4471821f",
+      "name": "Every Hour",
+      "notes": "Check for approved scripts every hour",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours"
+            }
+          ]
+        }
+      },
+      "position": [
+        -1808,
+        208
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "136cdb62-5fff-43a2-b18a-086a755c455c",
+      "name": "Get Approved Scripts",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Get approved scripts ready for video production\nSELECT \n  s.script_id,\n  s.idea_id,\n  s.hook_variant_id,\n  s.transcript_id,\n  s.script_text,\n  s.scenes,\n  s.duration_sec,\n  i.idea_text,\n  hv.hook_text,\n  t.transcript_text,\n  sr.source_reel_id,\n  c.niche,\n  c.username as source_creator\nFROM scripts s\nJOIN ideas i ON s.idea_id = i.idea_id\nLEFT JOIN hook_variants hv ON s.hook_variant_id = hv.hook_variant_id\nLEFT JOIN transcripts t ON s.transcript_id = t.transcript_id\nLEFT JOIN source_reels sr ON t.source_reel_id = sr.source_reel_id\nLEFT JOIN creators c ON sr.creator_id = c.creator_id\nWHERE s.status = 'approved'\n  AND NOT EXISTS (\n    SELECT 1 FROM generated_videos gv \n    WHERE gv.script_id = s.script_id\n  )\nORDER BY s.created_at ASC\nLIMIT 3;"
+      },
+      "position": [
+        -1600,
+        208
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "6bfad255-e933-4240-a4ef-2f18d09fb48d",
+      "name": "Process One Script",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -1408,
+        208
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "c76dd2b2-fc1f-4dda-881f-e79279293bdf",
+      "name": "ElevenLabs - Generate Voice",
+      "notes": "Generate natural AI voice",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "={{ $credentials.elevenLabsApi.apiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"text\": \"{{ $json.script_text }}\",\n  \"model_id\": \"eleven_turbo_v2_5\",\n  \"voice_settings\": {\n    \"stability\": 0.5,\n    \"similarity_boost\": 0.75,\n    \"style\": 0.5,\n    \"use_speaker_boost\": true\n  }\n}",
+        "method": "POST",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        },
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/YOUR_VOICE_ID"
+      },
+      "position": [
+        -1200,
+        208
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "b615ae55-3fa9-4f19-b260-bbd2d80ce229",
+      "name": "Generate Visual Prompt",
+      "notes": "Create AI prompt for Kling based on script content",
+      "parameters": {
+        "jsCode": "// Analyze script to generate visual prompt for Kling AI\nconst script = $('Get Approved Scripts').item.json.script_text;\nconst niche = $('Get Approved Scripts').item.json.niche || 'general';\nconst ideaText = $('Get Approved Scripts').item.json.idea_text;\n\n// Extract key visual elements from script\nfunction generateVisualPrompt(script, niche, idea) {\n  // Map niches to visual styles\n  const nicheStyles = {\n    'fitness': 'modern gym, athletic people working out, energetic movements, bright lighting',\n    'tech': 'futuristic interface, digital screens, modern workspace, tech gadgets',\n    'finance': 'professional office, charts and graphs, business setting, clean aesthetic',\n    'food': 'kitchen setting, fresh ingredients, cooking process, appetizing presentation',\n    'education': 'classroom, students learning, books, bright educational environment',\n    'travel': 'beautiful destinations, landmarks, scenic views, adventure',\n    'fashion': 'stylish outfits, runway, urban setting, trendy aesthetics'\n  };\n  \n  const baseStyle = nicheStyles[niche.toLowerCase()] || 'professional setting, clean aesthetic, modern look';\n  \n  // Generate cinematic prompt for Kling AI\n  return `Cinematic B-roll footage: ${baseStyle}. Dynamic camera movements, professional lighting, 4K quality, trending on social media. Style: modern, engaging, fast-paced. Duration: ${Math.ceil(script.split(' ').length / 2.5)} seconds.`;\n}\n\nconst visualPrompt = generateVisualPrompt(script, niche, ideaText);\n\nreturn {\n  script_id: $('Get Approved Scripts').item.json.script_id,\n  visual_prompt: visualPrompt,\n  duration: $('Get Approved Scripts').item.json.duration_sec || 35,\n  niche: niche\n};"
+      },
+      "position": [
+        -1008,
+        112
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "bbbdebe3-ee18-4afa-bb53-e0e7d8922025",
+      "name": "Kling AI - Generate B-Roll",
+      "notes": "Generate cinematic B-roll footage",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'Bearer ' + $credentials.klingApi.apiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"prompt\": \"{{ $json.visual_prompt }}\",\n  \"duration\": \"5\",\n  \"aspect_ratio\": \"9:16\",\n  \"mode\": \"standard\"\n}",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://api.klingai.com/v1/videos/text2video"
+      },
+      "position": [
+        -800,
+        112
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "4e8f1d26-d994-41d0-b2ea-beb19d7b24c5",
+      "name": "Wait for Kling Processing",
+      "notes": "Kling takes ~20-40 seconds to generate",
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      },
+      "position": [
+        -608,
+        112
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "838dc099-2c07-4abd-ac41-8852a5aab1c2"
+    },
+    {
+      "id": "a3949801-2601-4eb3-8c63-5d2f4c819ab1",
+      "name": "Check Kling Status",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'Bearer ' + $credentials.klingApi.apiKey }}"
+            }
+          ]
+        },
+        "options": {},
+        "sendHeaders": true,
+        "url": "={{ 'https://api.klingai.com/v1/videos/' + $('Kling AI - Generate B-Roll').item.json.task_id }}"
+      },
+      "position": [
+        -400,
+        112
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "6107a804-7b6e-481d-82e9-7e33ec2469ed",
+      "name": "Kling Ready?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "done",
+              "leftValue": "={{ $json.status }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "completed"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -208,
+        112
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "7698330b-b452-4ebb-b132-2601057f3f20",
+      "name": "Wait and Retry",
+      "parameters": {
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "position": [
+        -208,
+        304
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "0e2333eb-9c99-4082-92c4-b0642683cd12"
+    },
+    {
+      "id": "681d5660-17e2-4a07-be48-40b224a57591",
+      "name": "Hedra - Generate Avatar",
+      "notes": "Create AI avatar with perfect lip-sync",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'Bearer ' + $credentials.hedraApi.apiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"text\": \"{{ $('Get Approved Scripts').item.json.script_text }}\",\n  \"audioSource\": \"{{ $('Upload Voice to Cloud').item.json.audio_url }}\",\n  \"aspectRatio\": \"9:16\",\n  \"avatarImage\": \"auto\"\n}",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://api.hedra.com/v1/characters"
+      },
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "88a2a464-0e75-4f8c-9e9c-f8ba9254b8fa",
+      "name": "Upload Voice to Cloud",
+      "notes": "Upload to Cloudinary for Hedra access",
+      "parameters": {
+        "jsCode": "// Upload ElevenLabs audio to Cloudinary for Hedra to access\nconst FormData = require('form-data');\nconst audioBuffer = $input.first().binary.data;\n\nconst form = new FormData();\nform.append('file', audioBuffer, {\n  filename: 'voice.mp3',\n  contentType: 'audio/mpeg'\n});\nform.append('upload_preset', 'YOUR_CLOUDINARY_PRESET');\nform.append('resource_type', 'video'); // Cloudinary treats audio as video\n\nconst response = await this.helpers.httpRequest({\n  method: 'POST',\n  url: 'https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME/upload',\n  body: form,\n  headers: form.getHeaders()\n});\n\nreturn {\n  audio_url: response.secure_url,\n  script_id: $('Get Approved Scripts').item.json.script_id\n};"
+      },
+      "position": [
+        -1008,
+        208
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "10d292c9-7bbb-4594-b266-dedbe147097d",
+      "name": "Wait for Hedra Processing",
+      "parameters": {
+        "amount": 45,
+        "unit": "seconds"
+      },
+      "position": [
+        208,
+        0
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "a2b306d6-9d78-4151-9e07-a0d9de23a60a"
+    },
+    {
+      "id": "36432bd4-8635-4b48-9fd4-0d204377fa5b",
+      "name": "Check Hedra Status",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'Bearer ' + $credentials.hedraApi.apiKey }}"
+            }
+          ]
+        },
+        "options": {},
+        "sendHeaders": true,
+        "url": "={{ 'https://api.hedra.com/v1/characters/' + $('Hedra - Generate Avatar').item.json.id }}"
+      },
+      "position": [
+        400,
+        0
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "de6cb37c-bdef-4217-9990-f450fab96439",
+      "name": "Hedra Ready?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "complete",
+              "leftValue": "={{ $json.status }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "completed"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        608,
+        0
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "d58e415c-093a-44a3-8e40-e0a494e22b3a",
+      "name": "Wait Hedra Retry",
+      "parameters": {
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "position": [
+        608,
+        208
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "2810ddde-6ef9-4518-9e63-a1af490934e4"
+    },
+    {
+      "id": "06537af4-42d8-484c-96f7-a8d018dd32a1",
+      "name": "Download All Assets",
+      "notes": "Get avatar and B-roll videos",
+      "parameters": {
+        "jsCode": "// Download all generated assets\nconst hedraVideoUrl = $('Check Hedra Status').item.json.videoUrl;\nconst klingVideoUrl = $('Check Kling Status').item.json.video_url;\nconst scriptData = $('Get Approved Scripts').item.json;\n\n// Download Hedra avatar video\nconst hedraVideo = await this.helpers.httpRequest({\n  method: 'GET',\n  url: hedraVideoUrl,\n  encoding: 'arraybuffer'\n});\n\n// Download Kling B-roll\nconst klingVideo = await this.helpers.httpRequest({\n  method: 'GET',\n  url: klingVideoUrl,\n  encoding: 'arraybuffer'\n});\n\nreturn {\n  hedra_video: Buffer.from(hedraVideo),\n  kling_video: Buffer.from(klingVideo),\n  script_text: scriptData.script_text,\n  script_id: scriptData.script_id,\n  duration: scriptData.duration_sec\n};"
+      },
+      "position": [
+        800,
+        0
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "9463eb82-55de-49c8-a791-5dd34d2f5626",
+      "name": "FFmpeg - Stitch Everything",
+      "notes": "Combine avatar + B-roll + subtitles + music",
+      "parameters": {
+        "language": "python",
+        "pythonCode": "import subprocess\nimport json\nimport os\nimport random\n\n# Get input data\ndata = _input.first().json\nhedra_video = data['hedra_video']\nkling_video = data['kling_video']\nscript_text = data['script_text']\nscript_id = data['script_id']\n\n# Save videos temporarily\nwith open('/tmp/avatar.mp4', 'wb') as f:\n    f.write(bytes(hedra_video))\n\nwith open('/tmp/broll.mp4', 'wb') as f:\n    f.write(bytes(kling_video))\n\n# Generate subtitles from script\ndef generate_srt(script, output_path):\n    \"\"\"Generate SRT subtitle file from script text\"\"\"\n    words = script.split()\n    words_per_second = 2.5\n    \n    with open(output_path, 'w') as f:\n        subtitle_index = 1\n        current_time = 0\n        \n        # Split into chunks of 5-8 words\n        for i in range(0, len(words), 6):\n            chunk = ' '.join(words[i:i+6])\n            duration = len(chunk.split()) / words_per_second\n            \n            start_time = current_time\n            end_time = current_time + duration\n            \n            # Format timestamps\n            start = f\"{int(start_time//3600):02d}:{int((start_time%3600)//60):02d}:{int(start_time%60):02d},000\"\n            end = f\"{int(end_time//3600):02d}:{int((end_time%3600)//60):02d}:{int(end_time%60):02d},000\"\n            \n            f.write(f\"{subtitle_index}\\n\")\n            f.write(f\"{start} --> {end}\\n\")\n            f.write(f\"{chunk.upper()}\\n\\n\")\n            \n            subtitle_index += 1\n            current_time = end_time\n\ngenerate_srt(script_text, '/tmp/subtitles.srt')\n\n# Select random background music\nmusic_library = [\n    'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',\n    'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'\n]\nmusic_url = random.choice(music_library)\n\n# Download music\nsubprocess.run(['wget', '-O', '/tmp/music.mp3', music_url], check=True)\n\n# FFmpeg command to stitch everything\nffmpeg_cmd = [\n    'ffmpeg',\n    '-i', '/tmp/avatar.mp4',           # Main avatar video\n    '-i', '/tmp/broll.mp4',            # B-roll overlay\n    '-i', '/tmp/music.mp3',            # Background music\n    '-filter_complex',\n    \"\"\"[\n        0:v]scale=1080:1920,setsar=1[avatar];\n        [1:v]scale=1080:1920,setsar=1,colorchannelmixer=aa=0.3[broll];\n        [avatar][broll]overlay=0:0[vid];\n        [vid]subtitles=/tmp/subtitles.srt:force_style='Fontname=Arial Bold,Fontsize=60,PrimaryColour=&H00FFFF,OutlineColour=&H000000,Outline=3,Shadow=2,Alignment=2,MarginV=50'[outv];\n        [2:a]volume=0.2[music];\n        [0:a][music]amix=inputs=2:duration=shortest[outa]\n    \"\"\",\n    '-map', '[outv]',\n    '-map', '[outa]',\n    '-c:v', 'libx264',\n    '-preset', 'fast',\n    '-crf', '23',\n    '-c:a', 'aac',\n    '-b:a', '192k',\n    '-y',\n    f'/tmp/final_{script_id}.mp4'\n]\n\n# Execute FFmpeg\nresult = subprocess.run(ffmpeg_cmd, capture_output=True, text=True)\n\nif result.returncode != 0:\n    raise Exception(f\"FFmpeg error: {result.stderr}\")\n\n# Read final video\nwith open(f'/tmp/final_{script_id}.mp4', 'rb') as f:\n    final_video = f.read()\n\n# Clean up temp files\nfor temp_file in ['/tmp/avatar.mp4', '/tmp/broll.mp4', '/tmp/music.mp3', '/tmp/subtitles.srt']:\n    if os.path.exists(temp_file):\n        os.remove(temp_file)\n\nreturn [{\n    'final_video': final_video,\n    'script_id': script_id,\n    'filename': f'final_{script_id}.mp4'\n}]"
+      },
+      "position": [
+        1008,
+        0
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "79ea21d7-0366-49c4-ac43-2426623f661a",
+      "name": "Generate Metadata Filename",
+      "parameters": {
+        "jsCode": "// Generate metadata filename\nconst scriptData = $('Get Approved Scripts').item.json;\n\nconst filename = `script_${scriptData.script_id}_idea_${scriptData.idea_id}_hook_${scriptData.hook_variant_id || 'null'}_transcript_${scriptData.transcript_id}_source_${scriptData.source_reel_id || 'null'}.mp4`;\n\nreturn {\n  filename: filename,\n  script_id: scriptData.script_id,\n  idea_id: scriptData.idea_id,\n  hook_variant_id: scriptData.hook_variant_id,\n  transcript_id: scriptData.transcript_id,\n  source_reel_id: scriptData.source_reel_id,\n  video_binary: $input.first().json.final_video\n};"
+      },
+      "position": [
+        1200,
+        0
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "76c288d0-d1b5-4c6f-b12f-1813f516bfce",
+      "name": "Upload to Google Drive",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "YOUR_GOOGLE_DRIVE_FOLDER_ID"
+        },
+        "name": "={{ $json.filename }}",
+        "options": {}
+      },
+      "position": [
+        1408,
+        0
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "d89ce3f0-3dbc-44ef-bbb9-09a1cd1b58e6",
+      "name": "Save to Database",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=INSERT INTO generated_videos (\n  video_id,\n  script_id,\n  video_url,\n  thumbnail_url,\n  duration_sec,\n  status,\n  render_metadata,\n  created_at\n)\nVALUES (\n  '{{ $crypto.randomUUID() }}',\n  '{{ $('Get Approved Scripts').item.json.script_id }}',\n  '{{ $json.webViewLink }}',\n  '{{ $json.thumbnailLink }}',\n  {{ $('Get Approved Scripts').item.json.duration_sec }},\n  'completed',\n  '{{ JSON.stringify({\n    hedra_avatar: true,\n    kling_broll: true,\n    subtitles: true,\n    background_music: true,\n    google_drive_id: $json.id,\n    filename: $('Generate Metadata Filename').item.json.filename\n  }) }}',\n  NOW()\n)\nRETURNING video_id;"
+      },
+      "position": [
+        1600,
+        0
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "e15fd3bb-06b7-4a4a-aebb-37124c87f852",
+      "name": "Notify Success",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "YOUR_SLACK_CHANNEL_ID"
+        },
+        "otherOptions": {},
+        "select": "channel",
+        "text": "=✅ **VIDEO GENERATED!**\n\n🎬 **Script ID:** `{{ $('Get Approved Scripts').item.json.script_id }}`\n📹 **Video:** {{ $('Upload to Google Drive').item.json.webViewLink }}\n⏱️ **Duration:** {{ $('Get Approved Scripts').item.json.duration_sec }}s\n\n**Features:**\n✓ Hedra AI Avatar (lip-synced)\n✓ Kling AI B-roll footage\n✓ Dynamic subtitles (Alex Hormozi style)\n✓ Background music\n\n**Ready for posting!**"
+      },
+      "position": [
+        1808,
+        0
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "bfb7db07-cd30-441d-bec6-6fe9ab687160"
+    },
+    {
+      "id": "04550244-941a-4b07-85f9-36223a500096",
+      "name": "Wait Before Next",
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "position": [
+        2000,
+        0
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "6404050c-3574-4f42-aedb-c73c89c92348"
+    },
+    {
+      "id": "c86c1305-4ce4-4a02-8af2-81b9612ac97b",
+      "name": "All Scripts Done?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "complete",
+              "leftValue": "={{ $('Process One Script').context.noItemsLeft }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        2208,
+        0
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-16T19:52:33.906Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-16T19:52:33.906Z",
+      "workflowId": "O7H64eFAz0M0bbQB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-16T19:52:33.000Z",
+  "versionId": "2d929321-6dec-49b8-ae48-02e71d3815e6"
+}
