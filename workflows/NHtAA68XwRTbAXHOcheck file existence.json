@@ -1,0 +1,469 @@
+{
+  "active": true,
+  "activeVersion": {
+    "authors": "Sukhneer Singh",
+    "autosaved": true,
+    "connections": {
+      "Delete a file": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "return file delete true when delete is successful",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Search files and folders": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "check if file to be deleted or check for exists",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "When Executed by Another Workflow": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Search files and folders",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "check if file to be deleted or check for exists": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Delete a file",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "return file delete successful",
+              "type": "main"
+            }
+          ]
+        ]
+      }
+    },
+    "createdAt": "2026-03-07T13:41:25.554Z",
+    "description": "",
+    "name": "Version adc70b5a",
+    "nodes": [
+      {
+        "id": "01d82969-7080-43f7-8464-a851fd42067a",
+        "name": "When Executed by Another Workflow",
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "filename"
+              },
+              {
+                "name": "folderid"
+              },
+              {
+                "name": "deleteUpdate",
+                "type": "boolean"
+              }
+            ]
+          }
+        },
+        "position": [
+          -192,
+          -16
+        ],
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1
+      },
+      {
+        "alwaysOutputData": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "95f43087-7e19-49c2-b48c-7a9832c41940",
+        "name": "Search files and folders",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.folderid }}"
+            }
+          },
+          "options": {
+            "fields": [
+              "*"
+            ]
+          },
+          "queryString": "={{ $json.filename }}",
+          "resource": "fileFolder"
+        },
+        "position": [
+          32,
+          -16
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "f1225193-6e4f-478f-8d1e-bf8cdef46bb3",
+        "name": "Delete a file",
+        "parameters": {
+          "fileId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "operation": "deleteFile",
+          "options": {}
+        },
+        "position": [
+          480,
+          -112
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "id": "be386c7a-9054-4100-94a2-acbddd6ca64f",
+        "name": "return file delete true when delete is successful",
+        "parameters": {
+          "jsCode": "\nreturn [{\n  json: {\n    proceedWithFileUpload: $input.first().json.success\n  }\n}];"
+        },
+        "position": [
+          704,
+          -112
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "6b6df802-d2f9-41b1-9c88-c7fd70eef2fa",
+        "name": "return file delete successful",
+        "parameters": {
+          "jsCode": "const items = $input.all();\n\nconst file = items[0]?.json;\n\nif (file && file.id) {\n  return [{\n    json: {\n      proceedWithFileUpload: false,\n      fileId: file.id,\n      fileName: file.name,\n      webViewLink: file.webViewLink,\n      webContentLink: file.webContentLink\n    }\n  }];\n}\n\nreturn [{\n  json: {\n    proceedWithFileUpload: true\n  }\n}];"
+        },
+        "position": [
+          480,
+          80
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "bac1ed2c-5e86-4984-9289-c004211d5265",
+        "name": "check if file to be deleted or check for exists",
+        "parameters": {
+          "conditions": {
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "8b3afccb-5f38-4414-aa6a-0c618512c633",
+                "leftValue": "={{ $json.id }}",
+                "operator": {
+                  "operation": "exists",
+                  "singleValue": true,
+                  "type": "string"
+                },
+                "rightValue": ""
+              },
+              {
+                "id": "29e954a9-6e8a-4c41-b0ff-ef7ff50b16c5",
+                "leftValue": "={{ $('When Executed by Another Workflow').first().json.deleteUpdate }}",
+                "operator": {
+                  "operation": "equals",
+                  "type": "boolean"
+                },
+                "rightValue": true
+              }
+            ],
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "loose",
+              "version": 3
+            }
+          },
+          "looseTypeValidation": true,
+          "options": {}
+        },
+        "position": [
+          256,
+          -16
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3
+      }
+    ],
+    "updatedAt": "2026-03-07T13:42:39.000Z",
+    "versionId": "adc70b5a-bd89-4753-bada-3b0379dd9221",
+    "workflowId": "NHtAA68XwRTbAXHO"
+  },
+  "activeVersionId": "adc70b5a-bd89-4753-bada-3b0379dd9221",
+  "connections": {
+    "Delete a file": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "return file delete true when delete is successful",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search files and folders": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "check if file to be deleted or check for exists",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search files and folders",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "check if file to be deleted or check for exists": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Delete a file",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "return file delete successful",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-07T09:17:11.107Z",
+  "id": "NHtAA68XwRTbAXHO",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "check file existence",
+  "nodes": [
+    {
+      "id": "01d82969-7080-43f7-8464-a851fd42067a",
+      "name": "When Executed by Another Workflow",
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "filename"
+            },
+            {
+              "name": "folderid"
+            },
+            {
+              "name": "deleteUpdate",
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "position": [
+        -192,
+        -16
+      ],
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1
+    },
+    {
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "95f43087-7e19-49c2-b48c-7a9832c41940",
+      "name": "Search files and folders",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.folderid }}"
+          }
+        },
+        "options": {
+          "fields": [
+            "*"
+          ]
+        },
+        "queryString": "={{ $json.filename }}",
+        "resource": "fileFolder"
+      },
+      "position": [
+        32,
+        -16
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "f1225193-6e4f-478f-8d1e-bf8cdef46bb3",
+      "name": "Delete a file",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "operation": "deleteFile",
+        "options": {}
+      },
+      "position": [
+        480,
+        -112
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "be386c7a-9054-4100-94a2-acbddd6ca64f",
+      "name": "return file delete true when delete is successful",
+      "parameters": {
+        "jsCode": "\nreturn [{\n  json: {\n    proceedWithFileUpload: $input.first().json.success\n  }\n}];"
+      },
+      "position": [
+        704,
+        -112
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "6b6df802-d2f9-41b1-9c88-c7fd70eef2fa",
+      "name": "return file delete successful",
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nconst file = items[0]?.json;\n\nif (file && file.id) {\n  return [{\n    json: {\n      proceedWithFileUpload: false,\n      fileId: file.id,\n      fileName: file.name,\n      webViewLink: file.webViewLink,\n      webContentLink: file.webContentLink\n    }\n  }];\n}\n\nreturn [{\n  json: {\n    proceedWithFileUpload: true\n  }\n}];"
+      },
+      "position": [
+        480,
+        80
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "bac1ed2c-5e86-4984-9289-c004211d5265",
+      "name": "check if file to be deleted or check for exists",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "8b3afccb-5f38-4414-aa6a-0c618512c633",
+              "leftValue": "={{ $json.id }}",
+              "operator": {
+                "operation": "exists",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            },
+            {
+              "id": "29e954a9-6e8a-4c41-b0ff-ef7ff50b16c5",
+              "leftValue": "={{ $('When Executed by Another Workflow').first().json.deleteUpdate }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          }
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "position": [
+        256,
+        -16
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "deleteUpdate": true,
+          "filename": "Master_Reference_image",
+          "folderid": "1E0RvNrosg63NAwWM5p8lzn85Q-iZRsqb"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-07T09:17:11.111Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-07T09:17:11.111Z",
+      "workflowId": "NHtAA68XwRTbAXHO"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-07T13:41:25.553Z",
+  "versionId": "adc70b5a-bd89-4753-bada-3b0379dd9221"
+}
