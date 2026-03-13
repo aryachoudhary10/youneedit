@@ -1,0 +1,308 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "All Batches Done?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Log Completion",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Split Into Batches",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Facebook Graph API": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upsert Account to Supabase",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Instagram Profile Data": {
+      "main": [
+        []
+      ]
+    },
+    "Get Active Instagram Accounts": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Split Into Batches",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Active Instagram Accounts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Split Into Batches": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Facebook Graph API",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upsert Account to Supabase": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait (Rate Limit)",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait (Rate Limit)": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "All Batches Done?",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-15T06:29:01.550Z",
+  "id": "WHDZUy6KQxLbIBOe",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "7_Instagram Account Sync",
+  "nodes": [
+    {
+      "id": "0c1fb890-5dd4-47d1-93e5-675267470a24",
+      "name": "Schedule Trigger",
+      "notes": "Runs daily at 6 AM to sync all Instagram accounts",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "position": [
+        -1408,
+        112
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "webhookId": ""
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "a32a7749-90b5-4db6-ac5d-c7d085d1d869",
+      "name": "Get Active Instagram Accounts",
+      "notes": "Fetch all active Instagram accounts from Supabase",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "SELECT account_id, username, platform FROM accounts WHERE platform = 'instagram' AND active = true"
+      },
+      "position": [
+        -1200,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "78fab4c6-907f-4788-bed3-060f58d60055",
+      "name": "Split Into Batches",
+      "notes": "Process 10 accounts at a time to avoid rate limits",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -1008,
+        112
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "0c6ff81f-568c-43f2-b65c-adafa38a82af",
+      "name": "Fetch Instagram Profile Data",
+      "notes": "Fetch account details from Instagram Graph API",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "instagramGraphApi",
+        "options": {},
+        "url": "=https://graph.facebook.com/v18.0/{{ $json.account_id }}"
+      },
+      "position": [
+        -848,
+        -16
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "08ff56c4-5363-4c36-93b2-27142d274356",
+      "name": "Upsert Account to Supabase",
+      "notes": "Insert or update account data in Supabase",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=INSERT INTO accounts (account_id, platform, username, display_name, followers_count, metadata, updated_at)\nVALUES (\n  '{{ $json.id }}',\n  'instagram',\n  '{{ $json.username }}',\n  '{{ $json.name ?? null }}',\n  {{ $json.followers_count }},\n  '{{ JSON.stringify({ biography: $json.biography, profile_picture: $json.profile_picture_url, media_count: $json.media_count }) }}',\n  NOW()\n)\nON CONFLICT (account_id) \nDO UPDATE SET\n  username = EXCLUDED.username,\n  display_name = EXCLUDED.display_name,\n  followers_count = EXCLUDED.followers_count,\n  metadata = EXCLUDED.metadata,\n  updated_at = NOW()"
+      },
+      "position": [
+        -608,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "9003562d-d367-4066-a211-1db89d54717f",
+      "name": "Wait (Rate Limit)",
+      "notes": "Prevent API rate limiting",
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "position": [
+        -400,
+        112
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "63492d8d-6184-4386-892b-f54646993248"
+    },
+    {
+      "id": "f27ac5c5-25ba-4a4d-9c8b-6552fd9deaa2",
+      "name": "All Batches Done?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "batch_complete",
+              "leftValue": "={{ $('Split Into Batches').context.noItemsLeft }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -208,
+        112
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "d5698c96-fecd-4d87-a9a6-fbe0d0b39f32",
+      "name": "Log Completion",
+      "notes": "Success notification",
+      "parameters": {},
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "SJstlJXO7E1CAbz8",
+          "name": "Facebook Graph account"
+        }
+      },
+      "id": "78a16ba1-6298-4920-859f-eb0ba94ba6be",
+      "name": "Facebook Graph API",
+      "parameters": {
+        "graphApiVersion": "v23.0",
+        "node": "17841480491239484",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "fields",
+                "value": "username,name,profile_picture_url,followers_count,follows_count,media_count,biography,website"
+              }
+            ]
+          }
+        }
+      },
+      "position": [
+        -768,
+        128
+      ],
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-15T06:29:01.556Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-15T06:29:01.556Z",
+      "workflowId": "WHDZUy6KQxLbIBOe"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-20T19:49:36.118Z",
+  "versionId": "eb4dd763-b895-4164-9f83-8eaf8491d207"
+}
