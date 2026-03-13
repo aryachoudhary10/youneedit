@@ -1,0 +1,620 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Accounts?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Query Accounts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Format Accounts": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Respond Accounts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Format Hooks + Pipeline": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Respond Hooks",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Format KPIs": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Respond KPIs",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Format Viral Reels": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Respond Viral",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "GET /dashboard": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Parse Request",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Hooks?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Query Hooks + Pipeline",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "KPIs?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Query KPIs",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Parse Request": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "KPIs?",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Accounts?",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Viral?",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Hooks?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Query Accounts": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Format Accounts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Query Hooks + Pipeline": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Format Hooks + Pipeline",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Query KPIs": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Format KPIs",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Query Viral Reels": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Format Viral Reels",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Viral?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Query Viral Reels",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-18T15:26:26.507Z",
+  "id": "tCq9bjAGQ3RkVldQ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "ViralOS Dashboard API",
+  "nodes": [
+    {
+      "id": "b2e1c1e2-aecd-4dbe-bc0d-51249dd13796",
+      "name": "GET /dashboard",
+      "parameters": {
+        "options": {
+          "allowedOrigins": "*"
+        },
+        "path": "dashboard",
+        "responseMode": "responseNode"
+      },
+      "position": [
+        -640,
+        208
+      ],
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "webhookId": "viral-os-dashboard"
+    },
+    {
+      "id": "0fc7d835-368e-4f67-bd6e-4472d6a5482d",
+      "name": "Parse Request",
+      "parameters": {
+        "jsCode": "// Parse which endpoint was requested via query param\n// e.g. /dashboard?endpoint=kpis&period=7d\nconst query = $input.first().json.query || {};\nconst endpoint = query.endpoint || 'kpis';\nconst period = query.period || '7d';\n\nconst periodDays = { '7d': 7, '30d': 30, '90d': 90 }[period] || 7;\n\nreturn { endpoint, period, periodDays };"
+      },
+      "position": [
+        -448,
+        208
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "691917dd-98b5-4864-b4c7-b8ee7a61a27f",
+      "name": "KPIs?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.endpoint }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "kpis"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -240,
+        80
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "171f51f7-cc42-424d-aae9-692672870140",
+      "name": "Accounts?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "c2",
+              "leftValue": "={{ $json.endpoint }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "accounts"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -240,
+        240
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "c0e22945-2cbb-4078-8875-94a4ba10e69f",
+      "name": "Viral?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "c3",
+              "leftValue": "={{ $json.endpoint }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "viral"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -240,
+        400
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "9471734a-d46b-4ba1-bce2-f6f82b7b3e2a",
+      "name": "Hooks?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "c4",
+              "leftValue": "={{ $json.endpoint }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "hooks"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -240,
+        560
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "04f0b3db-f34e-43a5-84b8-9e3599061078",
+      "name": "Query KPIs",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- KPIs: total views, viral count, engagement, active accounts\nSELECT\n  -- Total views in period\n  COALESCE(SUM(m.views), 0) AS total_views,\n  \n  -- Viral reels (>50K views)\n  COUNT(DISTINCT CASE WHEN m.views > 50000 THEN c.content_id END) AS viral_count,\n  \n  -- Average engagement rate\n  ROUND(\n    AVG(CASE WHEN m.views > 0 \n      THEN (m.likes + m.comments + m.shares)::DECIMAL / m.views * 100 \n      END)::NUMERIC, 2\n  ) AS avg_engagement,\n  \n  -- Active accounts (posted in period)\n  COUNT(DISTINCT a.account_id) AS active_accounts,\n  COUNT(DISTINCT CASE WHEN m.views < 5000 THEN a.account_id END) AS underperforming,\n  \n  -- Platform breakdown\n  SUM(CASE WHEN c.platform = 'instagram' THEN m.views ELSE 0 END) AS instagram_views,\n  SUM(CASE WHEN c.platform = 'tiktok' THEN m.views ELSE 0 END) AS tiktok_views,\n  SUM(CASE WHEN c.platform = 'youtube' THEN m.views ELSE 0 END) AS youtube_views,\n  \n  -- Daily trend (last 7 days as JSON array)\n  json_agg(\n    json_build_object('date', day_views.date, 'views', day_views.daily_views)\n    ORDER BY day_views.date\n  ) AS daily_trend\n  \nFROM accounts a\nJOIN content c ON c.account_id = a.account_id\nJOIN metrics_daily m ON m.content_id = c.content_id\nCROSS JOIN LATERAL (\n  SELECT \n    date,\n    SUM(views) AS daily_views\n  FROM metrics_daily\n  WHERE date >= CURRENT_DATE - INTERVAL '{{ $('Parse Request').item.json.periodDays }} days'\n  GROUP BY date\n) AS day_views\nWHERE m.date >= CURRENT_DATE - INTERVAL '{{ $('Parse Request').item.json.periodDays }} days'\n  AND a.active = true;"
+      },
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "3e10f6c2-fc4d-4e66-bbe8-1d2d5f513eba",
+      "name": "Query Accounts",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- All accounts with performance metrics\nSELECT\n  a.account_id,\n  a.username,\n  a.platform,\n  a.niche,\n  a.followers_count,\n  a.display_name,\n  \n  -- Views in period\n  COALESCE(SUM(m.views), 0) AS views_period,\n  \n  -- Engagement rate\n  ROUND(\n    COALESCE(\n      AVG(CASE WHEN m.views > 0 \n        THEN (m.likes + m.comments + m.shares)::DECIMAL / m.views * 100 \n        END), 0\n    )::NUMERIC, 2\n  ) AS engagement_rate,\n  \n  -- Viral reels count\n  COUNT(DISTINCT CASE WHEN m.views > 50000 THEN c.content_id END) AS viral_reels,\n  \n  -- Total posts in period\n  COUNT(DISTINCT c.content_id) AS posts_count,\n  \n  -- Status\n  CASE \n    WHEN SUM(m.views) > 1000000 THEN 'hot'\n    WHEN SUM(m.views) > 200000 THEN 'rising'\n    WHEN SUM(m.views) > 50000 THEN 'active'\n    ELSE 'low'\n  END AS status,\n  \n  -- 7-day trend as array\n  json_agg(\n    json_build_object(\n      'date', d.date,\n      'views', COALESCE(d.dv, 0)\n    ) ORDER BY d.date\n  ) AS trend\n  \nFROM accounts a\nLEFT JOIN content c ON c.account_id = a.account_id\nLEFT JOIN metrics_daily m ON m.content_id = c.content_id\n  AND m.date >= CURRENT_DATE - INTERVAL '{{ $('Parse Request').item.json.periodDays }} days'\nLEFT JOIN LATERAL (\n  SELECT \n    gs.date::DATE AS date,\n    SUM(md2.views) AS dv\n  FROM generate_series(\n    CURRENT_DATE - INTERVAL '6 days', \n    CURRENT_DATE, \n    '1 day'\n  ) AS gs(date)\n  LEFT JOIN content c2 ON c2.account_id = a.account_id\n  LEFT JOIN metrics_daily md2 ON md2.content_id = c2.content_id \n    AND md2.date = gs.date::DATE\n  GROUP BY gs.date\n) d ON true\nWHERE a.active = true\nGROUP BY a.account_id, a.username, a.platform, a.niche, a.followers_count, a.display_name\nORDER BY views_period DESC;"
+      },
+      "position": [
+        0,
+        208
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "cbfa9ca3-fbd7-430c-9480-4bf12e0aecd6",
+      "name": "Query Viral Reels",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- Viral reels with full genealogy\nSELECT\n  c.content_id,\n  c.title AS hook,\n  c.platform,\n  c.url,\n  c.posted_at,\n  c.account_id,\n  a.username AS account_name,\n  a.niche,\n  \n  -- Performance\n  MAX(m.views) AS views,\n  MAX(m.likes) AS likes,\n  MAX(m.comments) AS comments,\n  MAX(m.shares) AS shares,\n  MAX(m.saves) AS saves,\n  \n  -- Traceability - FULL GENOME\n  s.script_text,\n  s.script_id,\n  i.idea_text,\n  i.idea_id,\n  hv.hook_text,\n  hv.hook_variant_id,\n  hp.pattern_name AS hook_pattern,\n  t.transcript_text,\n  t.transcript_id,\n  sr.reel_url AS source_reel_url,\n  sr.views AS source_views,\n  sr.source_reel_id,\n  cr.username AS source_creator,\n  cr.niche AS source_niche\n  \nFROM content c\nJOIN accounts a ON c.account_id = a.account_id\nJOIN metrics_daily m ON m.content_id = c.content_id\nLEFT JOIN scripts s ON c.script_id = s.script_id\nLEFT JOIN ideas i ON c.idea_id = i.idea_id\nLEFT JOIN hook_variants hv ON c.hook_variant_id = hv.hook_variant_id\nLEFT JOIN hook_patterns hp ON hv.hook_pattern_id = hp.hook_pattern_id\nLEFT JOIN transcripts t ON c.transcript_id = t.transcript_id\nLEFT JOIN source_reels sr ON c.source_reel_id = sr.source_reel_id\nLEFT JOIN creators cr ON sr.creator_id = cr.creator_id\nWHERE m.date >= CURRENT_DATE - INTERVAL '{{ $('Parse Request').item.json.periodDays }} days'\nGROUP BY\n  c.content_id, c.title, c.platform, c.url, c.posted_at, c.account_id,\n  a.username, a.niche,\n  s.script_text, s.script_id,\n  i.idea_text, i.idea_id,\n  hv.hook_text, hv.hook_variant_id,\n  hp.pattern_name,\n  t.transcript_text, t.transcript_id,\n  sr.reel_url, sr.views, sr.source_reel_id,\n  cr.username, cr.niche\nHAVING MAX(m.views) > 50000\nORDER BY MAX(m.views) DESC\nLIMIT 50;"
+      },
+      "position": [
+        0,
+        368
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "a35b79f3-b056-4605-aea2-61ad9899698d",
+      "name": "Query Hooks + Pipeline",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- Hook pattern performance\nSELECT\n  hp.pattern_name,\n  hp.hook_pattern_id,\n  COUNT(DISTINCT c.content_id) AS uses,\n  ROUND(AVG(m.views)::NUMERIC, 0) AS avg_views,\n  ROUND(\n    AVG(CASE WHEN m.views > 0 \n      THEN (m.likes + m.comments + m.shares)::DECIMAL / m.views * 100 \n      END)::NUMERIC, 2\n  ) AS avg_engagement,\n  MAX(m.views) AS best_views,\n  \n  -- Top hook text for this pattern\n  (\n    SELECT hv2.hook_text\n    FROM hook_variants hv2\n    JOIN content c2 ON c2.hook_variant_id = hv2.hook_variant_id\n    JOIN metrics_daily m2 ON m2.content_id = c2.content_id\n    WHERE hv2.hook_pattern_id = hp.hook_pattern_id\n    ORDER BY m2.views DESC\n    LIMIT 1\n  ) AS best_hook_text\n  \nFROM hook_patterns hp\nJOIN hook_variants hv ON hv.hook_pattern_id = hp.hook_pattern_id\nJOIN content c ON c.hook_variant_id = hv.hook_variant_id\nJOIN metrics_daily m ON m.content_id = c.content_id\nWHERE m.date >= CURRENT_DATE - INTERVAL '{{ $('Parse Request').item.json.periodDays }} days'\nGROUP BY hp.pattern_name, hp.hook_pattern_id\nORDER BY avg_engagement DESC;\n\n-- Also get pipeline status\nSELECT\n  COUNT(CASE WHEN status = 'generated' THEN 1 END) AS ideas_pending,\n  COUNT(CASE WHEN status = 'approved' THEN 1 END) AS ideas_approved\nFROM ideas;\n\nSELECT\n  COUNT(CASE WHEN status = 'approved' THEN 1 END) AS scripts_ready,\n  COUNT(CASE WHEN status = 'draft' THEN 1 END) AS scripts_draft\nFROM scripts;\n\nSELECT\n  COUNT(CASE WHEN status = 'rendering' THEN 1 END) AS videos_rendering,\n  COUNT(CASE WHEN status = 'completed' THEN 1 END) AS videos_done\nFROM generated_videos\nWHERE created_at >= CURRENT_DATE;"
+      },
+      "position": [
+        0,
+        528
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "19be73c9-ca91-4805-a50f-ef17bc905b66",
+      "name": "Format KPIs",
+      "parameters": {
+        "jsCode": "// Format KPI response\nconst row = $input.first().json;\nconst trend = row.daily_trend || [];\n\nconst totalPlatformViews = (row.instagram_views||0) + (row.tiktok_views||0) + (row.youtube_views||0);\n\nreturn {\n  success: true,\n  endpoint: 'kpis',\n  data: {\n    total_views: parseInt(row.total_views) || 0,\n    viral_count: parseInt(row.viral_count) || 0,\n    avg_engagement: parseFloat(row.avg_engagement) || 0,\n    active_accounts: parseInt(row.active_accounts) || 0,\n    underperforming: parseInt(row.underperforming) || 0,\n    platform_split: {\n      instagram: totalPlatformViews > 0 ? Math.round((row.instagram_views||0) / totalPlatformViews * 100) : 0,\n      tiktok: totalPlatformViews > 0 ? Math.round((row.tiktok_views||0) / totalPlatformViews * 100) : 0,\n      youtube: totalPlatformViews > 0 ? Math.round((row.youtube_views||0) / totalPlatformViews * 100) : 0\n    },\n    daily_trend: trend\n  },\n  cached_at: new Date().toISOString()\n};"
+      },
+      "position": [
+        224,
+        0
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "13c8566e-27d4-46a5-824d-32c5c2733f92",
+      "name": "Format Accounts",
+      "parameters": {
+        "jsCode": "// Format accounts response\nconst items = $input.all();\n\nconst accounts = items.map(item => {\n  const a = item.json;\n  return {\n    account_id: a.account_id,\n    username: a.username,\n    platform: a.platform,\n    niche: a.niche,\n    followers: parseInt(a.followers_count) || 0,\n    views: parseInt(a.views_period) || 0,\n    engagement: parseFloat(a.engagement_rate) || 0,\n    viral_reels: parseInt(a.viral_reels) || 0,\n    posts: parseInt(a.posts_count) || 0,\n    status: a.status || 'low',\n    trend: (a.trend || []).map(t => parseInt(t.views) || 0)\n  };\n});\n\nreturn {\n  success: true,\n  endpoint: 'accounts',\n  count: accounts.length,\n  data: accounts,\n  cached_at: new Date().toISOString()\n};"
+      },
+      "position": [
+        224,
+        208
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "e8e8997b-cdfe-4e84-975a-94081d35c453",
+      "name": "Format Viral Reels",
+      "parameters": {
+        "jsCode": "// Format viral reels response\nconst items = $input.all();\n\nconst reels = items.map(item => {\n  const r = item.json;\n  return {\n    content_id: r.content_id,\n    hook: r.hook || 'Untitled',\n    platform: r.platform,\n    account: r.account_name,\n    niche: r.niche,\n    url: r.url,\n    posted_at: r.posted_at,\n    \n    // Performance\n    views: parseInt(r.views) || 0,\n    likes: parseInt(r.likes) || 0,\n    comments: parseInt(r.comments) || 0,\n    shares: parseInt(r.shares) || 0,\n    saves: parseInt(r.saves) || 0,\n    \n    // Full genome for traceability\n    genome: {\n      script: r.script_text || null,\n      script_id: r.script_id || null,\n      idea: r.idea_text || null,\n      idea_id: r.idea_id || null,\n      hook_text: r.hook_text || null,\n      hook_pattern: r.hook_pattern || null,\n      transcript: r.transcript_text ? r.transcript_text.substring(0, 300) : null,\n      source_reel_url: r.source_reel_url || null,\n      source_views: parseInt(r.source_views) || 0,\n      source_creator: r.source_creator || null,\n      source_niche: r.source_niche || null\n    }\n  };\n});\n\nreturn {\n  success: true,\n  endpoint: 'viral',\n  count: reels.length,\n  data: reels,\n  cached_at: new Date().toISOString()\n};"
+      },
+      "position": [
+        224,
+        368
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "846e3991-83a8-4b93-98a3-d6cd7462bab3",
+      "name": "Format Hooks + Pipeline",
+      "parameters": {
+        "jsCode": "// Format hooks + pipeline response\nconst items = $input.all();\n\n// First result set is hooks, remaining are pipeline counts\nconst hooks = items\n  .filter(i => i.json.pattern_name)\n  .map(item => {\n    const h = item.json;\n    const maxEng = 10;\n    return {\n      pattern: h.pattern_name,\n      uses: parseInt(h.uses) || 0,\n      avg_views: parseInt(h.avg_views) || 0,\n      avg_engagement: parseFloat(h.avg_engagement) || 0,\n      best_views: parseInt(h.best_views) || 0,\n      best_hook: h.best_hook_text || '',\n      fill_pct: Math.min(Math.round((parseFloat(h.avg_engagement) / maxEng) * 100), 100)\n    };\n  });\n\nconst ideaRow = items.find(i => i.json.ideas_pending !== undefined)?.json || {};\nconst scriptRow = items.find(i => i.json.scripts_ready !== undefined)?.json || {};\nconst videoRow = items.find(i => i.json.videos_rendering !== undefined)?.json || {};\n\nreturn {\n  success: true,\n  endpoint: 'hooks',\n  data: {\n    patterns: hooks,\n    pipeline: {\n      ideas_pending: parseInt(ideaRow.ideas_pending) || 0,\n      ideas_approved: parseInt(ideaRow.ideas_approved) || 0,\n      scripts_ready: parseInt(scriptRow.scripts_ready) || 0,\n      scripts_draft: parseInt(scriptRow.scripts_draft) || 0,\n      videos_rendering: parseInt(videoRow.videos_rendering) || 0,\n      videos_done: parseInt(videoRow.videos_done) || 0\n    }\n  },\n  cached_at: new Date().toISOString()\n};"
+      },
+      "position": [
+        224,
+        528
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "0f811f02-888e-47c4-b15e-0e0b07aefa77",
+      "name": "Respond KPIs",
+      "parameters": {
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              },
+              {
+                "name": "Access-Control-Allow-Methods",
+                "value": "GET, OPTIONS"
+              },
+              {
+                "name": "Cache-Control",
+                "value": "no-cache"
+              }
+            ]
+          }
+        },
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}"
+      },
+      "position": [
+        432,
+        0
+      ],
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1
+    },
+    {
+      "id": "f1e1661c-9a3e-4288-aaf6-39a54a1b0b8b",
+      "name": "Respond Accounts",
+      "parameters": {
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              }
+            ]
+          }
+        },
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}"
+      },
+      "position": [
+        432,
+        208
+      ],
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1
+    },
+    {
+      "id": "d98a47a0-77cd-43a0-9090-8dafc1f6a03c",
+      "name": "Respond Viral",
+      "parameters": {
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              }
+            ]
+          }
+        },
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}"
+      },
+      "position": [
+        432,
+        368
+      ],
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1
+    },
+    {
+      "id": "23268266-2474-4b3d-803e-44498c704399",
+      "name": "Respond Hooks",
+      "parameters": {
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              }
+            ]
+          }
+        },
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}"
+      },
+      "position": [
+        432,
+        528
+      ],
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-18T15:26:26.515Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-18T15:26:26.515Z",
+      "workflowId": "tCq9bjAGQ3RkVldQ"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-02-18T15:27:02.972Z",
+  "versionId": "88629dca-8fc6-4db9-a6a9-3c979e2b5cf6"
+}
