@@ -1,0 +1,1278 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Append or update row in sheet": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Execute Command",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Call 'video render v1'": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Read/Write Files from Disk",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Call 'video render v1'",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Find Approved_images",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Review_videos1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create final folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download Image from Drive": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Share file",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Limit",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download Video1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload Video to Drive",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Find Approved_images": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "List Approved Images1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Rows": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If Status = image_generated",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Create Review_videos1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If Status = image_generated": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search Reel Folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript2",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Create final folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send to Kling1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "List Approved Images1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Split Images1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        []
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Read/Write Files from Disk": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search Reel Folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search files and folders",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search files and folders": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search final folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Send to Kling1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Download Video1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Split Images1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Download Image from Drive",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upload Video to Drive": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search final folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upload file": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Append or update row in sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Rows",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-03T14:31:26.371Z",
+  "id": "EbggfMTCoikgv4Y5",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "PHASE_2_KLING_VIDEO_GENERATION",
+  "nodes": [
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "id": "d3676e3d-4ecf-46c6-8c29-25139761358c",
+      "name": "Get Rows",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Sample Sheet for auto video generation based on song",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo"
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        2448,
+        768
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4
+    },
+    {
+      "id": "7d2d87db-81c8-49e3-b7db-7786284ebb66",
+      "name": "If Status = image_generated",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "8348c11c-6baf-4260-a5dd-2f30701e25e2",
+              "leftValue": "={{ $json['Status of automation'] }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "image_generated"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        2592,
+        768
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "b82f2eca-7a38-4e78-9a99-39ff2c17ef1c",
+      "name": "Search Reel Folder",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "cachedResultName": "Reels",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1bq8TPtmWD3AlpDzUT4reOVwqsTEoXLvL",
+            "mode": "list",
+            "value": "1bq8TPtmWD3AlpDzUT4reOVwqsTEoXLvL"
+          }
+        },
+        "options": {},
+        "queryString": "=Reel_{{ $json['Reel number'] }}",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        2832,
+        896
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "c31228cc-1154-4e56-8107-a184c2dd797f",
+      "name": "Find Approved_images",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "",
+            "value": "={{ $('Search Reel Folder').item.json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "Approved_images",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        3648,
+        864
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "cf11324e-64c1-4c66-91f3-e969f4c3fe91",
+      "name": "Download Image from Drive",
+      "parameters": {
+        "fileId": "={{ $json.id }}",
+        "operation": "download",
+        "options": {}
+      },
+      "position": [
+        4128,
+        896
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "de6c5d1b-1c81-4673-a9c2-f4b8cd502f82",
+      "name": "Upload Video to Drive",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "",
+          "value": "={{ $('Code in JavaScript1').item.json.parentFolderId }}"
+        },
+        "name": "=reel_{{ $('Get Rows').item.json['Reel number'] }}_{{ $('Download Image from Drive').item.json.name }}_video.mp4",
+        "options": {}
+      },
+      "position": [
+        5056,
+        688
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "1015cede-c2fd-4fd2-8320-4afc6e687d43",
+      "name": "List Approved Images1",
+      "parameters": {
+        "filter": {
+          "whatToSearch": "all"
+        },
+        "options": {
+          "fields": [
+            "*"
+          ]
+        },
+        "queryString": "={{ \"'\" + $json.id + \"' in parents and mimeType contains 'image/' and trashed = false\" }}",
+        "resource": "fileFolder",
+        "returnAll": true,
+        "searchMethod": "query"
+      },
+      "position": [
+        3824,
+        864
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "4081b809-fb85-4fc6-baea-82e327a174b5",
+      "name": "Split Images1",
+      "parameters": {
+        "fieldToSplitOut": "id",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "position": [
+        3968,
+        864
+      ],
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        },
+        "httpHeaderAuth": {
+          "id": "2C57ErkbWq5DDrEX",
+          "name": "app.upload"
+        }
+      },
+      "id": "11b0ee20-4b96-4165-9cb7-7a64dca19575",
+      "name": "Send to Kling1",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "jsonBody": "=",
+        "method": "POST",
+        "nodeCredentialType": "falAiApi",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "url": "=https://fal.run/fal-ai/kling-video/v2.1/standard/image-to-video"
+      },
+      "position": [
+        4576,
+        896
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "b30a739c-da6d-4bd8-87d8-d3042ea750b4",
+      "name": "Download Video1",
+      "parameters": {
+        "options": {},
+        "url": "={{ $json.video.url }}"
+      },
+      "position": [
+        4848,
+        688
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "executeOnce": true,
+      "id": "f3f25a16-4510-44cd-a4c7-81fd570f63a8",
+      "name": "Create Review_videos1",
+      "parameters": {
+        "driveId": "My Drive",
+        "folderId": {
+          "__rl": true,
+          "mode": "",
+          "value": "={{ $('Search Reel Folder').item.json.id }}"
+        },
+        "name": "Review_videos",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        3328,
+        1056
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "8a32a808-2210-4f32-bb26-ee632faa6a5b",
+      "name": "Share file",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "operation": "share",
+        "options": {},
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        }
+      },
+      "position": [
+        4304,
+        768
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "06c6edcc-29db-4fff-abf9-4af681baae8f",
+      "name": "Limit",
+      "parameters": {
+        "maxItems": 3
+      },
+      "position": [
+        4400,
+        896
+      ],
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1
+    },
+    {
+      "id": "d5269fa0-b24d-491a-987f-0d47fe65d5f3",
+      "name": "When clicking ‘Execute workflow’",
+      "parameters": {},
+      "position": [
+        2304,
+        768
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "d279dd65-7e1c-48c2-9039-4a313ca77dd2",
+      "name": "Merge",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        4800,
+        1264
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "2633d64f-7397-4974-98ed-ae39f0e907b5",
+      "name": "Download file",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "cachedResultName": "Shots_Script",
+          "cachedResultUrl": "https://drive.google.com/file/d/1lSSxxrlbU7BxZQ03AAH-XHheL1r8gGyD/view?usp=drivesdk",
+          "mode": "list",
+          "value": "1lSSxxrlbU7BxZQ03AAH-XHheL1r8gGyD"
+        },
+        "operation": "download",
+        "options": {}
+      },
+      "position": [
+        4144,
+        1312
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "13e5fece-0b34-444e-b5d7-96a221fb5b58",
+      "name": "Code in JavaScript",
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nconst urls = items.map(item => item.json.video.url);\n\nreturn [\n  {\n    json: {\n      urls: urls\n    }\n  }\n];"
+      },
+      "position": [
+        4880,
+        896
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "a7552ff5-0633-4c2f-90c4-c96f6123d196",
+      "name": "Call 'video render v1'",
+      "parameters": {
+        "options": {},
+        "workflowId": {
+          "__rl": true,
+          "cachedResultName": "video render v1",
+          "cachedResultUrl": "/workflow/uzd38cC6ZsZfpLSq",
+          "mode": "list",
+          "value": "uzd38cC6ZsZfpLSq"
+        },
+        "workflowInputs": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "video_link_list",
+              "id": "video_link_list",
+              "removed": false,
+              "required": false,
+              "type": "array"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "audio_link",
+              "id": "audio_link",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "audio_start_time",
+              "id": "audio_start_time",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "output_video_name",
+              "id": "output_video_name",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "value": {
+            "audio_link": "={{ $('Get Rows').item.json['Song link'] }}",
+            "audio_start_time": "00:00:00",
+            "output_video_name": "={{ $('Get Rows').item.json['Reel number'] }}.mp4",
+            "video_link_list": "={{ $json.urls }}"
+          }
+        }
+      },
+      "position": [
+        5088,
+        928
+      ],
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3
+    },
+    {
+      "id": "950d9b90-eb8e-498e-bee6-171c48340938",
+      "name": "Read/Write Files from Disk",
+      "parameters": {
+        "fileSelector": "=/tmp/{{ $('Get Rows').item.json['Reel number'] }}.mp4",
+        "options": {}
+      },
+      "position": [
+        5296,
+        928
+      ],
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "1bfa7b64-40de-4342-8bcf-83c1eaea19fb",
+      "name": "Sticky Note",
+      "parameters": {
+        "height": 336
+      },
+      "position": [
+        3648,
+        1168
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "f0f931f0-52da-441d-a880-cbae702d471c",
+      "name": "Search files and folders",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "Review_videos",
+        "resource": "fileFolder"
+      },
+      "position": [
+        3040,
+        896
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "9f3e0b74-2c21-491d-9b3c-6e026d1f42b0",
+      "name": "If",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "b76240ec-a110-4271-8bba-98669cda7f11",
+              "leftValue": "={{ $json.id }}",
+              "operator": {
+                "operation": "exists",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        3200,
+        880
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "db03edef-90a6-41b1-9d4b-0a8c657493c7",
+      "name": "Code in JavaScript1",
+      "parameters": {
+        "jsCode": "let parentId;\n\n// Try getting searched folder\nconst searchNode = $node[\"Search files and folders\"].json;\n\nif (searchNode && searchNode.id) {\n  parentId = searchNode.id;\n} else {\n  const createdNode = $node[\"Create Review_video1\"].json;\n\n  if (!createdNode || !createdNode.id) {\n    throw new Error(\"Parent folder not found and not created.\");\n  }\n\n  parentId = createdNode.id;\n}\n\nreturn [{\n  json: {\n    parentFolderId: parentId\n  }\n}];"
+      },
+      "position": [
+        3488,
+        864
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "8cedb233-40c4-486a-938a-bda8c936ec95",
+      "name": "Upload file",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Code in JavaScript2').item.json.parentFolderId }}"
+        },
+        "name": "={{ $('Get Rows').item.json['Reel number'] }}_final_reel",
+        "options": {}
+      },
+      "position": [
+        6096,
+        912
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "88f4fc1e-d8d8-49a6-94f3-d20c053b0fb8",
+      "name": "If1",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "793dc32c-f44a-47fe-b217-95276c2cbb2c",
+              "leftValue": "={{ $json.id }}",
+              "operator": {
+                "operation": "exists",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        5504,
+        656
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "6eb76464-99ad-4ac6-8bb1-41244329010d",
+      "name": "Code in JavaScript2",
+      "parameters": {
+        "jsCode": "let parentId;\n\n// Check if the folder was found in \"Search final folder\"\nconst searchItems = $items(\"Search final folder\", 0, 0);\n\nif (searchItems.length > 0 && searchItems[0].json.id) {\n  parentId = searchItems[0].json.id;\n} else {\n  // If not found, use the folder created in \"Create final folder\"\n  const createdItems = $items(\"Create final folder\", 0, 0);\n\n  if (!createdItems.length || !createdItems[0].json.id) {\n    throw new Error(\"Parent folder not found and not created.\");\n  }\n\n  parentId = createdItems[0].json.id;\n}\n\nreturn [\n  {\n    json: {\n      parentFolderId: parentId\n    }\n  }\n];"
+      },
+      "position": [
+        5856,
+        640
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "73565e5b-1ecf-446c-af4b-5a88eab3c0b1",
+      "name": "Search final folder",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $('Search Reel Folder').item.json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "Final_video",
+        "resource": "fileFolder"
+      },
+      "position": [
+        5296,
+        656
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "3da48dad-31f1-45e7-9206-9aa9a52ae404",
+      "name": "Create final folder",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Search Reel Folder').item.json.id }}"
+        },
+        "name": "Final_video",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        5712,
+        784
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "e2f928d7-9db4-4e4e-b8d6-240f2ea7515f",
+      "name": "Merge1",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        5920,
+        912
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "fb06205c-3981-47f3-9f0c-f31d0d4892e4",
+      "name": "Execute Command",
+      "parameters": {
+        "command": "=rm /tmp/{{ $('Get Rows').item.json['Reel number'] }}.mp4"
+      },
+      "position": [
+        6480,
+        912
+      ],
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "id": "c43061c6-fbb9-4ac0-9efd-a362f77b7fe1",
+      "name": "Append or update row in sheet",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "Reel number"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel number",
+              "id": "Reel number",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Account to post",
+              "id": "Account to post",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel Type",
+              "id": "Reel Type",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Concept input(optional)",
+              "id": "Concept input(optional)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Song link",
+              "id": "Song link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Timing for the reel",
+              "id": "Timing for the reel",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Status of automation",
+              "id": "Status of automation",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Drive link for image approvals",
+              "id": "Drive link for image approvals",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "value": {
+            "Drive link for image approvals": "={{ $json.webViewLink }}",
+            "Reel number": "={{ $('Get Rows').item.json['Reel number'] }}"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Sample Sheet for auto video generation based on song",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo"
+        },
+        "operation": "appendOrUpdate",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        6272,
+        912
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    }
+  ],
+  "pinData": {
+    "Call 'video render v1'": [
+      {
+        "json": {
+          "exitCode": 0,
+          "stderr": "",
+          "stdout": ""
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Send to Kling1": [
+      {
+        "json": {
+          "video": {
+            "content_type": "video/mp4",
+            "file_name": "output.mp4",
+            "file_size": 2516760,
+            "url": "https://v3b.fal.media/files/b/0a90b885/ZP00JoPjhu3nGy3Q_H7Vq_output.mp4"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "video": {
+            "content_type": "video/mp4",
+            "file_name": "output.mp4",
+            "file_size": 2540811,
+            "url": "https://v3b.fal.media/files/b/0a90b885/DQpuYZ9c7izWfvWxD7mGl_output.mp4"
+          }
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      },
+      {
+        "json": {
+          "video": {
+            "content_type": "video/mp4",
+            "file_name": "output.mp4",
+            "file_size": 2146177,
+            "url": "https://v3b.fal.media/files/b/0a90b886/I482WseCOADx_iuTutj6t_output.mp4"
+          }
+        },
+        "pairedItem": {
+          "item": 2
+        }
+      }
+    ]
+  },
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-03T14:31:26.374Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-03T14:31:26.374Z",
+      "workflowId": "EbggfMTCoikgv4Y5"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-07T18:37:28.085Z",
+  "versionId": "a5b28084-151e-46ec-8175-7ba7ee941904"
+}
