@@ -1,0 +1,887 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create file from text1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Call 'check file existence'1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Call 'check file existence'1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "get image based on url",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "fetch response",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "check status",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "call model generations": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "📌 Attach Shot Context to Response",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "check status": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "🔗 Re-attach Shot Context After Poll",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "🔗 Re-attach Shot Context After Poll",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "create generate model prompts": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "call model generations",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Aggregate",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "fetch response": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "get image based on url": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "upload images for review",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "if in progress?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "🛑 Retry Limit?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "upload images for review": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Update Status = image_generated",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "wait and try again": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "check status",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "➕ Increment Retry": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "wait and try again",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "📌 Attach Shot Context to Response": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "🚦 fal.ai gave no handle?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "🔗 Re-attach Shot Context After Poll": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "if in progress?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "🚦 fal.ai gave no handle?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "🚫 No API Handle (Dead Letter)",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "🛑 Retry Limit?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "⏰ Shot Timeout (Dead Letter)",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "➕ Increment Retry",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-13T16:52:04.366Z",
+  "id": "UnlTAxfOZ1yw6KqI",
+  "isArchived": false,
+  "meta": null,
+  "name": "Reel Shot Generation - Shot-Context Preserved",
+  "nodes": [
+    {
+      "id": "fdc28198-36a2-4e85-9d41-0b37894a6736",
+      "name": "create generate model prompts",
+      "parameters": {
+        "jsCode": "// ============================================================\n// SAME AS YOUR ORIGINAL - just adding shot_num + position meta\n// ============================================================\nconst data = $items(\"Merge for concept and Avatar Data\", 0, 0)[0].json;\n\nconst avatarNames = data[\"Avatar Names\"];\nconst urls = data[\"Reference URLs\"];\nconst masterShotUrl = $items(\"Upload file\", 0, 0)[0].json.webContentLink;\n\nconst mapping = {};\nconst image_urls = [masterShotUrl];\n\navatarNames.forEach((name, index) => {\n  const imageIndex = index + 1;\n  mapping[name] = `<image:${imageIndex}>`;\n  image_urls.push(urls[index]);\n});\n\nconst storyShot = $json.StoryShots.framePrompt || \"\";\nconst clothing   = $json.ClothingDetails || \"\";\n\nlet combinedPrompt = `${storyShot}`;\navatarNames.forEach((name, index) => {\n  const imageIndex = index + 1;\n  combinedPrompt = combinedPrompt\n    .replaceAll(`<<${name}>>`, `<image:${imageIndex}>`)\n    .replaceAll(`<<${name.replace(/[0-9]/g, \"\")}>>`, `<image:${imageIndex}>`);\n});\n\nconst shot_num = $itemIndex + 1; // 1-based\n\nreturn {\n  json: {\n    ...$json,\n\n    // === CRITICAL IDENTITY FIELDS — survive the entire pipeline ===\n    shot_num,                          // e.g. 1, 2, 3\n    shot_position: $itemIndex,         // 0-based, for $position references\n    total_shots: $items().length,      // know when we're done\n    reelNumber: $('2. Extract Reel Data').item.json.reelNumber,\n    reelReviewId: $('Create Review FolderID').item.json.ReelReviewId,\n\n    // === PROMPT DATA ===\n    shot_prompt: storyShot,\n    kling_prompt: combinedPrompt,\n    image_urls,\n    mapping\n  }\n};",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        -160,
+        160
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "executeOnce": false,
+      "id": "a6f2b49b-1a05-46dd-817d-a451c89c2d45",
+      "name": "call model generations",
+      "parameters": {
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key REDACTED"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"prompt\": \"{{ $json.kling_prompt }}, keep clothing exactly as in <image:0>, refer the background vibe from <image:0> but not exactly like it. Maintain natural skin textures and keep the exact skin texture and micro-texture as in <image:1>. Make sure to have at least one face in the image.\",\n  \"image_urls\": {{ $json.image_urls.toJsonString() }},\n  \"elements\": [{}],\n  \"resolution\": \"2K\",\n  \"result_type\": \"single\",\n  \"num_images\": 1,\n  \"aspect_ratio\": \"9:16\",\n  \"output_format\": \"png\"\n}",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://queue.fal.run/fal-ai/nano-banana-2/edit"
+      },
+      "position": [
+        176,
+        256
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "af0c2ac9-93e3-479f-b96a-a2280b160cc8",
+      "name": "📌 Attach Shot Context to Response",
+      "parameters": {
+        "jsCode": "// ============================================================\n// CRITICAL BRIDGE: Attach response_url + ALL shot identity\n// fields directly onto the item BEFORE entering the poll loop.\n// This means the loop never needs to reach back to a parent\n// node — everything travels with the item.\n// ============================================================\nconst promptMeta = $('create generate model prompts').item.json;\nconst apiResponse = $input.item.json;\n\nif (!apiResponse.request_id && !apiResponse.response_url) {\n  // fal.ai didn't give us a handle — mark for dead-letter\n  return [{\n    json: {\n      ...promptMeta,\n      __fal_error: true,\n      __fal_error_msg: 'fal.ai returned no request_id or response_url',\n      __fal_raw: apiResponse\n    }\n  }];\n}\n\nreturn [{\n  json: {\n    // === Shot identity (from prompt node) ===\n    shot_num:      promptMeta.shot_num,\n    shot_position: promptMeta.shot_position,\n    total_shots:   promptMeta.total_shots,\n    reelNumber:    promptMeta.reelNumber,\n    reelReviewId:  promptMeta.reelReviewId,\n    kling_prompt:  promptMeta.kling_prompt,\n    shot_prompt:   promptMeta.shot_prompt,\n    image_urls:    promptMeta.image_urls,\n\n    // === fal.ai polling handles ===\n    request_id:   apiResponse.request_id,\n    status_url:   apiResponse.status_url  || `https://queue.fal.run/fal-ai/nano-banana-2/requests/${apiResponse.request_id}/status`,\n    response_url: apiResponse.response_url || `https://queue.fal.run/fal-ai/nano-banana-2/requests/${apiResponse.request_id}`,\n    cancel_url:   apiResponse.cancel_url,\n\n    // === Retry guards ===\n    __retryCount: 0,\n    __maxRetries: 24,         // 24 × 15s = 6 minutes max per shot\n    __retryDelaySec: 15,\n    __fal_error: false\n  }\n}];"
+      },
+      "position": [
+        432,
+        256
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "7577bce5-3eb8-474f-8133-503e00935398",
+      "name": "🚦 fal.ai gave no handle?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "fal-error-gate",
+              "leftValue": "={{ $json.__fal_error }}",
+              "operator": {
+                "operation": "equal",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        656,
+        256
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "f0bdb954-a6d3-41b0-8f59-f8e89fa725c9",
+      "name": "Loop Over Items1",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        880,
+        384
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "fb385e09-d318-414a-abdc-a89de2e5df54",
+      "name": "check status",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "falAiApi",
+        "options": {
+          "timeout": 30000
+        },
+        "url": "={{ $json.status_url }}"
+      },
+      "position": [
+        1088,
+        464
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "839e3927-b526-4b14-8e9f-883396d5d4fa",
+      "name": "🔗 Re-attach Shot Context After Poll",
+      "parameters": {
+        "jsCode": "// Re-merge poll result with the shot context that was on the item\n// entering the loop. The status API only returns {status, ...}\n// so we must carry our identity forward manually.\nconst loopItem   = $('Loop Over Items1').item.json;   // has all our __fields\nconst pollResult = $input.item.json;                   // has status from fal\n\nreturn [{\n  json: {\n    // Identity always wins over poll result\n    shot_num:       loopItem.shot_num,\n    shot_position:  loopItem.shot_position,\n    total_shots:    loopItem.total_shots,\n    reelNumber:     loopItem.reelNumber,\n    reelReviewId:   loopItem.reelReviewId,\n    kling_prompt:   loopItem.kling_prompt,\n    shot_prompt:    loopItem.shot_prompt,\n    image_urls:     loopItem.image_urls,\n    request_id:     loopItem.request_id,\n    status_url:     loopItem.status_url,\n    response_url:   loopItem.response_url,\n    __retryCount:   loopItem.__retryCount,\n    __maxRetries:   loopItem.__maxRetries,\n    __retryDelaySec: loopItem.__retryDelaySec,\n\n    // From poll\n    status: pollResult.status || 'UNKNOWN',\n    poll_detail: pollResult\n  }\n}];"
+      },
+      "position": [
+        1296,
+        464
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "428163e6-d7be-494c-a7d5-3e91322a5b7f",
+      "name": "if in progress?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "completed-check",
+              "leftValue": "={{ $json.status }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "COMPLETED"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {
+          "ignoreCase": false
+        }
+      },
+      "position": [
+        1488,
+        464
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "b7fd24f5-99bd-4aa0-a4e4-c1456699c00b",
+      "name": "🛑 Retry Limit?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "retry-limit",
+              "leftValue": "={{ $json.__retryCount }}",
+              "operator": {
+                "operation": "gte",
+                "type": "number"
+              },
+              "rightValue": "={{ $json.__maxRetries }}"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        1664,
+        656
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "068e6654-5bbf-4c7a-a57b-103e2fb8d7ea",
+      "name": "➕ Increment Retry",
+      "parameters": {
+        "jsCode": "const item = $input.item.json;\nreturn [{ json: { ...item, __retryCount: item.__retryCount + 1 } }];"
+      },
+      "position": [
+        1888,
+        688
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "5ed7dc83-aeee-43f2-9940-a62b473e9432",
+      "name": "wait and try again",
+      "parameters": {
+        "amount": "={{ $json.__retryDelaySec || 15 }}"
+      },
+      "position": [
+        2128,
+        720
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "c78179e1-91f6-4fe1-8386-8c41e0214c2c"
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "0ec4a8f4-b2b0-4484-b9a3-fb803fa82bbf",
+      "name": "fetch response",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "falAiApi",
+        "options": {
+          "timeout": 30000
+        },
+        "url": "={{ $json.response_url }}"
+      },
+      "position": [
+        1312,
+        0
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "ee34c4d1-befc-4764-bf59-3293beff241f",
+      "name": "Code in JavaScript",
+      "parameters": {
+        "jsCode": "// Flatten images[] AND re-attach shot identity so downstream\n// nodes (upload, sheet update) always know which shot this is.\nconst context = $('if in progress?').item.json;  // has shot_num etc.\nconst responseData = $input.item.json;\n\nconst images = responseData.images || [];\n\nreturn images.map((img, idx) => ({\n  json: {\n    // === Shot identity travels to upload nodes ===\n    shot_num:     context.shot_num,\n    shot_position: context.shot_position,\n    reelNumber:   context.reelNumber,\n    reelReviewId: context.reelReviewId,\n    kling_prompt: context.kling_prompt,\n\n    // === Image data ===\n    image_index: idx,\n    url:   img.url,\n    width: img.width,\n    height: img.height,\n    content_type: img.content_type,\n\n    // So downstream $json['0'].url still works if needed\n    '0': { url: img.url }\n  }\n}));"
+      },
+      "position": [
+        1568,
+        0
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "9e32330b-368f-4c50-a5b8-896c35b8db62",
+      "name": "get image based on url",
+      "parameters": {
+        "options": {},
+        "url": "={{ $json.url }}"
+      },
+      "position": [
+        2192,
+        96
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "b8acf126-4296-4c8b-aca7-d0ec2da33f5d",
+      "name": "Call 'check file existence'1",
+      "parameters": {
+        "options": {
+          "waitForSubWorkflow": true
+        },
+        "workflowId": {
+          "__rl": true,
+          "cachedResultName": "check file existence",
+          "cachedResultUrl": "/workflow/NHtAA68XwRTbAXHO",
+          "mode": "list",
+          "value": "NHtAA68XwRTbAXHO"
+        },
+        "workflowInputs": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "filename",
+              "id": "filename",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "folderid",
+              "id": "folderid",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "deleteUpdate",
+              "id": "deleteUpdate",
+              "removed": false,
+              "required": false,
+              "type": "boolean"
+            }
+          ],
+          "value": {
+            "deleteUpdate": true,
+            "filename": "=reel_{{ $json.reelNumber }}_shotno_{{ $json.shot_num }}",
+            "folderid": "={{ $json.reelReviewId }}"
+          }
+        }
+      },
+      "position": [
+        1760,
+        160
+      ],
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3
+    },
+    {
+      "id": "3df42bd7-1933-44d8-8ea2-111563489b9f",
+      "name": "If2",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "proceed-check",
+              "leftValue": "={{ $json.proceedWithFileUpload }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        1920,
+        128
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "a95bac9e-8156-43fe-8750-08ca3f033212",
+      "name": "upload images for review",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.reelReviewId }}"
+        },
+        "name": "=reel_{{ $json.reelNumber }}_shotno_{{ $json.shot_num }}",
+        "options": {}
+      },
+      "position": [
+        2432,
+        96
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "5b39caac-126c-4edb-a1ea-61a2a132dfcf",
+      "name": "Update Status = image_generated",
+      "notes": "Marks reel as image_generated on success, then continues to next reel.",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "Reel number"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel number",
+              "id": "Reel number",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Status of Automation",
+              "id": "Status of Automation",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "value": {
+            "Reel number": "={{ $json.reelNumber }}",
+            "Status of Automation": "images_generated"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Short Video Generation DB- Jass Records",
+          "mode": "list",
+          "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+        },
+        "operation": "update",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Main DB",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        2656,
+        96
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "e50ed250-0ee5-47c2-a948-ecacded4e569",
+      "name": "⏰ Shot Timeout (Dead Letter)",
+      "parameters": {
+        "jsCode": "// ❌ Dead-letter: shot timed out — log for manual retry\nconst item = $input.item.json;\nreturn [{\n  json: {\n    type: 'TIMEOUT',\n    shot_num:    item.shot_num,\n    reelNumber:  item.reelNumber,\n    request_id:  item.request_id,\n    response_url: item.response_url,\n    retries:     item.__retryCount,\n    error:       `Shot ${item.shot_num} did not complete after ${item.__maxRetries} retries`,\n    failedAt:    new Date().toISOString()\n  }\n}];"
+      },
+      "position": [
+        1888,
+        448
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "b9e7f49c-6605-457d-b803-d7a547f42778",
+      "name": "🚫 No API Handle (Dead Letter)",
+      "parameters": {
+        "jsCode": "// ❌ Dead-letter: fal.ai never returned a request handle\nconst item = $input.item.json;\nreturn [{\n  json: {\n    type:       'NO_HANDLE',\n    shot_num:   item.shot_num,\n    reelNumber: item.reelNumber,\n    prompt:     item.kling_prompt,\n    error:      item.__fal_error_msg,\n    raw:        item.__fal_raw,\n    failedAt:   new Date().toISOString()\n  }\n}];"
+      },
+      "position": [
+        880,
+        96
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "0bcca28d-c729-4183-9d48-3ea22fdcbe79",
+      "name": "Aggregate",
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "executeOnce": false,
+      "id": "2f974490-da6f-4a91-8491-8b1646526bea",
+      "name": "Create file from text1",
+      "parameters": {
+        "content": "={{ $json.toJsonString() }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Get Reel FolderID').item.json.parentFolderId }}"
+        },
+        "name": "=Reel_{{ $('2. Extract Reel Data').item.json.reelNumber }}_Shots_script",
+        "operation": "createFromText",
+        "options": {}
+      },
+      "position": [
+        240,
+        0
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    }
+  ],
+  "pinData": {
+    "call model generations": [
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/0d55486c-d056-4fad-976a-b315a6a11282/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 1,
+          "request_id": "0d55486c-d056-4fad-976a-b315a6a11282",
+          "response_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/0d55486c-d056-4fad-976a-b315a6a11282",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/0d55486c-d056-4fad-976a-b315a6a11282/status"
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/0d55484c-d056-4fad-976a-b315a6a11282/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 1,
+          "request_id": "0d55486c-d056-4fad-976a-b315a6a11285",
+          "response_url": "",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/0d55486d-d056-4fad-976a-b315a6a11282/status"
+        }
+      }
+    ],
+    "create generate model prompts": [
+      {
+        "json": {
+          "ClothingDetails": "<<Avatar2_Male>> is wearing a dark navy blue puffer jacket over a grey wool turtleneck, black cargo trekking pants, and brown hiking boots. <<Avatar1_Female>> is dressed in a vibrant mustard yellow windbreaker, a maroon knitted scarf, black thermal leggings, and hiking boots.",
+          "LocationDetails": "The scene transitions between a high-altitude mountain pass with snowy ridges, a rocky riverbank beside a turquoise Beas river, and a rustic roadside wooden tea stall decorated with colorful prayer flags.",
+          "MasterShot": "A breathtaking cinematic vista of the Himachal Pradesh mountains featuring snow-capped peaks and lush green valleys. <<Avatar2_Male>> and <<Avatar1_Female>> are seen standing together at a panoramic viewpoint, wearing trekking gear and carrying light backpacks, looking out over the majestic landscape of the Himalayas.",
+          "StoryShots": [
+            {
+              "cameraAndActionPrompt": "A slow, sweeping wide-angle drone shot moving horizontally from left to right, capturing the vastness of the mountains while the avatars remain still, gazing forward.",
+              "framePrompt": "A cinematic wide shot of the majestic snow-capped Himalayan peaks. <<Avatar2_Male>> and <<Avatar1_Female>> are standing at the edge of a cliff, looking at the horizon in awe of the massive mountains. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same."
+            },
+            {
+              "cameraAndActionPrompt": "Mid-level camera height with a slight handheld jitter to simulate a natural walking feel, following the gaze of the characters toward the river.",
+              "framePrompt": "A mid shot from eyeline at the riverbank. <<Avatar2_Male>> points toward the rushing turquoise water of the river while <<Avatar1_Female>> watches with a smile. The rocky terrain and splashing water are visible in the background. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same."
+            },
+            {
+              "cameraAndActionPrompt": "Static OTS shot with a focus on the steam rising from the cup, utilizing a shallow depth of field to blur the background mountains.",
+              "framePrompt": "An over-the-shoulder (OTS) shot from behind <<Avatar2_Male>> looking at <<Avatar1_Female>>. They are sitting at a wooden bench of a roadside stall. <<Avatar1_Female>> is holding a steaming clay cup of chai, blowing gently on the steam. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same."
+            },
+            {
+              "cameraAndActionPrompt": "Extreme closeup with a very subtle slow-motion zoom-in to emphasize the facial expression and the warmth of the lighting.",
+              "framePrompt": "A closeup of emotions focusing on <<Avatar2_Male>>. He is laughing heartily while the golden hour sunlight illuminates his face, reflecting the pure joy of the travel. The mountain range is a soft blur behind him. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same."
+            },
+            {
+              "cameraAndActionPrompt": "Low angle camera placement tilted upwards, performing a slow vertical tilt-up movement from the avatars toward the tops of the pine trees.",
+              "framePrompt": "A low angle shot looking up at <<Avatar2_Male>> and <<Avatar1_Female>> as they sit on a large grey boulder. Above them, tall pine trees stretch toward a clear blue sky. They are both looking up at the canopy. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-13T16:52:04.372Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-13T16:52:04.372Z",
+      "workflowId": "UnlTAxfOZ1yw6KqI"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-13T17:02:53.478Z",
+  "versionId": "2d0f292c-cff3-4c33-8bf1-e11b41e937b3"
+}
