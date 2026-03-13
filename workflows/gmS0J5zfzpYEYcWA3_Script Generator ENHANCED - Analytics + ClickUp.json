@@ -1,0 +1,945 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "All Ideas Processed?": {
+      "main": [
+        [],
+        []
+      ]
+    },
+    "Approve Script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create ClickUp Task",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Check Decision": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Original reel data",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Reject/Revise Script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create ClickUp Task": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Notify ClickUp Created",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Every 2 Hours": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Approved Ideas",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Generate Script with Gemini + Analytics": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Structure Script Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Approved Ideas": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Viral Analytics Insights": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Viral Analytics Insights",
+            "type": "main"
+          },
+          {
+            "index": 1,
+            "node": "Merge2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Mark Idea as Used": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Process One Idea at a Time",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Generate Script with Gemini + Analytics",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge Analytics with Idea": {
+      "main": [
+        []
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Process One Idea at a Time",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "structures hook data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Notify ClickUp Created": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Original reel data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Approve Script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Process One Idea at a Time": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Complete Notification",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Message a model",
+            "type": "main"
+          },
+          {
+            "index": 1,
+            "node": "Merge",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Reject/Revise Script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Save Script to Database": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send to Slack for Review",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Send to Slack for Review": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait for Human Approval",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Structure Script Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Save Script to Database",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Mark Idea as Used",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait for Human Approval": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check Decision",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "structures hook data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-18T15:57:11.532Z",
+  "id": "gmS0J5zfzpYEYcWA",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "3_Script Generator ENHANCED - Analytics + ClickUp",
+  "nodes": [
+    {
+      "id": "69f57415-533b-409f-ada1-7d68cd495317",
+      "name": "Every 2 Hours",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2
+            }
+          ]
+        }
+      },
+      "position": [
+        -2304,
+        96
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "33a11836-e41a-4b01-8657-39e97acd644f",
+      "name": "Get Approved Ideas",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Get approved ideas that don't have scripts yet\nSELECT \n  i.idea_id,\n  i.transcript_id,\n  i.idea_text,\n  i.human_feedback,\n  t.transcript_text,\n  hv.hook_text,\n  hv.hook_variant_id,\n  hp.pattern_name as hook_pattern_name,\n  hp.pattern as hook_pattern,\n  sr.source_reel_id,\n  sr.caption as source_caption,\n  c.username as source_creator,\n  c.niche,\n  sr.VIEWS\nFROM ideas i\nJOIN transcripts t ON i.transcript_id = t.transcript_id\nLEFT JOIN hook_variants hv ON t.transcript_id = hv.transcript_id\nLEFT JOIN hook_patterns hp ON hv.hook_pattern_id = hp.hook_pattern_id\nLEFT JOIN source_reels sr ON t.source_reel_id = sr.source_reel_id\nLEFT JOIN creators c ON sr.creator_id = c.creator_id\nWHERE i.status = 'approved'\n  AND NOT EXISTS (\n    SELECT 1 FROM scripts s \n    WHERE s.idea_id = i.idea_id\n  )\nORDER BY i.created_at ASC;"
+      },
+      "position": [
+        -2144,
+        96
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "e3548a96-d999-4e70-abe7-5c0b9dcf0cc0",
+      "name": "Get Viral Analytics Insights",
+      "notes": "Analyze what's worked in this niche to inform script generation",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "SELECT\n  -- 1. Top performing hooks (Removed view count and date filters)\n  (\n    SELECT COALESCE(json_agg(hook_info), '[]'::json)\n    FROM (\n      SELECT \n        hp.pattern_name,\n        hp.pattern,\n        hp.hook_pattern_id,\n        AVG(m.views) as avg_views,\n        AVG((m.likes + m.comments + m.shares)::DECIMAL / NULLIF(m.views, 0) * 100) as avg_engagement,\n        COUNT(*) as uses\n      FROM content c\n      JOIN accounts a ON c.account_id = a.account_id\n      JOIN metrics_daily m ON m.content_id = c.content_id\n      LEFT JOIN hook_variants hv ON c.hook_variant_id = hv.hook_variant_id\n      LEFT JOIN hook_patterns hp ON hv.hook_pattern_id = hp.hook_pattern_id\n      WHERE a.niche = '{{ $json.niche }}'\n      GROUP BY hp.hook_pattern_id,hp.pattern_name, hp.pattern\n      ORDER BY avg_engagement DESC\n      LIMIT 3\n    ) hook_info\n  ) as top_hook_patterns,\n\n  -- 2. Viral content examples (Removed high view threshold)\n  (\n    SELECT COALESCE(json_agg(viral_info), '[]'::json)\n    FROM (\n      SELECT \n        c.title as hook,\n        s.script_text,\n        MAX(m.views) as views,\n        AVG((m.likes + m.comments + m.shares)::DECIMAL / NULLIF(m.views, 0) * 100) as engagement_rate,\n        c.platform\n      FROM content c\n      JOIN accounts a ON c.account_id = a.account_id\n      JOIN metrics_daily m ON m.content_id = c.content_id\n      LEFT JOIN scripts s ON c.script_id = s.script_id\n      WHERE a.niche = 'instagram'\n      GROUP BY c.content_id, c.title, s.script_text, c.platform\n      ORDER BY MAX(m.views) DESC\n      LIMIT 5\n    ) viral_info\n  ) as viral_examples,\n\n  -- 3. Optimal script length\n  (\n    SELECT json_build_object(\n      'avg_duration', COALESCE(ROUND(AVG(s.duration_sec)), 0),\n      'viral_avg_duration', COALESCE(ROUND(AVG(s.duration_sec) FILTER (WHERE m.views > 1)), 0)\n    )\n    FROM scripts s\n    JOIN ideas i ON s.idea_id = i.idea_id\n    JOIN transcripts t ON i.transcript_id = t.transcript_id\n    JOIN source_reels sr ON t.source_reel_id = sr.source_reel_id\n    JOIN creators c ON sr.creator_id = c.creator_id\n    LEFT JOIN content ct ON ct.script_id = s.script_id\n    LEFT JOIN metrics_daily m ON m.content_id = ct.content_id\n    WHERE c.niche = '{{ $json.niche }}'\n  ) as duration_insights,\n\n  -- 4. Best posting times\n  (\n    SELECT COALESCE(json_agg(time_info), '[]'::json)\n    FROM (\n      SELECT \n        EXTRACT(HOUR FROM c.posted_at) as hour,\n        AVG(m.views) as avg_views,\n        COUNT(*) as posts\n      FROM content c\n      JOIN accounts a ON c.account_id = a.account_id\n      JOIN metrics_daily m ON m.content_id = c.content_id\n      WHERE a.niche = '{{ $json.niche }}'\n      GROUP BY EXTRACT(HOUR FROM c.posted_at)\n      ORDER BY avg_views DESC\n      LIMIT 3\n    ) time_info\n  ) as best_posting_times,\n\n  -- 5. Common winning keywords\n  (\n    SELECT COALESCE(json_agg(DISTINCT word), '[]'::json)\n    FROM (\n      SELECT word, COUNT(*) as word_count\n      FROM (\n        SELECT unnest(string_to_array(lower(c.title), ' ')) as word\n        FROM content c\n        JOIN accounts a ON c.account_id = a.account_id\n        JOIN metrics_daily m ON m.content_id = c.content_id\n        WHERE a.niche = '{{ $json.niche }}'\n      ) sub\n      WHERE length(word) > 1\n      GROUP BY word\n      ORDER BY word_count DESC\n      LIMIT 10\n    ) words\n  ) as winning_keywords,\n(\n    SELECT COALESCE(json_agg(pattern_info), '[]'::json)\n    FROM (\n      SELECT \n        hook_pattern_id,\n        pattern_name,\n        pattern,\n        example,\n        created_at\n      FROM hook_patterns\n      ORDER BY created_at DESC\n    ) pattern_info\n  ) as all_hook_patterns,\n(\n  SELECT COALESCE(json_agg(hook_info), '[]'::json)\n  FROM (\n    WITH content_perf AS (\n      SELECT \n        hp.hook_pattern_id,\n        AVG(m.views) AS avg_views,\n        AVG(\n          (m.likes + m.comments + m.shares)::DECIMAL\n          / NULLIF(m.views, 0) * 100\n        ) AS avg_engagement,\n        COUNT(*) AS uses\n      FROM content c\n      JOIN accounts a ON c.account_id = a.account_id\n      JOIN metrics_daily m ON m.content_id = c.content_id\n      JOIN hook_variants hv ON c.hook_variant_id = hv.hook_variant_id\n      JOIN hook_patterns hp ON hv.hook_pattern_id = hp.hook_pattern_id\n      WHERE a.niche = '{{ $json.niche }}'\n      GROUP BY hp.hook_pattern_id\n    ),\n\n    source_perf AS (\n      SELECT \n        hp.hook_pattern_id,\n        AVG(sr.views) AS avg_views,\n        AVG(\n          (sr.likes + sr.comments + sr.shares)::DECIMAL\n          / NULLIF(sr.views, 0) * 100\n        ) AS avg_engagement,\n        COUNT(*) AS uses\n      FROM hook_patterns hp\n      JOIN hook_variants hv ON hv.hook_pattern_id = hp.hook_pattern_id\n      JOIN transcripts t ON hv.transcript_id = t.transcript_id\n      JOIN source_reels sr ON t.source_reel_id = sr.source_reel_id\n      JOIN creators cr ON sr.creator_id = cr.creator_id\n      WHERE cr.niche = '{{ $json.niche }}'\n      GROUP BY hp.hook_pattern_id\n    )\n\n    SELECT\n      hp.hook_pattern_id,\n      hp.pattern_name,\n      hp.pattern,\n\n      COALESCE(cp.avg_views, sp.avg_views) AS avg_views,\n      COALESCE(cp.avg_engagement, sp.avg_engagement) AS avg_engagement,\n      COALESCE(cp.uses, sp.uses, 0) AS uses\n\n    FROM hook_patterns hp\n    LEFT JOIN content_perf cp\n      ON hp.hook_pattern_id = cp.hook_pattern_id\n    LEFT JOIN source_perf sp\n      ON hp.hook_pattern_id = sp.hook_pattern_id\n\n    ORDER BY \n      COALESCE(cp.avg_engagement, sp.avg_engagement) DESC NULLS LAST,\n      COALESCE(cp.avg_views, sp.avg_views) DESC NULLS LAST,\n      hp.created_at DESC\n\n    LIMIT 10\n\n  ) hook_info\n) AS all_top_hook_patterns;"
+      },
+      "position": [
+        -1824,
+        -128
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "d729a9f1-06f2-401e-915b-cb10cba5d788",
+      "name": "Process One Idea at a Time",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -1408,
+        -32
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "ad0333d0-1134-4ddf-aab7-72a650832df3",
+      "name": "Merge Analytics with Idea",
+      "notes": "Combine idea with performance data",
+      "parameters": {
+        "jsCode": "// Combine idea data with analytics insights\nconst ideaData = $('Get Approved Ideas1').item.json;\nconst analytics = $input.first().json;\n\n// Format analytics for Gemini prompt\nconst hookPatterns = analytics.top_hook_patterns || [];\nconst viralExamples = analytics.viral_examples || [];\nconst durationInsights = analytics.duration_insights || {};\nconst keywords = analytics.winning_keywords || [];\n\n// Build analytics summary\nlet analyticsSummary = '';\n\nif (hookPatterns.length > 0) {\n  analyticsSummary += '\\n**TOP PERFORMING HOOK PATTERNS IN THIS NICHE:**\\n';\n  hookPatterns.forEach(h => {\n    analyticsSummary += `- ${h.pattern_name}: ${Math.round(h.avg_engagement)}% avg engagement (${h.uses} uses)\\n`;\n  });\n}\n\nif (viralExamples.length > 0) {\n  analyticsSummary += '\\n**RECENT VIRAL SCRIPTS FROM THIS NICHE:**\\n';\n  viralExamples.slice(0, 2).forEach((v, i) => {\n    if (v.script_text) {\n      analyticsSummary += `\\nExample ${i+1} (${Math.round(v.views/1000)}K views, ${v.engagement_rate?.toFixed(1)}% engagement):\\n`;\n      analyticsSummary += v.script_text.substring(0, 200) + '...\\n';\n    }\n  });\n}\n\nif (durationInsights.viral_avg_duration) {\n  analyticsSummary += `\\n**OPTIMAL LENGTH:** Viral videos in this niche average ${durationInsights.viral_avg_duration} seconds.\\n`;\n}\n\nif (keywords.length > 0) {\n  analyticsSummary += `\\n**WINNING KEYWORDS:** ${keywords.join(', ')}\\n`;\n}\n\nreturn {\n  ...ideaData,\n  analytics_summary: analyticsSummary,\n  target_duration: durationInsights.viral_avg_duration || 35,\n  top_hook_pattern: hookPatterns[0]?.pattern_name || ideaData.hook_pattern,\n  all_hook_patterns: analytics.all_hook_patterns\n};"
+      },
+      "position": [
+        -1168,
+        208
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "90cc790f-3832-40e1-bf69-985ba516093f",
+      "name": "Generate Script with Gemini + Analytics",
+      "parameters": {
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an elite short-form content writer.\n\nYou are given:\n1. A top-performing viral hook.\n2. An approved content idea.\n3. An original transcript (for reference only).\n\nYour task:\nGenerate a high-retention short-form complete video script (30–60 seconds).\n\nIMPORTANT RULES:\n- Use the given hook ONLY all_hhok_pattern.\n- Do NOT copy sentences or phrases from the original transcript.\n- The original transcript is for reference only to understand tone and structure.\n- Do NOT replicate the transcript.\n- The script must feel fresh and original.\n- Avoid generic filler.\n- Write in a fast-paced, punchy, conversational style.\n- Keep sentences short and spoken-language friendly.\n\nStructure:\n1. Hook\n2. Fast value delivery\n3. Clear insight or takeaway\n4. Strong closing line (optional subtle CTA)\n\nNo headings.\nNo explanations.\nNo markdown.\ngive me the plain script text\n",
+              "role": "model"
+            },
+            {
+              "content": "=Approved Idea:\n{{ $json.idea_text }}\n\nOriginal Transcript (reference only):\n{{ $json.transcript_text }}\n\nHook:\n{{ $json.hook }}\n\nGenerate the script.\n"
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "options": {}
+      },
+      "position": [
+        -384,
+        32
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1
+    },
+    {
+      "id": "8bdfe8a1-1358-484f-accc-ff6324645956",
+      "name": "Structure Script Data",
+      "parameters": {
+        "jsCode": "// Extract and structure the script data\nconst scriptText = $input.first().json.content.parts[0].text;\nconst ideaData = $('Process One Idea at a Time').item.json;\n\n// Calculate script metadata\nconst wordCount = scriptText.split(/\\s+/).length;\nconst estimatedDuration = Math.round((wordCount / 2.5) * 1);\n\n// Parse script into scenes\nconst scenes = scriptText\n  .split('[pause]')\n  .map(scene => scene.trim())\n  .filter(scene => scene.length > 0)\n  .map((scene, index) => ({\n    scene_number: index + 1,\n    text: scene,\n    duration_estimate: Math.round((scene.split(/\\s+/).length / 2.5) * 1)\n  }));\n\nfunction generateUUID() {\n  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n}\n\nreturn {\n  script_id: generateUUID(),\n  idea_id: ideaData.idea_id,\n  hook_variant_id: ideaData.hook_variant_id,\n  transcript_id: ideaData.transcript_id,\n  \n  script_text: scriptText,\n  word_count: wordCount,\n  duration_sec: estimatedDuration,\n  scenes: scenes,\n  \n  status: 'draft',\n  \n  // Analytics metadata\n  analytics_used: ideaData.analytics_summary ? 'yes' : 'no',\n  target_duration: ideaData.target_duration,\n  top_hook_pattern_used: ideaData.top_hook_pattern,\n  \n  // Pass through for notifications\n  hook_text: ideaData.hook_text,\n  idea_text: ideaData.idea_text,\n  niche: ideaData.niche\n};"
+      },
+      "position": [
+        -80,
+        32
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "6f1dfd8f-8a2d-4e2b-9627-f4da538931b0",
+      "name": "Save Script to Database",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=INSERT INTO scripts (\n  script_id,\n  idea_id,\n  hook_variant_id,\n  transcript_id,\n  script_text,\n  scenes,\n  duration_sec,\n  status,\n  metadata,\n  created_at,\n  updated_at\n)\nVALUES (\n  '{{ $json.script_id }}',\n  '{{ $json.idea_id }}',\n  {{ $json.hook_variant_id ? \"'\" + $json.hook_variant_id + \"'\" : \"NULL\" }},\n  '{{ $json.transcript_id }}',\n  $$ {{ $json.script_text }} $$,\n  $$ {{ JSON.stringify($json.scenes) }} $$::jsonb,\n  {{ $json.duration_sec }},\n  'draft',\n  $$ {{ JSON.stringify({\n    analytics_used: $json.analytics_used,\n    target_duration: $json.target_duration,\n    top_hook_pattern: $json.top_hook_pattern_used,\n    word_count: $json.word_count\n  }) }} $$::jsonb,\n  NOW(),\n  NOW()\n)\nRETURNING *;"
+      },
+      "position": [
+        128,
+        32
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "slackApi": {
+          "id": "h2vQdDqgzDC5IzAV",
+          "name": "Slack account prod"
+        }
+      },
+      "id": "0043c356-af16-4af3-a61b-e9f26ee158ed",
+      "name": "Send to Slack for Review",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "cachedResultName": "script-review",
+          "mode": "list",
+          "value": "C0AGYK8LY2Z"
+        },
+        "otherOptions": {},
+        "select": "channel",
+        "text": "=🎬 **NEW SCRIPT FOR APPROVAL** (Analytics-Powered)\n\n📝 **Niche:** {{ $('Structure Script Data').item.json.niche }}\n\n💡 **Idea:**\n{{ $('Structure Script Data').item.json.idea_text }}\n\n📊 **Analytics Used:**\n- Hook Pattern: {{ $('Structure Script Data').item.json.top_hook_pattern_used }}\n- Target Duration: {{ $('Structure Script Data').item.json.target_duration }}s (based on viral avg)\n- Informed by {{ $('Structure Script Data').item.json.analytics_used === 'yes' ? 'recent viral content' : 'niche analysis' }}\n\n📜 **SCRIPT:**\n```\n{{ $('Structure Script Data').item.json.script_text }}\n```\n\n⏱️ **Duration:** ~{{ $('Structure Script Data').item.json.duration_sec }} seconds\n📊 **Words:** {{ $('Structure Script Data').item.json.word_count }}\n\n🔗 **Script ID:** `{{ $('Structure Script Data').item.json.script_id }}`"
+      },
+      "position": [
+        288,
+        32
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "916cde40-b69f-4111-b1f0-4957fa53ecd1"
+    },
+    {
+      "credentials": {
+        "slackApi": {
+          "id": "h2vQdDqgzDC5IzAV",
+          "name": "Slack account prod"
+        }
+      },
+      "id": "83f7685a-2b18-4241-8db1-efddc7c87659",
+      "name": "Wait for Human Approval",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "cachedResultName": "script-review",
+          "mode": "list",
+          "value": "C0AGYK8LY2Z"
+        },
+        "formFields": {
+          "values": [
+            {
+              "defaultValue": "approve",
+              "fieldLabel": "Decision",
+              "fieldName": "Decision",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "approve"
+                  },
+                  {
+                    "option": "rejected"
+                  },
+                  {
+                    "option": "needs_revision"
+                  }
+                ]
+              },
+              "fieldType": "dropdown",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Feedback",
+              "fieldName": "Feedback",
+              "fieldType": "textarea",
+              "placeholder": "Enter feedback if rejecting or requesting revision..."
+            }
+          ]
+        },
+        "message": "=👆 Review the analytics-powered script above",
+        "operation": "sendAndWait",
+        "options": {},
+        "responseType": "customForm",
+        "select": "channel"
+      },
+      "position": [
+        448,
+        32
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "913a7167-7cbf-47ab-adb6-8dd26ee9b572"
+    },
+    {
+      "id": "92fa8680-293b-4911-ab8a-71c6964997af",
+      "name": "Check Decision",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "approved",
+              "leftValue": "={{ $json.data.Decision }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "approve"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        592,
+        32
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "55ed7b77-e49b-4128-8d32-2dd328836d19",
+      "name": "Approve Script",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=UPDATE scripts\nSET\n  status = 'approved',\n  human_feedback = {{ $('Wait for Human Approval').item.json.data.Feedback ? \"'\" + $('Wait for Human Approval').item.json.data.Feedback.replace(/'/g, \"''\") + \"'\" : \"NULL\" }},\n  updated_at = NOW()\nWHERE script_id = '{{ $('Structure Script Data').item.json.script_id }}'\nRETURNING *;"
+      },
+      "position": [
+        1088,
+        -144
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "67d31c00-34ba-4096-a2f9-b28331d15499",
+      "name": "Reject/Revise Script",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=UPDATE scripts\nSET\n  status = '{{ $('Wait for Human Approval').item.json.data.Decision }}',\n  human_feedback = '{{ $('Wait for Human Approval').item.json.data.Feedback.replace(/'/g, \"''\") }}',\n  updated_at = NOW()\nWHERE script_id = '{{ $('Structure Script Data').item.json.script_id }}';"
+      },
+      "position": [
+        896,
+        144
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "dfbede2b-b9e5-4b20-9b40-48ac161056a8",
+      "name": "Create ClickUp Task",
+      "notes": "Create task for video production team",
+      "parameters": {
+        "additionalFields": {
+          "content": "=Full Script:  {{ $json.script_text }} \n-----------------------  \nIdea ID: {{ $json.idea_id }} \nScript ID: {{ $json.script_id }}\n\nOriginal Reel Url:  {{ $('Original reel data').item.json.reel_url }}",
+          "status": "to do"
+        },
+        "folderless": true,
+        "list": "901606638452",
+        "name": "={{\n(() => {\n  const d = new Date();\n  const yy = d.getFullYear().toString().slice(-2);\n  const mm = String(d.getMonth() + 1).padStart(2, '0');\n  const dd = String(d.getDate()).padStart(2, '0');\n\n  const niche = $('Structure Script Data').item.json.niche || 'General';\n\n  const shortHook = ($json.script_text || '')\n    .replace(/[^a-zA-Z0-9 ]/g, '')\n    .split(' ')\n    .slice(0, 3)\n    .join(' ');\n\n  return `${yy}${mm}${dd} | ${niche} | ${shortHook} | SA`;\n})()\n}}\n",
+        "space": "67203119",
+        "team": "43273179"
+      },
+      "position": [
+        1312,
+        -128
+      ],
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "slackApi": {
+          "id": "p6EI21qs6fl5ZxNR",
+          "name": "Slack account"
+        }
+      },
+      "id": "93661df8-9653-404e-927e-525d09c508d8",
+      "name": "Notify ClickUp Created",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "cachedResultName": "new-channel",
+          "mode": "list",
+          "value": "C0A9J0XL44V"
+        },
+        "otherOptions": {},
+        "select": "channel",
+        "text": "=✅ **SCRIPT APPROVED & TASK CREATED**\n\n📋 ClickUp Task: {{ $json.url }}\n🎬 Script: {{ $('Structure Script Data').item.json.hook_text.substring(0, 80) }}...\n📊 Niche: {{ $('Structure Script Data').item.json.niche }}\n\n**Analytics Insights Applied:**\n✓ Used {{ $('Structure Script Data').item.json.top_hook_pattern_used }} hook pattern (top performer)\n✓ Optimized for {{ $('Structure Script Data').item.json.target_duration }}s (viral avg)\n✓ Incorporated winning keywords from recent viral content\n\nNext: Video generation workflow will pick this up automatically."
+      },
+      "position": [
+        1520,
+        -128
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "7a4a775b-0f81-4344-9069-67e36b9e8e69"
+    },
+    {
+      "id": "cc9299d2-5f80-4b5e-848e-360e52f41b8b",
+      "name": "Wait",
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "position": [
+        1584,
+        64
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "481ecaa8-e9ef-4b48-a086-638bbce326e8"
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "788ae926-df3e-45f7-a26c-b05bc697ceb5",
+      "name": "Mark Idea as Used",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=UPDATE ideas SET status = 'script_generated' WHERE idea_id = '{{ $('Structure Script Data').item.json.idea_id }}';"
+      },
+      "position": [
+        1440,
+        272
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "6edb4063-5602-468a-bad8-b9b6489c33fb",
+      "name": "All Ideas Processed?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "complete",
+              "leftValue": "={{ $('Process One Idea at a Time').context.noItemsLeft }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        1856,
+        -432
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "slackApi": {
+          "id": "h2vQdDqgzDC5IzAV",
+          "name": "Slack account prod"
+        }
+      },
+      "id": "7c07d44e-7ffa-4d3a-81fa-41a0f2488693",
+      "name": "Complete Notification",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "cachedResultName": "script-review",
+          "mode": "list",
+          "value": "C0AGYK8LY2Z"
+        },
+        "otherOptions": {},
+        "select": "channel",
+        "text": "=🎉 **SCRIPT GENERATION COMPLETE**\n\nTotal scripts generated this run: {{ $('Get Approved Ideas').itemMatching(0).$itemCount }}\n\nAll scripts:\n✓ Analyzed viral content in each niche\n✓ Applied winning hook patterns\n✓ Optimized for proven durations\n✓ Saved to database\n✓ ClickUp tasks created for approved scripts\n\nReady for video generation!"
+      },
+      "position": [
+        -1072,
+        -320
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "2c2f78bd-50b9-46d2-a653-c6adea6e4d52"
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "9de33eac-f333-4d39-b53f-fc28f8326388",
+      "name": "Message a model",
+      "parameters": {
+        "builtInTools": {},
+        "messages": {
+          "values": [
+            {
+              "content": "You are a short-form content strategist.\n\nYou are given:\n1. An approved content idea.\n2. A top-performing viral hook (for structural inspiration only).\n3. A list of available hook patterns (each contains hook_pattern_id, pattern_name, template).\n\nYour task:\nSelect the SINGLE most suitable hook pattern for this idea.\n\nSelection Criteria:\n- The hook pattern must naturally fit the idea.\n- It must create strong curiosity, tension, or clarity.\n- It should align with high-retention short-form style.\n- Do NOT invent a new pattern.\n- Do NOT modify any hook_pattern_id.\n- Only choose from the provided list.\n\nReturn ONLY valid JSON in this format:\n\n{ \n  \"hook\":\"\"\n  \"hook_pattern_id\": \"\"\n}\n",
+              "role": "model"
+            },
+            {
+              "content": "=Approved Idea:\n{{ $json.idea_text }}\n\nTop Viral Hook (for structural inspiration only):\n{{ $json.top_hook_patterns }}\n\nAvailable Hook Patterns:\n{{ JSON.stringify($json.all_hook_patterns, null, 2) }}\n\n\nSelect the best hook_pattern_id along with the hook.\n"
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "options": {}
+      },
+      "position": [
+        -896,
+        -176
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "9356e14c-8c13-4bac-8a09-afc165cfd0df",
+      "name": "Merge",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        -544,
+        32
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "973af602-221f-4090-8c22-24ec04ff3e9c",
+      "name": "If",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "47ea7e08-2a8a-43e7-8e2f-969367fae4f2",
+              "leftValue": "={{ $json.idea_id }}",
+              "operator": {
+                "operation": "exists",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -2032,
+        0
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "dd740ffc-f97e-4647-a5b2-cfcfb87780dd",
+      "name": "structures hook data",
+      "parameters": {
+        "jsCode": "const outputItems = [];\n\nfor (const item of items) {\n\n  // 1️⃣ Get raw Gemini text\n  let raw = item.json?.content?.parts?.[0]?.text ?? '';\n\n  if (!raw) {\n    throw new Error('Gemini returned empty response');\n  }\n\n  // 2️⃣ Remove markdown code fences\n  raw = raw\n    .replace(/```json/gi, '')\n    .replace(/```/g, '')\n    .trim();\n\n  // 3️⃣ Parse JSON safely\n  let parsed;\n  try {\n    parsed = JSON.parse(raw);\n  } catch (error) {\n    throw new Error(`Invalid JSON from Gemini:\\n${raw}`);\n  }\n\n  // 4️⃣ Return clean structured output\n  outputItems.push({\n    json: {\n      hook: parsed.hook ?? null,\n      hook_pattern_id: parsed.hook_pattern_id ?? null\n    }\n  });\n}\n\nreturn outputItems;"
+      },
+      "position": [
+        -608,
+        -160
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "082df4f8-f808-49ac-980f-894820ce0ea0",
+      "name": "Execute a SQL query",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "WITH pattern_performance AS (\n  SELECT\n    hp.hook_pattern_id,\n    hp.pattern_name,\n    hp.pattern,\n    COUNT(DISTINCT sr.source_reel_id) AS total_uses,\n    AVG(sr.views) AS avg_views,\n    AVG(\n      (sr.likes + sr.comments + sr.shares)::DECIMAL\n      / NULLIF(sr.views, 0) * 100\n    ) AS avg_engagement_rate\n  FROM hook_patterns hp\n  LEFT JOIN hook_variants hv\n    ON hv.hook_pattern_id = hp.hook_pattern_id\n  LEFT JOIN transcripts t\n    ON hv.transcript_id = t.transcript_id\n  LEFT JOIN source_reels sr\n    ON t.source_reel_id = sr.source_reel_id\n  GROUP BY hp.hook_pattern_id, hp.pattern_name\n)\n\nSELECT *\nFROM pattern_performance\nWHERE total_uses > 0\nORDER BY avg_engagement_rate DESC\nLIMIT 10;\n"
+      },
+      "position": [
+        544,
+        -480
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    },
+    {
+      "id": "a89e008e-0dd0-44db-ae1d-2b11224d03db",
+      "name": "Merge2",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        -1616,
+        -32
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "c6d3b4c0-018a-43d5-ad0a-6c6f6c5c9bfa",
+      "name": "Original reel data",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "SELECT \n  t.transcript_id,\n  sr.source_reel_id,\n  sr.reel_url,\n  sr.caption,\n  sr.views\nFROM transcripts t\nJOIN source_reels sr \n  ON t.source_reel_id = sr.source_reel_id\nWHERE t.transcript_id = '{{ $('Save Script to Database').item.json.transcript_id }}';\n"
+      },
+      "position": [
+        912,
+        -144
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-18T15:57:11.540Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-18T15:57:11.540Z",
+      "workflowId": "gmS0J5zfzpYEYcWA"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-28T08:51:21.423Z",
+  "versionId": "77e0b1aa-6cfc-41ae-8b2a-8f8ed3646a01"
+}
