@@ -1,0 +1,376 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Get Creators": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Creators",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Top 5": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Top 5 Posts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Instagram Reel Scraper": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Sort by Views",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Log Top Reels": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Top 5 Posts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Creators": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Instagram Reel Scraper",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Top 5 Posts": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Creators",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Log Top Reels",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Sort by Views": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Top 5",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "When clicking 'Test workflow'": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Creators",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-08T18:56:13.248Z",
+  "id": "da8ISsuQ7RFqczcg",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Instagram Reel Scraper from List of Creators",
+  "nodes": [
+    {
+      "id": "33343eff-8565-4b0c-aac4-51995c9d655b",
+      "name": "When clicking 'Test workflow'",
+      "parameters": {},
+      "position": [
+        128,
+        -368
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "ce5ec3d0-b1fa-44dd-9e4b-ea67c3427694",
+      "name": "Loop Over Creators",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        560,
+        -368
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "fee4fc04-08ee-4785-9f41-403a7a287e28",
+      "name": "Instagram Reel Scraper",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "jsonBody": "={\n    \"addParentData\": false,\n    \"directUrls\": [\n        \"https://www.instagram.com/{{ $('Get Creators').item.json.igHandle }}/\"\n    ],\n    \"enhanceUserSearchWithFacebookPage\": false,\n    \"isUserReelFeedURL\": true,\n    \"isUserTaggedFeedURL\": false,\n    \"resultsLimit\": 30,\n    \"resultsType\": \"posts\",\n    \"searchLimit\": 1,\n    \"searchType\": \"user\"\n}",
+        "method": "POST",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "url": "https://api.apify.com/v2/acts/shu8hvrXbJbY3Eb9W/run-sync-get-dataset-items"
+      },
+      "position": [
+        784,
+        -368
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "e57e11fc-d702-4429-93d4-4d2282d8bc80",
+      "name": "Sort by Views",
+      "parameters": {
+        "options": {},
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "videoPlayCount",
+              "order": "descending"
+            }
+          ]
+        }
+      },
+      "position": [
+        128,
+        -176
+      ],
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1
+    },
+    {
+      "id": "f5409885-b38c-4db5-8815-e3f9e6e6e810",
+      "name": "Get Top 5",
+      "parameters": {
+        "maxItems": 5
+      },
+      "position": [
+        352,
+        -176
+      ],
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1
+    },
+    {
+      "id": "fc929fca-b917-4696-a72d-1a11401b9feb",
+      "name": "Get Creators",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "IG Creators List",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1yS3loy-3wR_cEO7x5EKPgJW01r8xurzEcq6w_8qbRD8/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "1yS3loy-3wR_cEO7x5EKPgJW01r8xurzEcq6w_8qbRD8"
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "getCreators",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1yS3loy-3wR_cEO7x5EKPgJW01r8xurzEcq6w_8qbRD8/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        352,
+        -368
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "e0eaf0d3-99e4-4d40-81c1-68bb3027d69c",
+      "name": "Log Top Reels",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "creator",
+              "id": "creator",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "reelUrl",
+              "id": "reelUrl",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "caption",
+              "id": "caption",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "likes",
+              "id": "likes",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "comments",
+              "id": "comments",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "hashtags",
+              "id": "hashtags",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "timestamp",
+              "id": "timestamp",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "value": {
+            "caption": "={{ $json.caption }}",
+            "comments": "={{ $json.commentsCount }}",
+            "creator": "={{ $json.ownerUsername }}",
+            "hashtags": "={{ $json.hashtags }}",
+            "likes": "={{ $json.likesCount }}",
+            "reelUrl": "={{ $json.videoUrl }}",
+            "timestamp": "={{ new Date($json.timestamp).toLocaleDateString() }}"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "IG Creators List",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1yS3loy-3wR_cEO7x5EKPgJW01r8xurzEcq6w_8qbRD8/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "1yS3loy-3wR_cEO7x5EKPgJW01r8xurzEcq6w_8qbRD8"
+        },
+        "operation": "append",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "logCreators",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1yS3loy-3wR_cEO7x5EKPgJW01r8xurzEcq6w_8qbRD8/edit#gid=150678837",
+          "mode": "list",
+          "value": 150678837
+        }
+      },
+      "position": [
+        784,
+        -176
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "804dcbc8-6721-436d-a68a-bef010404cea",
+      "name": "Loop Over Top 5 Posts",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        560,
+        -176
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "32f3c030-34fe-4e2e-ba6b-9011922141da",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "## 📸 Instagram Reel Scraper\n\n**Flow:**\n1. 📊 Read creators from Google Sheets\n2. 🔄 Loop through each creator\n3. 🤖 Scrape their Instagram reels (Apify)\n4. 📈 Sort by video play count\n5. 🏆 Get top 5 performing reels\n6. ✅ Log each to Google Sheets\n\n**Google Sheet:**\n[📝 IG Creators List & Log](https://docs.google.com/spreadsheets/d/1yS3loy-3wR_cEO7x5EKPgJW01r8xurzEcq6w_8qbRD8/edit?gid=150678837#gid=150678837)\n\n**Note:** ⏱️ Scrapes reels from last 30 days, processes top 5 per creator",
+        "height": 352,
+        "width": 352
+      },
+      "position": [
+        -320,
+        -384
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-01-08T18:56:13.257Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-01-08T18:56:13.257Z",
+      "workflowId": "da8ISsuQ7RFqczcg"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-08T18:56:13.248Z",
+  "versionId": "4d9656ba-763e-44f3-bf0b-9ec23077b9b6"
+}
