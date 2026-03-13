@@ -1,0 +1,322 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Run Analytics": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "📈 Top 10 Viral Videos",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "👥 Account Performance",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "🎣 Hook Pattern Analysis",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "🎯 Niche Performance",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "📹 Content Type Analysis",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "🌟 Best Source Creators",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "⚠️ Underperforming Accounts",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "📊 Growth Trends (30d)",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "🆚 Platform Comparison",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "💡 Best Ideas",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-15T06:31:23.860Z",
+  "id": "IBDMsWNtHmTAavQ1",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Analytics Dashboard - View All Reports",
+  "nodes": [
+    {
+      "id": "820c2899-ba35-43b2-82f3-db93f406c117",
+      "name": "Run Analytics",
+      "notes": "Click to run all analytics queries",
+      "parameters": {},
+      "position": [
+        -208,
+        256
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "b91d5d5b-9e36-4aa8-84ca-e6dde331d938",
+      "name": "📈 Top 10 Viral Videos",
+      "notes": "Shows top performing content with full traceability",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Top 10 Viral Videos with Complete Breakdown\nSELECT \n  c.title,\n  c.url as posted_url,\n  a.username as posted_by,\n  m.views,\n  m.likes,\n  m.comments,\n  m.shares,\n  ROUND((m.likes + m.comments + m.shares)::DECIMAL / NULLIF(m.views, 0) * 100, 2) as engagement_rate,\n  hv.hook_text,\n  hp.pattern_name as hook_pattern,\n  i.idea_text,\n  cr.username as source_creator,\n  sr.reel_url as inspiration_url,\n  c.posted_at\nFROM content c\nJOIN accounts a ON c.account_id = a.account_id\nJOIN metrics_daily m ON c.content_id = m.content_id\nLEFT JOIN hook_variants hv ON c.hook_variant_id = hv.hook_variant_id\nLEFT JOIN hook_patterns hp ON hv.hook_pattern_id = hp.hook_pattern_id\nLEFT JOIN ideas i ON c.idea_id = i.idea_id\nLEFT JOIN source_reels sr ON c.source_reel_id = sr.source_reel_id\nLEFT JOIN creators cr ON sr.creator_id = cr.creator_id\nWHERE m.date >= CURRENT_DATE - INTERVAL '30 days'\nORDER BY m.views DESC\nLIMIT 10;"
+      },
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "218008d1-4948-463b-814e-18bb617dc500",
+      "name": "👥 Account Performance",
+      "notes": "Top performing accounts across all 100",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Account Performance Summary (Last 30 Days)\nSELECT \n  a.username,\n  a.platform,\n  a.niche,\n  a.followers_count,\n  COUNT(DISTINCT c.content_id) as posts_last_30d,\n  SUM(m.views) as total_views,\n  SUM(m.likes) as total_likes,\n  SUM(m.comments) as total_comments,\n  ROUND(AVG((m.likes + m.comments + m.shares)::DECIMAL / NULLIF(m.views, 0) * 100), 2) as avg_engagement_rate,\n  ROUND(AVG(m.views), 0) as avg_views_per_post,\n  MAX(m.views) as best_video_views\nFROM accounts a\nLEFT JOIN content c ON a.account_id = c.account_id\nLEFT JOIN metrics_daily m ON c.content_id = m.content_id\nWHERE a.active = true\n  AND m.date >= CURRENT_DATE - INTERVAL '30 days'\nGROUP BY a.account_id, a.username, a.platform, a.niche, a.followers_count\nORDER BY total_views DESC\nLIMIT 20;"
+      },
+      "position": [
+        0,
+        160
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "e4800236-611a-4958-b300-f47517806864",
+      "name": "🎣 Hook Pattern Analysis",
+      "notes": "Which hook patterns drive the most engagement",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Hook Pattern Performance Analysis\nSELECT \n  hp.pattern_name,\n  hp.description,\n  COUNT(c.content_id) as times_used,\n  AVG(m.views) as avg_views,\n  AVG(m.likes) as avg_likes,\n  ROUND(AVG((m.likes + m.comments)::DECIMAL / NULLIF(m.views, 0) * 100), 2) as avg_engagement_rate,\n  MAX(m.views) as best_performance\nFROM hook_patterns hp\nJOIN hook_variants hv ON hp.hook_pattern_id = hv.hook_pattern_id\nJOIN content c ON c.hook_variant_id = hv.hook_variant_id\nJOIN metrics_daily m ON c.content_id = m.content_id\nWHERE m.date >= CURRENT_DATE - INTERVAL '30 days'\nGROUP BY hp.hook_pattern_id, hp.pattern_name, hp.description\nHAVING COUNT(c.content_id) >= 3\nORDER BY avg_views DESC;"
+      },
+      "position": [
+        0,
+        304
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "8df5b975-99bc-47a2-b1f7-8598330069a2",
+      "name": "🎯 Niche Performance",
+      "notes": "Which niches are performing best",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Best Performing Niches\nSELECT \n  a.niche,\n  COUNT(DISTINCT a.account_id) as accounts,\n  COUNT(DISTINCT c.content_id) as total_content,\n  SUM(m.views) as total_views,\n  AVG(m.views) as avg_views_per_content,\n  ROUND(AVG((m.likes + m.comments)::DECIMAL / NULLIF(m.views, 0) * 100), 2) as avg_engagement_rate\nFROM accounts a\nJOIN content c ON a.account_id = c.account_id\nJOIN metrics_daily m ON c.content_id = m.content_id\nWHERE m.date >= CURRENT_DATE - INTERVAL '30 days'\n  AND a.niche IS NOT NULL\nGROUP BY a.niche\nORDER BY total_views DESC;"
+      },
+      "position": [
+        0,
+        464
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "ccb968c5-4f3c-49f7-b48a-6ad790a077aa",
+      "name": "📹 Content Type Analysis",
+      "notes": "Reels vs Videos vs Shorts performance",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Content Type Performance (Reels vs Videos vs Shorts)\nSELECT \n  a.platform,\n  c.content_type,\n  COUNT(*) as count,\n  AVG(m.views) as avg_views,\n  AVG(m.likes) as avg_likes,\n  AVG(m.comments) as avg_comments,\n  ROUND(AVG((m.likes + m.comments + m.shares)::DECIMAL / NULLIF(m.views, 0) * 100), 2) as avg_engagement_rate\nFROM content c\nJOIN accounts a ON c.account_id = a.account_id\nJOIN metrics_daily m ON c.content_id = m.content_id\nWHERE m.date >= CURRENT_DATE - INTERVAL '30 days'\nGROUP BY a.platform, c.content_type\nORDER BY a.platform, avg_views DESC;"
+      },
+      "position": [
+        0,
+        608
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "21a430c7-739e-47ad-8a1b-e09b58074367",
+      "name": "🌟 Best Source Creators",
+      "notes": "Which creators inspire the best performing content",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Source Creator Analysis (Who inspires best content?)\nSELECT \n  cr.username,\n  cr.niche,\n  cr.platform,\n  COUNT(DISTINCT c.content_id) as videos_created_from_this_creator,\n  AVG(m.views) as avg_views_our_content,\n  AVG(sr.views) as avg_views_source_content,\n  ROUND(AVG(m.views)::DECIMAL / NULLIF(AVG(sr.views), 0), 2) as performance_multiplier,\n  MAX(m.views) as best_video_views\nFROM creators cr\nJOIN source_reels sr ON cr.creator_id = sr.creator_id\nJOIN content c ON sr.source_reel_id = c.source_reel_id\nJOIN metrics_daily m ON c.content_id = m.content_id\nWHERE m.date >= CURRENT_DATE - INTERVAL '30 days'\nGROUP BY cr.creator_id, cr.username, cr.niche, cr.platform\nHAVING COUNT(DISTINCT c.content_id) >= 2\nORDER BY avg_views_our_content DESC\nLIMIT 15;"
+      },
+      "position": [
+        256,
+        0
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "e3ec9169-dc99-4fbb-9495-a5af21ec806a",
+      "name": "⚠️ Underperforming Accounts",
+      "notes": "Accounts below average engagement - need improvement",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Underperforming Accounts (Need Attention)\nWITH avg_metrics AS (\n  SELECT \n    AVG((m.likes + m.comments)::DECIMAL / NULLIF(m.views, 0) * 100) as platform_avg_engagement\n  FROM metrics_daily m\n  JOIN content c ON m.content_id = c.content_id\n  WHERE m.date >= CURRENT_DATE - INTERVAL '30 days'\n)\nSELECT \n  a.username,\n  a.platform,\n  a.niche,\n  COUNT(c.content_id) as posts,\n  AVG(m.views) as avg_views,\n  ROUND(AVG((m.likes + m.comments)::DECIMAL / NULLIF(m.views, 0) * 100), 2) as account_engagement_rate,\n  (SELECT ROUND(platform_avg_engagement::numeric, 2) FROM avg_metrics) as platform_avg,\n  ROUND(\n    AVG((m.likes + m.comments)::DECIMAL / NULLIF(m.views, 0) * 100) - \n    (SELECT platform_avg_engagement FROM avg_metrics), \n    2\n  ) as engagement_diff\nFROM accounts a\nJOIN content c ON a.account_id = c.account_id\nJOIN metrics_daily m ON c.content_id = m.content_id\nWHERE m.date >= CURRENT_DATE - INTERVAL '30 days'\n  AND a.active = true\nGROUP BY a.account_id, a.username, a.platform, a.niche\nHAVING AVG((m.likes + m.comments)::DECIMAL / NULLIF(m.views, 0) * 100) < \n       (SELECT platform_avg_engagement FROM avg_metrics)\nORDER BY engagement_diff ASC\nLIMIT 15;"
+      },
+      "position": [
+        256,
+        160
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "cf2d2f5b-9f61-418d-b774-d97e2bbbbb72",
+      "name": "📊 Growth Trends (30d)",
+      "notes": "Daily performance over the last 30 days",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Growth Trends (Last 30 Days)\nSELECT \n  date,\n  COUNT(DISTINCT content_id) as posts_published,\n  SUM(views) as daily_views,\n  SUM(likes + comments + shares) as daily_engagement,\n  ROUND(AVG((likes + comments)::DECIMAL / NULLIF(views, 0) * 100), 2) as avg_engagement_rate\nFROM metrics_daily\nWHERE date >= CURRENT_DATE - INTERVAL '30 days'\nGROUP BY date\nORDER BY date DESC;"
+      },
+      "position": [
+        256,
+        304
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "92ccc542-3dcf-4da0-b186-d07cf4812c69",
+      "name": "🆚 Platform Comparison",
+      "notes": "Instagram vs YouTube performance",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Platform Comparison (Instagram vs YouTube)\nSELECT \n  a.platform,\n  COUNT(DISTINCT a.account_id) as total_accounts,\n  COUNT(DISTINCT c.content_id) as total_content,\n  SUM(m.views) as total_views,\n  AVG(m.views) as avg_views_per_content,\n  SUM(m.likes + m.comments + m.shares) as total_engagement,\n  ROUND(AVG((m.likes + m.comments + m.shares)::DECIMAL / NULLIF(m.views, 0) * 100), 2) as avg_engagement_rate\nFROM accounts a\nJOIN content c ON a.account_id = c.account_id\nJOIN metrics_daily m ON c.content_id = m.content_id\nWHERE m.date >= CURRENT_DATE - INTERVAL '30 days'\nGROUP BY a.platform\nORDER BY total_views DESC;"
+      },
+      "position": [
+        256,
+        464
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "7c73fbf7-8790-42ae-8e0a-f58f993007a5",
+      "name": "💡 Best Ideas",
+      "notes": "Which approved ideas performed best",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Idea Performance (Human-Approved Ideas)\nSELECT \n  i.idea_text,\n  i.human_feedback,\n  i.status,\n  COUNT(c.content_id) as times_used,\n  AVG(m.views) as avg_views,\n  AVG(m.likes) as avg_likes,\n  ROUND(AVG((m.likes + m.comments)::DECIMAL / NULLIF(m.views, 0) * 100), 2) as avg_engagement_rate,\n  MAX(m.views) as best_performance\nFROM ideas i\nJOIN content c ON i.idea_id = c.idea_id\nJOIN metrics_daily m ON c.content_id = m.content_id\nWHERE i.status = 'approved'\n  AND m.date >= CURRENT_DATE - INTERVAL '30 days'\nGROUP BY i.idea_id, i.idea_text, i.human_feedback, i.status\nORDER BY avg_views DESC\nLIMIT 15;"
+      },
+      "position": [
+        256,
+        608
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-15T06:31:23.864Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-15T06:31:23.864Z",
+      "workflowId": "IBDMsWNtHmTAavQ1"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-16T19:55:54.931Z",
+  "versionId": "635d7bdb-36b4-420f-9063-07e61424b626"
+}
