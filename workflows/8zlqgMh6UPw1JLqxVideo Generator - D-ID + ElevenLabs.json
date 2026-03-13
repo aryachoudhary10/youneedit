@@ -1,0 +1,624 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "All Scripts Done?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Complete",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Process One Script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Check Video Status": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Video Ready?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "D-ID - Create Talking Avatar": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait for Video Generation",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download Generated Video": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Prepare Metadata Filename",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "ElevenLabs - Generate Voice": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload Audio to Temporary URL",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Every Hour": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Approved Scripts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Approved Scripts": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Process One Script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Notify Success": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait Before Next",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Prepare Metadata Filename": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload to Google Drive",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Process One Script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ElevenLabs - Generate Voice",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Save to generated_videos": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Notify Success",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upload Audio to Temporary URL": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "D-ID - Create Talking Avatar",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upload to Google Drive": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Save to generated_videos",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Video Ready?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Download Generated Video",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Wait and Retry",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait Before Next": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "All Scripts Done?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait and Retry": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check Video Status",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait for Video Generation": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check Video Status",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-15T06:32:10.146Z",
+  "id": "8zlqgMh6UPw1JLqx",
+  "isArchived": false,
+  "meta": null,
+  "name": "Video Generator - D-ID + ElevenLabs",
+  "nodes": [
+    {
+      "id": "1f29c4ee-0cb5-494f-b36f-48d004fcafe1",
+      "name": "Every Hour",
+      "notes": "Check for approved scripts every hour",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours"
+            }
+          ]
+        }
+      },
+      "position": [
+        -3200,
+        208
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "27906ea9-20e1-4b18-bd45-e21774aacb79",
+      "name": "Get Approved Scripts",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Get approved scripts that don't have videos yet\nSELECT \n  s.script_id,\n  s.idea_id,\n  s.hook_variant_id,\n  s.transcript_id,\n  s.script_text,\n  s.scenes,\n  s.duration_sec,\n  i.idea_text,\n  hv.hook_text,\n  t.transcript_text,\n  sr.source_reel_id,\n  c.niche,\n  c.username as source_creator\nFROM scripts s\nJOIN ideas i ON s.idea_id = i.idea_id\nLEFT JOIN hook_variants hv ON s.hook_variant_id = hv.hook_variant_id\nLEFT JOIN transcripts t ON s.transcript_id = t.transcript_id\nLEFT JOIN source_reels sr ON t.source_reel_id = sr.source_reel_id\nLEFT JOIN creators c ON sr.creator_id = c.creator_id\nWHERE s.status = 'approved'\n  AND NOT EXISTS (\n    SELECT 1 FROM generated_videos gv \n    WHERE gv.script_id = s.script_id\n  )\nORDER BY s.created_at ASC\nLIMIT 3;"
+      },
+      "position": [
+        -3008,
+        208
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "2579f2a5-6a97-4a5b-ba41-bcb4e9c58f69",
+      "name": "Process One Script",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -2800,
+        208
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "714307c0-996f-4fd5-a675-e088ff8ddf96",
+      "name": "ElevenLabs - Generate Voice",
+      "notes": "Generate AI voiceover from script",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{ $json.script_text }}"
+            },
+            {
+              "name": "model_id",
+              "value": "eleven_multilingual_v2"
+            },
+            {
+              "name": "voice_settings",
+              "value": "={{ { stability: 0.5, similarity_boost: 0.75, style: 0.5, use_speaker_boost: true } }}"
+            }
+          ]
+        },
+        "genericAuthType": "httpHeaderAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "={{ $credentials.elevenLabsApi.apiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "method": "POST",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        },
+        "sendBody": true,
+        "sendHeaders": true,
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/YOUR_VOICE_ID"
+      },
+      "position": [
+        -2608,
+        208
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "a253e3bf-4fae-49f2-9077-da59a8b477bf",
+      "name": "D-ID - Create Talking Avatar",
+      "notes": "Create AI avatar video with lip-sync",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'Basic ' + $credentials.dIdApi.apiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"script\": {\n    \"type\": \"audio\",\n    \"audio_url\": \"{{ $('Upload Audio to Temporary URL').item.json.audio_url }}\"\n  },\n  \"source_url\": \"https://create-images-results.d-id.com/DefaultPresenters/Noelle_f/image.jpeg\",\n  \"config\": {\n    \"fluent\": true,\n    \"pad_audio\": 0,\n    \"driver_expressions\": {\n      \"expressions\": [\n        {\n          \"expression\": \"happy\",\n          \"start_frame\": 0,\n          \"intensity\": 0.7\n        }\n      ]\n    },\n    \"result_format\": \"mp4\"\n  }\n}",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://api.d-id.com/talks"
+      },
+      "position": [
+        -2208,
+        208
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "105a6129-72dc-4d56-b44c-bb63b70b4f89",
+      "name": "Upload Audio to Temporary URL",
+      "notes": "Upload audio to publicly accessible URL for D-ID",
+      "parameters": {
+        "jsCode": "// Upload audio to temporary accessible URL\n// Options:\n// 1. Upload to Cloudinary/S3\n// 2. Use n8n's built-in file sharing\n// 3. Use a temporary file service\n\nconst audioData = $input.first().binary.data;\n\n// For now, we'll use a placeholder\n// You'll need to implement actual file upload\n// Example with Cloudinary:\n\n// const FormData = require('form-data');\n// const form = new FormData();\n// form.append('file', audioData);\n// form.append('upload_preset', 'your_preset');\n\n// const response = await fetch('https://api.cloudinary.com/v1_1/YOUR_CLOUD/upload', {\n//   method: 'POST',\n//   body: form\n// });\n\n// const data = await response.json();\n\nreturn {\n  audio_url: 'YOUR_TEMPORARY_AUDIO_URL', // Replace with actual upload\n  script_id: $('Get Approved Scripts').item.json.script_id\n};"
+      },
+      "position": [
+        -2400,
+        208
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "fe8f7d1e-e1d9-4537-b798-3312342de976",
+      "name": "Wait for Video Generation",
+      "notes": "Wait for D-ID to start processing",
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "position": [
+        -2000,
+        208
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "3ef9db5f-c816-4c54-b4e8-1a6888b6f460"
+    },
+    {
+      "id": "666898d1-2958-49f1-9725-e61cb177f94d",
+      "name": "Check Video Status",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'Basic ' + $credentials.dIdApi.apiKey }}"
+            }
+          ]
+        },
+        "options": {},
+        "sendHeaders": true,
+        "url": "={{ 'https://api.d-id.com/talks/' + $('D-ID - Create Talking Avatar').item.json.id }}"
+      },
+      "position": [
+        -1808,
+        208
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "6df64bca-46be-4d1d-9b25-dcf681d00889",
+      "name": "Video Ready?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "done",
+              "leftValue": "={{ $json.status }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "done"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -1600,
+        208
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "393e2fc1-e41d-4177-897f-637037100bd0",
+      "name": "Wait and Retry",
+      "notes": "Wait before checking again",
+      "parameters": {
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "position": [
+        -1600,
+        400
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "8f72f1a0-0358-46bd-bb38-cc48645bf72a"
+    },
+    {
+      "id": "1fdde555-6e83-4337-b95d-5bed6ad41ed7",
+      "name": "Download Generated Video",
+      "parameters": {
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        },
+        "url": "={{ $json.result_url }}"
+      },
+      "position": [
+        -1408,
+        112
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "d4bf3823-5038-4e7d-be8f-9ef8764cc12d",
+      "name": "Prepare Metadata Filename",
+      "notes": "Embed all IDs in filename for tracking",
+      "parameters": {
+        "jsCode": "// Generate filename with metadata\nconst scriptData = $('Get Approved Scripts').item.json;\n\nconst filename = `script_${scriptData.script_id}_idea_${scriptData.idea_id}_hook_${scriptData.hook_variant_id}_transcript_${scriptData.transcript_id}_source_${scriptData.source_reel_id}.mp4`;\n\nreturn {\n  filename: filename,\n  script_id: scriptData.script_id,\n  idea_id: scriptData.idea_id,\n  hook_variant_id: scriptData.hook_variant_id,\n  transcript_id: scriptData.transcript_id,\n  source_reel_id: scriptData.source_reel_id,\n  video_binary: $input.first().binary\n};"
+      },
+      "position": [
+        -1200,
+        112
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "a23cb91f-a287-4c49-ad1f-18fed8fcd757",
+      "name": "Upload to Google Drive",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "YOUR_GOOGLE_DRIVE_FOLDER_ID"
+        },
+        "name": "={{ $json.filename }}",
+        "options": {}
+      },
+      "position": [
+        -1008,
+        112
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "36097810-e0be-4fe5-b92c-4b1851e3b561",
+      "name": "Save to generated_videos",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=INSERT INTO generated_videos (\n  video_id,\n  script_id,\n  video_url,\n  thumbnail_url,\n  duration_sec,\n  status,\n  render_metadata,\n  created_at\n)\nVALUES (\n  '{{ $crypto.randomUUID() }}',\n  '{{ $('Get Approved Scripts').item.json.script_id }}',\n  '{{ $json.webViewLink }}',\n  '{{ $json.thumbnailLink }}',\n  {{ $('Get Approved Scripts').item.json.duration_sec }},\n  'completed',\n  '{{ JSON.stringify({\n    d_id_talk_id: $('D-ID - Create Talking Avatar').item.json.id,\n    google_drive_id: $json.id,\n    filename: $('Prepare Metadata Filename').item.json.filename\n  }) }}',\n  NOW()\n)\nRETURNING video_id;"
+      },
+      "position": [
+        -800,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "7f41fc14-08e7-44ff-91c8-80f9f93157ad",
+      "name": "Notify Success",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "YOUR_SLACK_CHANNEL_ID"
+        },
+        "otherOptions": {},
+        "select": "channel",
+        "text": "=✅ VIDEO GENERATED!\n\n🎬 Script ID: `{{ $('Get Approved Scripts').item.json.script_id }}`\n📹 Video URL: {{ $('Upload to Google Drive').item.json.webViewLink }}\n⏱️ Duration: {{ $('Get Approved Scripts').item.json.duration_sec }}s\n\nVideo is ready for posting!"
+      },
+      "position": [
+        -608,
+        112
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "2d285981-722b-46de-9bd2-a1f2788f17ba"
+    },
+    {
+      "id": "aaa0bc51-e2b8-4a6f-ab1d-bbc9acb92179",
+      "name": "Wait Before Next",
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "position": [
+        -400,
+        112
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "77ab64c4-b095-4df7-93ea-734a0574275c"
+    },
+    {
+      "id": "c254530b-a3b2-4ef3-b9e3-ebe0df7893dc",
+      "name": "All Scripts Done?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "complete",
+              "leftValue": "={{ $('Process One Script').context.noItemsLeft }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -208,
+        112
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "cafd8cbd-44db-438a-b2fc-f7105315efad",
+      "name": "Complete",
+      "parameters": {},
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-15T06:32:10.154Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-15T06:32:10.154Z",
+      "workflowId": "8zlqgMh6UPw1JLqx"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-15T06:32:10.000Z",
+  "versionId": "4e8f7997-1d3a-4595-b2d0-ea6ba6cd75dc"
+}
