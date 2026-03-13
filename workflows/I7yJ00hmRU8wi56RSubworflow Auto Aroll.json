@@ -1,0 +1,32 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {},
+  "createdAt": "2026-03-12T17:22:35.838Z",
+  "id": "I7yJ00hmRU8wi56R",
+  "isArchived": false,
+  "meta": null,
+  "name": "Subworflow Auto Aroll",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-12T17:22:35.842Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-12T17:22:35.842Z",
+      "workflowId": "I7yJ00hmRU8wi56R"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-12T17:22:49.533Z",
+  "versionId": "f20a3241-576e-43bd-8fc1-a86647fbd533"
+}
