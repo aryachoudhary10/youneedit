@@ -1,0 +1,413 @@
+{
+  "active": true,
+  "activeVersion": {
+    "authors": "Sukhneer Singh",
+    "autosaved": true,
+    "connections": {
+      "Search for automation Directory": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "check if directory exists",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "When Executed by Another Workflow": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Search for automation Directory",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "check if directory exists": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get ID and return ID",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "create folder under the parent id",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "create folder under the parent id": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get ID and return ID",
+              "type": "main"
+            }
+          ]
+        ]
+      }
+    },
+    "createdAt": "2026-03-07T09:07:26.698Z",
+    "description": "",
+    "name": "Version f79b32ec",
+    "nodes": [
+      {
+        "alwaysOutputData": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "7610c7c6-cc95-478f-a73f-99449929660f",
+        "name": "Search for automation Directory",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.parentFolderID }}"
+            },
+            "whatToSearch": "folders"
+          },
+          "options": {},
+          "queryString": "={{ $json.folderToCreateOrSearch }}",
+          "resource": "fileFolder",
+          "returnAll": true
+        },
+        "position": [
+          -480,
+          -96
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "id": "e1c810d4-d713-450d-aa7e-de4ce4508b5f",
+        "name": "check if directory exists",
+        "parameters": {
+          "conditions": {
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "90a23ba2-af30-431c-ba06-db22f173040f",
+                "leftValue": "={{ $json.id }}",
+                "operator": {
+                  "operation": "exists",
+                  "singleValue": true,
+                  "type": "string"
+                },
+                "rightValue": ""
+              }
+            ],
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            }
+          },
+          "options": {}
+        },
+        "position": [
+          -192,
+          -96
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "09e51a54-e688-4f35-afd3-407288cc283e",
+        "name": "create folder under the parent id",
+        "notes": "Creates: Reel_{number} folder",
+        "parameters": {
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $('When Executed by Another Workflow').item.json.parentFolderID }}"
+          },
+          "name": "={{ $('When Executed by Another Workflow').item.json.folderToCreateOrSearch }}",
+          "options": {},
+          "resource": "folder"
+        },
+        "position": [
+          -32,
+          64
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "id": "f4576012-3e80-46ec-a4ec-dc73892520bc",
+        "name": "Get ID and return ID",
+        "parameters": {
+          "jsCode": "let parentId;\nlet alreadyExists = false;\n\n// Try getting searched folder\nconst searchNode = $node[\"Search for automation Directory\"].json;\n\nif (searchNode && searchNode.id) {\n  parentId = searchNode.id;\n  alreadyExists = true;\n} else {\n  const createdNode = $node[\"create folder under the parent id\"].json;\n\n  if (!createdNode || !createdNode.id) {\n    throw new Error(\"Parent folder not found and not created.\");\n  }\n\n  parentId = createdNode.id;\n  alreadyExists = false;\n}\n\nreturn [{\n  json: {\n    folderId: parentId,\n    folderName: $input.first().json.name,\n    alreadyExists: alreadyExists\n  }\n}];"
+        },
+        "position": [
+          144,
+          -112
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "a7789aee-992e-46b3-9529-aedf431e63b2",
+        "name": "When Executed by Another Workflow",
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "parentFolderID"
+              },
+              {
+                "name": "folderToCreateOrSearch"
+              }
+            ]
+          }
+        },
+        "position": [
+          -704,
+          -96
+        ],
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1
+      }
+    ],
+    "updatedAt": "2026-03-07T09:07:34.000Z",
+    "versionId": "f79b32ec-461d-4c56-b407-c762dcf35597",
+    "workflowId": "LV6KV28deGpPkOEm"
+  },
+  "activeVersionId": "f79b32ec-461d-4c56-b407-c762dcf35597",
+  "connections": {
+    "Search for automation Directory": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "check if directory exists",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search for automation Directory",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "check if directory exists": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get ID and return ID",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "create folder under the parent id",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "create folder under the parent id": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get ID and return ID",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-06T13:27:28.245Z",
+  "id": "LV6KV28deGpPkOEm",
+  "isArchived": false,
+  "meta": null,
+  "name": "Check and Create Drive folder subworkflow",
+  "nodes": [
+    {
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "7610c7c6-cc95-478f-a73f-99449929660f",
+      "name": "Search for automation Directory",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.parentFolderID }}"
+          },
+          "whatToSearch": "folders"
+        },
+        "options": {},
+        "queryString": "={{ $json.folderToCreateOrSearch }}",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        -480,
+        -96
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "e1c810d4-d713-450d-aa7e-de4ce4508b5f",
+      "name": "check if directory exists",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "90a23ba2-af30-431c-ba06-db22f173040f",
+              "leftValue": "={{ $json.id }}",
+              "operator": {
+                "operation": "exists",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -192,
+        -96
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "09e51a54-e688-4f35-afd3-407288cc283e",
+      "name": "create folder under the parent id",
+      "notes": "Creates: Reel_{number} folder",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('When Executed by Another Workflow').item.json.parentFolderID }}"
+        },
+        "name": "={{ $('When Executed by Another Workflow').item.json.folderToCreateOrSearch }}",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        -32,
+        64
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "f4576012-3e80-46ec-a4ec-dc73892520bc",
+      "name": "Get ID and return ID",
+      "parameters": {
+        "jsCode": "let parentId;\nlet alreadyExists = false;\n\n// Try getting searched folder\nconst searchNode = $node[\"Search for automation Directory\"].json;\n\nif (searchNode && searchNode.id) {\n  parentId = searchNode.id;\n  alreadyExists = true;\n} else {\n  const createdNode = $node[\"create folder under the parent id\"].json;\n\n  if (!createdNode || !createdNode.id) {\n    throw new Error(\"Parent folder not found and not created.\");\n  }\n\n  parentId = createdNode.id;\n  alreadyExists = false;\n}\n\nreturn [{\n  json: {\n    folderId: parentId,\n    folderName: $input.first().json.name,\n    alreadyExists: alreadyExists\n  }\n}];"
+      },
+      "position": [
+        144,
+        -112
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "a7789aee-992e-46b3-9529-aedf431e63b2",
+      "name": "When Executed by Another Workflow",
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "parentFolderID"
+            },
+            {
+              "name": "folderToCreateOrSearch"
+            }
+          ]
+        }
+      },
+      "position": [
+        -704,
+        -96
+      ],
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-06T13:27:28.249Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-06T13:27:28.249Z",
+      "workflowId": "LV6KV28deGpPkOEm"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-07T09:07:26.697Z",
+  "versionId": "f79b32ec-461d-4c56-b407-c762dcf35597"
+}
