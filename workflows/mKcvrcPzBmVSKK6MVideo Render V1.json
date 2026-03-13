@@ -1,0 +1,32 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {},
+  "createdAt": "2026-03-04T14:22:31.325Z",
+  "id": "mKcvrcPzBmVSKK6M",
+  "isArchived": true,
+  "meta": null,
+  "name": "Video Render V1",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-04T14:22:31.330Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-04T14:22:31.330Z",
+      "workflowId": "mKcvrcPzBmVSKK6M"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-04T14:23:44.000Z",
+  "versionId": "bf48de69-49fa-4936-a14f-75fa9a6af4a7"
+}
