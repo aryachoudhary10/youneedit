@@ -1,0 +1,837 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Process Each Research Query",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Fetch Instagram Creator Profile",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Extract Creator Username": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Unique Creators",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Instagram Creator Profile": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Sort1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Instagram Reels (Apify)": {
+      "main": [
+        []
+      ]
+    },
+    "Fetch Top YouTube Videos": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Split Out Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Video Transcript": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Filter on Views": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Sort",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Limit Top 5": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Edit Fields",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Fetch Top YouTube Videos",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Process Each Research Query": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Route by Platform",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Read Research Inputs": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Read Research Inputs2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Read Research Inputs2": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Process Each Research Query",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Route by Platform": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Run an Actor and get dataset",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Run an Actor and get dataset": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Filter on Views",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Extract Creator Username",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Sort1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Limit Top 5",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Split Out Items": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Fetch Video Transcript",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Unique Creators": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Edit Fields1",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-15T10:49:48.129Z",
+  "id": "8LupRQN7qWzoG1pk",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Content-Engine",
+  "nodes": [
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "iNhS3q0aVZB4guX8",
+          "name": "Google Sheets account"
+        }
+      },
+      "id": "e90db035-f491-4b63-80cb-885d4d07ed67",
+      "name": "Get row(s) in sheet",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Competitor_Viral_Hook_Research",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE"
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "competitor_channels",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE/edit#gid=2062197877",
+          "mode": "list",
+          "value": 2062197877
+        }
+      },
+      "position": [
+        32,
+        -80
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "9b3a8e18-7d4d-4617-93c5-f12a3b06f797",
+      "name": "Loop Over Items",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        240,
+        -80
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "0ef8fc94-1ef9-4a07-b13a-a897dc267339",
+      "name": "Fetch Top YouTube Videos",
+      "parameters": {
+        "options": {},
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "part",
+              "value": "snippet"
+            },
+            {
+              "name": "channelId",
+              "value": "={{ $json.channel_id }}"
+            },
+            {
+              "name": "maxResults",
+              "value": "5"
+            },
+            {
+              "name": "order",
+              "value": "date"
+            },
+            {
+              "name": "type",
+              "value": "video"
+            },
+            {
+              "name": "key",
+              "value": "AIzaSyBMyCnv43ikyLE6kJDEFTqtxpkU3oeZKt4"
+            },
+            {}
+          ]
+        },
+        "sendQuery": true,
+        "url": "https://www.googleapis.com/youtube/v3/search"
+      },
+      "position": [
+        480,
+        32
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3
+    },
+    {
+      "id": "724056b6-b1c3-4392-bde2-0fda41826f36",
+      "name": "Split Out Items",
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "position": [
+        688,
+        32
+      ],
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1
+    },
+    {
+      "id": "c9c96c42-19f3-45a9-b12a-a59c9fe39c30",
+      "name": "Fetch Video Transcript",
+      "parameters": {
+        "options": {
+          "response": {
+            "response": {}
+          }
+        },
+        "url": "https://video.google.com/timedtext?lang=en&v={{$json.id.videoId}}"
+      },
+      "position": [
+        896,
+        32
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3
+    },
+    {
+      "id": "de4dd00a-a565-4d74-b206-459156ec14e9",
+      "name": "Read Research Inputs",
+      "parameters": {},
+      "position": [
+        -192,
+        272
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "iNhS3q0aVZB4guX8",
+          "name": "Google Sheets account"
+        }
+      },
+      "id": "101e12e5-208c-422f-aabf-0aef7f346be1",
+      "name": "Read Research Inputs2",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Competitor_Viral_Hook_Research",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE"
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "content_research_inputs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE/edit#gid=218504221",
+          "mode": "list",
+          "value": 218504221
+        }
+      },
+      "position": [
+        32,
+        272
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "0d5225d8-ee25-4f02-8a96-452cf8262922",
+      "name": "Process Each Research Query",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        240,
+        272
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "06edf957-3d9b-4d4a-bccc-fb2745e90338",
+      "name": "Route by Platform",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "a2a5d91b-80c1-48fb-aa36-7cc3c568c1e3",
+              "leftValue": "={{ $json.platform }}",
+              "operator": {
+                "name": "filter.operator.equals",
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "instagram"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        464,
+        336
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "61afcd0c-a996-47dc-a0ec-112259c435ae",
+      "name": "Fetch Instagram Reels (Apify)",
+      "parameters": {
+        "jsonBody": "={\n  \"hashtags\": \"{{ $json.platform }}\",\n  \"resultsType\": \"reels\",\n  \"resultsLimit\": {{$json.max_results}},\n  \"addParentData\": true\n}\n ",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "url": "https://api.apify.com/v2/acts/apify~instagram-scraper/run-sync-get-dataset-items?token=REDACTED"
+      },
+      "position": [
+        1168,
+        48
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3
+    },
+    {
+      "id": "80ac5e7c-815e-493a-a05d-9c3c60f4940d",
+      "name": "Fetch Instagram Top Creators",
+      "parameters": {
+        "jsonBody": "={\n  \"search\": \"fitness coach\",\n  \"searchType\": \"user\",\n  \"resultsLimit\": 5\n}",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "url": "https://api.apify.com/v2/acts/apify~instagram-search-scraper/run-sync-get-dataset-items?token=REDACTED"
+      },
+      "position": [
+        1424,
+        80
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3
+    },
+    {
+      "credentials": {
+        "apifyApi": {
+          "id": "fgPIH8fbNjmXINc0",
+          "name": "Apify account"
+        }
+      },
+      "id": "ba8f76ca-7fe2-43ec-9de5-7d1d86bb16aa",
+      "name": "Run an Actor and get dataset",
+      "parameters": {
+        "actorId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://console.apify.com/actors/reGe1ST3OBgYZSsZJ"
+        },
+        "customBody": "={\n    \"hashtags\": [\n        \"{{ $json.niche }}\"\n    ],\n    \"resultsType\": \"reels\",\n    \"resultsLimit\": {{ $json.max_results }},\n    \"searchType\": \"top\" \n}\n",
+        "operation": "Run actor and get dataset",
+        "timeout": {}
+      },
+      "position": [
+        272,
+        560
+      ],
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1
+    },
+    {
+      "id": "d4d37293-7991-4d30-aae4-6e1c643e5bee",
+      "name": "Sort",
+      "parameters": {
+        "options": {},
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "videoPlayCount",
+              "order": "descending"
+            }
+          ]
+        }
+      },
+      "position": [
+        800,
+        560
+      ],
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1
+    },
+    {
+      "id": "a1994e6f-342a-4edf-88a2-a72e0984a954",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "Using hastag based search will give the recent posts which can be normal also not viral , so use the instagram search cause instagram by default ranks the post giving viral reels on the top\n\n\n"
+      },
+      "position": [
+        -784,
+        448
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "1c913a52-b70b-405a-9bea-bddf5231ca5a",
+      "name": "Sticky Note1",
+      "parameters": {
+        "color": 3,
+        "content": "{\n    \"hashtags\": [\n        \"{{ $json.niche }}\"\n    ],\n    \"keywordSearch\": false,\n    \"resultsLimit\": 20,\n    \"resultsType\": \"reels\",\n    \"onlyPostsNewerThan\": \"7 days\"\n} \n"
+      },
+      "position": [
+        -528,
+        464
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "0dd2897e-c71e-452b-bb9d-9b2ff27a2b3b",
+      "name": "Sticky Note2",
+      "parameters": {
+        "content": "To change the actor change the url for actor go to apify console and copy the desired url \n"
+      },
+      "position": [
+        -784,
+        624
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "6a5f84c6-3eb9-48e9-9dd1-f714e6fd0346",
+      "name": "Sticky Note3",
+      "parameters": {
+        "content": "Instagram search scraper :\nhttps://console.apify.com/actors/DrF9mzPPEuVizVF4l\n\nInstagram hashtag scrapper: \nhttps://console.apify.com/actors/reGe1ST3OBgYZSsZJ\n\nInstgram profie scraper:\nhttps://console.apify.com/actors/dSCLg0C3YEZ83HzYX\n",
+        "height": 288
+      },
+      "position": [
+        -512,
+        656
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "0ff710a0-0d16-4764-a576-683847715112",
+      "name": "Sticky Note4",
+      "parameters": {
+        "content": "Optimal approach for now\nhastag scrapper -> sort ->\nget username -> get the top reels\nthis is the one way another\nhastagscrapper->top reels \nalong with creators "
+      },
+      "position": [
+        -784,
+        880
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "5136d79f-753b-4438-ad18-9150f7db69aa",
+      "name": "Extract Creator Username",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "76f5ab7a-0bbe-4ffb-8170-957b31d86a61",
+              "name": "creator_username",
+              "type": "string",
+              "value": "={{ $json.ownerUsername }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        992,
+        560
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "7002857a-6886-48bd-93b7-36f36c1aef8f",
+      "name": "Unique Creators",
+      "parameters": {
+        "compare": "selectedFields",
+        "fieldsToCompare": "creator_username",
+        "options": {}
+      },
+      "position": [
+        1168,
+        560
+      ],
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "apifyApi": {
+          "id": "fgPIH8fbNjmXINc0",
+          "name": "Apify account"
+        }
+      },
+      "id": "42cd99b2-2928-4240-8aab-643ced4bea91",
+      "name": "Fetch Instagram Creator Profile",
+      "parameters": {
+        "actorId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://console.apify.com/actors/dSCLg0C3YEZ83HzYX"
+        },
+        "customBody": "={\n    \"includeAboutSection\": false,\n    \"usernames\": [\n        \"{{ $json.creator_username }}\"\n    ]\n}",
+        "operation": "Run actor and get dataset",
+        "timeout": {}
+      },
+      "position": [
+        288,
+        784
+      ],
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1
+    },
+    {
+      "id": "03de4760-a287-483e-afb3-9e56ed887f01",
+      "name": "Sort1",
+      "parameters": {
+        "options": {},
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "followersCount",
+              "order": "descending"
+            }
+          ]
+        }
+      },
+      "position": [
+        656,
+        784
+      ],
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1
+    },
+    {
+      "id": "b669dd80-8859-4ff6-8876-dd7c2afcbf39",
+      "name": "Filter on Views",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "55fa02e0-6522-4235-a506-e1603ffa2249",
+              "leftValue": "={{ $json.videoPlayCount }}",
+              "operator": {
+                "operation": "gt",
+                "type": "number"
+              },
+              "rightValue": 10000
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        432,
+        560
+      ],
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "47308c7e-dc52-48b7-b267-911c34469737",
+      "name": "Limit Top 5",
+      "parameters": {
+        "maxItems": 5
+      },
+      "position": [
+        816,
+        784
+      ],
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1
+    },
+    {
+      "id": "e851ff7d-9275-458c-b772-83fa3fe8350a",
+      "name": "Edit Fields",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0d11ab7e-9cad-4df6-ac4b-0cc056f7e397",
+              "name": "niche",
+              "type": "string",
+              "value": "={{ $('Process Each Research Query').item.json.niche }}"
+            },
+            {
+              "id": "ffd3e79d-8112-48ec-b7db-3eba81ee574c",
+              "name": "username",
+              "type": "string",
+              "value": "={{ $json.username }}"
+            },
+            {
+              "id": "707d5f63-8ef4-48f4-9969-b92919a95e03",
+              "name": "profile_url",
+              "type": "string",
+              "value": "={{ $json.inputUrl }}"
+            },
+            {
+              "id": "28bb2867-865e-445a-b24a-fdfbc90d5d49",
+              "name": "biography",
+              "type": "string",
+              "value": "={{ $json.biography }}"
+            },
+            {
+              "id": "bb0ce486-4b90-4020-bc5b-e74272d47294",
+              "name": "verified",
+              "type": "boolean",
+              "value": "={{ $json.verified }}"
+            },
+            {
+              "id": "7560b314-2bad-493b-a5bb-0c0922671b8f",
+              "name": "postsCount",
+              "type": "number",
+              "value": "={{ $json.postsCount }}"
+            },
+            {
+              "id": "9606e75e-de11-4e12-b5cf-bcee39d59e39",
+              "name": "followersCount",
+              "type": "number",
+              "value": "={{ $json.followersCount }}"
+            },
+            {
+              "id": "e850512f-4f7f-48af-87e6-c70887c680ee",
+              "name": "platform",
+              "type": "string",
+              "value": "={{ $('Process Each Research Query').item.json.platform }}"
+            },
+            {
+              "id": "caca24cd-48bf-47db-81db-1b7b6f70f4bd",
+              "name": "collected_at",
+              "type": "string",
+              "value": "={{ $now }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        976,
+        784
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "52cff1c0-f50f-4a19-8dd6-44eaeb075542",
+      "name": "Edit Fields1",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        1376,
+        560
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-01-15T10:49:48.132Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-01-15T10:49:48.132Z",
+      "workflowId": "8LupRQN7qWzoG1pk"
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2026-02-15T06:09:42.559Z",
+      "id": "GnuRqk8CaBi19nkC",
+      "name": "MyFolder/Subfolder",
+      "updatedAt": "2026-02-15T06:09:42.559Z"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-15T06:09:44.046Z",
+  "versionId": "70e62570-5c48-4566-b0ad-c57e433aa4c7"
+}
