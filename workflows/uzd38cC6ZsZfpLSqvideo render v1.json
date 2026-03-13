@@ -1,0 +1,772 @@
+{
+  "active": true,
+  "activeVersion": {
+    "authors": "Sukhneer Singh",
+    "autosaved": true,
+    "connections": {
+      "Download file": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Write Data to Disk1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get filenames": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "create video from command",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "HTTP Request": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Write Data to Disk1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Loop Over Items1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get filenames",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "check for url type",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Read Data from Disk1": {
+        "main": [
+          [
+            {
+              "index": 1,
+              "node": "Merge",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Start": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "flatten for download",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Write Data to Disk1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Items1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "check for url type": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "HTTP Request",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Download file",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "create video from command": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Remove Tmp files",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "flatten for download": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Items1",
+              "type": "main"
+            }
+          ]
+        ]
+      }
+    },
+    "createdAt": "2026-03-11T07:58:20.500Z",
+    "description": "",
+    "name": "Version 87d67a27",
+    "nodes": [
+      {
+        "id": "098659f0-d8b2-49a2-b134-4778a18b617f",
+        "name": "Start",
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "video_link_list",
+                "type": "array"
+              },
+              {
+                "name": "audio_link"
+              },
+              {
+                "name": "audio_start_time"
+              },
+              {
+                "name": "output_video_name"
+              }
+            ]
+          }
+        },
+        "position": [
+          0,
+          -48
+        ],
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1
+      },
+      {
+        "id": "3cf4cf0e-72be-4f2b-befd-3d4863e073a6",
+        "name": "create video from command",
+        "parameters": {
+          "command": "={{ $json.ffmpeg_command }}",
+          "executeOnce": false
+        },
+        "position": [
+          1040,
+          -64
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.executeCommand",
+        "typeVersion": 1,
+        "waitBetweenTries": 5000
+      },
+      {
+        "id": "f1229c0e-d21e-4e59-84d7-4620d525639a",
+        "name": "flatten for download",
+        "parameters": {
+          "jsCode": "const input = $input.first().json;\nconst results = [];\n\n/**\n * Logic to determine if the URL can be used directly by the HTTP Request node.\n */\nconst checkDirectDownload = (url) => {\n  if (!url) return false;\n  if (url.includes('uc?export=download') || !url.includes('drive.google.com')) {\n    return true;\n  }\n  return false;\n};\n\n// 1. Add each video link as a separate item\ninput.video_link_list.forEach((url, index) => {\n  results.push({\n    json: {\n      url: url,\n      type: 'video',\n      fileName: `video_${index}.mp4`, \n      is_direct_download: checkDirectDownload(url),\n      audio_start_time: input.audio_start_time,\n      output_video_name: input.output_video_name,\n      video_count: input.video_link_list.length \n    }\n  });\n});\n\n// 2. Add the audio link ONLY if it is not empty\nif (input.audio_link && input.audio_link.trim() !== \"\") {\n  results.push({\n    json: {\n      url: input.audio_link,\n      type: 'audio',\n      fileName: 'song_audio.mp3',\n      is_direct_download: checkDirectDownload(input.audio_link),\n      audio_start_time: input.audio_start_time,\n      output_video_name: input.output_video_name\n    }\n  });\n}\n\nreturn results;"
+        },
+        "position": [
+          256,
+          -48
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "d8e65bc4-8157-4f3a-bba5-91230d2e10f0",
+        "name": "Loop Over Items1",
+        "parameters": {
+          "options": {}
+        },
+        "position": [
+          528,
+          -48
+        ],
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3
+      },
+      {
+        "id": "75da86e5-7cec-41c3-b38a-6bf7377b9360",
+        "name": "HTTP Request",
+        "parameters": {
+          "options": {},
+          "url": "={{ $json.url }}"
+        },
+        "position": [
+          880,
+          128
+        ],
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4
+      },
+      {
+        "executeOnce": false,
+        "id": "d5bf5db6-5986-4937-9e84-3df7726157f7",
+        "name": "Write Data to Disk1",
+        "parameters": {
+          "fileName": "=/tmp/{{ $binary.data.fileName }}",
+          "operation": "write",
+          "options": {
+            "append": false
+          }
+        },
+        "position": [
+          1184,
+          336
+        ],
+        "type": "n8n-nodes-base.readWriteFile",
+        "typeVersion": 1
+      },
+      {
+        "id": "4bb0265e-e32e-4dea-899f-66563f2a1506",
+        "name": "Get filenames",
+        "parameters": {
+          "jsCode": "// 1. Get all items from the previous node\nconst items = $input.all();\n\nconst videoPaths = [];\nlet audioPath = \"\";\n\n// 2. Separate audio and video based on filename binary metadata\nitems.forEach(item => {\n  const fileName = item.binary?.data?.fileName;\n  if (!fileName) return;\n\n  const fullPath = `/tmp/${fileName}`;\n\n  // Check for audio extensions\n  if (fileName.includes('song_audio') || fileName.endsWith('.mp3') || fileName.endsWith('.ogg')) {\n    audioPath = fullPath;\n  } else if (fileName.endsWith('.mp4') || fileName.endsWith('.mov')) {\n    videoPaths.push(fullPath);\n  }\n});\n\n// 3. Metadata from the first item\nconst meta = items[0].json; \nconst startTime = meta.audio_start_time || \"00:00:00\";\nconst outputName = meta.output_video_name || \"reel_output_check.mp4\";\nconst finalOutputPath = `/tmp/${outputName.replace(/^\\//, '')}`;\n\n// 4. Build FFmpeg Input List\nconst videoInputs = videoPaths.map(p => `-i \"${p}\"`).join(' ');\n\n/** * 5. Dynamic Filter Creation (Scaling & Padding)\n * We must ensure every video is exactly 720x1280 before concatenation.\n */\nconst scalingFilter = videoPaths.map((_, index) => {\n  return `[${index}:v]scale=720:1280:force_original_aspect_ratio=decrease,pad=720:1280:(ow-iw)/2:(oh-ih)/2,setsar=1[v${index}]`;\n}).join('; ');\n\nconst videoLabels = videoPaths.map((_, index) => `[v${index}]`).join('');\nconst concatFilter = `${videoLabels}concat=n=${videoPaths.length}:v=1:a=0[outv]`;\n\nconst filterComplex = `\"${scalingFilter}; ${concatFilter}\"`;\n\n// --- DYNAMIC AUDIO HANDLING ---\nlet audioFlags = \"\";\nlet audioMapping = \"\";\n\nif (audioPath && audioPath !== \"\") {\n  // If audio exists, add the seek time and the input file\n  audioFlags = `-ss ${startTime} -i \"${audioPath}\"`;\n  // The audio index is the number of video inputs (since it's the last -i)\n  audioMapping = `-map ${videoPaths.length}:a`;\n}\n\n// 6. Build the Final Command\nconst ffmpegBinary = \"/home/node/.n8n/ffmpeg_bin\"; \n\n// Constructing the command using the dynamic audio strings\nconst ffmpegCommand = `${ffmpegBinary} -y -protocol_whitelist file,http,https,tcp,tls ${videoInputs} ${audioFlags} -filter_complex ${filterComplex} -map \"[outv]\" ${audioMapping} -c:v libx264 -pix_fmt yuv420p -shortest \"${finalOutputPath}\"`.replace(/\\s+/g, ' ').trim();\n\n// Cleanup command for source files\nconst allInputs = [...videoPaths, audioPath].filter(p => p !== \"\").map(p => `\"${p}\"`).join(' ');\nconst rmCommand = `rm ${allInputs}`;\n\nreturn {\n  ffmpeg_command: ffmpegCommand,\n  cleanup_command: rmCommand,\n  output_path: finalOutputPath\n};"
+        },
+        "position": [
+          736,
+          -64
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "f666bdd6-ca36-486b-b1eb-f03917475fe7",
+        "name": "Merge",
+        "parameters": {
+          "combineBy": "combineByPosition",
+          "mode": "combine",
+          "options": {}
+        },
+        "position": [
+          1744,
+          176
+        ],
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2
+      },
+      {
+        "id": "7ed314d8-ab82-402a-a6c4-6cd177110a47",
+        "name": "Remove Tmp files",
+        "onError": "continueRegularOutput",
+        "parameters": {
+          "command": "={{ $('Get filenames').item.json.cleanup_command }}",
+          "executeOnce": false
+        },
+        "position": [
+          1312,
+          -64
+        ],
+        "retryOnFail": false,
+        "type": "n8n-nodes-base.executeCommand",
+        "typeVersion": 1,
+        "waitBetweenTries": 5000
+      },
+      {
+        "id": "150d247a-ee55-4b6d-9f66-a3b7c0cc7763",
+        "name": "Read Data from Disk1",
+        "parameters": {
+          "fileSelector": "=/tmp/{{ $('Start').item.json.output_video_name }}",
+          "options": {
+            "dataPropertyName": "file_data"
+          }
+        },
+        "position": [
+          1536,
+          304
+        ],
+        "type": "n8n-nodes-base.readWriteFile",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "74adc21f-0fad-4551-8f3e-0887a932ddee",
+        "name": "Download file",
+        "parameters": {
+          "fileId": {
+            "__rl": true,
+            "mode": "url",
+            "value": "={{ $json.url }}"
+          },
+          "operation": "download",
+          "options": {}
+        },
+        "position": [
+          880,
+          336
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "id": "e566b89d-c6c8-47e8-be02-0eb74e870399",
+        "name": "check for url type",
+        "parameters": {
+          "conditions": {
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "cf21a745-bd56-4fb9-bf6b-c62b11fe6160",
+                "leftValue": "={{ $('flatten for download').item.json.is_direct_download }}",
+                "operator": {
+                  "operation": "true",
+                  "singleValue": true,
+                  "type": "boolean"
+                },
+                "rightValue": ""
+              }
+            ],
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            }
+          },
+          "options": {}
+        },
+        "position": [
+          592,
+          272
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3
+      }
+    ],
+    "updatedAt": "2026-03-11T07:58:52.000Z",
+    "versionId": "87d67a27-3a14-4dd7-a923-64a93e736ab1",
+    "workflowId": "uzd38cC6ZsZfpLSq"
+  },
+  "activeVersionId": "87d67a27-3a14-4dd7-a923-64a93e736ab1",
+  "connections": {
+    "Download file": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Write Data to Disk1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get filenames": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "create video from command",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Write Data to Disk1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get filenames",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "check for url type",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Read Data from Disk1": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "flatten for download",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Write Data to Disk1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "check for url type": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "HTTP Request",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Download file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "create video from command": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Remove Tmp files",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "flatten for download": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items1",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-04T14:24:59.449Z",
+  "id": "uzd38cC6ZsZfpLSq",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "video render v1",
+  "nodes": [
+    {
+      "id": "098659f0-d8b2-49a2-b134-4778a18b617f",
+      "name": "Start",
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "video_link_list",
+              "type": "array"
+            },
+            {
+              "name": "audio_link"
+            },
+            {
+              "name": "audio_start_time"
+            },
+            {
+              "name": "output_video_name"
+            }
+          ]
+        }
+      },
+      "position": [
+        0,
+        -48
+      ],
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "3cf4cf0e-72be-4f2b-befd-3d4863e073a6",
+      "name": "create video from command",
+      "parameters": {
+        "command": "={{ $json.ffmpeg_command }}",
+        "executeOnce": false
+      },
+      "position": [
+        1040,
+        -64
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "f1229c0e-d21e-4e59-84d7-4620d525639a",
+      "name": "flatten for download",
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\nconst results = [];\n\n/**\n * Logic to determine if the URL can be used directly by the HTTP Request node.\n */\nconst checkDirectDownload = (url) => {\n  if (!url) return false;\n  if (url.includes('uc?export=download') || !url.includes('drive.google.com')) {\n    return true;\n  }\n  return false;\n};\n\n// 1. Add each video link as a separate item\ninput.video_link_list.forEach((url, index) => {\n  results.push({\n    json: {\n      url: url,\n      type: 'video',\n      fileName: `video_${index}.mp4`, \n      is_direct_download: checkDirectDownload(url),\n      audio_start_time: input.audio_start_time,\n      output_video_name: input.output_video_name,\n      video_count: input.video_link_list.length \n    }\n  });\n});\n\n// 2. Add the audio link ONLY if it is not empty\nif (input.audio_link && input.audio_link.trim() !== \"\") {\n  results.push({\n    json: {\n      url: input.audio_link,\n      type: 'audio',\n      fileName: 'song_audio.mp3',\n      is_direct_download: checkDirectDownload(input.audio_link),\n      audio_start_time: input.audio_start_time,\n      output_video_name: input.output_video_name\n    }\n  });\n}\n\nreturn results;"
+      },
+      "position": [
+        256,
+        -48
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "d8e65bc4-8157-4f3a-bba5-91230d2e10f0",
+      "name": "Loop Over Items1",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        528,
+        -48
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "75da86e5-7cec-41c3-b38a-6bf7377b9360",
+      "name": "HTTP Request",
+      "parameters": {
+        "options": {},
+        "url": "={{ $json.url }}"
+      },
+      "position": [
+        880,
+        128
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "executeOnce": false,
+      "id": "d5bf5db6-5986-4937-9e84-3df7726157f7",
+      "name": "Write Data to Disk1",
+      "parameters": {
+        "fileName": "=/tmp/{{ $binary.data.fileName }}",
+        "operation": "write",
+        "options": {
+          "append": false
+        }
+      },
+      "position": [
+        1184,
+        336
+      ],
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1
+    },
+    {
+      "id": "4bb0265e-e32e-4dea-899f-66563f2a1506",
+      "name": "Get filenames",
+      "parameters": {
+        "jsCode": "// 1. Get all items from the previous node\nconst items = $input.all();\n\nconst videoPaths = [];\nlet audioPath = \"\";\n\n// 2. Separate audio and video based on filename binary metadata\nitems.forEach(item => {\n  const fileName = item.binary?.data?.fileName;\n  if (!fileName) return;\n\n  const fullPath = `/tmp/${fileName}`;\n\n  // Check for audio extensions\n  if (fileName.includes('song_audio') || fileName.endsWith('.mp3') || fileName.endsWith('.ogg')) {\n    audioPath = fullPath;\n  } else if (fileName.endsWith('.mp4') || fileName.endsWith('.mov')) {\n    videoPaths.push(fullPath);\n  }\n});\n\n// 3. Metadata from the first item\nconst meta = items[0].json; \nconst startTime = meta.audio_start_time || \"00:00:00\";\nconst outputName = meta.output_video_name || \"reel_output_check.mp4\";\nconst finalOutputPath = `/tmp/${outputName.replace(/^\\//, '')}`;\n\n// 4. Build FFmpeg Input List\nconst videoInputs = videoPaths.map(p => `-i \"${p}\"`).join(' ');\n\n/** * 5. Dynamic Filter Creation (Scaling & Padding)\n * We must ensure every video is exactly 720x1280 before concatenation.\n */\nconst scalingFilter = videoPaths.map((_, index) => {\n  return `[${index}:v]scale=720:1280:force_original_aspect_ratio=decrease,pad=720:1280:(ow-iw)/2:(oh-ih)/2,setsar=1[v${index}]`;\n}).join('; ');\n\nconst videoLabels = videoPaths.map((_, index) => `[v${index}]`).join('');\nconst concatFilter = `${videoLabels}concat=n=${videoPaths.length}:v=1:a=0[outv]`;\n\nconst filterComplex = `\"${scalingFilter}; ${concatFilter}\"`;\n\n// --- DYNAMIC AUDIO HANDLING ---\nlet audioFlags = \"\";\nlet audioMapping = \"\";\n\nif (audioPath && audioPath !== \"\") {\n  // If audio exists, add the seek time and the input file\n  audioFlags = `-ss ${startTime} -i \"${audioPath}\"`;\n  // The audio index is the number of video inputs (since it's the last -i)\n  audioMapping = `-map ${videoPaths.length}:a`;\n}\n\n// 6. Build the Final Command\nconst ffmpegBinary = \"/home/node/.n8n/ffmpeg_bin\"; \n\n// Constructing the command using the dynamic audio strings\nconst ffmpegCommand = `${ffmpegBinary} -y -protocol_whitelist file,http,https,tcp,tls ${videoInputs} ${audioFlags} -filter_complex ${filterComplex} -map \"[outv]\" ${audioMapping} -c:v libx264 -pix_fmt yuv420p -shortest \"${finalOutputPath}\"`.replace(/\\s+/g, ' ').trim();\n\n// Cleanup command for source files\nconst allInputs = [...videoPaths, audioPath].filter(p => p !== \"\").map(p => `\"${p}\"`).join(' ');\nconst rmCommand = `rm ${allInputs}`;\n\nreturn {\n  ffmpeg_command: ffmpegCommand,\n  cleanup_command: rmCommand,\n  output_path: finalOutputPath\n};"
+      },
+      "position": [
+        736,
+        -64
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "f666bdd6-ca36-486b-b1eb-f03917475fe7",
+      "name": "Merge",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        1744,
+        176
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "7ed314d8-ab82-402a-a6c4-6cd177110a47",
+      "name": "Remove Tmp files",
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "command": "={{ $('Get filenames').item.json.cleanup_command }}",
+        "executeOnce": false
+      },
+      "position": [
+        1312,
+        -64
+      ],
+      "retryOnFail": false,
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "150d247a-ee55-4b6d-9f66-a3b7c0cc7763",
+      "name": "Read Data from Disk1",
+      "parameters": {
+        "fileSelector": "=/tmp/{{ $('Start').item.json.output_video_name }}",
+        "options": {
+          "dataPropertyName": "file_data"
+        }
+      },
+      "position": [
+        1536,
+        304
+      ],
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "74adc21f-0fad-4551-8f3e-0887a932ddee",
+      "name": "Download file",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "={{ $json.url }}"
+        },
+        "operation": "download",
+        "options": {}
+      },
+      "position": [
+        880,
+        336
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "e566b89d-c6c8-47e8-be02-0eb74e870399",
+      "name": "check for url type",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "cf21a745-bd56-4fb9-bf6b-c62b11fe6160",
+              "leftValue": "={{ $('flatten for download').item.json.is_direct_download }}",
+              "operator": {
+                "operation": "true",
+                "singleValue": true,
+                "type": "boolean"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        592,
+        272
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    }
+  ],
+  "pinData": {
+    "Start": [
+      {
+        "json": {
+          "audio_link": "",
+          "audio_start_time": "00:00:10",
+          "output_video_name": "reel_output_check.mp4",
+          "video_link_list": [
+            "https://drive.google.com/uc?export=download&id=1Zvn_xC1zGt3yJX_CqBHkL1FPQTsTeeoC",
+            "https://drive.google.com/uc?export=download&id=1nO0TB-uZM-Lg1r0xVdtaBsuN_LZXW_N7",
+            "https://drive.google.com/uc?export=download&id=1Ck3Zo2L2wogi126-JfH04bLJWU_fB_aP",
+            "https://drive.google.com/uc?export=download&id=1n4QNT89_yg8lICuqtxqCNH0AoxQlCFBb",
+            "https://drive.google.com/uc?export=download&id=1dGxSXrVEWpyktnohNiGKklXAV0kI7ofc"
+          ]
+        }
+      }
+    ],
+    "create video from command": [
+      {
+        "json": {
+          "exitCode": 0,
+          "stderr": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers\n  built with gcc 8 (Debian 8.3.0-6)\n  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libaom --enable-libfribidi --enable-libass --enable-libvmaf --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libdav1d --enable-libxvid --enable-libzvbi --enable-libzimg\n  libavutil      59.  8.100 / 59.  8.100\n  libavcodec     61.  3.100 / 61.  3.100\n  libavformat    61.  1.100 / 61.  1.100\n  libavdevice    61.  1.100 / 61.  1.100\n  libavfilter    10.  1.100 / 10.  1.100\n  libswscale      8.  1.100 /  8.  1.100\n  libswresample   5.  1.100 /  5.  1.100\n  libpostproc    58.  1.100 / 58.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/tmp/9_001.mp4':\n  Metadata:\n    major_brand     : mp42\n    minor_version   : 0\n    compatible_brands: mp41isom\n    creation_time   : 2026-02-28T11:53:10.000000Z\n  Duration: 00:00:02.13, start: 0.000000, bitrate: 2995 kb/s\n  Stream #0:0[0x1](und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(progressive), 720x1280 [SAR 1:1 DAR 9:16], 2840 kb/s, 30 fps, 30 tbr, 30k tbn (default)\n      Metadata:\n        creation_time   : 2026-02-28T11:53:10.000000Z\n        handler_name    : VideoHandler\n        vendor_id       : [0][0][0][0]\n        encoder         : AVC Coding\n  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 192 kb/s (default)\n      Metadata:\n        creation_time   : 2026-02-28T11:53:10.000000Z\n        handler_name    : SoundHandler\n        vendor_id       : [0][0][0][0]\nInput #1, mov,mp4,m4a,3gp,3g2,mj2, from '/tmp/9_008.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf61.7.100\n  Duration: 00:00:01.73, start: 0.000000, bitrate: 2590 kb/s\n  Stream #1:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x1280 [SAR 1:1 DAR 9:16], 2583 kb/s, 30 fps, 30 tbr, 15360 tbn (default)\n      Metadata:\n        handler_name    : VideoHandler\n        vendor_id       : [0][0][0][0]\n        encoder         : Lavc61.19.101 libx264\nInput #2, mov,mp4,m4a,3gp,3g2,mj2, from '/tmp/8_001.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf61.7.100\n  Duration: 00:00:02.10, start: 0.000000, bitrate: 3761 kb/s\n  Stream #2:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x1280, 3617 kb/s, 30 fps, 30 tbr, 15360 tbn (default)\n      Metadata:\n        handler_name    : VideoHandler\n        vendor_id       : [0][0][0][0]\n        encoder         : Lavc61.19.101 libx264\n  Stream #2:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)\n      Metadata:\n        handler_name    : SoundHandler\n        vendor_id       : [0][0][0][0]\nInput #3, mov,mp4,m4a,3gp,3g2,mj2, from '/tmp/5_001.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf61.7.100\n  Duration: 00:00:02.13, start: 0.000000, bitrate: 3003 kb/s\n  Stream #3:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x1280, 2859 kb/s, 30 fps, 30 tbr, 15360 tbn (default)\n      Metadata:\n        handler_name    : VideoHandler\n        vendor_id       : [0][0][0][0]\n        encoder         : Lavc61.19.101 libx264\n  Stream #3:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)\n      Metadata:\n        handler_name    : SoundHandler\n        vendor_id       : [0][0][0][0]\nInput #4, mov,mp4,m4a,3gp,3g2,mj2, from '/tmp/4_014.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf61.7.100\n  Duration: 00:00:01.90, start: 0.000000, bitrate: 2561 kb/s\n  Stream #4:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x1280, 2417 kb/s, 30 fps, 30 tbr, 15360 tbn (default)\n      Metadata:\n        handler_name    : VideoHandler\n        vendor_id       : [0][0][0][0]\n        encoder         : Lavc61.19.101 libx264\n  Stream #4:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 127 kb/s (default)\n      Metadata:\n        handler_name    : SoundHandler\n        vendor_id       : [0][0][0][0]\n[mp3 @ 0x4405dac0] Estimating duration from bitrate, this may be inaccurate\nInput #5, mp3, from '/tmp/song_audio.mp3':\n  Metadata:\n    artist          : T-Series\n    title           : BORDER 2: Mohabbat Ho Gayi Hai (Audio) | Anu Malik, Javed A, Mithoon, Manoj M, Sonu Nigam, Palak M\n    encoder         : Lavf60.3.100\n  Duration: 00:06:00.12, start: 0.000000, bitrate: 320 kb/s\n  Stream #5:0: Audio: mp3 (mp3float), 48000 Hz, stereo, fltp, 320 kb/s\nStream mapping:\n  Stream #0:0 (h264) -> concat (graph 0)\n  Stream #1:0 (h264) -> concat (graph 0)\n  Stream #2:0 (h264) -> concat (graph 0)\n  Stream #3:0 (h264) -> concat (graph 0)\n  Stream #4:0 (h264) -> concat (graph 0)\n  concat:out:v0 (graph 0) -> Stream #0:0 (libx264)\n  Stream #5:0 -> #0:1 (mp3 (mp3float) -> aac (native))\nPress [q] to stop, [?] for help\n[libx264 @ 0x4406cc40] using SAR=1/1\n[libx264 @ 0x4406cc40] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2\n[libx264 @ 0x4406cc40] profile High, level 3.1, 4:2:0, 8-bit\n[libx264 @ 0x4406cc40] 264 - core 164 r3191 4613ac3 - H.264/MPEG-4 AVC codec - Copyleft 2003-2024 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=3 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00\nOutput #0, mp4, to '/tmp/reel_output_check.mp4':\n  Metadata:\n    major_brand     : mp42\n    minor_version   : 0\n    compatible_brands: mp41isom\n    encoder         : Lavf61.1.100\n  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, progressive), 720x1280 [SAR 1:1 DAR 9:16], q=2-31, 30 fps, 15360 tbn\n      Metadata:\n        encoder         : Lavc61.3.100 libx264\n      Side data:\n        cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A\n  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s\n      Metadata:\n        encoder         : Lavc61.3.100 aac\nframe=    0 fps=0.0 q=0.0 size=       0KiB time=N/A bitrate=N/A dup=1 drop=0 speed=N/A    \rframe=    6 fps=6.0 q=29.0 size=       0KiB time=00:00:00.13 bitrate=   2.9kbits/s dup=1 drop=0 speed=0.133x    \rframe=   26 fps= 17 q=29.0 size=       0KiB time=00:00:00.80 bitrate=   0.5kbits/s dup=1 drop=0 speed=0.532x    \rframe=   45 fps= 22 q=29.0 size=     256KiB time=00:00:01.43 bitrate=1463.4kbits/s dup=1 drop=0 speed=0.715x    \rframe=   66 fps= 26 q=29.0 size=     512KiB time=00:00:02.13 bitrate=1966.3kbits/s dup=1 drop=0 speed=0.852x    \rframe=   82 fps= 27 q=29.0 size=     768KiB time=00:00:02.66 bitrate=2359.4kbits/s dup=1 drop=0 speed=0.888x    \rframe=   98 fps= 28 q=29.0 size=     768KiB time=00:00:03.20 bitrate=1966.2kbits/s dup=1 drop=0 speed=0.913x    \rframe=  117 fps= 29 q=29.0 size=    1024KiB time=00:00:03.83 bitrate=2188.4kbits/s dup=1 drop=0 speed=0.957x    \rframe=  135 fps= 30 q=29.0 size=    1280KiB time=00:00:04.43 bitrate=2365.3kbits/s dup=1 drop=0 speed=0.983x    \rframe=  150 fps= 30 q=29.0 size=    1536KiB time=00:00:04.93 bitrate=2550.7kbits/s dup=1 drop=0 speed=0.985x    \rframe=  165 fps= 30 q=29.0 size=    1792KiB time=00:00:05.43 bitrate=2701.9kbits/s dup=1 drop=0 speed=0.986x    \rframe=  182 fps= 30 q=29.0 size=    2048KiB time=00:00:06.00 bitrate=2796.3kbits/s dup=1 drop=0 speed=0.999x    \rframe=  204 fps= 31 q=29.0 size=    2304KiB time=00:00:06.73 bitrate=2803.2kbits/s dup=1 drop=0 speed=1.03x    \rframe=  223 fps= 32 q=29.0 size=    2304KiB time=00:00:07.36 bitrate=2562.2kbits/s dup=1 drop=0 speed=1.05x    \rframe=  246 fps= 33 q=29.0 size=    2560KiB time=N/A bitrate=N/A dup=1 drop=0 speed=N/A    \rframe=  267 fps= 33 q=29.0 size=    2816KiB time=N/A bitrate=N/A dup=1 drop=0 speed=N/A    \rframe=  285 fps= 33 q=29.0 size=    3072KiB time=N/A bitrate=N/A dup=1 drop=0 speed=N/A    \r[out#0/mp4 @ 0x44061d40] video:3063KiB audio:159KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.376166%\nframe=  300 fps= 34 q=-1.0 Lsize=    3235KiB time=00:00:09.93 bitrate=2667.6kbits/s dup=1 drop=0 speed=1.13x    \n[libx264 @ 0x4406cc40] frame I:5     Avg QP:21.82  size: 56287\n[libx264 @ 0x4406cc40] frame P:112   Avg QP:24.25  size: 18184\n[libx264 @ 0x4406cc40] frame B:183   Avg QP:28.52  size:  4472\n[libx264 @ 0x4406cc40] consecutive B-frames:  2.0% 48.7%  4.0% 45.3%\n[libx264 @ 0x4406cc40] mb I  I16..4:  8.5% 60.7% 30.8%\n[libx264 @ 0x4406cc40] mb P  I16..4:  4.3% 15.7%  1.9%  P16..4: 37.6% 13.1%  5.9%  0.0%  0.0%    skip:21.4%\n[libx264 @ 0x4406cc40] mb B  I16..4:  0.5%  2.1%  0.2%  B16..8: 30.0%  3.5%  0.8%  direct: 1.2%  skip:61.7%  L0:37.4% L1:51.4% BI:11.3%\n[libx264 @ 0x4406cc40] 8x8 transform intra:70.5% inter:74.7%\n[libx264 @ 0x4406cc40] coded y,uvDC,uvAC intra: 55.3% 56.2% 11.7% inter: 11.2% 10.0% 0.3%\n[libx264 @ 0x4406cc40] i16 v,h,dc,p: 39% 15%  8% 37%\n[libx264 @ 0x4406cc40] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 32% 15% 16%  5%  6%  8%  5%  8%  5%\n[libx264 @ 0x4406cc40] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 30% 14% 11%  7%  8% 10%  7%  8%  5%\n[libx264 @ 0x4406cc40] i8c dc,h,v,p: 45% 15% 30%  9%\n[libx264 @ 0x4406cc40] Weighted P-Frames: Y:0.0% UV:0.0%\n[libx264 @ 0x4406cc40] ref P L0: 76.0% 15.7%  7.1%  1.3%\n[libx264 @ 0x4406cc40] ref B L0: 95.1%  4.5%  0.4%\n[libx264 @ 0x4406cc40] ref B L1: 99.6%  0.4%\n[libx264 @ 0x4406cc40] kb/s:2509.04\n[aac @ 0x43ef90c0] Qavg: 722.351",
+          "stdout": ""
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-04T14:24:59.452Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-04T14:24:59.452Z",
+      "workflowId": "uzd38cC6ZsZfpLSq"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-11T07:58:20.498Z",
+  "versionId": "87d67a27-3a14-4dd7-a923-64a93e736ab1"
+}
