@@ -1,0 +1,398 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Download Video from Drive": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Generate Caption",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Generate Caption": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Instagram - Create Container",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "TikTok - Upload",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Full Context from DB": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Download Video from Drive",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Google Drive - New Video": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Parse Filename Metadata",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Instagram - Create Container": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait for Processing",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Instagram - Publish": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Save Instagram Post to DB",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Parse Filename Metadata": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Full Context from DB",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Save Instagram Post to DB": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Notify Success",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Save TikTok Post to DB": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Notify Success",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "TikTok - Upload": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Save TikTok Post to DB",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait for Processing": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Instagram - Publish",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-15T06:32:37.919Z",
+  "id": "p8O89e1aBrQbawSd",
+  "isArchived": false,
+  "meta": null,
+  "name": "Enhanced Upload to Social Media with Analytics Tracking",
+  "nodes": [
+    {
+      "id": "1a5b1ea1-6cb2-412d-a629-716d425e5cae",
+      "name": "Google Drive - New Video",
+      "notes": "Triggers when new video is uploaded",
+      "parameters": {
+        "event": "fileCreated",
+        "folderToWatch": {
+          "__rl": true,
+          "mode": "id",
+          "value": "YOUR_GOOGLE_DRIVE_FOLDER_ID"
+        },
+        "options": {},
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder"
+      },
+      "position": [
+        -1008,
+        112
+      ],
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "d1e9892b-d99c-44a5-b3a7-c66bc21ffc18",
+      "name": "Parse Filename Metadata",
+      "notes": "Extract IDs from filename",
+      "parameters": {
+        "jsCode": "// Parse filename to extract metadata\nconst filename = $input.first().json.name;\n\n// Expected format: script_{script_id}_idea_{idea_id}_hook_{hook_id}_transcript_{transcript_id}_source_{source_id}.mp4\n\nconst regex = /script_([^_]+)_idea_([^_]+)_hook_([^_]+)_transcript_([^_]+)_source_([^_]+)\\.mp4/;\nconst match = filename.match(regex);\n\nif (!match) {\n  throw new Error(`Invalid filename format: ${filename}. Expected: script_ID_idea_ID_hook_ID_transcript_ID_source_ID.mp4`);\n}\n\nreturn {\n  file_id: $input.first().json.id,\n  filename: filename,\n  drive_url: $input.first().json.webViewLink,\n  \n  // Extracted metadata\n  script_id: match[1],\n  idea_id: match[2],\n  hook_variant_id: match[3] === 'null' ? null : match[3],\n  transcript_id: match[4],\n  source_reel_id: match[5] === 'null' ? null : match[5]\n};"
+      },
+      "position": [
+        -800,
+        112
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "bc1f954b-d12b-4258-a37d-e81bea203078",
+      "name": "Get Full Context from DB",
+      "notes": "Fetch all related data",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- Verify all IDs exist and get additional context\nSELECT \n  s.script_id,\n  s.script_text,\n  i.idea_id,\n  i.idea_text,\n  hv.hook_variant_id,\n  hv.hook_text,\n  t.transcript_id,\n  sr.source_reel_id,\n  sr.caption,\n  c.niche,\n  gv.video_id as generated_video_id\nFROM scripts s\nJOIN ideas i ON s.idea_id = i.idea_id\nLEFT JOIN hook_variants hv ON s.hook_variant_id = hv.hook_variant_id\nJOIN transcripts t ON s.transcript_id = t.transcript_id\nLEFT JOIN source_reels sr ON t.source_reel_id = sr.source_reel_id\nLEFT JOIN creators c ON sr.creator_id = c.creator_id\nLEFT JOIN generated_videos gv ON s.script_id = gv.script_id\nWHERE s.script_id = '{{ $json.script_id }}'\nLIMIT 1;"
+      },
+      "position": [
+        -608,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "e2e98df0-3d53-42ce-8dd3-6c443c5b4bcc",
+      "name": "Download Video from Drive",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Parse Filename Metadata').item.json.file_id }}"
+        },
+        "operation": "download",
+        "options": {}
+      },
+      "position": [
+        -400,
+        112
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "fd24f35c-e6f0-4ee7-b226-779f3d4360e3",
+      "name": "Generate Caption",
+      "parameters": {
+        "jsCode": "// Generate caption for Instagram/TikTok\nconst hookText = $('Get Full Context from DB').item.json.hook_text || '';\nconst niche = $('Get Full Context from DB').item.json.niche || '';\n\n// Get relevant hashtags based on niche\nconst hashtagMap = {\n  'fitness': '#fitness #workout #gym #health #fitnessmotivation',\n  'tech': '#tech #technology #ai #innovation #startup',\n  'finance': '#finance #money #investing #wealth #business',\n  'education': '#education #learning #knowledge #study #tips',\n  'entertainment': '#entertainment #funny #viral #trending #fyp'\n};\n\nconst hashtags = hashtagMap[niche] || '#viral #trending #fyp';\n\n// Build caption\nconst caption = `${hookText}\n\n${hashtags}\n\n💾 Save this for later\n👉 Follow for more`;\n\nreturn {\n  caption: caption,\n  hook_text: hookText,\n  niche: niche\n};"
+      },
+      "position": [
+        -208,
+        112
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "82ddb5c1-e37e-46e9-8c4f-a398a4fbc456",
+      "name": "Instagram - Create Container",
+      "notes": "Step 1: Create media container",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "jsonBody": "={\n  \"video_url\": \"{{ $('Parse Filename Metadata').item.json.drive_url }}\",\n  \"caption\": \"{{ $('Generate Caption').item.json.caption }}\",\n  \"access_token\": \"{{ $credentials.instagramGraphApi.accessToken }}\"\n}",
+        "method": "POST",
+        "nodeCredentialType": "instagramGraphApi",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "url": "https://graph.facebook.com/v18.0/YOUR_INSTAGRAM_ACCOUNT_ID/media"
+      },
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "31efc072-e4b4-4c7e-bb07-ac40d44f23b7",
+      "name": "Wait for Processing",
+      "notes": "Wait for Instagram to process video",
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      },
+      "position": [
+        208,
+        0
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "e6a8665a-e1f3-4e39-b296-49a5fead4ed9"
+    },
+    {
+      "id": "9f7a2ec4-692d-4820-a163-2f8ec2cd6d09",
+      "name": "Instagram - Publish",
+      "notes": "Step 2: Publish to feed",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "jsonBody": "={\n  \"creation_id\": \"{{ $('Instagram - Create Container').item.json.id }}\",\n  \"access_token\": \"{{ $credentials.instagramGraphApi.accessToken }}\"\n}",
+        "method": "POST",
+        "nodeCredentialType": "instagramGraphApi",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "url": "=https://graph.facebook.com/v18.0/YOUR_INSTAGRAM_ACCOUNT_ID/media_publish"
+      },
+      "position": [
+        400,
+        0
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "286e9201-2221-4ed6-b7f9-abdbda266655",
+      "name": "TikTok - Upload",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "title",
+              "value": "={{ $('Generate Caption').item.json.caption }}"
+            },
+            {
+              "name": "platform[]",
+              "value": "tiktok"
+            },
+            {
+              "inputDataFieldName": "data",
+              "name": "video",
+              "parameterType": "formBinaryData"
+            },
+            {
+              "name": "user",
+              "value": "YOUR_TIKTOK_USER_ID"
+            }
+          ]
+        },
+        "contentType": "multipart-form-data",
+        "genericAuthType": "httpHeaderAuth",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "url": "https://api.upload-post.com/api/upload"
+      },
+      "position": [
+        0,
+        208
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "d6cd2e58-8cb0-4a4e-9f6a-fd95ce02e8f2",
+      "name": "Save Instagram Post to DB",
+      "notes": "Track with ALL foreign keys!",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- Insert posted content with ALL tracking IDs\nINSERT INTO content (\n  content_id,\n  account_id,\n  platform,\n  content_type,\n  title,\n  hook,\n  idea,\n  url,\n  posted_at,\n  metadata,\n  \n  -- CRITICAL: All foreign keys for analytics tracking\n  generated_video_id,\n  script_id,\n  idea_id,\n  hook_variant_id,\n  transcript_id,\n  source_reel_id,\n  \n  created_at\n)\nVALUES (\n  '{{ $('Instagram - Publish').item.json.id }}',\n  'YOUR_INSTAGRAM_ACCOUNT_ID', -- Replace with actual account ID from accounts table\n  'instagram',\n  'reel',\n  '{{ $('Get Full Context from DB').item.json.hook_text }}',\n  '{{ $('Get Full Context from DB').item.json.hook_text }}',\n  '{{ $('Get Full Context from DB').item.json.idea_text }}',\n  'https://www.instagram.com/p/{{ $('Instagram - Publish').item.json.id }}/',\n  NOW(),\n  '{{ JSON.stringify({\n    caption: $('Generate Caption').item.json.caption,\n    niche: $('Get Full Context from DB').item.json.niche,\n    source_caption: $('Get Full Context from DB').item.json.caption\n  }) }}',\n  \n  -- All tracking IDs\n  {{ $('Get Full Context from DB').item.json.generated_video_id ? \"'\" + $('Get Full Context from DB').item.json.generated_video_id + \"'\" : \"NULL\" }},\n  '{{ $('Get Full Context from DB').item.json.script_id }}',\n  '{{ $('Get Full Context from DB').item.json.idea_id }}',\n  {{ $('Get Full Context from DB').item.json.hook_variant_id ? \"'\" + $('Get Full Context from DB').item.json.hook_variant_id + \"'\" : \"NULL\" }},\n  '{{ $('Get Full Context from DB').item.json.transcript_id }}',\n  {{ $('Get Full Context from DB').item.json.source_reel_id ? \"'\" + $('Get Full Context from DB').item.json.source_reel_id + \"'\" : \"NULL\" }},\n  \n  NOW()\n)\nRETURNING content_id;"
+      },
+      "position": [
+        608,
+        0
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "189982ef-55e0-4081-93ba-46d522d0a285",
+      "name": "Save TikTok Post to DB",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- Also save TikTok post\nINSERT INTO content (\n  content_id,\n  account_id,\n  platform,\n  content_type,\n  title,\n  hook,\n  idea,\n  url,\n  posted_at,\n  metadata,\n  \n  generated_video_id,\n  script_id,\n  idea_id,\n  hook_variant_id,\n  transcript_id,\n  source_reel_id,\n  \n  created_at\n)\nVALUES (\n  '{{ $crypto.randomUUID() }}',\n  'YOUR_TIKTOK_ACCOUNT_ID',\n  'tiktok',\n  'video',\n  '{{ $('Get Full Context from DB').item.json.hook_text }}',\n  '{{ $('Get Full Context from DB').item.json.hook_text }}',\n  '{{ $('Get Full Context from DB').item.json.idea_text }}',\n  'https://www.tiktok.com/@yourhandle/video/PENDING',\n  NOW(),\n  '{{ JSON.stringify({\n    caption: $('Generate Caption').item.json.caption,\n    upload_response: $('TikTok - Upload').item.json\n  }) }}',\n  \n  {{ $('Get Full Context from DB').item.json.generated_video_id ? \"'\" + $('Get Full Context from DB').item.json.generated_video_id + \"'\" : \"NULL\" }},\n  '{{ $('Get Full Context from DB').item.json.script_id }}',\n  '{{ $('Get Full Context from DB').item.json.idea_id }}',\n  {{ $('Get Full Context from DB').item.json.hook_variant_id ? \"'\" + $('Get Full Context from DB').item.json.hook_variant_id + \"'\" : \"NULL\" }},\n  '{{ $('Get Full Context from DB').item.json.transcript_id }}',\n  {{ $('Get Full Context from DB').item.json.source_reel_id ? \"'\" + $('Get Full Context from DB').item.json.source_reel_id + \"'\" : \"NULL\" }},\n  \n  NOW()\n)\nRETURNING content_id;"
+      },
+      "position": [
+        608,
+        208
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "82027de9-e5ff-474f-9f1b-0e779c1d988d",
+      "name": "Notify Success",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "YOUR_SLACK_CHANNEL_ID"
+        },
+        "otherOptions": {},
+        "select": "channel",
+        "text": "=🎉 VIDEO POSTED SUCCESSFULLY!\n\n📱 **Instagram:** https://www.instagram.com/p/{{ $('Instagram - Publish').item.json.id }}/\n🎵 **TikTok:** Posted\n\n🎣 **Hook:** {{ $('Get Full Context from DB').item.json.hook_text }}\n💡 **Idea:** {{ $('Get Full Context from DB').item.json.idea_text }}\n\n📊 **Tracking:**\n- Script ID: `{{ $('Get Full Context from DB').item.json.script_id }}`\n- Idea ID: `{{ $('Get Full Context from DB').item.json.idea_id }}`\n- Transcript ID: `{{ $('Get Full Context from DB').item.json.transcript_id }}`\n\n✅ Full analytics tracking enabled!"
+      },
+      "position": [
+        800,
+        112
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "ada87d53-52db-48fb-a9d6-a00ad30e2505"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-15T06:32:37.922Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-15T06:32:37.922Z",
+      "workflowId": "p8O89e1aBrQbawSd"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-15T06:32:37.000Z",
+  "versionId": "2d67f786-9ff0-4594-b17f-37ff7cd42175"
+}
