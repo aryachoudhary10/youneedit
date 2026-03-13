@@ -1,0 +1,555 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "⏰ Schedule: Every 24h": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "📋 Init Backup Metadata",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "⚙️ Prepare GitHub Payload": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "🔍 Check Existing File on GitHub",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "✅ Collect Push Result": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "📊 Aggregate All Results",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "📁 Fetch All Folders": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "🔗 Merge Workflows + Folders",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "📄 Fetch Full Workflow JSON": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "⚙️ Prepare GitHub Payload",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "📊 Aggregate All Results": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "🔍 Check Manifest SHA",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "📋 Init Backup Metadata": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "📥 Fetch All Workflows",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "📁 Fetch All Folders",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "📝 Build Commit Body": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "🚀 Push Workflow to GitHub",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "📝 Build Manifest Commit": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "🚀 Push Manifest to GitHub",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "📥 Fetch All Workflows": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "🔗 Merge Workflows + Folders",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "🔍 Check Existing File on GitHub": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "🔑 Extract SHA (for Update)",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "🔍 Check Manifest SHA": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "📝 Build Manifest Commit",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "🔑 Extract SHA (for Update)": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "📝 Build Commit Body",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "🔗 Merge Workflows + Folders": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "🗂️ Build Folder-Aware File Paths",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "🗂️ Build Folder-Aware File Paths": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "📄 Fetch Full Workflow JSON",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "🚀 Push Manifest to GitHub": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "📋 Final Summary Log",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "🚀 Push Workflow to GitHub": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "✅ Collect Push Result",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-12T07:15:09.552Z",
+  "id": "bkVTTG7BDNGoketw",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "id": "b67d65de-4412-4619-acd6-4101157d256c",
+      "name": "⏰ Schedule: Every 24h",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 24
+            }
+          ]
+        }
+      },
+      "position": [
+        -448,
+        80
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2
+    },
+    {
+      "id": "c70bd506-c4d9-4d0e-827c-b38108aa3b1e",
+      "name": "📋 Init Backup Metadata",
+      "parameters": {
+        "jsCode": "// Initialize backup run metadata\nconst now = new Date();\nreturn [{\n  json: {\n    backupStartedAt: now.toISOString(),\n    backupDate: now.toISOString().split('T')[0],\n    commitMessage: `chore: n8n backup ${now.toISOString().split('T')[0]} at ${now.toTimeString().split(' ')[0]} UTC`\n  }\n}];"
+      },
+      "position": [
+        -224,
+        80
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "2C57ErkbWq5DDrEX",
+          "name": "app.upload"
+        }
+      },
+      "id": "f3c3eac8-a4f9-4594-8cd9-952930412816",
+      "name": "📥 Fetch All Workflows",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "response": {
+            "response": {}
+          }
+        },
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "limit",
+              "value": "250"
+            },
+            {
+              "name": "active"
+            }
+          ]
+        },
+        "sendQuery": true,
+        "url": "={{ $env.N8N_BASE_URL }}/api/v1/workflows"
+      },
+      "position": [
+        -16,
+        -48
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "aca01334-9697-4246-bb0d-bf04825950f3",
+      "name": "📁 Fetch All Folders",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "limit",
+              "value": "250"
+            }
+          ]
+        },
+        "sendQuery": true,
+        "url": "={{ $env.N8N_BASE_URL }}/api/v1/workflows/folders"
+      },
+      "position": [
+        0,
+        192
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "37dda364-75d3-458a-b6a4-865fb1940923",
+      "name": "🔗 Merge Workflows + Folders",
+      "parameters": {
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        224,
+        80
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3
+    },
+    {
+      "id": "f91927bf-07d7-4c61-86c5-aed9053f3bc0",
+      "name": "🗂️ Build Folder-Aware File Paths",
+      "parameters": {
+        "jsCode": "// Build a folder path map from folder list\n// Input 0: workflows list, Input 1: folder list\nconst workflowsData = $input.first().json;\nconst foldersData = $input.last().json;\n\n// Handle both paginated and direct responses\nconst workflows = workflowsData.data || workflowsData || [];\nconst folders = foldersData.data || foldersData || [];\n\n// Build folder id -> full path map (handles nested folders)\nconst folderMap = {};\nfolders.forEach(f => {\n  folderMap[f.id] = { name: f.name, parentId: f.parentId || null };\n});\n\nfunction getFolderPath(folderId) {\n  if (!folderId || !folderMap[folderId]) return '';\n  const parts = [];\n  let current = folderId;\n  let depth = 0;\n  while (current && folderMap[current] && depth < 20) {\n    parts.unshift(folderMap[current].name.replace(/[<>:\"/\\\\|?*]/g, '_'));\n    current = folderMap[current].parentId;\n    depth++;\n  }\n  return parts.join('/');\n}\n\n// Map each workflow to its GitHub file path\nconst result = workflows.map(wf => {\n  const folderPath = getFolderPath(wf.folderId || wf.parentFolderId);\n  const safeName = (wf.name || `workflow_${wf.id}`).replace(/[<>:\"/\\\\|?*]/g, '_').replace(/\\s+/g, '_');\n  const filePath = folderPath\n    ? `workflows/${folderPath}/${safeName}_${wf.id}.json`\n    : `workflows/${safeName}_${wf.id}.json`;\n\n  return {\n    json: {\n      workflowId: wf.id,\n      workflowName: wf.name,\n      isActive: wf.active,\n      folderId: wf.folderId || wf.parentFolderId || null,\n      folderPath: folderPath,\n      githubFilePath: filePath,\n      tags: wf.tags || [],\n      createdAt: wf.createdAt,\n      updatedAt: wf.updatedAt\n    }\n  };\n});\n\nreturn result;"
+      },
+      "position": [
+        448,
+        80
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "a8df31d8-968e-4977-8834-b819ea226b5e",
+      "name": "📄 Fetch Full Workflow JSON",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "url": "={{ $env.N8N_BASE_URL }}/api/v1/workflows/{{ $json.workflowId }}"
+      },
+      "position": [
+        688,
+        80
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "8263b7ef-fed8-4a90-bca7-9d34b5fda497",
+      "name": "⚙️ Prepare GitHub Payload",
+      "parameters": {
+        "jsCode": "// Prepare the GitHub upsert payload\n// Merge path metadata with full workflow JSON\nconst pathMeta = $('build-file-paths').item.json;\nconst fullWorkflow = $input.item.json;\n\n// Pretty-print workflow JSON for readability\nconst content = JSON.stringify(fullWorkflow, null, 2);\n\n// Base64 encode for GitHub API\nconst base64Content = Buffer.from(content).toString('base64');\n\nreturn [{\n  json: {\n    ...pathMeta,\n    fileContent: content,\n    base64Content: base64Content,\n    fileSizeBytes: Buffer.byteLength(content, 'utf8')\n  }\n}];"
+      },
+      "position": [
+        912,
+        80
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "continueOnFail": true,
+      "id": "96269ed2-6fb4-4599-8efc-9519358316a8",
+      "name": "🔍 Check Existing File on GitHub",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        },
+        "url": "=https://api.github.com/repos/{{ $env.GITHUB_REPO_OWNER }}/{{ $env.GITHUB_REPO_NAME }}/contents/{{ $json.githubFilePath }}"
+      },
+      "position": [
+        1120,
+        80
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "2ddab85b-3eb3-436a-9427-f8c193083bae",
+      "name": "🔑 Extract SHA (for Update)",
+      "parameters": {
+        "jsCode": "// Extract SHA from existing file (needed for updates)\n// If 404, file doesn't exist yet (new file)\nconst checkResponse = $input.item.json;\nconst previousPayload = $('prepare-github-payload').item.json;\n\nlet existingSha = null;\nlet isNewFile = true;\n\ntry {\n  // HTTP 200 means file exists\n  if (checkResponse.statusCode === 200 || (checkResponse.body && checkResponse.body.sha)) {\n    const body = typeof checkResponse.body === 'string'\n      ? JSON.parse(checkResponse.body)\n      : checkResponse.body;\n    existingSha = body.sha || null;\n    isNewFile = false;\n  }\n} catch (e) {\n  // File doesn't exist or error - treat as new\n  isNewFile = true;\n}\n\nreturn [{\n  json: {\n    ...previousPayload,\n    existingSha,\n    isNewFile,\n    action: isNewFile ? 'CREATE' : 'UPDATE'\n  }\n}];"
+      },
+      "position": [
+        1344,
+        80
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "d5022ec9-8328-41b6-b425-63f6f235d8a7",
+      "name": "📝 Build Commit Body",
+      "parameters": {
+        "jsCode": "// Skip if content hasn't changed (compare sizes / hashes)\n// We'll let GitHub handle this - always push, GitHub deduplicates\nconst item = $input.item.json;\n\n// Build the GitHub PUT body\nconst commitMsg = `backup: ${item.workflowName} [${item.workflowId}] - ${new Date().toISOString().split('T')[0]}`;\n\nconst body = {\n  message: commitMsg,\n  content: item.base64Content,\n  branch: $env.GITHUB_BRANCH || 'main'\n};\n\n// Include SHA for updates (required by GitHub API)\nif (item.existingSha) {\n  body.sha = item.existingSha;\n}\n\nreturn [{\n  json: {\n    ...item,\n    githubPutBody: JSON.stringify(body),\n    commitMessage: commitMsg\n  }\n}];"
+      },
+      "position": [
+        1568,
+        80
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "continueOnFail": true,
+      "id": "9438e616-d45e-4f5f-af50-68da4541138d",
+      "name": "🚀 Push Workflow to GitHub",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "body": "={{ $json.githubPutBody }}",
+        "contentType": "raw",
+        "genericAuthType": "httpHeaderAuth",
+        "method": "PUT",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        },
+        "rawContentType": "application/json",
+        "sendBody": true,
+        "url": "=https://api.github.com/repos/{{ $env.GITHUB_REPO_OWNER }}/{{ $env.GITHUB_REPO_NAME }}/contents/{{ $json.githubFilePath }}"
+      },
+      "position": [
+        1792,
+        80
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "3fc85eec-2896-4ac3-af8f-44dc8099164d",
+      "name": "✅ Collect Push Result",
+      "parameters": {
+        "jsCode": "// Collect push result\nconst pushResponse = $input.item.json;\nconst meta = $('build-commit-body').item.json;\n\nconst statusCode = pushResponse.statusCode || 0;\nconst success = statusCode === 200 || statusCode === 201;\n\nlet errorMsg = null;\nif (!success) {\n  try {\n    const body = typeof pushResponse.body === 'string'\n      ? JSON.parse(pushResponse.body)\n      : pushResponse.body;\n    errorMsg = body.message || JSON.stringify(body);\n  } catch(e) {\n    errorMsg = `HTTP ${statusCode}`;\n  }\n}\n\nreturn [{\n  json: {\n    workflowId: meta.workflowId,\n    workflowName: meta.workflowName,\n    githubFilePath: meta.githubFilePath,\n    folderPath: meta.folderPath,\n    isActive: meta.isActive,\n    action: meta.action,\n    success,\n    statusCode,\n    errorMsg,\n    fileSizeBytes: meta.fileSizeBytes,\n    commitMessage: meta.commitMessage\n  }\n}];"
+      },
+      "position": [
+        2000,
+        80
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "1a542bf9-c85c-43b0-b089-07ca0cf8020d",
+      "name": "📊 Aggregate All Results",
+      "parameters": {
+        "jsCode": "// Aggregate all results and write manifest\nconst allItems = $input.all();\n\nconst successes = allItems.filter(i => i.json.success);\nconst failures = allItems.filter(i => !i.json.success);\n\nconst manifest = {\n  backupCompletedAt: new Date().toISOString(),\n  totalWorkflows: allItems.length,\n  successCount: successes.length,\n  failureCount: failures.length,\n  created: successes.filter(i => i.json.action === 'CREATE').map(i => i.json.githubFilePath),\n  updated: successes.filter(i => i.json.action === 'UPDATE').map(i => i.json.githubFilePath),\n  failed: failures.map(i => ({ path: i.json.githubFilePath, error: i.json.errorMsg })),\n  workflows: allItems.map(i => ({\n    id: i.json.workflowId,\n    name: i.json.workflowName,\n    active: i.json.isActive,\n    folder: i.json.folderPath || '(root)',\n    path: i.json.githubFilePath,\n    action: i.json.action,\n    status: i.json.success ? 'OK' : 'FAILED',\n    error: i.json.errorMsg || null,\n    sizeBytes: i.json.fileSizeBytes\n  }))\n};\n\nreturn [{\n  json: {\n    manifest,\n    base64Manifest: Buffer.from(JSON.stringify(manifest, null, 2)).toString('base64'),\n    summary: `✅ ${successes.length} succeeded | ❌ ${failures.length} failed out of ${allItems.length} workflows`\n  }\n}];"
+      },
+      "position": [
+        2224,
+        80
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "continueOnFail": true,
+      "id": "2ba05013-6025-44bc-86af-0c587d4d4927",
+      "name": "🔍 Check Manifest SHA",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        },
+        "url": "=https://api.github.com/repos/{{ $env.GITHUB_REPO_OWNER }}/{{ $env.GITHUB_REPO_NAME }}/contents/_backup_manifest.json"
+      },
+      "position": [
+        2448,
+        80
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "c4f56586-e72f-4fb6-867f-7107ee507e98",
+      "name": "📝 Build Manifest Commit",
+      "parameters": {
+        "jsCode": "const checkResponse = $input.item.json;\nconst prev = $('aggregate-results').first().json;\n\nlet existingSha = null;\ntry {\n  if (checkResponse.statusCode === 200 || (checkResponse.body && checkResponse.body.sha)) {\n    const body = typeof checkResponse.body === 'string'\n      ? JSON.parse(checkResponse.body)\n      : checkResponse.body;\n    existingSha = body.sha || null;\n  }\n} catch (e) {}\n\nconst putBody = {\n  message: `chore: update backup manifest ${new Date().toISOString().split('T')[0]}`,\n  content: prev.base64Manifest,\n  branch: $env.GITHUB_BRANCH || 'main'\n};\nif (existingSha) putBody.sha = existingSha;\n\nreturn [{\n  json: {\n    ...prev,\n    manifestPutBody: JSON.stringify(putBody)\n  }\n}];"
+      },
+      "position": [
+        2672,
+        80
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "continueOnFail": true,
+      "id": "734ce27e-ca17-48bb-9620-9603d725dbb7",
+      "name": "🚀 Push Manifest to GitHub",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "body": "={{ $json.manifestPutBody }}",
+        "contentType": "raw",
+        "genericAuthType": "httpHeaderAuth",
+        "method": "PUT",
+        "options": {},
+        "rawContentType": "application/json",
+        "sendBody": true,
+        "url": "=https://api.github.com/repos/{{ $env.GITHUB_REPO_OWNER }}/{{ $env.GITHUB_REPO_NAME }}/contents/_backup_manifest.json"
+      },
+      "position": [
+        2880,
+        80
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "a0e6d348-4eb7-456a-be37-80b0346e6388",
+      "name": "📋 Final Summary Log",
+      "parameters": {
+        "jsCode": "const prev = $('aggregate-results').first().json;\nconst manifest = prev.manifest;\n\nconsole.log('=== n8n GitHub Backup Complete ===');\nconsole.log(prev.summary);\nconsole.log(`Backup time: ${manifest.backupCompletedAt}`);\n\nif (manifest.failureCount > 0) {\n  console.warn('Failed workflows:');\n  manifest.failed.forEach(f => console.warn(` - ${f.path}: ${f.error}`));\n}\n\nreturn [{\n  json: {\n    status: manifest.failureCount === 0 ? 'SUCCESS' : 'PARTIAL_SUCCESS',\n    summary: prev.summary,\n    backupCompletedAt: manifest.backupCompletedAt,\n    totalWorkflows: manifest.totalWorkflows,\n    successCount: manifest.successCount,\n    failureCount: manifest.failureCount,\n    failedWorkflows: manifest.failed\n  }\n}];"
+      },
+      "position": [
+        3104,
+        80
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-12T07:15:09.555Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-12T07:15:09.555Z",
+      "workflowId": "bkVTTG7BDNGoketw"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-12T07:15:35.201Z",
+  "versionId": "b3cd25eb-ff5d-41f3-89e3-068451bd5181"
+}
