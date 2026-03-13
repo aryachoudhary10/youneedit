@@ -1,0 +1,594 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "All Ideas Processed?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Complete",
+            "type": "main"
+          }
+        ],
+        []
+      ]
+    },
+    "Approve Script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Check Decision": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Approve Script",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Reject/Revise Script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Every 2 Hours": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Approved Ideas",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Generate Script with Gemini": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Structure Script Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Approved Ideas": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Process One Idea at a Time",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Process One Idea at a Time": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Generate Script with Gemini",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Reject/Revise Script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Save Script to Database": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send to Slack for Review",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Send to Slack for Review": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait for Human Approval",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Structure Script Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Save Script to Database",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "idea used",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait for Human Approval": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check Decision",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "idea used": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "All Ideas Processed?",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-15T06:31:53.047Z",
+  "id": "pBVDA2zFgxyfchtD",
+  "isArchived": true,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "3_Script Generator - Approved Ideas to Scripts",
+  "nodes": [
+    {
+      "id": "88cdfcf7-82bd-4e84-83f0-046289649d8d",
+      "name": "Every 2 Hours",
+      "notes": "Check for approved ideas every 2 hours",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2
+            }
+          ]
+        }
+      },
+      "position": [
+        -1808,
+        112
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "2416dbdd-901f-4e57-83a0-0f28c3448d41",
+      "name": "Get Approved Ideas",
+      "notes": "Fetch ideas ready for script generation",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Get approved ideas that don't have scripts yet\nSELECT \n  i.idea_id,\n  i.transcript_id,\n  i.idea_text,\n  i.human_feedback,\n  t.transcript_text,\n  hv.hook_text,\n  hv.hook_variant_id,\n  hp.pattern_name as hook_pattern_name,\n  hp.description as hook_pattern,\n  sr.source_reel_id,\n  sr.caption as source_caption,\n  c.username as source_creator,\n  c.niche\nFROM ideas i\nJOIN transcripts t ON i.transcript_id = t.transcript_id\nLEFT JOIN hook_variants hv ON t.transcript_id = hv.transcript_id\nLEFT JOIN hook_patterns hp ON hv.hook_pattern_id = hp.hook_pattern_id\nLEFT JOIN source_reels sr ON t.source_reel_id = sr.source_reel_id\nLEFT JOIN creators c ON sr.creator_id = c.creator_id\nWHERE i.status = 'approved'\n  AND NOT EXISTS (\n    SELECT 1 FROM scripts s \n    WHERE s.idea_id = i.idea_id\n  )\nORDER BY i.created_at ASC\nLIMIT 5;"
+      },
+      "position": [
+        -1600,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "50fcbf87-40a7-43bd-96e3-6a79903ad4a6",
+      "name": "Process One Idea at a Time",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -1408,
+        112
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "b227ffb7-3789-43d3-9617-de1d357a27f1",
+      "name": "Generate Script with Gemini",
+      "parameters": {
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an expert short-form video script writer for Instagram Reels, TikTok, and YouTube Shorts.\n\nYour task: Write a punchy, engaging 30-45 second script that will be spoken by an AI avatar.\n\n**CONTEXT:**\nNiche: {{ $json.niche }}\nHook: {{ $json.hook_text }}\nIdea: {{ $json.idea_text }}\nOriginal Transcript: {{ $json.transcript_text }}\n{{ $json.human_feedback ? 'Human Feedback: ' + $json.human_feedback : '' }}\n\n**SCRIPT REQUIREMENTS:**\n\n1. STRUCTURE:\n   - HOOK (0-3 sec): Start with the hook verbatim: \"{{ $json.hook_text }}\"\n   - PROBLEM (3-10 sec): State the problem/pain point clearly\n   - SOLUTION (10-30 sec): Present the main idea with 2-3 key points\n   - CTA (30-45 sec): Strong call-to-action (follow, save, comment)\n\n2. WRITING STYLE:\n   - Write EXACTLY how people speak (contractions, casual language)\n   - Short sentences (max 10-12 words)\n   - Use \"you\" and \"your\" (direct address)\n   - No marketing jargon or corporate speak\n   - Natural pauses and transitions\n\n3. FORMATTING:\n   - One sentence per line\n   - Mark natural pauses with [pause]\n   - Total word count: 80-120 words\n   - Speaking time: 30-45 seconds at normal pace\n\n4. ENGAGEMENT:\n   - Include pattern interrupt (surprising fact, question)\n   - Use power words (discover, secret, proven, simple)\n   - Create curiosity gap\n   - Make it shareable\n\n5. AVATAR DELIVERY:\n   - Write for AI avatar speaking to camera\n   - Natural vocal inflections (don't write them, just natural speech)\n   - Conversational, not scripted\n\n**OUTPUT FORMAT:**\nReturn ONLY the script text, nothing else.\nNo preamble, no explanation, no markdown formatting.\nJust the script lines, one per line.\n\n**EXAMPLE OUTPUT:**\n{{ $json.hook_text }}\n[pause]\nMost people waste hours on this.\nBut there's a simple fix.\n[pause]\nHere's what actually works.\nFirst, do this one thing.\nSecond, avoid this common mistake.\nThird, apply this simple trick.\n[pause]\nThat's it.\nSave this for later.\nFollow for more tips like this."
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.0-flash",
+          "mode": "list",
+          "value": "models/gemini-2.0-flash"
+        },
+        "options": {}
+      },
+      "position": [
+        -1264,
+        -160
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1
+    },
+    {
+      "id": "8bb5e2e2-012d-42f8-bc3d-b576a1c223cb",
+      "name": "Structure Script Data",
+      "parameters": {
+        "jsCode": "// Extract and structure the script data\nconst scriptText = $input.first().json.content.parts[0].text;\nconst ideaData = $('Get Approved Ideas').item.json;\n\n// Calculate script metadata\nconst wordCount = scriptText.split(/\\s+/).length;\nconst estimatedDuration = Math.round((wordCount / 2.5) * 1); // ~2.5 words per second\n\n// Parse script into scenes (split by [pause])\nconst scenes = scriptText\n  .split('[pause]')\n  .map(scene => scene.trim())\n  .filter(scene => scene.length > 0)\n  .map((scene, index) => ({\n    scene_number: index + 1,\n    text: scene,\n    duration_estimate: Math.round((scene.split(/\\s+/).length / 2.5) * 1)\n  }));\nfunction generateUUID() {\n  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n}\nreturn {\n  script_id: generateUUID(),\n  idea_id: ideaData.idea_id,\n  hook_variant_id: ideaData.hook_variant_id,\n  transcript_id: ideaData.transcript_id,\n  \n  script_text: scriptText,\n  word_count: wordCount,\n  duration_sec: estimatedDuration,\n  scenes: scenes,\n  \n  status: 'draft',\n  \n  // Pass through for Slack notification\n  hook_text: ideaData.hook_text,\n  idea_text: ideaData.idea_text,\n  niche: ideaData.niche\n};"
+      },
+      "position": [
+        -976,
+        -160
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "1a22cd6b-8f11-491e-813e-51bfa8dfc541",
+      "name": "Save Script to Database",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "INSERT INTO scripts (\n  script_id,\n  idea_id,\n  hook_variant_id,\n  transcript_id,\n  script_text,\n  scenes,\n  duration_sec,\n  status,\n  created_at,\n  updated_at\n)\nVALUES (\n  '{{ $json.script_id }}',\n  '{{ $json.idea_id }}',\n  {{ $json.hook_variant_id ? \"'\" + $json.hook_variant_id + \"'\" : \"NULL\" }},\n  '{{ $json.transcript_id }}',\n  $$ {{ $json.script_text }} $$,\n  $$ {{ JSON.stringify($json.scenes) }} $$::jsonb,\n  {{ $json.duration_sec }},\n  'draft',\n  NOW(),\n  NOW()\n)\nRETURNING *;"
+      },
+      "position": [
+        -800,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "slackApi": {
+          "id": "p6EI21qs6fl5ZxNR",
+          "name": "Slack account"
+        }
+      },
+      "id": "5b0d748e-b14d-4ccf-a21c-75549bedd8db",
+      "name": "Send to Slack for Review",
+      "notes": "Notify team of new script",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "cachedResultName": "new-channel",
+          "mode": "list",
+          "value": "C0A9J0XL44V"
+        },
+        "otherOptions": {},
+        "select": "channel",
+        "text": "=🎬 NEW SCRIPT FOR APPROVAL\n\n📝 **Niche:** {{ $('Structure Script Data').item.json.niche }}\n\n🎣 **Hook:**\n{{ $('Structure Script Data').item.json.hook_text }}\n\n💡 **Idea:**\n{{ $('Structure Script Data').item.json.idea_text }}\n\n📜 **SCRIPT:**\n```\n{{ $('Structure Script Data').item.json.script_text }}\n```\n\n⏱️ **Duration:** ~{{ $('Structure Script Data').item.json.duration_sec }} seconds\n📊 **Words:** {{ $('Structure Script Data').item.json.word_count }}\n\n🔗 **Script ID:** `{{ $('Structure Script Data').item.json.script_id }}`"
+      },
+      "position": [
+        -608,
+        112
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "b53f3d6d-266a-4d2e-8b60-734598a55a39"
+    },
+    {
+      "credentials": {
+        "slackApi": {
+          "id": "p6EI21qs6fl5ZxNR",
+          "name": "Slack account"
+        }
+      },
+      "id": "4f6673fa-8fd5-424c-8f42-ffa20f3308d7",
+      "name": "Wait for Human Approval",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "cachedResultName": "new-channel",
+          "mode": "list",
+          "value": "C0A9J0XL44V"
+        },
+        "formFields": {
+          "values": [
+            {
+              "defaultValue": "approve",
+              "fieldLabel": "Decision",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "approve"
+                  },
+                  {
+                    "option": "rejected"
+                  },
+                  {
+                    "option": "needs_revision"
+                  }
+                ]
+              },
+              "fieldType": "dropdown",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Feedback",
+              "fieldType": "textarea",
+              "placeholder": "Enter feedback if rejecting or requesting revision..."
+            }
+          ]
+        },
+        "message": "=👆 Review the script above",
+        "operation": "sendAndWait",
+        "options": {},
+        "responseType": "customForm",
+        "select": "channel"
+      },
+      "position": [
+        -400,
+        112
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "4715cbf3-4a6b-4729-bc77-f07550bac03f"
+    },
+    {
+      "id": "5cf1c238-d6cc-4613-b776-ca4ad619622d",
+      "name": "Check Decision",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "approved",
+              "leftValue": "={{ $json.data.Decision }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "approve"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -208,
+        112
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "f585a1f4-df65-4860-a5ac-e73adff6d606",
+      "name": "Approve Script",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=UPDATE scripts\nSET \n  status = 'approved',\n  updated_at = NOW()\nWHERE script_id = '{{ $('Structure Script Data').item.json.script_id }}';"
+      },
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "1adf97ed-ab3a-4251-97c6-22c4fd80b47b",
+      "name": "Reject/Revise Script",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=UPDATE scripts\nSET \n  status = '{{ $('Wait for Human Approval').item.json.data.Decision }}',\n  human_feedback = '{{ $('Wait for Human Approval').item.json.data.Feedback }}',\n  updated_at = NOW()\nWHERE script_id = '{{ $('Structure Script Data').item.json.script_id }}';"
+      },
+      "position": [
+        0,
+        208
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "c92eeeca-10f4-4160-b839-9c21d4236e27",
+      "name": "Wait",
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "position": [
+        208,
+        112
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "d75e71c9-69d7-40fc-994c-1cf5828383c3"
+    },
+    {
+      "id": "ec9bf375-46c2-4170-bbce-df0418b2b5f8",
+      "name": "All Ideas Processed?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "complete",
+              "leftValue": "={{ $('Process One Idea at a Time').context.noItemsLeft }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        608,
+        208
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "b57e3ed7-0388-40cf-bc45-8899d0c7b0d8",
+      "name": "Complete",
+      "parameters": {},
+      "position": [
+        816,
+        0
+      ],
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "1055e5c8-c2ef-4341-8382-9e193c873588",
+      "name": "idea used",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=UPDATE ideas\nSET \n  status = 'used',\n  updated_at = NOW()\nWHERE idea_id = '{{ $('Process One Idea at a Time').item.json.idea_id }}';"
+      },
+      "position": [
+        416,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    },
+    {
+      "id": "8af5dca5-b756-46b7-abe9-fdcaf656d75a",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "Add feedback loop"
+      },
+      "position": [
+        -64,
+        448
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {
+    "Generate Script with Gemini": [
+      {
+        "json": {
+          "avgLogprobs": -0.3136598075308451,
+          "content": {
+            "parts": [
+              {
+                "text": "Elon Musk just dropped the most insane announcement of 2026. SpaceX has officially acquired XAI to form what they're calling the most ambitious vertically integrated innovation engine on and off Earth.\n[pause]\nImagine every company doing this one thing.\nDeleting their customer service departments.\n[pause]\nAnd only using AI chatbots.\nCrazy, right?\nBut here's the game plan.\n[pause]\nAI data centers in space.\nOrbiting the Earth.\nPowered by the sun.\n[pause]\nA million satellites processing data.\nCheaper and faster than ever before.\nThis could change everything.\n[pause]\nWhat do you think?\nIs this the future?\nComment below.\nAnd follow for more wild tech updates.\n"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-15T06:31:53.051Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-15T06:31:53.051Z",
+      "workflowId": "pBVDA2zFgxyfchtD"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-28T08:29:34.000Z",
+  "versionId": "35ee047a-ccd2-433d-854a-99bfea56ed3b"
+}
