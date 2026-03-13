@@ -1,0 +1,456 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "All Done?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Complete",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Split Channels",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Every 12 Hours": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get YouTube Accounts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Channel Data": {
+      "main": [
+        []
+      ]
+    },
+    "Fetch Recent Videos": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Split Videos",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Video Stats": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Transform Video Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get YouTube Accounts": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Split Channels",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get a channel": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Transform Channel Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Save Channel Info": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Fetch Recent Videos",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Save Video & Metrics": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait (API Quota)",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Split Channels": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Get a channel",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Split Videos": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Fetch Video Stats",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Transform Channel Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Save Channel Info",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Transform Video Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Save Video & Metrics",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait (API Quota)": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "All Done?",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-15T06:30:47.930Z",
+  "id": "TKdDZmpfYpCP7xRi",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "YouTube Analytics Fetcher",
+  "nodes": [
+    {
+      "id": "d3cc3259-2ff5-4a72-9071-1f27090f6c01",
+      "name": "Every 12 Hours",
+      "notes": "Fetch YouTube analytics twice daily",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 12
+            }
+          ]
+        }
+      },
+      "position": [
+        -2608,
+        112
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "596361c2-9025-4447-95aa-6cdd8c8fc198",
+      "name": "Get YouTube Accounts",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "SELECT account_id, username FROM accounts WHERE platform = 'youtube' AND active = true"
+      },
+      "position": [
+        -2400,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "7d6a8d3f-b9ee-4bfc-ac83-13e326c73926",
+      "name": "Split Channels",
+      "notes": "Process 3 channels at a time",
+      "parameters": {
+        "batchSize": 3,
+        "options": {}
+      },
+      "position": [
+        -2208,
+        112
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "6d4d8932-4a15-42a1-ab69-069e14368c61",
+      "name": "Fetch Channel Data",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleApi",
+        "options": {},
+        "url": "=https://www.googleapis.com/youtube/v3/channels"
+      },
+      "position": [
+        -1712,
+        -128
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "89675ba3-f932-4405-ae37-cc0fc80ce641",
+      "name": "Transform Channel Data",
+      "parameters": {
+        "jsCode": "const channel = $input.first().json.items[0];\nconst accountId = $('Get YouTube Accounts').item.json.account_id;\n\nreturn {\n  account_id: accountId,\n  username: channel.snippet.title,\n  display_name: channel.snippet.customUrl || channel.snippet.title,\n  followers_count: parseInt(channel.statistics.subscriberCount),\n  metadata: {\n    description: channel.snippet.description,\n    thumbnail: channel.snippet.thumbnails.high.url,\n    total_videos: parseInt(channel.statistics.videoCount),\n    total_views: parseInt(channel.statistics.viewCount),\n    uploads_playlist: channel.contentDetails.relatedPlaylists.uploads\n  }\n};"
+      },
+      "position": [
+        -1744,
+        112
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "e82a48df-558c-4679-bba7-68564980b4d4",
+      "name": "Save Channel Info",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=INSERT INTO accounts (account_id, platform, username, display_name, followers_count, metadata, updated_at)\nVALUES (\n  '{{ $json.account_id }}',\n  'youtube',\n  '{{ $json.username }}',\n  '{{ $json.display_name }}',\n  {{ $json.followers_count }},\n  '{{ JSON.stringify($json.metadata) }}',\n  NOW()\n)\nON CONFLICT (account_id) DO UPDATE SET\n  username = EXCLUDED.username,\n  display_name = EXCLUDED.display_name,\n  followers_count = EXCLUDED.followers_count,\n  metadata = EXCLUDED.metadata,\n  updated_at = NOW();"
+      },
+      "position": [
+        -1392,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "c91115d9-1015-42fd-9fde-9663ed57ddfa",
+      "name": "Fetch Recent Videos",
+      "notes": "Get last 50 videos from uploads playlist",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleApi",
+        "options": {},
+        "url": "=https://www.googleapis.com/youtube/v3/playlistItems"
+      },
+      "position": [
+        -1200,
+        112
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "1e6fb2a5-3f61-4920-b07a-a038ce9ca36b",
+      "name": "Split Videos",
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "position": [
+        -992,
+        112
+      ],
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1
+    },
+    {
+      "id": "ddb449f5-6d8a-4639-99b1-dba71164cd6e",
+      "name": "Fetch Video Stats",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleApi",
+        "options": {},
+        "url": "=https://www.googleapis.com/youtube/v3/videos"
+      },
+      "position": [
+        -800,
+        112
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "21d2abb1-896e-4c79-8656-875b635a3dad",
+      "name": "Transform Video Data",
+      "parameters": {
+        "jsCode": "// Get video stats from the API response\nconst videoData = $input.first().json.items[0];\n// Get account ID from the original query\nconst accountId = $('Get YouTube Accounts').item.json.account_id;\n\n// Parse duration (PT15M30S -> 930 seconds)\nconst parseDuration = (duration) => {\n  const match = duration.match(/PT(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)S)?/);\n  if (!match) return 0;\n  const hours = parseInt(match[1] || 0);\n  const minutes = parseInt(match[2] || 0);\n  const seconds = parseInt(match[3] || 0);\n  return hours * 3600 + minutes * 60 + seconds;\n};\n\n// Extract title and description\nconst title = videoData.snippet.title;\nconst description = videoData.snippet.description || '';\nconst lines = description.split('\\n').filter(line => line.trim());\nconst hook = title;\nconst idea = lines.slice(0, 3).join(' ').substring(0, 500);\n\n// Determine content type based on duration\nconst duration = parseDuration(videoData.contentDetails.duration);\nlet contentType = 'video';\nif (duration < 60) contentType = 'short';\n\nreturn {\n  // Content data\n  content_id: videoData.id,\n  account_id: accountId,\n  platform: 'youtube',\n  content_type: contentType,\n  title: title,\n  hook: hook,\n  idea: idea,\n  url: `https://www.youtube.com/watch?v=${videoData.id}`,\n  posted_at: videoData.snippet.publishedAt,\n  duration_sec: duration,\n  metadata: {\n    thumbnail: videoData.snippet.thumbnails.high.url,\n    tags: videoData.snippet.tags || [],\n    category_id: videoData.snippet.categoryId\n  },\n  \n  // Metrics data\n  date: new Date().toISOString().split('T')[0],\n  views: parseInt(videoData.statistics.viewCount || 0),\n  likes: parseInt(videoData.statistics.likeCount || 0),\n  comments: parseInt(videoData.statistics.commentCount || 0),\n  shares: 0, // YouTube API doesn't provide shares directly\n  saves: 0\n};"
+      },
+      "position": [
+        -592,
+        112
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "e42fc302-2e0e-4de6-bbed-a2f73308db09",
+      "name": "Save Video & Metrics",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- Insert content\nINSERT INTO content (content_id, account_id, platform, content_type, title, hook, idea, url, posted_at, duration_sec, metadata)\nVALUES (\n  '{{ $json.content_id }}',\n  '{{ $json.account_id }}',\n  '{{ $json.platform }}',\n  '{{ $json.content_type }}',\n  '{{ $json.title }}',\n  '{{ $json.hook }}',\n  '{{ $json.idea }}',\n  '{{ $json.url }}',\n  '{{ $json.posted_at }}',\n  {{ $json.duration_sec }},\n  '{{ JSON.stringify($json.metadata) }}'\n)\nON CONFLICT (content_id) DO UPDATE SET\n  title = EXCLUDED.title,\n  duration_sec = EXCLUDED.duration_sec,\n  metadata = EXCLUDED.metadata;\n\n-- Insert metrics\nINSERT INTO metrics_daily (content_id, account_id, date, views, likes, comments, shares, saves)\nVALUES (\n  '{{ $json.content_id }}',\n  '{{ $json.account_id }}',\n  '{{ $json.date }}',\n  {{ $json.views }},\n  {{ $json.likes }},\n  {{ $json.comments }},\n  {{ $json.shares }},\n  {{ $json.saves }}\n)\nON CONFLICT (content_id, date) DO UPDATE SET\n  views = EXCLUDED.views,\n  likes = EXCLUDED.likes,\n  comments = EXCLUDED.comments,\n  created_at = NOW();"
+      },
+      "position": [
+        -400,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "0babd01f-ad39-41f0-8670-c074a9cb616f",
+      "name": "Wait (API Quota)",
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "position": [
+        -192,
+        112
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "777af1e0-c607-4ffc-ba97-bb3ce2587082"
+    },
+    {
+      "id": "d95bf8cc-692b-4813-aab9-b6e4539ec87b",
+      "name": "All Done?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "complete",
+              "leftValue": "={{ $('Split Channels').context.noItemsLeft }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        0,
+        112
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "132eb612-6a51-481d-b891-d02e3e2ac4c1",
+      "name": "Complete",
+      "parameters": {},
+      "position": [
+        208,
+        0
+      ],
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "KXxIBGEjUKl43IzP",
+          "name": "YouTube account"
+        }
+      },
+      "id": "80a727e2-3149-4f74-ae05-c6224ba8f72a",
+      "name": "Get a channel",
+      "parameters": {
+        "channelId": "={{ $json.account_id }}",
+        "operation": "get"
+      },
+      "position": [
+        -1984,
+        128
+      ],
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-15T06:30:47.935Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-15T06:30:47.935Z",
+      "workflowId": "TKdDZmpfYpCP7xRi"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-16T19:51:19.526Z",
+  "versionId": "4c76799a-bd70-47c6-ab14-5d2b6babb958"
+}
