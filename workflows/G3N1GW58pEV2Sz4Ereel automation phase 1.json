@@ -1,0 +1,4473 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "10. Prepare Nanobana Input": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript3",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "10. Prepare Nanobana Input1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript7",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "11. Nanobana - Generate Reference Image": {
+      "main": [
+        []
+      ]
+    },
+    "12. Extract Reference Image URL": {
+      "main": [
+        []
+      ]
+    },
+    "13b. Reel Folder Found?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Create Approved_images Folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "13b. Reel Folder Found?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript5",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Create Approved_images Folder1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "14. Create photos_review Subfolder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "15. Merge Folder ID + Context",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "14. Create photos_review Subfolder1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "15. Merge Folder ID + Context1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "15. Merge Folder ID + Context": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "16. Split Into Individual Shots",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "15. Merge Folder ID + Context1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "16. Split Into Individual Shots1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "16. Split Into Individual Shots": {
+      "main": [
+        []
+      ]
+    },
+    "2. Extract Reel Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "3. Download Song MP3",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "2. Extract Reel Data1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "checking if concept is present",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "3. Download Song MP": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Translate a recording1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "3. Download Song MP3": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Translate a recording",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "5. Merge Transcription + Reel Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "6. Get Account Avatar URLs",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "5. Merge concept + Reel Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Client Folder name",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "6. Get Account Avatar URLs": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "7. Merge Avatar URLs + All Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "6. Get Account Avatar URLs1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "7. Merge Avatar URLs + All Data1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "7. Merge Avatar URLs + All Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Analyze an image1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "8. Gemini - Full Concept + Shot Breakdown": {
+      "main": [
+        []
+      ]
+    },
+    "9. Parse Gemini Response": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "10. Prepare Nanobana Input",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "9. Parse Gemini Response1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "10. Prepare Nanobana Input1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Analyze an image1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "9. Parse Gemini Response",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Analyze an image3": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "9. Parse Gemini Response1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create file from text",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Split Out",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript3": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Generate an image",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript4": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create file from text1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript5": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript6": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Split Out1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript7": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Generate an image1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Approved_images Folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create Review_images Folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Approved_images Folder1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create Review_images Folder1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Reel Folder1": {
+      "main": [
+        []
+      ]
+    },
+    "Create Reelfolder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Reelfolder1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript4",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Review_images Folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Review_images Folder1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript5",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create file from text": {
+      "main": [
+        []
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Analyze an image2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download file1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Analyze an image",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Edit an image": {
+      "main": [
+        []
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        []
+      ]
+    },
+    "Generate an image": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Search parent Reel",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Generate an image1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge1",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Search parent Reel1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Generate media using AI model": {
+      "main": [
+        []
+      ]
+    },
+    "Get Avatar Folder name and Id": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get all Image link in avatars",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Client Folder name": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get video Avatar Folders",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get all Avatars": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get all Image link in avatars": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge Folder and Image Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "2. Extract Reel Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "2. Extract Reel Data1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get video Avatar Folders": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get video Avatar to use based on account",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get video Avatar to use based on account": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get all Avatars",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload file1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "HTTP Request3",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "HTTP Request",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "HTTP Request5": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload file3",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "HTTP Request6": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "HTTP Request8",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "HTTP Request8": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If3",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "HTTP Request9": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "HTTP Request5",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Create Reelfolder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "HTTP Request4",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "HTTP Request3",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript4",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Create Reelfolder1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "HTTP Request9",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "HTTP Request8",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Group the Avtar & Image links",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Get Avatar Folder name and Id",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge Folder and Image Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload file2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Output the concept": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "output the concept",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Reel Folder Exists": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "13b. Reel Folder Found?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Reel Folder Exists1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "13b. Reel Folder Found?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        []
+      ]
+    },
+    "Search parent Reel": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search parent Reel1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Share file": {
+      "main": [
+        []
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "HTTP Request1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "HTTP Request6",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Translate a recording": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "5. Merge Transcription + Reel Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Translate a recording1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Output the concept",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upload file": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Share file",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Code in JavaScript2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upload file1": {
+      "main": [
+        []
+      ]
+    },
+    "Upload file2": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Share file1",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Code in JavaScript6",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get row(s) in sheet1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "checking if concept is present": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "output the concept",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "3. Download Song MP",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "output the concept": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "5. Merge concept + Reel Data",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-26T15:53:18.173Z",
+  "id": "G3N1GW58pEV2Sz4E",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "reel automation phase 1",
+  "nodes": [
+    {
+      "id": "d5c2254f-bffc-47b6-9b6f-de6e18e7e9df",
+      "name": "2. Extract Reel Data",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a1",
+              "name": "reelNumber",
+              "type": "string",
+              "value": "={{ $json['Reel number'] }}"
+            },
+            {
+              "id": "a2",
+              "name": "accountToPost",
+              "type": "string",
+              "value": "={{ $json['Account to post'] }}"
+            },
+            {
+              "id": "a3",
+              "name": "reelType",
+              "type": "string",
+              "value": "={{ $json['Reel Type'] }}"
+            },
+            {
+              "id": "a4",
+              "name": "conceptInput",
+              "type": "string",
+              "value": "={{ $json['Concept input(optional)'] ?? '' }}"
+            },
+            {
+              "id": "a5",
+              "name": "songLink",
+              "type": "string",
+              "value": "={{ $json['Song link'] }}"
+            },
+            {
+              "id": "a6",
+              "name": "timing",
+              "type": "string",
+              "value": "={{ $json['Timing for the reel'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        -2592,
+        240
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "338421cb-06bb-4c40-856a-7da30d81c70b",
+      "name": "3. Download Song MP3",
+      "notes": "Downloads the MP3 file from the Google Drive/direct link in the sheet",
+      "parameters": {
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "responseFormat": "file"
+            }
+          }
+        },
+        "url": "={{ $json.songLink }}"
+      },
+      "position": [
+        -2416,
+        240
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "0b280c7d-a455-4ea5-8f9e-9efcb212d654",
+      "name": "4. Whisper - Transcribe Song",
+      "notes": "Uses OpenAI Whisper to transcribe the song into English text",
+      "parameters": {},
+      "position": [
+        -2176,
+        -128
+      ],
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.8
+    },
+    {
+      "id": "55f5fc62-dd10-48c7-9de5-5de3de93757b",
+      "name": "5. Merge Transcription + Reel Data",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b1",
+              "name": "transcription",
+              "type": "string",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "id": "b2",
+              "name": "reelNumber",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data').item.json.reelNumber }}"
+            },
+            {
+              "id": "b3",
+              "name": "accountToPost",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data').item.json.accountToPost }}"
+            },
+            {
+              "id": "b4",
+              "name": "reelType",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data').item.json.reelType }}"
+            },
+            {
+              "id": "b5",
+              "name": "conceptInput",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data').item.json.conceptInput }}"
+            },
+            {
+              "id": "b6",
+              "name": "songLink",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data').item.json.songLink }}"
+            },
+            {
+              "id": "b7",
+              "name": "timing",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data').item.json.timing }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        -2016,
+        224
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "id": "23a01c9d-a182-4096-a6ec-43ab311513c1",
+      "name": "6. Get Account Avatar URLs",
+      "notes": "Reads from Avatar Mappings tab. Expects columns: Account Username, Avatar 1 URL, Avatar 2 URL, etc.",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Sample Sheet for auto video generation based on song",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo"
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "insta_avatar_details",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo/edit#gid=1667808130",
+          "mode": "list",
+          "value": 1667808130
+        }
+      },
+      "position": [
+        -1808,
+        224
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5
+    },
+    {
+      "id": "28a33997-71e6-4d1d-8a43-6eb4e474635c",
+      "name": "7. Merge Avatar URLs + All Data",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c1",
+              "name": "avatar1Url",
+              "type": "string",
+              "value": "={{ $json.avatar1 }}"
+            },
+            {
+              "id": "c2",
+              "name": "avatar2Url",
+              "type": "string",
+              "value": "={{ $json.avatar2 }}"
+            },
+            {
+              "id": "c3",
+              "name": "avatar3Url",
+              "type": "string",
+              "value": "={{ $json['Avatar 3 URL'] ?? '' }}"
+            },
+            {
+              "id": "c4",
+              "name": "transcription",
+              "type": "string",
+              "value": "={{ $('5. Merge Transcription + Reel Data').item.json.transcription }}"
+            },
+            {
+              "id": "c5",
+              "name": "reelNumber",
+              "type": "string",
+              "value": "={{ $('5. Merge Transcription + Reel Data').item.json.reelNumber }}"
+            },
+            {
+              "id": "c6",
+              "name": "accountToPost",
+              "type": "string",
+              "value": "={{ $('5. Merge Transcription + Reel Data').item.json.accountToPost }}"
+            },
+            {
+              "id": "c7",
+              "name": "reelType",
+              "type": "string",
+              "value": "={{ $('5. Merge Transcription + Reel Data').item.json.reelType }}"
+            },
+            {
+              "id": "c8",
+              "name": "conceptInput",
+              "type": "string",
+              "value": "={{ $('5. Merge Transcription + Reel Data').item.json.conceptInput }}"
+            },
+            {
+              "id": "c9",
+              "name": "timing",
+              "type": "string",
+              "value": "={{ $('5. Merge Transcription + Reel Data').item.json.timing }}"
+            },
+            {
+              "id": "c10",
+              "name": "songLink",
+              "type": "string",
+              "value": "={{ $('5. Merge Transcription + Reel Data').item.json.songLink }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        -1616,
+        224
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "423f7fdf-cae1-491f-b94e-65fb32573cc1",
+      "name": "8. Gemini - Full Concept + Shot Breakdown",
+      "notes": "Single Gemini call: picks avatars, defines clothes/background, generates concept and all shot prompts",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"contents\": [{\n    \"parts\": [{\n      \"text\": \"You are a creative director for Instagram reels. Your job is to do ALL of the following in a SINGLE response as valid JSON only:\\n\\n1. Understand the song concept from the lyrics\\n2. Pick the best avatar(s) from the list provided\\n3. Define clothes and background for the scene\\n4. Break down the reel into 4-5 shots with prompts\\n\\nINPUT DATA:\\nSong Lyrics/Transcription: {{ $json.transcription }}\\nReel Type: {{ $json.reelType }}\\nTiming: {{ $json.timing }}\\nOptional Concept Hint: {{ $json.conceptInput }}\\n\\nAVAILABLE AVATARS FOR THIS ACCOUNT:\\nAvatar 1 URL: {{ $json.avatar1Url }}\\nAvatar 2 URL: {{ $json.avatar2Url }}\\nAvatar 3 URL: {{ $json.avatar3Url }}\\n\\nReturn ONLY this JSON structure, no markdown, no explanation:\\n{\\n  \\\"song_concept\\\": \\\"2-3 sentence summary of the song's theme and mood\\\",\\n  \\\"selected_avatars\\\": [\\n    { \\\"avatar_url\\\": \\\"URL of avatar chosen\\\", \\\"role\\\": \\\"why this avatar fits the concept\\\" }\\n  ],\\n  \\\"clothes\\\": \\\"Detailed clothing description for the avatar(s) that fits the song mood\\\",\\n  \\\"background\\\": \\\"Detailed background/setting description that fits the song mood\\\",\\n  \\\"nanobana_reference_prompt\\\": \\\"Full prompt to generate the first reference image showing all selected avatars together with the defined clothes and background. Be very detailed.\\\",\\n  \\\"shots\\\": [\\n    {\\n      \\\"shot_number\\\": 1,\\n      \\\"shot_name\\\": \\\"short_name_no_spaces\\\",\\n      \\\"description\\\": \\\"What happens in this shot\\\",\\n      \\\"image_generation_prompt\\\": \\\"Detailed fal.ai prompt for this shot, referencing the clothes and background, maintaining avatar consistency\\\",\\n      \\\"camera_motion\\\": \\\"e.g. slow zoom in, pan left, static shot, dolly forward\\\",\\n      \\\"duration_seconds\\\": 3\\n    }\\n  ]\\n}\"\n    }]\n  }]\n}",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent"
+      },
+      "position": [
+        -1168,
+        -96
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "c32f28da-f110-4882-92ca-06816d5f568b",
+      "name": "9. Parse Gemini Response",
+      "parameters": {
+        "jsCode": "// Get raw Gemini\nconst rawText = $input.first().json.content.parts[0].text;\n\nif (!rawText) {\n  throw new Error(\"Gemini returned empty text\");\n}\n\n// Remove markdown fences if present\nlet cleaned = rawText\n  .replace(/```json/gi, \"\")\n  .replace(/```/g, \"\")\n  .trim();\n\n// Extract JSON safely\nconst match = cleaned.match(/\\{[\\s\\S]*\\}/);\n\nif (!match) {\n  throw new Error(\"No valid JSON found in Gemini response\");\n}\n\ncleaned = match[0];\n\nlet parsed;\n\ntry {\n  parsed = JSON.parse(cleaned);\n} catch (err) {\n  throw new Error(\"Invalid JSON from Gemini: \" + cleaned.substring(0, 300));\n}\n\n// Get previous workflow context\nconst ctx = $node[\"7. Merge Avatar URLs + All Data\"].json;\n\n// Return structured data for your pipeline\nreturn [{\n  json: {\n    reelNumber: ctx.reelNumber,\n    accountToPost: ctx.accountToPost,\n    reelType: ctx.reelType,\n    timing: ctx.timing,\n    songLink: ctx.songLink,\n\n    lyricalSubtext: parsed.lyrical_subtext || \"\",\n    colorPalette: parsed.color_palette || \"\",\n    identityAnchor: parsed.identity_anchor || \"\",\n    outfitStyling: parsed.styling?.outfit || \"\",\n    lightingStyling: parsed.styling?.lighting || \"\",\n    reference_image_prompt:parsed.reference_image_prompt || \"\",\n    shots: parsed.shots || [],\n    totalShots: parsed.shots?.length || 0\n  }\n}];"
+      },
+      "position": [
+        -1264,
+        224
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "f220f210-6022-48f6-8f63-47304aa1f36a",
+      "name": "10. Prepare Nanobana Input",
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\n\nlet avatarUrls = [];\n\n// If Gemini returned selectedAvatars\nif (data.selectedAvatars && data.selectedAvatars.length) {\n  avatarUrls = data.selectedAvatars\n    .map(a => a.avatar_url)\n    .filter(u => u && u.trim() !== \"\");\n} \n// Otherwise fallback to account avatars\nelse {\n  const accountData = $node[\"6. Get Account Avatar URLs\"].json;\n  avatarUrls = [\n    accountData.avatar1,\n    accountData.avatar2,\n    accountData.avatar3\n  ].filter(u => u && u.trim() !== \"\");\n}\n\nreturn [{\n  json: {\n    ...data,\n    avatarUrlsForNanobana: avatarUrls,\n    avatarUrlsString: avatarUrls.join(\", \")\n  }\n}];"
+      },
+      "position": [
+        -1056,
+        224
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "e16b3270-002e-4689-994e-a29a816e67e5",
+      "name": "11. Nanobana - Generate Reference Image",
+      "notes": "IMPORTANT: Update URL and request body to match actual Nanobana API docs. This uses a guessed structure.",
+      "parameters": {
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_NANOBANA_API_KEY"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"prompt\": \"{{ $json.nanobanaReferencePrompt }}\",\n  \"avatar_urls\": {{ JSON.stringify($json.avatarUrlsForNanobana) }},\n  \"width\": 1080,\n  \"height\": 1920,\n  \"style\": \"cinematic\"\n}",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://api.nanobana.ai/v1/generate"
+      },
+      "position": [
+        -592,
+        -240
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "86657d47-4265-4d99-b202-b40e98a1349c",
+      "name": "12. Extract Reference Image URL",
+      "parameters": {
+        "jsCode": "const ctx = $node[\"10. Prepare Nanobana Input\"].json;\n\nreturn [{\n  json: ctx,\n  binary: $input.first().binary\n}];"
+      },
+      "position": [
+        -288,
+        -208
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "3ae86a51-e75e-4f3f-bbfb-062ed1c1552d",
+      "name": "14. Create photos_review Subfolder",
+      "notes": "Creates: Reel_{number}/photos_review/ subfolder",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "myDrive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "expression",
+          "value": "={{ $json.id }}"
+        },
+        "name": "photos_review",
+        "options": {}
+      },
+      "position": [
+        384,
+        -160
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "ebc659c2-a379-46bf-a469-1139c3b9c644",
+      "name": "15. Merge Folder ID + Context",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d1",
+              "name": "reviewFolderId",
+              "type": "string",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "id": "d2",
+              "name": "reviewFolderLink",
+              "type": "string",
+              "value": "=https://drive.google.com/drive/folders/{{ $json.id }}"
+            },
+            {
+              "id": "d3",
+              "name": "referenceImageUrl",
+              "type": "string",
+              "value": "={{ $('12. Extract Reference Image URL').item.json.referenceImageUrl }}"
+            },
+            {
+              "id": "d4",
+              "name": "shots",
+              "type": "array",
+              "value": "={{ $('12. Extract Reference Image URL').item.json.shots }}"
+            },
+            {
+              "id": "d5",
+              "name": "reelNumber",
+              "type": "string",
+              "value": "={{ $('12. Extract Reference Image URL').item.json.reelNumber }}"
+            },
+            {
+              "id": "d6",
+              "name": "clothes",
+              "type": "string",
+              "value": "={{ $('12. Extract Reference Image URL').item.json.clothes }}"
+            },
+            {
+              "id": "d7",
+              "name": "background",
+              "type": "string",
+              "value": "={{ $('12. Extract Reference Image URL').item.json.background }}"
+            },
+            {
+              "id": "d8",
+              "name": "accountToPost",
+              "type": "string",
+              "value": "={{ $('12. Extract Reference Image URL').item.json.accountToPost }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        656,
+        -176
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "fb3d477f-ffe9-4415-9480-8a8725583599",
+      "name": "16. Split Into Individual Shots",
+      "notes": "Creates one item per shot for parallel/sequential processing",
+      "parameters": {
+        "fieldToSplitOut": "shots",
+        "options": {}
+      },
+      "position": [
+        864,
+        -224
+      ],
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "id": "4972364c-3fe6-450c-b22f-8475df85c89c",
+      "name": "Get row(s) in sheet",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Sample Sheet for auto video generation based on song",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo"
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        -2752,
+        240
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "5865478c-95da-409c-8e56-d43ff605ef21",
+      "name": "Download file1",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://drive.google.com/file/d/14HbGNKzIvfT-4Qei1dpXkZrxmdGrhqmp/view?usp=sharing"
+        },
+        "operation": "download",
+        "options": {}
+      },
+      "position": [
+        -960,
+        -96
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "c86bf1a0-1de0-4816-855e-419cac2487c2",
+      "name": "Analyze an image",
+      "parameters": {
+        "inputType": "binary",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "operation": "analyze",
+        "options": {},
+        "resource": "image",
+        "text": "{\n  \"contents\": [{\n    \"parts\": [{\n      \"text\": \"You are a creative director for Instagram reels. Your job is to do ALL of the following in a SINGLE response as valid JSON only:\\n\\n1. Understand the song concept from the lyrics\\n2. Pick the best avatar(s) from the list provided\\n3. Define clothes and background for the scene\\n4. Break down the reel into 4-5 shots with prompts\\n\\nINPUT DATA:\\nSong Lyrics/Transcription: {{ $json.transcription }}\\nReel Type: {{ $json.reelType }}\\nTiming: {{ $json.timing }}\\nOptional Concept Hint: {{ $json.conceptInput }}\\n\\n}\\n\\nReturn ONLY this JSON structure, no markdown, no explanation:\\n{\\n  \\\"song_concept\\\": \\\"2-3 sentence summary of the song's theme and mood\\\",\\n  \\\"selected_avatars\\\": [\\n    { \\\"avatar_url\\\": \\\"URL of avatar chosen\\\", \\\"role\\\": \\\"why this avatar fits the concept\\\" }\\n  ],\\n  \\\"clothes\\\": \\\"Detailed clothing description for the avatar(s) that fits the song mood\\\",\\n  \\\"background\\\": \\\"Detailed background/setting description that fits the song mood\\\",\\n  \\\"nanobana_reference_prompt\\\": \\\"Full prompt to generate the first reference image showing all selected avatars together with the defined clothes and background. Be very detailed.\\\",\\n  \\\"shots\\\": [\\n    {\\n      \\\"shot_number\\\": 1,\\n      \\\"shot_name\\\": \\\"short_name_no_spaces\\\",\\n      \\\"description\\\": \\\"What happens in this shot\\\",\\n      \\\"image_generation_prompt\\\": \\\"Detailed fal.ai prompt for this shot, referencing the clothes and background, maintaining avatar consistency\\\",\\n      \\\"camera_motion\\\": \\\"e.g. slow zoom in, pan left, static shot, dolly forward\\\",\\n      \\\"duration_seconds\\\": 3\\n    }\\n  ]\\n}\"\n    }]\n  }]\n}"
+      },
+      "position": [
+        -752,
+        -96
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "b1c3f026-b7b5-4430-a4dc-06dcdd1c7bea",
+      "name": "Generate media using AI model",
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "cachedResultName": "FLUX.1 Kontext [pro] [image-to-image]",
+          "mode": "list",
+          "value": "fal-ai/flux-pro/kontext"
+        },
+        "modelParameters": {
+          "parameters": [
+            {
+              "parameter": "prompt",
+              "value": "={{ $json.shots.image_generation_prompt }}"
+            },
+            {
+              "parameter": "image_url",
+              "value": "={{ $('Upload file').item.json.webContentLink }}"
+            }
+          ]
+        },
+        "options": {
+          "maxWaitTime": 600,
+          "pollInterval": 5,
+          "waitForCompletion": true
+        }
+      },
+      "position": [
+        368,
+        336
+      ],
+      "type": "@fal-ai/n8n-nodes-fal.falAi",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "605aea72-bc9d-4c8d-b774-e52d0625f865",
+      "name": "Analyze an image1",
+      "parameters": {
+        "imageUrls": "={{ $json.avatar1Url }}",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-pro",
+          "mode": "list",
+          "value": "models/gemini-2.5-pro"
+        },
+        "operation": "analyze",
+        "options": {},
+        "resource": "image",
+        "text": "={\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"ROLE: Senior Creative Director & Cinematic Reel Architect. Provide a Shot Script optimized for high-end AI image and video generation.\\n\\nINPUT CONTEXT:\\n1. Avatar Reference Image: MASTER BASE IDENTITY (Visual DNA).\\n2. Song Lyrics: {{ $json.transcription }}\\n3. Reel Mood / Genre: {{ $json.reelType }}\\n4. Aspect Ratio: 9:16 vertical cinematic reel.\\n\\nCRITICAL IDENTITY LOCK:\\n- The reference image defines the EXACT facial bone structure, features, and skin tone.\\n- Hairstyle and Outfit (cream silk blouse) must remain 100% consistent across all shots.\\n- Do NOT modify the character's fundamental likeness.\\n\\nPRIMARY OBJECTIVE:\\n1. Reconstruct a detailed 'Visual DNA' prompt of the avatar.\\n2. Create a 5-shot emotional reel where the CHARACTER is constant, but the VIBE evolves with the lyrics.\\n\\nCREATIVE EXECUTION RULES:\\n\\n1. SUBTEXT & VIBE SHIFT:\\n- Analyze the emotional weight of each lyric line.\\n- EVOLVE the environment and lighting for every shot to match the mood (e.g., from soft morning light to dramatic neon night).\\n\\n2. DYNAMIC CONTINUITY:\\n- Character continuity is MANDATORY (same face, hair, outfit).\\n- Environment continuity is FLEXIBLE: You MAY move the character to different cinematic locations (balcony, city streets, minimalist interiors, abstract light-filled voids) to 'vibe' with the music.\\n- Use diverse lighting: Golden hour, teal/orange noir, high-contrast shadows, or ethereal glows.\\n\\n3. IDENTITY PROMPTING RULE (START EACH PROMPT WITH):\\n\\\"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse.\\\"\\n\\n4. TECHNICAL IMAGE QUALITY (END EACH PROMPT WITH):\\n\\\"Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\\\"\\n\\nOUTPUT FORMAT (RETURN ONLY VALID JSON):\\n\\n{\\n  \\\"reference_image_prompt\\\": \\\"Reconstruction of the avatar base identity and original environment.\\\",\\n  \\\"lyrical_subtext\\\": \\\"Psychological meaning of the song\\\",\\n  \\\"emotional_progression\\\": \\\"Evolution of mood across 5 shots\\\",\\n  \\\"color_palette\\\": \\\"The cinematic color journey (e.g., Twilight Blue to Sunset Gold)\\\",\\n  \\\"environment_continuity\\\": \\\"Description of how the world shifts around the character\\\",\\n  \\\"shots\\\": [\\n    {\\n      \\\"shot_number\\\": 1,\\n      \\\"lyric_reference\\\": \\\"Lyric line\\\",\\n      \\\"vibe_match\\\": \\\"Emotional explanation\\\",\\n      \\\"image_generation_prompt\\\": \\\"[IDENTITY PROMPTING RULE] + [Specific new environment, new lighting, emotional pose, and camera angle] + [TECHNICAL QUALITY TAGS]\\\",\\n      \\\"camera_motion\\\": \\\"Cinematic movement (e.g., Slow push-in, Orbit, Tilt)\\\",\\n      \\\"duration_seconds\\\": 3\\n    }\\n  ]\\n}\\n\\nFINAL RULE:\\nThe character must be unmistakable across all shots, but the cinematography must feel like a high-budget music video with changing moods.\\n\"\n        }\n      ]\n    }\n  ]\n}"
+      },
+      "position": [
+        -1424,
+        224
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "f5365f66-e527-4e5f-bd62-a6a0ccea0251",
+      "name": "13b. Reel Folder Found?",
+      "notes": "TRUE = folder exists, use it. FALSE = create it.",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "cond1",
+              "leftValue": "={{ $json.id }}",
+              "operator": {
+                "operation": "notEmpty",
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -1072,
+        432
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "44e5ba58-fb8f-431d-acef-b5bbcc8161cc",
+      "name": "If",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "90a23ba2-af30-431c-ba06-db22f173040f",
+              "leftValue": "={{ $json.id }}",
+              "operator": {
+                "operation": "exists",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -2048,
+        448
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "3f187854-6d55-4d13-9145-3d510c200d42",
+      "name": "Code in JavaScript",
+      "parameters": {
+        "jsCode": "let parentId;\n\n// Try getting searched folder\nconst searchNode = $node[\"Search parent Reel\"].json;\n\nif (searchNode && searchNode.id) {\n  parentId = searchNode.id;\n} else {\n  const createdNode = $node[\"Create Reelfolder\"].json;\n\n  if (!createdNode || !createdNode.id) {\n    throw new Error(\"Parent folder not found and not created.\");\n  }\n\n  parentId = createdNode.id;\n}\n\nreturn [{\n  json: {\n    parentFolderId: parentId\n  }\n}];"
+      },
+      "position": [
+        -1696,
+        432
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "0dd8db91-fc95-451c-bf08-6099a24d76ef",
+      "name": "Upload file",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.ReelFolderId }}"
+        },
+        "name": "Reference_image",
+        "options": {}
+      },
+      "position": [
+        -352,
+        816
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "f01f481b-ced6-4351-aca6-98b2cf0c1c8b",
+      "name": "Code in JavaScript1",
+      "parameters": {
+        "jsCode": "let ReelId;\n\n// Get search results safely\nconst searchItems = $node[\"Reel Folder Exists\"].json;\n\nif (searchItems && searchItems.id) {\n  ReelId = searchItems.id;\n} else {\n  const createdItems = $node[\"Create Review_images Folder\"].json;\n  \n  if (!createdItems || !createdItems.id) {\n    throw new Error(\"Reelfolder not found and not created.\");\n  }\n\n  ReelId = createdItems.id;\n}\n\nreturn [{\n  json: {\n    ReelFolderId: ReelId\n  }\n}];\n"
+      },
+      "position": [
+        -416,
+        416
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "0b4ccd90-e876-487c-9a6e-34ba4ed2dc8e",
+      "name": "Reel Folder Exists",
+      "notes": "Searches for Reel_{number} folder. If found, skip creation.",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $('Code in JavaScript').item.json.parentFolderId }}"
+          }
+        },
+        "options": {},
+        "queryString": "Review_images",
+        "resource": "fileFolder"
+      },
+      "position": [
+        -1264,
+        432
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "ae7bb2b0-37fc-4544-a823-97eecf0b3eb3",
+      "name": "Merge",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        -496,
+        816
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "8a891e1d-f5dc-402e-b6b7-1ed8445ce39e",
+      "name": "Split Out",
+      "parameters": {
+        "fieldToSplitOut": "shots",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "position": [
+        32,
+        736
+      ],
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1
+    },
+    {
+      "id": "3248bc23-e4c8-4648-84bc-c1a9ab16c627",
+      "name": "Code in JavaScript2",
+      "parameters": {
+        "jsCode": "return [{\n  json: {\n    ...$node[\"9. Parse Gemini Response\"].json\n  }\n}];"
+      },
+      "position": [
+        -176,
+        896
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "67653724-ffa9-4abb-bd5f-ded15c60adab",
+      "name": "Edit an image",
+      "parameters": {
+        "images": {
+          "values": [
+            {}
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash-image (Nano Banana)",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash-image"
+        },
+        "operation": "edit",
+        "options": {},
+        "prompt": "={{ $json.shots.image_generation_prompt }}",
+        "resource": "image"
+      },
+      "position": [
+        432,
+        192
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "6b01966b-147d-4e3e-8f9a-f32ee11319b6",
+      "name": "Upload file1",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Code in JavaScript1').item.json.ReelFolderId }}"
+        },
+        "name": "={{ 'reel_' + $('Split Out').item.json.reelNumber + '_shot_' + $('Split Out').item.json.shots.shot_number + '_' + '.jpg' }}",
+        "options": {}
+      },
+      "position": [
+        1280,
+        704
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "4f73d613-528e-4a99-b880-9f014b5fa496",
+      "name": "HTTP Request",
+      "parameters": {
+        "options": {},
+        "url": "={{ $json.images[0].url }}"
+      },
+      "position": [
+        1120,
+        704
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "0069fb6d-d52b-4628-903c-c71226781e8e",
+      "name": "HTTP Request1",
+      "parameters": {
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key REDACTED"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"prompt\": \"{{ $json.shots.image_generation_prompt }}\",\n  \"image_urls\": [\n    \"{{ $('Upload file').item.json.webContentLink }}\"\n  ],\n  \"elements\": [{}],\n  \"resolution\": \"1K\",\n  \"result_type\": \"single\",\n  \"num_images\": 1,\n  \"aspect_ratio\": \"auto\",\n  \"output_format\": \"png\"\n}\n",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://queue.fal.run/fal-ai/kling-image/o3/image-to-image"
+      },
+      "position": [
+        288,
+        720
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "credentials": {
+        "openAiApi": {
+          "id": "HtC3pXdXhNPajOpZ",
+          "name": "OpenAi account"
+        }
+      },
+      "id": "0f0abf56-d4bd-4083-b435-ba011c6da5db",
+      "name": "Translate a recording",
+      "parameters": {
+        "operation": "translate",
+        "options": {},
+        "resource": "audio"
+      },
+      "position": [
+        -2208,
+        224
+      ],
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1
+    },
+    {
+      "id": "74b68514-8a13-4edf-b2f1-b0a188705d1a",
+      "name": "Code in JavaScript3",
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\n\n// Build identity description\nconst identity = data.identityAnchor || \"\";\n\n// Build styling\nconst outfit = data.outfitStyling || \"\";\nconst lighting = data.lightingStyling || \"\";\nconst palette = data.colorPalette || \"\";\n\n// Construct strong identity-locked prompt\nconst referencePrompt = `\nMaintain exact facial structure\nNo beautification. No alteration of facial proportions.\nPreserve realistic pores and micro skin details.\n\nOutfit: ${outfit}\n\nLighting: ${lighting}\n\nColor grading palette: ${palette}\n\nShot on ARRI Alexa, 35mm lens, sharp focus, professional film lighting, shallow depth of field.\n`;\n\n// Return updated JSON\nreturn [{\n  json: {\n    ...data,\n    nanobanaReferencePrompt: referencePrompt.trim()\n  }\n}];"
+      },
+      "position": [
+        -848,
+        224
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "be736cab-b07b-43f0-95a3-e463c1cafc94",
+      "name": "HTTP Request2",
+      "parameters": {
+        "options": {},
+        "url": "="
+      },
+      "position": [
+        -2768,
+        1120
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "a76de35a-d5cc-455e-badd-e8f052f7b645",
+      "name": "Generate an image",
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash-image (Nano Banana)",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash-image"
+        },
+        "options": {},
+        "prompt": "={\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"{{ $json.reference_image_prompt }}\"\n        },\n        {\n          \"inline_data\": {\n            \"mime_type\": \"image/jpeg\",\n            \"file_url\":\"{{ $json.avatarUrlsString }}\"\n            \n          }\n        }\n      ]\n    }\n  ],\n  \"tools\": [\n    {\n      \"googleSearch\": {}\n    }\n  ],\n  \"generationConfig\": {\n    \"imageConfig\": {\n      \"aspectRatio\": \"9:16\",\n      \"imageSize\": \"720p\"\n    }\n  }\n}",
+        "resource": "image"
+      },
+      "position": [
+        -2656,
+        816
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "9337ce63-b044-42fc-a5fa-d82bd1c7c5ae",
+      "name": "Extract from File",
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "position": [
+        -2560,
+        1088
+      ],
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "d773afa6-9604-4d1d-8389-892e524d7956",
+      "name": "Share file",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "operation": "share",
+        "options": {},
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        }
+      },
+      "position": [
+        -224,
+        672
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "e9f471a1-4b46-45fb-ad2d-1be9bae12ec3",
+      "name": "Search parent Reel",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "cachedResultName": "Reels",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1bq8TPtmWD3AlpDzUT4reOVwqsTEoXLvL",
+            "mode": "list",
+            "value": "1bq8TPtmWD3AlpDzUT4reOVwqsTEoXLvL"
+          }
+        },
+        "options": {},
+        "queryString": "=Reel_{{ $('10. Prepare Nanobana Input').item.json.reelNumber }}",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        -2240,
+        512
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "8443cb06-201c-4b14-8fec-35d69bb90b70",
+      "name": "Create Reel Folder1",
+      "notes": "Only runs if folder does NOT exist",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive",
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Code in JavaScript').item.json.parentFolderId }}"
+        },
+        "name": "=Reel_{{ $('10. Prepare Nanobana Input').item.json.reelNumber }}",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        -1600,
+        1232
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "bf7404a1-4574-40b0-a402-5783f990b0ff",
+      "name": "Create Reelfolder",
+      "notes": "Creates: Reel_{number} folder",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "cachedResultName": "Reels",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1bq8TPtmWD3AlpDzUT4reOVwqsTEoXLvL",
+          "mode": "list",
+          "value": "1bq8TPtmWD3AlpDzUT4reOVwqsTEoXLvL"
+        },
+        "name": "=Reel_{{ $('10. Prepare Nanobana Input').item.json.reelNumber }}",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        -1824,
+        560
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "5882be95-c7fd-4fd2-ac1b-56dc00e50b2a",
+      "name": "Create Review_images Folder",
+      "notes": "Only runs if folder does NOT exist",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Code in JavaScript').item.json.parentFolderId }}"
+        },
+        "name": "=Review_images",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        -704,
+        528
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "779d1519-8912-40a6-a9ca-4fea7f15301f",
+      "name": "Create Approved_images Folder",
+      "notes": "Only runs if folder does NOT exist",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Code in JavaScript').item.json.parentFolderId }}"
+        },
+        "name": "=Approved_images",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        -896,
+        528
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "9902b339-3ff9-4853-95d4-24c85c9a9716",
+      "name": "When clicking ‘Execute workflow’",
+      "parameters": {},
+      "position": [
+        -1744,
+        3072
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "9235a012-743b-46d5-b7f5-4c024e526631",
+      "name": "HTTP Request3",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "falAiApi",
+        "options": {},
+        "url": "={{ $json.status_url }}"
+      },
+      "position": [
+        608,
+        720
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "43ba8887-c238-4a7a-aa9c-2c96da34ea09",
+      "name": "HTTP Request4",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "falAiApi",
+        "options": {},
+        "url": "={{ $json.response_url }}"
+      },
+      "position": [
+        960,
+        704
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "dd18bbd5-9c1b-464d-ad1a-9352c38cec71",
+      "name": "If1",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "b4ea925c-9cd5-4c90-bffe-2703f42b352c",
+              "leftValue": "={{ $json.status }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "COMPLETED"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        784,
+        720
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "064b31bd-264a-424a-8e45-a0a1ce11e9fd",
+      "name": "Create file from text",
+      "parameters": {
+        "content": "={{\n$('Code in JavaScript3').item.json.shots\n.map(s =>\n`Shot ${s.shot_number}\nLyric: ${s.lyric_reference}\nVibe: ${s.vibe_match}\nPrompt: ${s.image_generation_prompt}\n\n----------------------------------\n`\n).join(\"\\n\")\n}}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.parentFolderId }}"
+        },
+        "name": "Shots_Script",
+        "operation": "createFromText",
+        "options": {}
+      },
+      "position": [
+        -1456,
+        432
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "bafffa3c-cc23-4552-812b-16e0d47c8e66",
+      "name": "checking if concept is present",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "8364534a-ae01-438f-9713-e9b6294e6ce2",
+              "leftValue": "={{ $json.conceptInput }}",
+              "operator": {
+                "operation": "notEmpty",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -912,
+        3072
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "c900e770-9b11-4cf3-acf6-b451b1591bdc",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "### for arya\ncheck for concept via model or diret and then use in next nodes\n",
+        "width": 340
+      },
+      "position": [
+        -1040,
+        2656
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "ef28e50c-4dad-41ba-8a8c-c6365b986a66",
+      "name": "5. Merge concept + Reel Data",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b1",
+              "name": "Concept",
+              "type": "string",
+              "value": "={{ $json.conceptInput }}"
+            },
+            {
+              "id": "b2",
+              "name": "reelNumber",
+              "type": "string",
+              "value": "={{ $('checking if concept is present').item.json.reelNumber }}"
+            },
+            {
+              "id": "b3",
+              "name": "accountToPost",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data1').item.json.accountToPost }}"
+            },
+            {
+              "id": "b4",
+              "name": "reelType",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data1').item.json.reelType }}"
+            },
+            {
+              "id": "b5",
+              "name": "conceptInput",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data1').item.json.conceptInput }}"
+            },
+            {
+              "id": "b6",
+              "name": "songLink",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data1').item.json.songLink }}"
+            },
+            {
+              "id": "b7",
+              "name": "startTimeSong",
+              "type": "string",
+              "value": "={{ $('Get row(s) in sheet1').item.json['Start Time of Song'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        320,
+        3056
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "866d8af9-9249-454e-a3fb-e09b6e488e3c",
+      "name": "Get Client Folder name",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "cachedResultName": "Clients",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-",
+            "mode": "list",
+            "value": "1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-"
+          }
+        },
+        "limit": 1,
+        "options": {},
+        "queryString": "={{ $('Get row(s) in sheet1').item.json['Client(drive folder name)'] }}",
+        "resource": "fileFolder"
+      },
+      "position": [
+        576,
+        3248
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "7dde4ab0-4627-492b-b7f3-534be4b19709",
+      "name": "Get video Avatar Folders",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "whatToSearch": "folders"
+        },
+        "options": {},
+        "queryString": "video_avatar_accounts",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        752,
+        3248
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "ecc4347a-f7df-4178-8b25-321be6700be1",
+      "name": "Get video Avatar to use based on account",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "whatToSearch": "folders"
+        },
+        "options": {},
+        "queryString": "={{ $('Get row(s) in sheet1').item.json['Account to post'] }}",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        880,
+        3248
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "a58ee7c9-4b30-4ff7-8d09-5c82a2cd28df",
+      "name": "Get all Avatars",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "whatToSearch": "folders"
+        },
+        "options": {},
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        1024,
+        3248
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "3a8f5e8a-3f3f-4ac8-930e-5ff74c417d49",
+      "name": "Get all Image link in avatars",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json['Avatar Id'] }}"
+          },
+          "whatToSearch": "files"
+        },
+        "options": {},
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        1568,
+        3360
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "f027014f-1c7e-4a9a-a901-e1a4d1056dd5",
+      "name": "Loop Over Items",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        1216,
+        3248
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "2ff4115b-b72d-4095-828a-24e0f4ad7966",
+      "name": "Merge Folder and Image Data",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9891ad26-6ad0-4b87-b4dd-91a73ebd3960",
+              "name": "Avatar Name",
+              "type": "string",
+              "value": "={{ $('Get Avatar Folder name and Id').item.json['Avatar Name'] }}"
+            },
+            {
+              "id": "3809959e-384e-4055-b0ed-aa964fab3cea",
+              "name": "Avatar Id",
+              "type": "string",
+              "value": "={{ $('Get Avatar Folder name and Id').item.json['Avatar Id'] }}"
+            },
+            {
+              "id": "75ec39ad-a6f7-4f92-b3ff-6b50f64465aa",
+              "name": "Image name",
+              "type": "string",
+              "value": "={{ $('Get all Image link in avatars').item.json.name }}"
+            },
+            {
+              "id": "19e78621-522c-41ae-bbd2-b4984d1c14e5",
+              "name": "Image Id",
+              "type": "string",
+              "value": "={{ $('Get all Image link in avatars').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        1792,
+        3360
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "9ce87daa-48ae-4dc3-904b-023b70cf7a18",
+      "name": "Get Avatar Folder name and Id",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9891ad26-6ad0-4b87-b4dd-91a73ebd3960",
+              "name": "Avatar Name",
+              "type": "string",
+              "value": "={{ $('Loop Over Items').item.json.name }}"
+            },
+            {
+              "id": "3809959e-384e-4055-b0ed-aa964fab3cea",
+              "name": "Avatar Id",
+              "type": "string",
+              "value": "={{ $('Loop Over Items').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        1376,
+        3360
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "c020d99f-3b3f-48a2-ad05-36d5dbcecbef",
+      "name": "Group the Avtar & Image links",
+      "parameters": {
+        "jsCode": "// 1. Get the raw string from your specific node\n// Replace '2. Extract Reel Data' with the exact name if different\nconst rawList = $node[\"2. Extract Reel Data1\"].json[\"avtarList\"] || \"\";\n\n// 2. Clean the list: split by comma, trim whitespace, and remove empty values\nconst targetAvatars = rawList.split(',')\n  .map(name => name.trim())\n  .filter(name => name.length > 0);\n\n// 3. Get all the input items (the list of image rows you provided)\nconst allRows = items.map(item => item.json);\n\n// 4. Group data by Avatar Name\nconst grouped = {};\n\nallRows.forEach(row => {\n  const name = row[\"Avatar Name\"];\n  \n  // Only process if this name exists in our target list\n  if (targetAvatars.includes(name)) {\n    if (!grouped[name]) {\n      grouped[name] = {\n        \"Avatar Name\": name,\n        \"Avatar Id\": row[\"Avatar Id\"],\n        \"Images\": []\n      };\n    }\n    \n    // Construct the Google Drive download link\n    const downloadLink = `https://drive.google.com/uc?export=download&id=${row[\"Image Id\"]}`;\n    \n    grouped[name].Images.push({\n      \"Image Name\": row[\"Image name\"],\n      \"Download Link\": downloadLink\n    });\n  }\n});\n\n// 5. Convert the grouped object back into an array for n8n output\nreturn Object.values(grouped);"
+      },
+      "position": [
+        1456,
+        3168
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "42ff52ea-0f90-48c3-bbde-e6f9064510a0",
+      "name": "2. Extract Reel Data1",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a1",
+              "name": "reelNumber",
+              "type": "string",
+              "value": "={{ $json['Reel number'] }}"
+            },
+            {
+              "id": "a2",
+              "name": "accountToPost",
+              "type": "string",
+              "value": "={{ $json['Account to post'] }}"
+            },
+            {
+              "id": "a3",
+              "name": "reelType",
+              "type": "string",
+              "value": "={{ $json['Reel Type'] }}"
+            },
+            {
+              "id": "a4",
+              "name": "conceptInput",
+              "type": "string",
+              "value": "={{ $json['Concept input(optional)'] ?? '' }}"
+            },
+            {
+              "id": "a5",
+              "name": "songLink",
+              "type": "string",
+              "value": "={{ $json['Song link(direct download)'] }}"
+            },
+            {
+              "id": "a6",
+              "name": "startTimeSong",
+              "type": "string",
+              "value": "={{ $json['Start Time of Song'] }}"
+            },
+            {
+              "id": "d783bf3d-e17b-4a3c-8fe4-f5ba5060bccf",
+              "name": "totalTimeReel",
+              "type": "string",
+              "value": "={{ $json['Total Time of Reel(Secs)'] }}"
+            },
+            {
+              "id": "9bc96e5b-bcea-4c2d-90d6-1a7a4a85ac76",
+              "name": "statusOfAutomation",
+              "type": "string",
+              "value": "={{ $json['Status of Automation'] }}"
+            },
+            {
+              "id": "ad0bfff0-c10e-4ff8-b262-a3b4f2abbb8a",
+              "name": "avtarList",
+              "type": "string",
+              "value": "={{ $json['Avatars to use(comma seperated)'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        -1280,
+        3072
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "89d6daad-e9d1-4d40-8d63-9cdfe652c138",
+      "name": "3. Download Song MP",
+      "notes": "Downloads the MP3 file from the Google Drive/direct link in the sheet",
+      "parameters": {
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "responseFormat": "file"
+            }
+          }
+        },
+        "url": "={{ $json.songLink }}"
+      },
+      "position": [
+        -704,
+        3248
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "0655d231-19c5-4f8c-8c85-c7dac0a826a8",
+      "name": "4. Whisper - Transcribe Song1",
+      "notes": "Uses OpenAI Whisper to transcribe the song into English text",
+      "parameters": {},
+      "position": [
+        -48,
+        2896
+      ],
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.8
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "id": "b64b50c7-346a-4ce6-9561-cc06a0c8818b",
+      "name": "6. Get Account Avatar URLs1",
+      "notes": "Reads from Avatar Mappings tab. Expects columns: Account Username, Avatar 1 URL, Avatar 2 URL, etc.",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Sample Sheet for auto video generation based on song",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo"
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "insta_avatar_details",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185AvpfoBuoD87Pzi9kwtY_4FiAALGkpv0JT7GtVgPHo/edit#gid=1667808130",
+          "mode": "list",
+          "value": 1667808130
+        }
+      },
+      "position": [
+        1296,
+        2896
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5
+    },
+    {
+      "id": "01a9c7d7-8045-4e5a-a9c9-ed79c5667b0c",
+      "name": "7. Merge Avatar URLs + All Data1",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c1",
+              "name": "avatar1Url",
+              "type": "string",
+              "value": "={{ $json.avatar1 }}"
+            },
+            {
+              "id": "c2",
+              "name": "avatar2Url",
+              "type": "string",
+              "value": "={{ $json.avatar2 }}"
+            },
+            {
+              "id": "c3",
+              "name": "avatar3Url",
+              "type": "string",
+              "value": "={{ $json['Avatar 3 URL'] ?? '' }}"
+            },
+            {
+              "id": "c4",
+              "name": "transcription",
+              "type": "string",
+              "value": "={{ $('5. Merge concept + Reel Data').item.json.transcription }}"
+            },
+            {
+              "id": "c5",
+              "name": "reelNumber",
+              "type": "string",
+              "value": "={{ $('5. Merge concept + Reel Data').item.json.reelNumber }}"
+            },
+            {
+              "id": "c6",
+              "name": "accountToPost",
+              "type": "string",
+              "value": "={{ $('5. Merge concept + Reel Data').item.json.accountToPost }}"
+            },
+            {
+              "id": "c7",
+              "name": "reelType",
+              "type": "string",
+              "value": "={{ $('5. Merge concept + Reel Data').item.json.reelType }}"
+            },
+            {
+              "id": "c8",
+              "name": "conceptInput",
+              "type": "string",
+              "value": "={{ $('5. Merge concept + Reel Data').item.json.conceptInput }}"
+            },
+            {
+              "id": "c9",
+              "name": "timing",
+              "type": "string",
+              "value": "={{ $('5. Merge concept + Reel Data').item.json.timing }}"
+            },
+            {
+              "id": "c10",
+              "name": "songLink",
+              "type": "string",
+              "value": "={{ $('5. Merge concept + Reel Data').item.json.songLink }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        1680,
+        2896
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "5390ba21-b022-4c35-84df-25744b932161",
+      "name": "8. Gemini - Full Concept + Shot Breakdown1",
+      "notes": "Single Gemini call: picks avatars, defines clothes/background, generates concept and all shot prompts",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"contents\": [{\n    \"parts\": [{\n      \"text\": \"You are a creative director for Instagram reels. Your job is to do ALL of the following in a SINGLE response as valid JSON only:\\n\\n1. Understand the song concept from the lyrics\\n2. Pick the best avatar(s) from the list provided\\n3. Define clothes and background for the scene\\n4. Break down the reel into 4-5 shots with prompts\\n\\nINPUT DATA:\\nSong Lyrics/Transcription: {{ $json.transcription }}\\nReel Type: {{ $json.reelType }}\\nTiming: {{ $json.timing }}\\nOptional Concept Hint: {{ $json.conceptInput }}\\n\\nAVAILABLE AVATARS FOR THIS ACCOUNT:\\nAvatar 1 URL: {{ $json.avatar1Url }}\\nAvatar 2 URL: {{ $json.avatar2Url }}\\nAvatar 3 URL: {{ $json.avatar3Url }}\\n\\nReturn ONLY this JSON structure, no markdown, no explanation:\\n{\\n  \\\"song_concept\\\": \\\"2-3 sentence summary of the song's theme and mood\\\",\\n  \\\"selected_avatars\\\": [\\n    { \\\"avatar_url\\\": \\\"URL of avatar chosen\\\", \\\"role\\\": \\\"why this avatar fits the concept\\\" }\\n  ],\\n  \\\"clothes\\\": \\\"Detailed clothing description for the avatar(s) that fits the song mood\\\",\\n  \\\"background\\\": \\\"Detailed background/setting description that fits the song mood\\\",\\n  \\\"nanobana_reference_prompt\\\": \\\"Full prompt to generate the first reference image showing all selected avatars together with the defined clothes and background. Be very detailed.\\\",\\n  \\\"shots\\\": [\\n    {\\n      \\\"shot_number\\\": 1,\\n      \\\"shot_name\\\": \\\"short_name_no_spaces\\\",\\n      \\\"description\\\": \\\"What happens in this shot\\\",\\n      \\\"image_generation_prompt\\\": \\\"Detailed fal.ai prompt for this shot, referencing the clothes and background, maintaining avatar consistency\\\",\\n      \\\"camera_motion\\\": \\\"e.g. slow zoom in, pan left, static shot, dolly forward\\\",\\n      \\\"duration_seconds\\\": 3\\n    }\\n  ]\\n}\"\n    }]\n  }]\n}",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent"
+      },
+      "position": [
+        1776,
+        3088
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "200c1244-b225-4826-9bb5-5765fed2f53f",
+      "name": "9. Parse Gemini Response1",
+      "parameters": {
+        "jsCode": "// Get raw Gemini\nconst rawText = $input.first().json.content.parts[0].text;\n\nif (!rawText) {\n  throw new Error(\"Gemini returned empty text\");\n}\n\n// Remove markdown fences if present\nlet cleaned = rawText\n  .replace(/```json/gi, \"\")\n  .replace(/```/g, \"\")\n  .trim();\n\n// Extract JSON safely\nconst match = cleaned.match(/\\{[\\s\\S]*\\}/);\n\nif (!match) {\n  throw new Error(\"No valid JSON found in Gemini response\");\n}\n\ncleaned = match[0];\n\nlet parsed;\n\ntry {\n  parsed = JSON.parse(cleaned);\n} catch (err) {\n  throw new Error(\"Invalid JSON from Gemini: \" + cleaned.substring(0, 300));\n}\n\n// Get previous workflow context\nconst ctx = $node[\"7. Merge Avatar URLs + All Data1\"].json;\n\n// Return structured data for your pipeline\nreturn [{\n  json: {\n    reelNumber: ctx.reelNumber,\n    accountToPost: ctx.accountToPost,\n    reelType: ctx.reelType,\n    timing: ctx.timing,\n    songLink: ctx.songLink,\n\n    lyricalSubtext: parsed.lyrical_subtext || \"\",\n    colorPalette: parsed.color_palette || \"\",\n    identityAnchor: parsed.identity_anchor || \"\",\n    outfitStyling: parsed.styling?.outfit || \"\",\n    lightingStyling: parsed.styling?.lighting || \"\",\n    reference_image_prompt:parsed.reference_image_prompt || \"\",\n    shots: parsed.shots || [],\n    totalShots: parsed.shots?.length || 0\n  }\n}];"
+      },
+      "position": [
+        2640,
+        3376
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "1a93410a-1ceb-4c58-91f3-71b5077519bb",
+      "name": "10. Prepare Nanobana Input1",
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\n\nlet avatarUrls = [];\n\n// If Gemini returned selectedAvatars\nif (data.selectedAvatars && data.selectedAvatars.length) {\n  avatarUrls = data.selectedAvatars\n    .map(a => a.avatar_url)\n    .filter(u => u && u.trim() !== \"\");\n} \n// Otherwise fallback to account avatars\nelse {\n  const accountData = $node[\"6. Get Account Avatar URLs1\"].json;\n  avatarUrls = [\n    accountData.avatar1,\n    accountData.avatar2,\n    accountData.avatar3\n  ].filter(u => u && u.trim() !== \"\");\n}\n\nreturn [{\n  json: {\n    ...data,\n    avatarUrlsForNanobana: avatarUrls,\n    avatarUrlsString: avatarUrls.join(\", \")\n  }\n}];"
+      },
+      "position": [
+        2848,
+        3376
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "43b65f2a-536a-4752-b488-ba97e43f7451",
+      "name": "11. Nanobana - Generate Reference Image1",
+      "notes": "IMPORTANT: Update URL and request body to match actual Nanobana API docs. This uses a guessed structure.",
+      "parameters": {
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_NANOBANA_API_KEY"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"prompt\": \"{{ $json.nanobanaReferencePrompt }}\",\n  \"avatar_urls\": {{ JSON.stringify($json.avatarUrlsForNanobana) }},\n  \"width\": 1080,\n  \"height\": 1920,\n  \"style\": \"cinematic\"\n}",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://api.nanobana.ai/v1/generate"
+      },
+      "position": [
+        1936,
+        2944
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "1710f3a8-618a-430e-a8d3-02ba9032b324",
+      "name": "12. Extract Reference Image URL1",
+      "parameters": {
+        "jsCode": "const ctx = $node[\"10. Prepare Nanobana Input1\"].json;\n\nreturn [{\n  json: ctx,\n  binary: $input.first().binary\n}];"
+      },
+      "position": [
+        2240,
+        2976
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "edd1f976-8071-4a06-ac0d-43cc03bb8f6b",
+      "name": "14. Create photos_review Subfolder1",
+      "notes": "Creates: Reel_{number}/photos_review/ subfolder",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "myDrive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "expression",
+          "value": "={{ $json.id }}"
+        },
+        "name": "photos_review",
+        "options": {}
+      },
+      "position": [
+        2496,
+        3024
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "974c6563-5943-4968-bd58-a658c53c9f16",
+      "name": "15. Merge Folder ID + Context1",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d1",
+              "name": "reviewFolderId",
+              "type": "string",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "id": "d2",
+              "name": "reviewFolderLink",
+              "type": "string",
+              "value": "=https://drive.google.com/drive/folders/{{ $json.id }}"
+            },
+            {
+              "id": "d3",
+              "name": "referenceImageUrl",
+              "type": "string",
+              "value": "={{ $('12. Extract Reference Image URL1').item.json.referenceImageUrl }}"
+            },
+            {
+              "id": "d4",
+              "name": "shots",
+              "type": "array",
+              "value": "={{ $('12. Extract Reference Image URL1').item.json.shots }}"
+            },
+            {
+              "id": "d5",
+              "name": "reelNumber",
+              "type": "string",
+              "value": "={{ $('12. Extract Reference Image URL1').item.json.reelNumber }}"
+            },
+            {
+              "id": "d6",
+              "name": "clothes",
+              "type": "string",
+              "value": "={{ $('12. Extract Reference Image URL1').item.json.clothes }}"
+            },
+            {
+              "id": "d7",
+              "name": "background",
+              "type": "string",
+              "value": "={{ $('12. Extract Reference Image URL1').item.json.background }}"
+            },
+            {
+              "id": "d8",
+              "name": "accountToPost",
+              "type": "string",
+              "value": "={{ $('12. Extract Reference Image URL1').item.json.accountToPost }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        2768,
+        3008
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "caf38011-bca3-44b2-8679-73d499b839d7",
+      "name": "16. Split Into Individual Shots1",
+      "notes": "Creates one item per shot for parallel/sequential processing",
+      "parameters": {
+        "fieldToSplitOut": "shots",
+        "options": {}
+      },
+      "position": [
+        2976,
+        2960
+      ],
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "a3680409-7764-47be-a09d-c872b78d69ff",
+      "name": "Get row(s) in sheet1",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Short Video Generation DB- Jass Records",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Reel Type",
+              "lookupValue": "Story"
+            },
+            {
+              "lookupColumn": "Status of Automation",
+              "lookupValue": "to be picked"
+            }
+          ]
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Main DB",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        -1504,
+        3072
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "e124448c-7dd4-4a88-a40b-d6c3ebab889c",
+      "name": "Download file",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://drive.google.com/file/d/14HbGNKzIvfT-4Qei1dpXkZrxmdGrhqmp/view?usp=sharing"
+        },
+        "operation": "download",
+        "options": {}
+      },
+      "position": [
+        1984,
+        3088
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "e7441d84-dfba-4f82-a2d8-a7358b0a6977",
+      "name": "Analyze an image2",
+      "parameters": {
+        "inputType": "binary",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "operation": "analyze",
+        "options": {},
+        "resource": "image",
+        "text": "{\n  \"contents\": [{\n    \"parts\": [{\n      \"text\": \"You are a creative director for Instagram reels. Your job is to do ALL of the following in a SINGLE response as valid JSON only:\\n\\n1. Understand the song concept from the lyrics\\n2. Pick the best avatar(s) from the list provided\\n3. Define clothes and background for the scene\\n4. Break down the reel into 4-5 shots with prompts\\n\\nINPUT DATA:\\nSong Lyrics/Transcription: {{ $json.transcription }}\\nReel Type: {{ $json.reelType }}\\nTiming: {{ $json.timing }}\\nOptional Concept Hint: {{ $json.conceptInput }}\\n\\n}\\n\\nReturn ONLY this JSON structure, no markdown, no explanation:\\n{\\n  \\\"song_concept\\\": \\\"2-3 sentence summary of the song's theme and mood\\\",\\n  \\\"selected_avatars\\\": [\\n    { \\\"avatar_url\\\": \\\"URL of avatar chosen\\\", \\\"role\\\": \\\"why this avatar fits the concept\\\" }\\n  ],\\n  \\\"clothes\\\": \\\"Detailed clothing description for the avatar(s) that fits the song mood\\\",\\n  \\\"background\\\": \\\"Detailed background/setting description that fits the song mood\\\",\\n  \\\"nanobana_reference_prompt\\\": \\\"Full prompt to generate the first reference image showing all selected avatars together with the defined clothes and background. Be very detailed.\\\",\\n  \\\"shots\\\": [\\n    {\\n      \\\"shot_number\\\": 1,\\n      \\\"shot_name\\\": \\\"short_name_no_spaces\\\",\\n      \\\"description\\\": \\\"What happens in this shot\\\",\\n      \\\"image_generation_prompt\\\": \\\"Detailed fal.ai prompt for this shot, referencing the clothes and background, maintaining avatar consistency\\\",\\n      \\\"camera_motion\\\": \\\"e.g. slow zoom in, pan left, static shot, dolly forward\\\",\\n      \\\"duration_seconds\\\": 3\\n    }\\n  ]\\n}\"\n    }]\n  }]\n}"
+      },
+      "position": [
+        2192,
+        3088
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "045b64c7-7b6e-41c0-9aad-39185470193f",
+      "name": "Generate media using AI model1",
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "cachedResultName": "FLUX.1 Kontext [pro] [image-to-image]",
+          "mode": "list",
+          "value": "fal-ai/flux-pro/kontext"
+        },
+        "modelParameters": {
+          "parameters": [
+            {
+              "parameter": "prompt",
+              "value": "={{ $json.shots.image_generation_prompt }}"
+            },
+            {
+              "parameter": "image_url",
+              "value": "={{ $('Upload file2').item.json.webContentLink }}"
+            }
+          ]
+        },
+        "options": {
+          "maxWaitTime": 600,
+          "pollInterval": 5,
+          "waitForCompletion": true
+        }
+      },
+      "position": [
+        2480,
+        3520
+      ],
+      "type": "@fal-ai/n8n-nodes-fal.falAi",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "256804a6-076e-4afc-91a3-7d0d56fe6cc9",
+      "name": "Analyze an image3",
+      "parameters": {
+        "imageUrls": "={{ $json.avatar1Url }}",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-pro",
+          "mode": "list",
+          "value": "models/gemini-2.5-pro"
+        },
+        "operation": "analyze",
+        "options": {},
+        "resource": "image",
+        "text": "={\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"ROLE: Senior Creative Director & Cinematic Reel Architect. Provide a Shot Script optimized for high-end AI image and video generation.\\n\\nINPUT CONTEXT:\\n1. Avatar Reference Image: MASTER BASE IDENTITY (Visual DNA).\\n2. Song Lyrics: {{ $json.transcription }}\\n3. Reel Mood / Genre: {{ $json.reelType }}\\n4. Aspect Ratio: 9:16 vertical cinematic reel.\\n\\nCRITICAL IDENTITY LOCK:\\n- The reference image defines the EXACT facial bone structure, features, and skin tone.\\n- Hairstyle and Outfit (cream silk blouse) must remain 100% consistent across all shots.\\n- Do NOT modify the character's fundamental likeness.\\n\\nPRIMARY OBJECTIVE:\\n1. Reconstruct a detailed 'Visual DNA' prompt of the avatar.\\n2. Create a 5-shot emotional reel where the CHARACTER is constant, but the VIBE evolves with the lyrics.\\n\\nCREATIVE EXECUTION RULES:\\n\\n1. SUBTEXT & VIBE SHIFT:\\n- Analyze the emotional weight of each lyric line.\\n- EVOLVE the environment and lighting for every shot to match the mood (e.g., from soft morning light to dramatic neon night).\\n\\n2. DYNAMIC CONTINUITY:\\n- Character continuity is MANDATORY (same face, hair, outfit).\\n- Environment continuity is FLEXIBLE: You MAY move the character to different cinematic locations (balcony, city streets, minimalist interiors, abstract light-filled voids) to 'vibe' with the music.\\n- Use diverse lighting: Golden hour, teal/orange noir, high-contrast shadows, or ethereal glows.\\n\\n3. IDENTITY PROMPTING RULE (START EACH PROMPT WITH):\\n\\\"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse.\\\"\\n\\n4. TECHNICAL IMAGE QUALITY (END EACH PROMPT WITH):\\n\\\"Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\\\"\\n\\nOUTPUT FORMAT (RETURN ONLY VALID JSON):\\n\\n{\\n  \\\"reference_image_prompt\\\": \\\"Reconstruction of the avatar base identity and original environment.\\\",\\n  \\\"lyrical_subtext\\\": \\\"Psychological meaning of the song\\\",\\n  \\\"emotional_progression\\\": \\\"Evolution of mood across 5 shots\\\",\\n  \\\"color_palette\\\": \\\"The cinematic color journey (e.g., Twilight Blue to Sunset Gold)\\\",\\n  \\\"environment_continuity\\\": \\\"Description of how the world shifts around the character\\\",\\n  \\\"shots\\\": [\\n    {\\n      \\\"shot_number\\\": 1,\\n      \\\"lyric_reference\\\": \\\"Lyric line\\\",\\n      \\\"vibe_match\\\": \\\"Emotional explanation\\\",\\n      \\\"image_generation_prompt\\\": \\\"[IDENTITY PROMPTING RULE] + [Specific new environment, new lighting, emotional pose, and camera angle] + [TECHNICAL QUALITY TAGS]\\\",\\n      \\\"camera_motion\\\": \\\"Cinematic movement (e.g., Slow push-in, Orbit, Tilt)\\\",\\n      \\\"duration_seconds\\\": 3\\n    }\\n  ]\\n}\\n\\nFINAL RULE:\\nThe character must be unmistakable across all shots, but the cinematography must feel like a high-budget music video with changing moods.\\n\"\n        }\n      ]\n    }\n  ]\n}"
+      },
+      "position": [
+        2176,
+        3376
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "7fdfef1a-4e71-4880-a778-1034a3f68f9d",
+      "name": "13b. Reel Folder Found?1",
+      "notes": "TRUE = folder exists, use it. FALSE = create it.",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "cond1",
+              "leftValue": "={{ $json.id }}",
+              "operator": {
+                "operation": "notEmpty",
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        832,
+        3616
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "a81fca86-e00e-4fee-b482-35905a559fd2",
+      "name": "If2",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "90a23ba2-af30-431c-ba06-db22f173040f",
+              "leftValue": "={{ $json.id }}",
+              "operator": {
+                "operation": "exists",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        480,
+        3632
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "fae3dd33-fb16-4f32-8caf-08228c502234",
+      "name": "Code in JavaScript4",
+      "parameters": {
+        "jsCode": "let parentId;\n\n// Try getting searched folder\nconst searchNode = $node[\"Search parent Reel1\"].json;\n\nif (searchNode && searchNode.id) {\n  parentId = searchNode.id;\n} else {\n  const createdNode = $node[\"Create Reelfolder1\"].json;\n\n  if (!createdNode || !createdNode.id) {\n    throw new Error(\"Parent folder not found and not created.\");\n  }\n\n  parentId = createdNode.id;\n}\n\nreturn [{\n  json: {\n    parentFolderId: parentId\n  }\n}];"
+      },
+      "position": [
+        832,
+        3616
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "c0bb277a-1452-47b2-8488-95ea3c2eb7b3",
+      "name": "Upload file2",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.ReelFolderId }}"
+        },
+        "name": "Reference_image",
+        "options": {}
+      },
+      "position": [
+        2176,
+        4000
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "b89eecb0-571b-446f-bbbc-60577ed6cb35",
+      "name": "Code in JavaScript5",
+      "parameters": {
+        "jsCode": "let ReelId;\n\n// Get search results safely\nconst searchItems = $node[\"Reel Folder Exists1\"].json;\n\nif (searchItems && searchItems.id) {\n  ReelId = searchItems.id;\n} else {\n  const createdItems = $node[\"Create Review_images Folder1\"].json;\n  \n  if (!createdItems || !createdItems.id) {\n    throw new Error(\"Reelfolder not found and not created.\");\n  }\n\n  ReelId = createdItems.id;\n}\n\nreturn [{\n  json: {\n    ReelFolderId: ReelId\n  }\n}];\n"
+      },
+      "position": [
+        1696,
+        3600
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "6fc5a348-2801-4cf2-aa27-5ec7fe225184",
+      "name": "Reel Folder Exists1",
+      "notes": "Searches for Reel_{number} folder. If found, skip creation.",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $('Code in JavaScript4').item.json.parentFolderId }}"
+          }
+        },
+        "options": {},
+        "queryString": "Review_images",
+        "resource": "fileFolder"
+      },
+      "position": [
+        672,
+        3872
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "efd81450-4c67-45c4-b9e9-360c26c98e8a",
+      "name": "Merge1",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        2032,
+        4000
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "cddf3426-4acb-4e4e-b956-e648f69e1dea",
+      "name": "Split Out1",
+      "parameters": {
+        "fieldToSplitOut": "shots",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "position": [
+        2560,
+        3920
+      ],
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1
+    },
+    {
+      "id": "e4d125e8-990b-43a4-8abb-89d6adc1cfcc",
+      "name": "Code in JavaScript6",
+      "parameters": {
+        "jsCode": "return [{\n  json: {\n    ...$node[\"9. Parse Gemini Response1\"].json\n  }\n}];"
+      },
+      "position": [
+        2352,
+        4080
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "196319ad-d369-4f78-b8d3-a668b34d8ee5",
+      "name": "Edit an image1",
+      "parameters": {
+        "images": {
+          "values": [
+            {}
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash-image (Nano Banana)",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash-image"
+        },
+        "operation": "edit",
+        "options": {},
+        "prompt": "={{ $json.shots.image_generation_prompt }}",
+        "resource": "image"
+      },
+      "position": [
+        3328,
+        3360
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "b09c108d-08f4-4a4d-9bce-b740777460c3",
+      "name": "Upload file3",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Code in JavaScript5').item.json.ReelFolderId }}"
+        },
+        "name": "={{ 'reel_' + $('Split Out1').item.json.reelNumber + '_shot_' + $('Split Out1').item.json.shots.shot_number + '_' + '.jpg' }}",
+        "options": {}
+      },
+      "position": [
+        3808,
+        3888
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "d067bb75-6d12-4e25-87a3-32bf5691ae8e",
+      "name": "HTTP Request5",
+      "parameters": {
+        "options": {},
+        "url": "={{ $json.images[0].url }}"
+      },
+      "position": [
+        3648,
+        3888
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "191e838a-8f1c-45a8-a0fc-0568dcad9d70",
+      "name": "HTTP Request6",
+      "parameters": {
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key REDACTED"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"prompt\": \"{{ $json.shots.image_generation_prompt }}\",\n  \"image_urls\": [\n    \"{{ $('Upload file2').item.json.webContentLink }}\"\n  ],\n  \"elements\": [{}],\n  \"resolution\": \"1K\",\n  \"result_type\": \"single\",\n  \"num_images\": 1,\n  \"aspect_ratio\": \"auto\",\n  \"output_format\": \"png\"\n}\n",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://queue.fal.run/fal-ai/kling-image/o3/image-to-image"
+      },
+      "position": [
+        2816,
+        3904
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "credentials": {
+        "openAiApi": {
+          "id": "HtC3pXdXhNPajOpZ",
+          "name": "OpenAi account"
+        }
+      },
+      "id": "dbf6580a-f847-4469-9d41-d191558659db",
+      "name": "Translate a recording1",
+      "parameters": {
+        "operation": "translate",
+        "options": {},
+        "resource": "audio"
+      },
+      "position": [
+        -496,
+        3248
+      ],
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1
+    },
+    {
+      "id": "43e960aa-2ffe-462c-8588-7d23cafba645",
+      "name": "Code in JavaScript7",
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\n\n// Build identity description\nconst identity = data.identityAnchor || \"\";\n\n// Build styling\nconst outfit = data.outfitStyling || \"\";\nconst lighting = data.lightingStyling || \"\";\nconst palette = data.colorPalette || \"\";\n\n// Construct strong identity-locked prompt\nconst referencePrompt = `\nMaintain exact facial structure\nNo beautification. No alteration of facial proportions.\nPreserve realistic pores and micro skin details.\n\nOutfit: ${outfit}\n\nLighting: ${lighting}\n\nColor grading palette: ${palette}\n\nShot on ARRI Alexa, 35mm lens, sharp focus, professional film lighting, shallow depth of field.\n`;\n\n// Return updated JSON\nreturn [{\n  json: {\n    ...data,\n    nanobanaReferencePrompt: referencePrompt.trim()\n  }\n}];"
+      },
+      "position": [
+        3056,
+        3376
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "20b2278e-e5f6-42ed-a6b4-7f93198ab006",
+      "name": "HTTP Request7",
+      "parameters": {
+        "options": {},
+        "url": "="
+      },
+      "position": [
+        -864,
+        4304
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "9ad5e646-391f-463b-9b0a-4c94fd4abae4",
+      "name": "Generate an image1",
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash-image (Nano Banana)",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash-image"
+        },
+        "options": {},
+        "prompt": "={\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"{{ $json.reference_image_prompt }}\"\n        },\n        {\n          \"inline_data\": {\n            \"mime_type\": \"image/jpeg\",\n            \"file_url\":\"{{ $json.avatarUrlsString }}\"\n            \n          }\n        }\n      ]\n    }\n  ],\n  \"tools\": [\n    {\n      \"googleSearch\": {}\n    }\n  ],\n  \"generationConfig\": {\n    \"imageConfig\": {\n      \"aspectRatio\": \"9:16\",\n      \"imageSize\": \"720p\"\n    }\n  }\n}",
+        "resource": "image"
+      },
+      "position": [
+        -544,
+        4016
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "e1eb48f8-88b9-466d-b519-c8e37c4dcdfc",
+      "name": "Extract from File1",
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "position": [
+        -656,
+        4272
+      ],
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "20631c03-1055-43ae-9587-f6e9eeb3d192",
+      "name": "Share file1",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "operation": "share",
+        "options": {},
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        }
+      },
+      "position": [
+        2304,
+        3856
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "5b02583c-6f27-4b7b-a857-6b3b6fc224d2",
+      "name": "Search parent Reel1",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "cachedResultName": "Reels",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1bq8TPtmWD3AlpDzUT4reOVwqsTEoXLvL",
+            "mode": "list",
+            "value": "1bq8TPtmWD3AlpDzUT4reOVwqsTEoXLvL"
+          }
+        },
+        "options": {},
+        "queryString": "=Reel_{{ $('10. Prepare Nanobana Input1').item.json.reelNumber }}",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        288,
+        3696
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "30867713-576f-4be2-bd27-d2bb959d5585",
+      "name": "Create Reel Folder",
+      "notes": "Only runs if folder does NOT exist",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive",
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Code in JavaScript4').item.json.parentFolderId }}"
+        },
+        "name": "=Reel_{{ $('10. Prepare Nanobana Input1').item.json.reelNumber }}",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        304,
+        4416
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "3d981c1b-4fef-4c5a-a502-4f89feded4b3",
+      "name": "Create Reelfolder1",
+      "notes": "Creates: Reel_{number} folder",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "cachedResultName": "Reels",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1bq8TPtmWD3AlpDzUT4reOVwqsTEoXLvL",
+          "mode": "list",
+          "value": "1bq8TPtmWD3AlpDzUT4reOVwqsTEoXLvL"
+        },
+        "name": "=Reel_{{ $('10. Prepare Nanobana Input1').item.json.reelNumber }}",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        704,
+        3744
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "7f6b3ad0-dd47-431a-a127-c33173596fbb",
+      "name": "Create Review_images Folder1",
+      "notes": "Only runs if folder does NOT exist",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Code in JavaScript4').item.json.parentFolderId }}"
+        },
+        "name": "=Review_images",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        1200,
+        3712
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "f0628275-3688-47d3-9981-df7f5e1c1ca4",
+      "name": "Create Approved_images Folder1",
+      "notes": "Only runs if folder does NOT exist",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Code in JavaScript4').item.json.parentFolderId }}"
+        },
+        "name": "=Approved_images",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        1008,
+        3712
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "21f60ff3-ecbb-4c17-a084-61563d3be597",
+      "name": "HTTP Request8",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "falAiApi",
+        "options": {},
+        "url": "={{ $json.status_url }}"
+      },
+      "position": [
+        3136,
+        3904
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "cda0600b-b378-4971-a026-6a22691290e7",
+      "name": "HTTP Request9",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "falAiApi",
+        "options": {},
+        "url": "={{ $json.response_url }}"
+      },
+      "position": [
+        3488,
+        3888
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "9f3e0af7-188f-4cd8-8c59-ffd506e8703e",
+      "name": "If3",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "b4ea925c-9cd5-4c90-bffe-2703f42b352c",
+              "leftValue": "={{ $json.status }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "COMPLETED"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        3312,
+        3904
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "h3JY0RD1UyXn0wXp",
+          "name": "Google Drive account Arya"
+        }
+      },
+      "id": "5881a091-1e11-49c5-950c-aebb5916edc4",
+      "name": "Create file from text1",
+      "parameters": {
+        "content": "={{\n$('Code in JavaScript7').item.json.shots\n.map(s =>\n`Shot ${s.shot_number}\nLyric: ${s.lyric_reference}\nVibe: ${s.vibe_match}\nPrompt: ${s.image_generation_prompt}\n\n----------------------------------\n`\n).join(\"\\n\")\n}}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.parentFolderId }}"
+        },
+        "name": "Shots_Script",
+        "operation": "createFromText",
+        "options": {}
+      },
+      "position": [
+        1040,
+        3888
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "57a75991-2d8f-46ca-b6f0-dc15534287f2",
+      "name": "Replace Me",
+      "parameters": {},
+      "position": [
+        -1152,
+        3360
+      ],
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1
+    },
+    {
+      "alwaysOutputData": false,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "76eb0346-8015-479c-b981-3bf5dddd443a",
+      "name": "Output the concept",
+      "parameters": {
+        "builtInTools": {},
+        "messages": {
+          "values": [
+            {
+              "content": "=Task: Create a 2-line visual concept for a 20-30 second reel.\n\nInputs: > * Avatar Folder: \n\nSong Lyrics: \n\nInstructions:\nWrite a high-quality, practical 2-line concept that blends the provided Avatars with the song's feel.\n\nAvoid all drama, sadness, or complex storytelling.\n\nThe first line must establish the setting and the Avatar's presence.\n\nThe second line must list 4-5 specific, to-generate visual shots.\n\nOutput Format: Two sentences only. Do not use labels like \"Vibe:\", \"Line 1:\", or \"Shots:\". Just provide the plain text.\n\nExample Output:\n$json.avatarList  enjoys a peaceful morning in a sunlit modern kitchen while sipping coffee to the rhythm of the song. The visuals feature a close-up of her smiling, steam rising from the mug, soft light hitting the countertop, and a wide shot of her leaning against the window.",
+              "role": "model"
+            },
+            {
+              "content": "=\nInput Data:{{ $json.text }}\n\nAvatar Folder: {{ $('Get row(s) in sheet1').item.json['Avatars to use(comma seperated)'] }}"
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.0-flash",
+          "mode": "list",
+          "value": "models/gemini-2.0-flash"
+        },
+        "options": {}
+      },
+      "position": [
+        -288,
+        3248
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "fe949dc9-9b3e-4f0e-8816-7bfb419a5b45",
+      "name": "output the concept",
+      "parameters": {
+        "jsCode": "let concept;\n\n// Check IF node result\nconst ifTrueItems = $items(\"checking if concept is present\", 0, 0);\n\nif (ifTrueItems.length > 0) {\n  // TRUE branch → concept already exists\n  concept = ifTrueItems[0].json.conceptInput;\n} else {\n  // FALSE branch → take Gemini generated concept\n  const gemini = $items(\"Output the concept\", 0, 0);\n  concept = gemini[0].json.content.parts[0].text;\n}\n\nreturn [\n  {\n    json: {\n      conceptInput: concept\n    }\n  }\n];"
+      },
+      "position": [
+        64,
+        3056
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "59a62001-6e9e-423d-97f5-68ebca970f6a",
+      "name": "When Executed by Another Workflow",
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {}
+          ]
+        }
+      },
+      "position": [
+        -128,
+        1264
+      ],
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "0a4d8c91-913d-4fbd-91ba-ac29d9d42776",
+      "name": "Call 'Check and Create Drive folder subworkflow'",
+      "parameters": {
+        "options": {
+          "waitForSubWorkflow": true
+        },
+        "workflowId": {
+          "__rl": true,
+          "cachedResultName": "Check and Create Drive folder subworkflow",
+          "cachedResultUrl": "/workflow/LV6KV28deGpPkOEm",
+          "mode": "list",
+          "value": "LV6KV28deGpPkOEm"
+        },
+        "workflowInputs": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "parentFolderID",
+              "id": "parentFolderID",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "folderToCreateOrSearch",
+              "id": "folderToCreateOrSearch",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "value": {}
+        }
+      },
+      "position": [
+        -608,
+        1280
+      ],
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3
+    }
+  ],
+  "pinData": {
+    "Analyze an image1": [
+      {
+        "json": {
+          "content": {
+            "parts": [
+              {
+                "text": "```json\n{\n  \"reference_image_prompt\": \"A photorealistic portrait of a stunningly beautiful woman in her late 20s with long, wavy dark brown hair, a warm olive skin tone, and captivating hazel-green eyes. She has a confident yet gentle smile. She is wearing a structured black satin corset top and black trousers. The background is a futuristic, cyberpunk-inspired studio set, bathed in vibrant neon lights of magenta, cyan, and deep purple, with out-of-focus cityscapes and video screens.\",\n  \"lyrical_subtext\": \"The song describes a profound, life-altering love. The speaker's perception of life has been completely transformed by this person, moving from a state of unawareness to one of intense, vibrant feeling and deep devotion. It's about finding a new reason for being.\",\n  \"emotional_progression\": \"The reel will evolve from soft, introspective wonder to a wistful longing, then erupt into vibrant joy, and finally deepen into intense, passionate, and intimate devotion.\",\n  \"color_palette\": \"The journey moves from the soft, warm tones of dawn (Morning Gold, Soft Cream) to the cool, contemplative hues of twilight (Twilight Blue, Muted Purple), then to energetic city neons (Electric Pink, Sunset Orange), and concludes with a dramatic, high-contrast noir palette (Deep Crimson, Inky Shadows).\",\n  \"environment_continuity\": \"The character is the anchor in a shifting world that reflects her internal emotional state. We transition from a serene, sunlit private space to a vast, open cityscape, then into the vibrant chaos of a city street, and finally into an intimate, moody interior, visually narrating her emotional journey.\",\n  \"shots\": [\n    {\n      \"shot_number\": 1,\n      \"lyric_reference\": \"I have never seen anyone as beautiful as you\",\n      \"vibe_match\": \"Awe and quiet discovery. The dawning realization of beauty in a soft, dreamlike state.\",\n      \"image_generation_prompt\": \"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse. She is in a minimalist, sun-drenched apartment, with soft morning light streaming through a large window, creating a gentle halo effect around her. She has a soft, contemplative smile, looking slightly off-camera as if lost in a beautiful thought. Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\",\n      \"camera_motion\": \"Slow Push-In\",\n      \"duration_seconds\": 3\n    },\n    {\n      \"shot_number\": 2,\n      \"lyric_reference\": \"I don't know where you went before\",\n      \"vibe_match\": \"Wistful longing and contemplation. Reflecting on a past without them, set against a vast, lonely backdrop.\",\n      \"image_generation_prompt\": \"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse. She is standing on a high-rise balcony at twilight, leaning on the railing and looking out over a sprawling city with a beautiful bokeh of distant lights. Her expression is thoughtful and slightly melancholic. The cool blue light of dusk mixes with the warm orange glow from the city below. Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\",\n      \"camera_motion\": \"Slow Orbit Left\",\n      \"duration_seconds\": 3\n    },\n    {\n      \"shot_number\": 3,\n      \"lyric_reference\": \"I have started living more than before\",\n      \"vibe_match\": \"Vibrant, uninhibited joy. The world has come alive with color and energy because of this newfound love.\",\n      \"image_generation_prompt\": \"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse. She is captured mid-laugh, looking directly at the camera, on a bustling city street at night, surrounded by a kaleidoscope of bright neon signs and light trails. Her joy is infectious and genuine. The mood is energetic and celebratory. Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\",\n      \"camera_motion\": \"Steady Pull-Back\",\n      \"duration_seconds\": 3\n    },\n    {\n      \"shot_number\": 4,\n      \"lyric_reference\": \"I have started dying for you more than before\",\n      \"vibe_match\": \"Deep, intense intimacy. The phrase 'dying for you' is interpreted as profound, soul-deep connection and vulnerability.\",\n      \"image_generation_prompt\": \"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse. A moody close-up of her face, illuminated by the warm light of a single lamp. Behind her, rain streaks down a large window, with the cool, blurred lights of the city providing a contrasting backlight. Her expression is one of intense, vulnerable adoration, looking directly into the camera lens. Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\",\n      \"camera_motion\": \"Slow Tilt-Up\",\n      \"duration_seconds\": 3\n    },\n    {\n      \"shot_number\": 5,\n      \"lyric_reference\": \"(Instrumental beat / final echo of the line)\",\n      \"vibe_match\": \"Total emotional surrender. A final, dramatic portrait of complete and utter devotion, stripped of all distractions.\",\n      \"image_generation_prompt\": \"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse. She is in a dark, abstract void, lit by a single, dramatic overhead spotlight that carves her out of the darkness, creating high-contrast shadows. Her eyes are closed and her head is tilted back slightly, a serene yet passionate expression of complete emotional surrender on her face. Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\",\n      \"camera_motion\": \"Dramatic Slow Push-In to Extreme Close-Up\",\n      \"duration_seconds\": 3\n    }\n  ]\n}\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Analyze an image3": [
+      {
+        "json": {
+          "content": {
+            "parts": [
+              {
+                "text": "```json\n{\n  \"reference_image_prompt\": \"A photorealistic portrait of a stunningly beautiful woman in her late 20s with long, wavy dark brown hair, a warm olive skin tone, and captivating hazel-green eyes. She has a confident yet gentle smile. She is wearing a structured black satin corset top and black trousers. The background is a futuristic, cyberpunk-inspired studio set, bathed in vibrant neon lights of magenta, cyan, and deep purple, with out-of-focus cityscapes and video screens.\",\n  \"lyrical_subtext\": \"The song describes a profound, life-altering love. The speaker's perception of life has been completely transformed by this person, moving from a state of unawareness to one of intense, vibrant feeling and deep devotion. It's about finding a new reason for being.\",\n  \"emotional_progression\": \"The reel will evolve from soft, introspective wonder to a wistful longing, then erupt into vibrant joy, and finally deepen into intense, passionate, and intimate devotion.\",\n  \"color_palette\": \"The journey moves from the soft, warm tones of dawn (Morning Gold, Soft Cream) to the cool, contemplative hues of twilight (Twilight Blue, Muted Purple), then to energetic city neons (Electric Pink, Sunset Orange), and concludes with a dramatic, high-contrast noir palette (Deep Crimson, Inky Shadows).\",\n  \"environment_continuity\": \"The character is the anchor in a shifting world that reflects her internal emotional state. We transition from a serene, sunlit private space to a vast, open cityscape, then into the vibrant chaos of a city street, and finally into an intimate, moody interior, visually narrating her emotional journey.\",\n  \"shots\": [\n    {\n      \"shot_number\": 1,\n      \"lyric_reference\": \"I have never seen anyone as beautiful as you\",\n      \"vibe_match\": \"Awe and quiet discovery. The dawning realization of beauty in a soft, dreamlike state.\",\n      \"image_generation_prompt\": \"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse. She is in a minimalist, sun-drenched apartment, with soft morning light streaming through a large window, creating a gentle halo effect around her. She has a soft, contemplative smile, looking slightly off-camera as if lost in a beautiful thought. Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\",\n      \"camera_motion\": \"Slow Push-In\",\n      \"duration_seconds\": 3\n    },\n    {\n      \"shot_number\": 2,\n      \"lyric_reference\": \"I don't know where you went before\",\n      \"vibe_match\": \"Wistful longing and contemplation. Reflecting on a past without them, set against a vast, lonely backdrop.\",\n      \"image_generation_prompt\": \"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse. She is standing on a high-rise balcony at twilight, leaning on the railing and looking out over a sprawling city with a beautiful bokeh of distant lights. Her expression is thoughtful and slightly melancholic. The cool blue light of dusk mixes with the warm orange glow from the city below. Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\",\n      \"camera_motion\": \"Slow Orbit Left\",\n      \"duration_seconds\": 3\n    },\n    {\n      \"shot_number\": 3,\n      \"lyric_reference\": \"I have started living more than before\",\n      \"vibe_match\": \"Vibrant, uninhibited joy. The world has come alive with color and energy because of this newfound love.\",\n      \"image_generation_prompt\": \"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse. She is captured mid-laugh, looking directly at the camera, on a bustling city street at night, surrounded by a kaleidoscope of bright neon signs and light trails. Her joy is infectious and genuine. The mood is energetic and celebratory. Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\",\n      \"camera_motion\": \"Steady Pull-Back\",\n      \"duration_seconds\": 3\n    },\n    {\n      \"shot_number\": 4,\n      \"lyric_reference\": \"I have started dying for you more than before\",\n      \"vibe_match\": \"Deep, intense intimacy. The phrase 'dying for you' is interpreted as profound, soul-deep connection and vulnerability.\",\n      \"image_generation_prompt\": \"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse. A moody close-up of her face, illuminated by the warm light of a single lamp. Behind her, rain streaks down a large window, with the cool, blurred lights of the city providing a contrasting backlight. Her expression is one of intense, vulnerable adoration, looking directly into the camera lens. Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\",\n      \"camera_motion\": \"Slow Tilt-Up\",\n      \"duration_seconds\": 3\n    },\n    {\n      \"shot_number\": 5,\n      \"lyric_reference\": \"(Instrumental beat / final echo of the line)\",\n      \"vibe_match\": \"Total emotional surrender. A final, dramatic portrait of complete and utter devotion, stripped of all distractions.\",\n      \"image_generation_prompt\": \"A photorealistic vertical 9:16 portrait of the exact same woman from the reference image, identical facial bone structure, same long wavy dark hair, wearing the exact same cream silk blouse. She is in a dark, abstract void, lit by a single, dramatic overhead spotlight that carves her out of the darkness, creating high-contrast shadows. Her eyes are closed and her head is tilted back slightly, a serene yet passionate expression of complete emotional surrender on her face. Cinematic lighting, 8k photorealistic, Arri Alexa look, ultra-shallow depth of field, natural skin texture, vertical 9:16 composition.\",\n      \"camera_motion\": \"Dramatic Slow Push-In to Extreme Close-Up\",\n      \"duration_seconds\": 3\n    }\n  ]\n}\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        }
+      }
+    ],
+    "HTTP Request1": [
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/kling-image/requests/f907c33e-df1e-4a39-b3f1-4b7ec9c38792/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 0,
+          "request_id": "f907c33e-df1e-4a39-b3f1-4b7ec9c38792",
+          "response_url": "https://queue.fal.run/fal-ai/kling-image/requests/f907c33e-df1e-4a39-b3f1-4b7ec9c38792",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/kling-image/requests/f907c33e-df1e-4a39-b3f1-4b7ec9c38792/status"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/kling-image/requests/9eae30db-7187-4317-8f2f-359f67640a8e/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 0,
+          "request_id": "9eae30db-7187-4317-8f2f-359f67640a8e",
+          "response_url": "https://queue.fal.run/fal-ai/kling-image/requests/9eae30db-7187-4317-8f2f-359f67640a8e",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/kling-image/requests/9eae30db-7187-4317-8f2f-359f67640a8e/status"
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/kling-image/requests/940a58fe-df08-41a1-bff8-f5a463d15af1/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 0,
+          "request_id": "940a58fe-df08-41a1-bff8-f5a463d15af1",
+          "response_url": "https://queue.fal.run/fal-ai/kling-image/requests/940a58fe-df08-41a1-bff8-f5a463d15af1",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/kling-image/requests/940a58fe-df08-41a1-bff8-f5a463d15af1/status"
+        },
+        "pairedItem": {
+          "item": 2
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/kling-image/requests/51badad8-e9e2-40b2-a677-3c58bddb41f0/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 0,
+          "request_id": "51badad8-e9e2-40b2-a677-3c58bddb41f0",
+          "response_url": "https://queue.fal.run/fal-ai/kling-image/requests/51badad8-e9e2-40b2-a677-3c58bddb41f0",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/kling-image/requests/51badad8-e9e2-40b2-a677-3c58bddb41f0/status"
+        },
+        "pairedItem": {
+          "item": 3
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/kling-image/requests/74e089c8-83d8-408b-b017-9df15d312a71/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 4,
+          "request_id": "74e089c8-83d8-408b-b017-9df15d312a71",
+          "response_url": "https://queue.fal.run/fal-ai/kling-image/requests/74e089c8-83d8-408b-b017-9df15d312a71",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/kling-image/requests/74e089c8-83d8-408b-b017-9df15d312a71/status"
+        },
+        "pairedItem": {
+          "item": 4
+        }
+      }
+    ],
+    "HTTP Request4": [
+      {
+        "json": {
+          "images": [
+            {
+              "content_type": "image/png",
+              "file_name": "00e829075c234747ab24e439d75abb4e.png",
+              "file_size": 1276986,
+              "height": null,
+              "url": "https://v3b.fal.media/files/b/0a90b811/qK-qEQWZZMYxmcY7i4YuG_00e829075c234747ab24e439d75abb4e.png",
+              "width": null
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "images": [
+            {
+              "content_type": "image/png",
+              "file_name": "53c75c4420ab4066a24b5da7ec107663.png",
+              "file_size": 1406772,
+              "height": null,
+              "url": "https://v3b.fal.media/files/b/0a90b811/iyCZidc5DXEpVEqS0wtzq_53c75c4420ab4066a24b5da7ec107663.png",
+              "width": null
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      },
+      {
+        "json": {
+          "images": [
+            {
+              "content_type": "image/png",
+              "file_name": "1d31ba15116041a59648ece3757b2090.png",
+              "file_size": 1226477,
+              "height": null,
+              "url": "https://v3b.fal.media/files/b/0a90b811/OYW3ZRQmLL7wlFOlQ7J6u_1d31ba15116041a59648ece3757b2090.png",
+              "width": null
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 2
+        }
+      },
+      {
+        "json": {
+          "images": [
+            {
+              "content_type": "image/png",
+              "file_name": "31880fdd7edb4516a961c6696d63f075.png",
+              "file_size": 1369675,
+              "height": null,
+              "url": "https://v3b.fal.media/files/b/0a90b811/kTF_lDN2RF0KRI0HuOiJk_31880fdd7edb4516a961c6696d63f075.png",
+              "width": null
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 3
+        }
+      }
+    ],
+    "HTTP Request6": [
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/kling-image/requests/f907c33e-df1e-4a39-b3f1-4b7ec9c38792/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 0,
+          "request_id": "f907c33e-df1e-4a39-b3f1-4b7ec9c38792",
+          "response_url": "https://queue.fal.run/fal-ai/kling-image/requests/f907c33e-df1e-4a39-b3f1-4b7ec9c38792",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/kling-image/requests/f907c33e-df1e-4a39-b3f1-4b7ec9c38792/status"
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/kling-image/requests/9eae30db-7187-4317-8f2f-359f67640a8e/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 0,
+          "request_id": "9eae30db-7187-4317-8f2f-359f67640a8e",
+          "response_url": "https://queue.fal.run/fal-ai/kling-image/requests/9eae30db-7187-4317-8f2f-359f67640a8e",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/kling-image/requests/9eae30db-7187-4317-8f2f-359f67640a8e/status"
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/kling-image/requests/940a58fe-df08-41a1-bff8-f5a463d15af1/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 0,
+          "request_id": "940a58fe-df08-41a1-bff8-f5a463d15af1",
+          "response_url": "https://queue.fal.run/fal-ai/kling-image/requests/940a58fe-df08-41a1-bff8-f5a463d15af1",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/kling-image/requests/940a58fe-df08-41a1-bff8-f5a463d15af1/status"
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/kling-image/requests/51badad8-e9e2-40b2-a677-3c58bddb41f0/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 0,
+          "request_id": "51badad8-e9e2-40b2-a677-3c58bddb41f0",
+          "response_url": "https://queue.fal.run/fal-ai/kling-image/requests/51badad8-e9e2-40b2-a677-3c58bddb41f0",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/kling-image/requests/51badad8-e9e2-40b2-a677-3c58bddb41f0/status"
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/kling-image/requests/74e089c8-83d8-408b-b017-9df15d312a71/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 4,
+          "request_id": "74e089c8-83d8-408b-b017-9df15d312a71",
+          "response_url": "https://queue.fal.run/fal-ai/kling-image/requests/74e089c8-83d8-408b-b017-9df15d312a71",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/kling-image/requests/74e089c8-83d8-408b-b017-9df15d312a71/status"
+        }
+      }
+    ],
+    "HTTP Request9": [
+      {
+        "json": {
+          "images": [
+            {
+              "content_type": "image/png",
+              "file_name": "00e829075c234747ab24e439d75abb4e.png",
+              "file_size": 1276986,
+              "height": null,
+              "url": "https://v3b.fal.media/files/b/0a90b811/qK-qEQWZZMYxmcY7i4YuG_00e829075c234747ab24e439d75abb4e.png",
+              "width": null
+            }
+          ]
+        }
+      },
+      {
+        "json": {
+          "images": [
+            {
+              "content_type": "image/png",
+              "file_name": "53c75c4420ab4066a24b5da7ec107663.png",
+              "file_size": 1406772,
+              "height": null,
+              "url": "https://v3b.fal.media/files/b/0a90b811/iyCZidc5DXEpVEqS0wtzq_53c75c4420ab4066a24b5da7ec107663.png",
+              "width": null
+            }
+          ]
+        }
+      },
+      {
+        "json": {
+          "images": [
+            {
+              "content_type": "image/png",
+              "file_name": "1d31ba15116041a59648ece3757b2090.png",
+              "file_size": 1226477,
+              "height": null,
+              "url": "https://v3b.fal.media/files/b/0a90b811/OYW3ZRQmLL7wlFOlQ7J6u_1d31ba15116041a59648ece3757b2090.png",
+              "width": null
+            }
+          ]
+        }
+      },
+      {
+        "json": {
+          "images": [
+            {
+              "content_type": "image/png",
+              "file_name": "31880fdd7edb4516a961c6696d63f075.png",
+              "file_size": 1369675,
+              "height": null,
+              "url": "https://v3b.fal.media/files/b/0a90b811/kTF_lDN2RF0KRI0HuOiJk_31880fdd7edb4516a961c6696d63f075.png",
+              "width": null
+            }
+          ]
+        }
+      }
+    ],
+    "Output the concept": [
+      {
+        "json": {
+          "avgLogprobs": -0.5128399392832881,
+          "content": {
+            "parts": [
+              {
+                "text": "Avatar1_female and Avatar1_male stroll hand-in-hand through a vibrant flower garden, their faces radiating joy as the song plays. Shots include petals falling around them, a close-up of their intertwined hands, them laughing together, a wide shot of the flower field, and them gazing into each other's eyes.\n"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Translate a recording": [
+      {
+        "json": {
+          "text": "I have never seen anyone as beautiful as you I don't know where you went before I have started living more than before I have started dying for you more than before"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Translate a recording1": [
+      {
+        "json": {
+          "text": "I have never seen anyone as beautiful as you I don't know where you went before I have started living more than before I have started dying for you more than before"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-26T15:53:18.178Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-26T15:53:18.178Z",
+      "workflowId": "G3N1GW58pEV2Sz4E"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-07T09:02:13.634Z",
+  "versionId": "f41f91eb-da8b-4fa8-ade2-2c9c03641bb8"
+}
