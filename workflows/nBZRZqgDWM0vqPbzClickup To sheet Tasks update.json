@@ -1,0 +1,4680 @@
+{
+  "active": true,
+  "activeVersion": {
+    "authors": "Sukhneer Singh",
+    "autosaved": true,
+    "connections": {
+      "Filter fields required for Sheet": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Set primary editor field on task",
+              "type": "main"
+            },
+            {
+              "index": 0,
+              "node": "Append or update row in sheet",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get a task": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Filter fields required for Sheet",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get all Lists -Sukhneer": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Merge",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get all Lists -clients": {
+        "main": [
+          [
+            {
+              "index": 1,
+              "node": "Merge",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get many tasks": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Filter fields required for Sheet",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Merge": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get many tasks",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "On demand All tasks fetch based on dates": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get all Lists -Sukhneer",
+              "type": "main"
+            },
+            {
+              "index": 0,
+              "node": "Get all Lists -clients",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Set primary editor field on task": {
+        "main": [
+          []
+        ]
+      },
+      "Webhook": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get a task",
+              "type": "main"
+            }
+          ]
+        ]
+      }
+    },
+    "createdAt": "2026-02-24T14:32:50.248Z",
+    "description": "",
+    "name": "Version da5fbf07",
+    "nodes": [
+      {
+        "id": "ef1b0ef8-52ce-4665-88b6-a79dde4701da",
+        "name": "Webhook",
+        "parameters": {
+          "httpMethod": "POST",
+          "options": {
+            "allowedOrigins": "*"
+          },
+          "path": "4fe4a46c-2f98-428e-ad42-7f462da82dac"
+        },
+        "position": [
+          -816,
+          -128
+        ],
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "webhookId": "4fe4a46c-2f98-428e-ad42-7f462da82dac"
+      },
+      {
+        "credentials": {
+          "clickUpApi": {
+            "id": "hhu9tGDqvZPLy8iM",
+            "name": "ClickUp account"
+          }
+        },
+        "id": "42917976-62e7-4b0b-adc0-b7290edfed88",
+        "name": "Get a task",
+        "parameters": {
+          "id": "={{ $json.body.payload.id }}",
+          "operation": "get"
+        },
+        "position": [
+          -608,
+          -128
+        ],
+        "type": "n8n-nodes-base.clickUp",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "fhIAilo8SGlashT9",
+            "name": "Google Sheets account 3"
+          }
+        },
+        "id": "e521e808-94c0-4ee3-a01f-ad5668d238e2",
+        "name": "Append or update row in sheet",
+        "parameters": {
+          "columns": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [
+              "task_id"
+            ],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "task_id",
+                "id": "task_id",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "task_name",
+                "id": "task_name",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "task_url",
+                "id": "task_url",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "client_name",
+                "id": "client_name",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "fetched_updated_status",
+                "id": "fetched_updated_status",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "date_created",
+                "id": "date_created",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "last_updated",
+                "id": "last_updated",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "date_completed",
+                "id": "date_completed",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "video_type",
+                "id": "video_type",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "video_month",
+                "id": "video_month",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "primary_editor",
+                "id": "primary_editor",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "primary_editor_feedback_form_link",
+                "id": "primary_editor_feedback_form_link",
+                "required": false,
+                "type": "string"
+              }
+            ],
+            "value": {
+              "client_name": "={{ $json.client_name }}",
+              "date_completed": "={{ $json.date_completed }}",
+              "date_created": "={{ $json.date_created }}",
+              "fetched_updated_status": "={{ $json.fetched_updated_status }}",
+              "last_updated": "={{ $json.last_updated }}",
+              "primary_editor": "={{ $json.primary_editor }}",
+              "primary_editor_feedback_form_link": "={{ $json.primary_editor_feedback_form_link }}",
+              "task_id": "={{ $json.task_id }}",
+              "task_name": "={{ $json.task_name }}",
+              "task_url": "={{ $json.task_url }}",
+              "video_month": "={{ $json.video_month }}",
+              "video_type": "={{ $json.video_type }}"
+            }
+          },
+          "documentId": {
+            "__rl": true,
+            "mode": "url",
+            "value": "https://docs.google.com/spreadsheets/d/1uw6DTYeVJ64LEP3mGsqAid16W6uekpo2-w8o1OVoS7Y/edit?gid=0#gid=0"
+          },
+          "operation": "appendOrUpdate",
+          "options": {},
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": "Tasks",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uw6DTYeVJ64LEP3mGsqAid16W6uekpo2-w8o1OVoS7Y/edit#gid=0",
+            "mode": "list",
+            "value": "gid=0"
+          }
+        },
+        "position": [
+          192,
+          -128
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7
+      },
+      {
+        "credentials": {
+          "clickUpApi": {
+            "id": "hhu9tGDqvZPLy8iM",
+            "name": "ClickUp account"
+          }
+        },
+        "id": "076e0782-7f43-4b40-a14d-3305710a0f80",
+        "name": "Get all Lists -Sukhneer",
+        "parameters": {
+          "filters": {},
+          "folderless": true,
+          "operation": "getAll",
+          "resource": "list",
+          "space": "67203119",
+          "team": "43273179"
+        },
+        "position": [
+          -240,
+          -720
+        ],
+        "type": "n8n-nodes-base.clickUp",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "clickUpApi": {
+            "id": "hhu9tGDqvZPLy8iM",
+            "name": "ClickUp account"
+          }
+        },
+        "id": "0331e5c0-f1b6-49ae-90b7-ee3e54caabcd",
+        "name": "Get all Lists -clients",
+        "parameters": {
+          "filters": {},
+          "folderless": true,
+          "operation": "getAll",
+          "resource": "list",
+          "space": "67203769",
+          "team": "43273179"
+        },
+        "position": [
+          -240,
+          -544
+        ],
+        "type": "n8n-nodes-base.clickUp",
+        "typeVersion": 1
+      },
+      {
+        "id": "9d5f13a1-9115-4f70-b9b5-b276f6dcff02",
+        "name": "Merge",
+        "parameters": {},
+        "position": [
+          16,
+          -656
+        ],
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2
+      },
+      {
+        "credentials": {
+          "clickUpApi": {
+            "id": "hhu9tGDqvZPLy8iM",
+            "name": "ClickUp account"
+          }
+        },
+        "executeOnce": false,
+        "id": "d5c813db-7636-478c-baa8-637483bd70b7",
+        "name": "Get many tasks",
+        "parameters": {
+          "filters": {
+            "dateCreatedGt": "={{ $('On demand All tasks fetch based on dates').item.json['From - Created Date'] }}",
+            "dateCreatedLt": "={{ $('On demand All tasks fetch based on dates').item.json['To - Created Date'] }}",
+            "includeClosed": true
+          },
+          "folderless": true,
+          "list": "={{ $json.id }}",
+          "operation": "getAll",
+          "space": "={{ $json.space.id }}",
+          "team": "43273179"
+        },
+        "position": [
+          224,
+          -656
+        ],
+        "type": "n8n-nodes-base.clickUp",
+        "typeVersion": 1
+      },
+      {
+        "id": "6dff4306-10d5-406d-b21f-191bd2bbf49c",
+        "name": "On demand All tasks fetch based on dates",
+        "parameters": {
+          "formFields": {
+            "values": [
+              {
+                "defaultValue": "2026-02-01",
+                "fieldLabel": "From - Created Date",
+                "fieldType": "date",
+                "requiredField": true
+              },
+              {
+                "fieldLabel": "To - Created Date",
+                "fieldType": "date",
+                "requiredField": true
+              }
+            ]
+          },
+          "formTitle": "Update all Tasks based on date",
+          "options": {}
+        },
+        "position": [
+          -640,
+          -656
+        ],
+        "type": "n8n-nodes-base.formTrigger",
+        "typeVersion": 2.5,
+        "webhookId": "642ebb03-c183-47a8-9426-10d3da97281b"
+      },
+      {
+        "id": "980a9413-4998-4d19-912e-12340ab6b2e1",
+        "name": "Sticky Note",
+        "parameters": {
+          "content": "##On demand\n**Start to get all the tasks based on From and To created date in google sheet.",
+          "height": 368,
+          "width": 1344
+        },
+        "position": [
+          -848,
+          -736
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "clickUpApi": {
+            "id": "hhu9tGDqvZPLy8iM",
+            "name": "ClickUp account"
+          }
+        },
+        "id": "9ed17cf7-1989-44a7-a778-879ddc6ba230",
+        "name": "Set primary editor field on task",
+        "parameters": {
+          "field": "={{ $json.feedback_field_id }}",
+          "operation": "setCustomField",
+          "task": "={{ $json.task_id }}",
+          "value": "={{ $json.primary_editor_feedback_form_link }}"
+        },
+        "position": [
+          -144,
+          16
+        ],
+        "type": "n8n-nodes-base.clickUp",
+        "typeVersion": 1
+      },
+      {
+        "id": "3ed890f4-f37b-484c-829b-9483a9d7c21b",
+        "name": "Filter fields required for Sheet",
+        "parameters": {
+          "jsCode": "// --- CONFIGURATION ---\nconst FIELDS_TO_PROCESS = ['Editor', 'Video Type', 'Month']; \nconst FEEDBACK_LINK_FIELD_NAME = 'Primary Editor Feedback link'; // The name of the field where you want the link stored\nconst BASE_FEEDBACK_URL = 'https://script.google.com/macros/s/AKfycbzJ_dnlzeoFMnqdDlOL1YZ8x8SE3bxCWLFQiXZAUhlDJCuuRbSKwmEZrIS-0szuzmN7Qw/exec';\n// ---------------------\n\nreturn items.map(item => {\n  const task = item.json;\n  const customFieldMap = {};\n  let feedbackFieldId = null;\n\n  // 1. Process Custom Fields\n  if (task.custom_fields && Array.isArray(task.custom_fields)) {\n    // Find the specific ID for the Feedback Link field for automation purposes\n    const targetField = task.custom_fields.find(f => f.name === FEEDBACK_LINK_FIELD_NAME);\n    if (targetField) feedbackFieldId = targetField.id;\n\n    FIELDS_TO_PROCESS.forEach(targetName => {\n      const field = task.custom_fields.find(f => f.name === targetName);\n      if (!field || field.value === undefined || field.value === null) {\n        customFieldMap[targetName] = \"N/A\";\n        return;\n      }\n\n      const options = field.type_config?.options;\n      const val = field.value;\n\n      if (options) {\n        if (Array.isArray(val)) {\n          customFieldMap[targetName] = val\n            .map(id => options.find(o => o.id === id || o.orderindex == id))\n            .filter(o => o).map(o => o.label || o.name).join(', ');\n        } else {\n          const opt = options.find(o => o.id === val || o.orderindex == val);\n          customFieldMap[targetName] = opt ? (opt.label || opt.name) : val;\n        }\n      } else {\n        customFieldMap[targetName] = val;\n      }\n    });\n  }\n\n  // 2. Helper to format Dates\n  const formatDate = (timestamp) => {\n    if (!timestamp) return \"\";\n    return new Date(parseInt(timestamp)).toISOString().split('T')[0];\n  };\n\n  // 3. Generate Encoded Feedback Link\n  const editor = customFieldMap['Editor'] || \"\";\n  const taskName = task.name || \"\";\n  const taskLink = task.url || \"\";\n  const taskId = task.id || \"\";\n  const endDate = formatDate(task.date_done || task.due_date);\n\n  const feedbackLink = `${BASE_FEEDBACK_URL}?editor=${encodeURIComponent(editor)}&task=${encodeURIComponent(taskName)}&link=${encodeURIComponent(taskLink)}&id=${encodeURIComponent(taskId)}&enddate=${encodeURIComponent(endDate)}`;\n\n  // 4. Final JSON Construction\n  return {\n    json: {\n      task_id: taskId,\n      task_name: taskName,\n      task_url: taskLink,\n      client_name: task.list ? task.list.name : 'N/A',\n      space_name: task.space ? task.space.name : 'N/A',\n      fetched_updated_status: task.status ? task.status.status : 'N/A',\n      date_created: formatDate(task.date_created),\n      last_updated: formatDate(task.date_updated),\n      date_completed: formatDate(task.date_closed),\n      video_type: customFieldMap['Video Type'],\n      video_month: customFieldMap['Month'],\n      primary_editor: editor,\n      // The generated link for your Google Sheet\n      primary_editor_feedback_form_link: feedbackLink,\n      // The unique ClickUp ID for the Feedback Link custom field (useful for n8n Update Task node)\n      feedback_field_id: feedbackFieldId\n    }\n  };\n});"
+        },
+        "position": [
+          -400,
+          -128
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      }
+    ],
+    "updatedAt": "2026-02-24T14:32:51.000Z",
+    "versionId": "da5fbf07-566b-4715-b8ba-f16cbb36f646",
+    "workflowId": "nBZRZqgDWM0vqPbz"
+  },
+  "activeVersionId": "da5fbf07-566b-4715-b8ba-f16cbb36f646",
+  "connections": {
+    "Filter fields required for Sheet": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Set primary editor field on task",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Append or update row in sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get a task": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Filter fields required for Sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get all Lists -Sukhneer": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get all Lists -clients": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get many tasks": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Filter fields required for Sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get many tasks",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "On demand All tasks fetch based on dates": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get all Lists -Sukhneer",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Get all Lists -clients",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Set primary editor field on task": {
+      "main": [
+        []
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get a task",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-24T12:20:35.025Z",
+  "id": "nBZRZqgDWM0vqPbz",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Clickup To sheet Tasks update",
+  "nodes": [
+    {
+      "id": "ef1b0ef8-52ce-4665-88b6-a79dde4701da",
+      "name": "Webhook",
+      "parameters": {
+        "httpMethod": "POST",
+        "options": {
+          "allowedOrigins": "*"
+        },
+        "path": "4fe4a46c-2f98-428e-ad42-7f462da82dac"
+      },
+      "position": [
+        -816,
+        -128
+      ],
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "webhookId": "4fe4a46c-2f98-428e-ad42-7f462da82dac"
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "42917976-62e7-4b0b-adc0-b7290edfed88",
+      "name": "Get a task",
+      "parameters": {
+        "id": "={{ $json.body.payload.id }}",
+        "operation": "get"
+      },
+      "position": [
+        -608,
+        -128
+      ],
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "e521e808-94c0-4ee3-a01f-ad5668d238e2",
+      "name": "Append or update row in sheet",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "task_id"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "task_id",
+              "id": "task_id",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "task_name",
+              "id": "task_name",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "task_url",
+              "id": "task_url",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "client_name",
+              "id": "client_name",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "fetched_updated_status",
+              "id": "fetched_updated_status",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "date_created",
+              "id": "date_created",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "last_updated",
+              "id": "last_updated",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "date_completed",
+              "id": "date_completed",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "video_type",
+              "id": "video_type",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "video_month",
+              "id": "video_month",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "primary_editor",
+              "id": "primary_editor",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "primary_editor_feedback_form_link",
+              "id": "primary_editor_feedback_form_link",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "value": {
+            "client_name": "={{ $json.client_name }}",
+            "date_completed": "={{ $json.date_completed }}",
+            "date_created": "={{ $json.date_created }}",
+            "fetched_updated_status": "={{ $json.fetched_updated_status }}",
+            "last_updated": "={{ $json.last_updated }}",
+            "primary_editor": "={{ $json.primary_editor }}",
+            "primary_editor_feedback_form_link": "={{ $json.primary_editor_feedback_form_link }}",
+            "task_id": "={{ $json.task_id }}",
+            "task_name": "={{ $json.task_name }}",
+            "task_url": "={{ $json.task_url }}",
+            "video_month": "={{ $json.video_month }}",
+            "video_type": "={{ $json.video_type }}"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://docs.google.com/spreadsheets/d/1uw6DTYeVJ64LEP3mGsqAid16W6uekpo2-w8o1OVoS7Y/edit?gid=0#gid=0"
+        },
+        "operation": "appendOrUpdate",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Tasks",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uw6DTYeVJ64LEP3mGsqAid16W6uekpo2-w8o1OVoS7Y/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        192,
+        -128
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "076e0782-7f43-4b40-a14d-3305710a0f80",
+      "name": "Get all Lists -Sukhneer",
+      "parameters": {
+        "filters": {},
+        "folderless": true,
+        "operation": "getAll",
+        "resource": "list",
+        "space": "67203119",
+        "team": "43273179"
+      },
+      "position": [
+        -240,
+        -720
+      ],
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "0331e5c0-f1b6-49ae-90b7-ee3e54caabcd",
+      "name": "Get all Lists -clients",
+      "parameters": {
+        "filters": {},
+        "folderless": true,
+        "operation": "getAll",
+        "resource": "list",
+        "space": "67203769",
+        "team": "43273179"
+      },
+      "position": [
+        -240,
+        -544
+      ],
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1
+    },
+    {
+      "id": "9d5f13a1-9115-4f70-b9b5-b276f6dcff02",
+      "name": "Merge",
+      "parameters": {},
+      "position": [
+        16,
+        -656
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "executeOnce": false,
+      "id": "d5c813db-7636-478c-baa8-637483bd70b7",
+      "name": "Get many tasks",
+      "parameters": {
+        "filters": {
+          "dateCreatedGt": "={{ $('On demand All tasks fetch based on dates').item.json['From - Created Date'] }}",
+          "dateCreatedLt": "={{ $('On demand All tasks fetch based on dates').item.json['To - Created Date'] }}",
+          "includeClosed": true
+        },
+        "folderless": true,
+        "list": "={{ $json.id }}",
+        "operation": "getAll",
+        "space": "={{ $json.space.id }}",
+        "team": "43273179"
+      },
+      "position": [
+        224,
+        -656
+      ],
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1
+    },
+    {
+      "id": "6dff4306-10d5-406d-b21f-191bd2bbf49c",
+      "name": "On demand All tasks fetch based on dates",
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "defaultValue": "2026-02-01",
+              "fieldLabel": "From - Created Date",
+              "fieldType": "date",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "To - Created Date",
+              "fieldType": "date",
+              "requiredField": true
+            }
+          ]
+        },
+        "formTitle": "Update all Tasks based on date",
+        "options": {}
+      },
+      "position": [
+        -640,
+        -656
+      ],
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "webhookId": "642ebb03-c183-47a8-9426-10d3da97281b"
+    },
+    {
+      "id": "980a9413-4998-4d19-912e-12340ab6b2e1",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "##On demand\n**Start to get all the tasks based on From and To created date in google sheet.",
+        "height": 368,
+        "width": 1344
+      },
+      "position": [
+        -848,
+        -736
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "9ed17cf7-1989-44a7-a778-879ddc6ba230",
+      "name": "Set primary editor field on task",
+      "parameters": {
+        "field": "={{ $json.feedback_field_id }}",
+        "operation": "setCustomField",
+        "task": "={{ $json.task_id }}",
+        "value": "={{ $json.primary_editor_feedback_form_link }}"
+      },
+      "position": [
+        -144,
+        16
+      ],
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1
+    },
+    {
+      "id": "3ed890f4-f37b-484c-829b-9483a9d7c21b",
+      "name": "Filter fields required for Sheet",
+      "parameters": {
+        "jsCode": "// --- CONFIGURATION ---\nconst FIELDS_TO_PROCESS = ['Editor', 'Video Type', 'Month']; \nconst FEEDBACK_LINK_FIELD_NAME = 'Primary Editor Feedback link'; // The name of the field where you want the link stored\nconst BASE_FEEDBACK_URL = 'https://script.google.com/macros/s/AKfycbzJ_dnlzeoFMnqdDlOL1YZ8x8SE3bxCWLFQiXZAUhlDJCuuRbSKwmEZrIS-0szuzmN7Qw/exec';\n// ---------------------\n\nreturn items.map(item => {\n  const task = item.json;\n  const customFieldMap = {};\n  let feedbackFieldId = null;\n\n  // 1. Process Custom Fields\n  if (task.custom_fields && Array.isArray(task.custom_fields)) {\n    // Find the specific ID for the Feedback Link field for automation purposes\n    const targetField = task.custom_fields.find(f => f.name === FEEDBACK_LINK_FIELD_NAME);\n    if (targetField) feedbackFieldId = targetField.id;\n\n    FIELDS_TO_PROCESS.forEach(targetName => {\n      const field = task.custom_fields.find(f => f.name === targetName);\n      if (!field || field.value === undefined || field.value === null) {\n        customFieldMap[targetName] = \"N/A\";\n        return;\n      }\n\n      const options = field.type_config?.options;\n      const val = field.value;\n\n      if (options) {\n        if (Array.isArray(val)) {\n          customFieldMap[targetName] = val\n            .map(id => options.find(o => o.id === id || o.orderindex == id))\n            .filter(o => o).map(o => o.label || o.name).join(', ');\n        } else {\n          const opt = options.find(o => o.id === val || o.orderindex == val);\n          customFieldMap[targetName] = opt ? (opt.label || opt.name) : val;\n        }\n      } else {\n        customFieldMap[targetName] = val;\n      }\n    });\n  }\n\n  // 2. Helper to format Dates\n  const formatDate = (timestamp) => {\n    if (!timestamp) return \"\";\n    return new Date(parseInt(timestamp)).toISOString().split('T')[0];\n  };\n\n  // 3. Generate Encoded Feedback Link\n  const editor = customFieldMap['Editor'] || \"\";\n  const taskName = task.name || \"\";\n  const taskLink = task.url || \"\";\n  const taskId = task.id || \"\";\n  const endDate = formatDate(task.date_done || task.due_date);\n\n  const feedbackLink = `${BASE_FEEDBACK_URL}?editor=${encodeURIComponent(editor)}&task=${encodeURIComponent(taskName)}&link=${encodeURIComponent(taskLink)}&id=${encodeURIComponent(taskId)}&enddate=${encodeURIComponent(endDate)}`;\n\n  // 4. Final JSON Construction\n  return {\n    json: {\n      task_id: taskId,\n      task_name: taskName,\n      task_url: taskLink,\n      client_name: task.list ? task.list.name : 'N/A',\n      space_name: task.space ? task.space.name : 'N/A',\n      fetched_updated_status: task.status ? task.status.status : 'N/A',\n      date_created: formatDate(task.date_created),\n      last_updated: formatDate(task.date_updated),\n      date_completed: formatDate(task.date_closed),\n      video_type: customFieldMap['Video Type'],\n      video_month: customFieldMap['Month'],\n      primary_editor: editor,\n      // The generated link for your Google Sheet\n      primary_editor_feedback_form_link: feedbackLink,\n      // The unique ClickUp ID for the Feedback Link custom field (useful for n8n Update Task node)\n      feedback_field_id: feedbackFieldId\n    }\n  };\n});"
+      },
+      "position": [
+        -400,
+        -128
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    }
+  ],
+  "pinData": {
+    "Get all Lists -Sukhneer": [
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "id": "901602663843",
+          "name": "VekhiiJaa-Raw",
+          "orderindex": 0,
+          "override_statuses": true,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203119",
+            "name": "Short Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 11
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90032154359",
+            "name": "hidden"
+          },
+          "id": "199472387",
+          "name": "VekhiiJaa-Insta",
+          "orderindex": 0,
+          "override_statuses": true,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203119",
+            "name": "Short Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 411
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90163997697",
+            "name": "hidden"
+          },
+          "id": "901606638452",
+          "name": "sukhneer.ai",
+          "orderindex": 0,
+          "override_statuses": true,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203119",
+            "name": "Short Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 29
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90165529827",
+            "name": "hidden"
+          },
+          "id": "199472276",
+          "name": "SukhneerSingh-Insta",
+          "orderindex": 0,
+          "override_statuses": true,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203119",
+            "name": "Short Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 16
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90166371872",
+            "name": "hidden"
+          },
+          "id": "901610652066",
+          "name": "Vekhii Jaa (archived ideas)",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203119",
+            "name": "Short Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 71
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Get all Lists -clients": [
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90165806509",
+            "name": "hidden"
+          },
+          "id": "901609689302",
+          "name": "Kingston Electrical",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 0
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90164650940",
+            "name": "hidden"
+          },
+          "id": "901607869948",
+          "name": "Rajasthan Studio",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 0
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90164650918",
+            "name": "hidden"
+          },
+          "id": "901607869903",
+          "name": "Rooftop",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 1
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90164543417",
+            "name": "hidden"
+          },
+          "id": "901607670732",
+          "name": "Herbal Life",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 11
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90165529828",
+            "name": "hidden"
+          },
+          "id": "901606535017",
+          "name": "Wok n More",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 18
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161760874",
+            "name": "hidden"
+          },
+          "id": "901602825635",
+          "name": "AMNEET",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 4
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161262667",
+            "name": "hidden"
+          },
+          "id": "901601985259",
+          "name": "GUNJAN",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 8
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90165529835",
+            "name": "hidden"
+          },
+          "id": "901608403956",
+          "name": "Dripmov-Priya",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 30
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90164188984",
+            "name": "hidden"
+          },
+          "id": "901606997127",
+          "name": "RAtan-E-Meera",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 6
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90164867919",
+            "name": "hidden"
+          },
+          "id": "901608189394",
+          "name": "That yellow trunk",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 47
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90164996919",
+            "name": "hidden"
+          },
+          "id": "901608397804",
+          "name": "Aecondd Rivaado",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 0
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90165529834",
+            "name": "hidden"
+          },
+          "id": "901604471156",
+          "name": "BhavnaJi HOH Videos",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 61
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90162439430",
+            "name": "hidden"
+          },
+          "id": "901603924636",
+          "name": "Shared with me",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 57
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90165979576",
+            "name": "hidden"
+          },
+          "id": "901609968624",
+          "name": "Shilpika Juneja",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 1
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90168576452",
+            "name": "hidden"
+          },
+          "id": "901613596601",
+          "name": "Araliya Moments",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 2
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90166214769",
+            "name": "hidden"
+          },
+          "id": "901610417061",
+          "name": "alawyersvoyage",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 13
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90166219286",
+            "name": "hidden"
+          },
+          "id": "901610423418",
+          "name": "High-way*",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 11
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90166914437",
+            "name": "hidden"
+          },
+          "id": "901603924635",
+          "name": "Rivaado Videos",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 15
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90166825089",
+            "name": "hidden"
+          },
+          "id": "901611275544",
+          "name": "Sparkling Euphoria",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 10
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90163827009",
+            "name": "hidden"
+          },
+          "id": "901606319068",
+          "name": "Shooters",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 1
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90164395585",
+            "name": "hidden"
+          },
+          "id": "901607379588",
+          "name": "Cuddly Cubs",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 52
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90164430938",
+            "name": "hidden"
+          },
+          "id": "901607446647",
+          "name": "Astha",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 5
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90165428952",
+            "name": "hidden"
+          },
+          "id": "901609081390",
+          "name": "Dr. Brinda",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 35
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90164746570",
+            "name": "hidden"
+          },
+          "id": "901608019042",
+          "name": "Beech Durian",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 2
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90164996897",
+            "name": "hidden"
+          },
+          "id": "901608397770",
+          "name": "Truly Derma",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 26
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90162693971",
+            "name": "hidden"
+          },
+          "id": "901604345778",
+          "name": "Elaborate Capital Videos",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 2
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90164098869",
+            "name": "hidden"
+          },
+          "id": "901606828637",
+          "name": " Indo Impex",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 2
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90165993250",
+            "name": "hidden"
+          },
+          "id": "901609990259",
+          "name": "Holiday Hut",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 17
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90166461755",
+            "name": "hidden"
+          },
+          "id": "901610780017",
+          "name": "Aarushi",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 9
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90167953537",
+            "name": "hidden"
+          },
+          "id": "901612804989",
+          "name": "Sujal-TSS",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 8
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90168360176",
+            "name": "hidden"
+          },
+          "id": "901613337027",
+          "name": "Meghnas-FoodMagic",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 5
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90168466194",
+            "name": "hidden"
+          },
+          "id": "901613466187",
+          "name": "Swarn PC Specs",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 1
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignee": null,
+          "content": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90168601034",
+            "name": "hidden"
+          },
+          "id": "901613624336",
+          "name": "Max Zaherenkov",
+          "orderindex": 0,
+          "override_statuses": false,
+          "permission_level": "create",
+          "priority": null,
+          "space": {
+            "access": true,
+            "id": "67203769",
+            "name": "Client Videos"
+          },
+          "start_date": null,
+          "status": null,
+          "task_count": 19
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Get many tasks": [
+      {
+        "json": {
+          "archived": false,
+          "assignees": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            }
+          ],
+          "checklists": [],
+          "creator": {
+            "color": "#81b1ff",
+            "email": "sukhneers@gmail.com",
+            "id": 61271308,
+            "profilePicture": null,
+            "username": "Sukhneer Singh"
+          },
+          "custom_fields": [
+            {
+              "date_created": "1769706237702",
+              "hide_from_guests": false,
+              "id": "66124c60-dd0f-491e-a69a-95f91b0d86cf",
+              "name": "Primary Editor Feedback link",
+              "required": false,
+              "type": "short_text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1664822005114",
+              "hide_from_guests": false,
+              "id": "859e9c4a-9ab1-47e1-b87e-cc66d15fccdf",
+              "name": "Release Date",
+              "required": false,
+              "type": "date",
+              "type_config": {}
+            },
+            {
+              "date_created": "1705735383114",
+              "hide_from_guests": false,
+              "id": "b0236517-bba2-4912-9603-3ff60ac76cf6",
+              "name": "Squence ",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "default": 0,
+                "options": [
+                  {
+                    "color": null,
+                    "id": "6e91229e-d046-4e75-a585-267fea5d5409",
+                    "name": "1",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "7d57d41e-76af-4233-90e6-977f0b4aeb5e",
+                    "name": "2",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "2c38e6de-7ff9-4a19-b99e-be3ab9887341",
+                    "name": "3",
+                    "orderindex": 2
+                  },
+                  {
+                    "color": null,
+                    "id": "8f94cf91-dd64-4d68-87b8-98bfed9bfda4",
+                    "name": "4",
+                    "orderindex": 3
+                  },
+                  {
+                    "color": null,
+                    "id": "4df91336-5b04-4a05-af75-05ad1994fbb5",
+                    "name": "5",
+                    "orderindex": 4
+                  }
+                ],
+                "placeholder": null
+              }
+            },
+            {
+              "date_created": "1704967581503",
+              "hide_from_guests": false,
+              "id": "c32793e7-07c4-44d9-a791-8b340a5192ce",
+              "name": "Status ",
+              "required": false,
+              "type": "text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1733123931204",
+              "hide_from_guests": false,
+              "id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+              "name": "Task Added by",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "options": [
+                  {
+                    "color": null,
+                    "id": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                    "name": "Sonal",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "a1956694-4add-4615-a871-2bb1d2d4574e",
+                    "name": "Sukhneer",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "c25dca53-3532-4c00-b387-82c35998e74b",
+                    "name": "Madan",
+                    "orderindex": 2
+                  }
+                ],
+                "sorting": "manual"
+              }
+            }
+          ],
+          "custom_id": null,
+          "custom_item_id": 0,
+          "date_closed": null,
+          "date_created": "1716616162673",
+          "date_done": null,
+          "date_updated": "1716616178556",
+          "dependencies": [],
+          "description": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "group_assignees": [],
+          "id": "86cvfxjj7",
+          "linked_tasks": [],
+          "list": {
+            "access": true,
+            "id": "901602663843",
+            "name": "VekhiiJaa-Raw"
+          },
+          "locations": [],
+          "name": "Explain the sun direction in golden hour video",
+          "orderindex": "4374208.00000000000000000000000000000000",
+          "parent": null,
+          "permission_level": "create",
+          "points": null,
+          "priority": null,
+          "project": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "sharing": {
+            "public": false,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "public_share_expires_on": null,
+            "seo_optimized": false,
+            "token": null
+          },
+          "space": {
+            "id": "67203119"
+          },
+          "start_date": null,
+          "status": {
+            "color": "#87909e",
+            "id": "sc901602663843_3ustCK6T",
+            "orderindex": 0,
+            "status": "to do",
+            "type": "open"
+          },
+          "tags": [],
+          "team_id": "43273179",
+          "text_content": "",
+          "time_estimate": null,
+          "top_level_parent": null,
+          "url": "https://app.clickup.com/t/86cvfxjj7",
+          "watchers": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignees": [],
+          "checklists": [],
+          "creator": {
+            "color": "#81b1ff",
+            "email": "sukhneers@gmail.com",
+            "id": 61271308,
+            "profilePicture": null,
+            "username": "Sukhneer Singh"
+          },
+          "custom_fields": [
+            {
+              "date_created": "1769706237702",
+              "hide_from_guests": false,
+              "id": "66124c60-dd0f-491e-a69a-95f91b0d86cf",
+              "name": "Primary Editor Feedback link",
+              "required": false,
+              "type": "short_text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1664822005114",
+              "hide_from_guests": false,
+              "id": "859e9c4a-9ab1-47e1-b87e-cc66d15fccdf",
+              "name": "Release Date",
+              "required": false,
+              "type": "date",
+              "type_config": {}
+            },
+            {
+              "date_created": "1705735383114",
+              "hide_from_guests": false,
+              "id": "b0236517-bba2-4912-9603-3ff60ac76cf6",
+              "name": "Squence ",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "default": 0,
+                "options": [
+                  {
+                    "color": null,
+                    "id": "6e91229e-d046-4e75-a585-267fea5d5409",
+                    "name": "1",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "7d57d41e-76af-4233-90e6-977f0b4aeb5e",
+                    "name": "2",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "2c38e6de-7ff9-4a19-b99e-be3ab9887341",
+                    "name": "3",
+                    "orderindex": 2
+                  },
+                  {
+                    "color": null,
+                    "id": "8f94cf91-dd64-4d68-87b8-98bfed9bfda4",
+                    "name": "4",
+                    "orderindex": 3
+                  },
+                  {
+                    "color": null,
+                    "id": "4df91336-5b04-4a05-af75-05ad1994fbb5",
+                    "name": "5",
+                    "orderindex": 4
+                  }
+                ],
+                "placeholder": null
+              }
+            },
+            {
+              "date_created": "1704967581503",
+              "hide_from_guests": false,
+              "id": "c32793e7-07c4-44d9-a791-8b340a5192ce",
+              "name": "Status ",
+              "required": false,
+              "type": "text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1733123931204",
+              "hide_from_guests": false,
+              "id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+              "name": "Task Added by",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "options": [
+                  {
+                    "color": null,
+                    "id": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                    "name": "Sonal",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "a1956694-4add-4615-a871-2bb1d2d4574e",
+                    "name": "Sukhneer",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "c25dca53-3532-4c00-b387-82c35998e74b",
+                    "name": "Madan",
+                    "orderindex": 2
+                  }
+                ],
+                "sorting": "manual"
+              }
+            }
+          ],
+          "custom_id": null,
+          "custom_item_id": 0,
+          "date_closed": null,
+          "date_created": "1716266792533",
+          "date_done": null,
+          "date_updated": "1716266817746",
+          "dependencies": [],
+          "description": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "group_assignees": [],
+          "id": "86cverak1",
+          "linked_tasks": [],
+          "list": {
+            "access": true,
+            "id": "901602663843",
+            "name": "VekhiiJaa-Raw"
+          },
+          "locations": [],
+          "name": "How do you help in planning shoot of bulk content",
+          "orderindex": "4374136.00010290000000000000000000000000",
+          "parent": null,
+          "permission_level": "create",
+          "points": null,
+          "priority": null,
+          "project": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "sharing": {
+            "public": false,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "public_share_expires_on": null,
+            "seo_optimized": false,
+            "token": null
+          },
+          "space": {
+            "id": "67203119"
+          },
+          "start_date": null,
+          "status": {
+            "color": "#87909e",
+            "id": "sc901602663843_3ustCK6T",
+            "orderindex": 0,
+            "status": "to do",
+            "type": "open"
+          },
+          "tags": [],
+          "team_id": "43273179",
+          "text_content": "",
+          "time_estimate": null,
+          "top_level_parent": null,
+          "url": "https://app.clickup.com/t/86cverak1",
+          "watchers": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignees": [],
+          "checklists": [],
+          "creator": {
+            "color": "#81b1ff",
+            "email": "sukhneers@gmail.com",
+            "id": 61271308,
+            "profilePicture": null,
+            "username": "Sukhneer Singh"
+          },
+          "custom_fields": [
+            {
+              "date_created": "1769706237702",
+              "hide_from_guests": false,
+              "id": "66124c60-dd0f-491e-a69a-95f91b0d86cf",
+              "name": "Primary Editor Feedback link",
+              "required": false,
+              "type": "short_text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1664822005114",
+              "hide_from_guests": false,
+              "id": "859e9c4a-9ab1-47e1-b87e-cc66d15fccdf",
+              "name": "Release Date",
+              "required": false,
+              "type": "date",
+              "type_config": {}
+            },
+            {
+              "date_created": "1705735383114",
+              "hide_from_guests": false,
+              "id": "b0236517-bba2-4912-9603-3ff60ac76cf6",
+              "name": "Squence ",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "default": 0,
+                "options": [
+                  {
+                    "color": null,
+                    "id": "6e91229e-d046-4e75-a585-267fea5d5409",
+                    "name": "1",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "7d57d41e-76af-4233-90e6-977f0b4aeb5e",
+                    "name": "2",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "2c38e6de-7ff9-4a19-b99e-be3ab9887341",
+                    "name": "3",
+                    "orderindex": 2
+                  },
+                  {
+                    "color": null,
+                    "id": "8f94cf91-dd64-4d68-87b8-98bfed9bfda4",
+                    "name": "4",
+                    "orderindex": 3
+                  },
+                  {
+                    "color": null,
+                    "id": "4df91336-5b04-4a05-af75-05ad1994fbb5",
+                    "name": "5",
+                    "orderindex": 4
+                  }
+                ],
+                "placeholder": null
+              }
+            },
+            {
+              "date_created": "1704967581503",
+              "hide_from_guests": false,
+              "id": "c32793e7-07c4-44d9-a791-8b340a5192ce",
+              "name": "Status ",
+              "required": false,
+              "type": "text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1733123931204",
+              "hide_from_guests": false,
+              "id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+              "name": "Task Added by",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "options": [
+                  {
+                    "color": null,
+                    "id": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                    "name": "Sonal",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "a1956694-4add-4615-a871-2bb1d2d4574e",
+                    "name": "Sukhneer",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "c25dca53-3532-4c00-b387-82c35998e74b",
+                    "name": "Madan",
+                    "orderindex": 2
+                  }
+                ],
+                "sorting": "manual"
+              }
+            }
+          ],
+          "custom_id": null,
+          "custom_item_id": 0,
+          "date_closed": null,
+          "date_created": "1716266740650",
+          "date_done": null,
+          "date_updated": "1716266744630",
+          "dependencies": [],
+          "description": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "group_assignees": [],
+          "id": "86cvera9c",
+          "linked_tasks": [],
+          "list": {
+            "access": true,
+            "id": "901602663843",
+            "name": "VekhiiJaa-Raw"
+          },
+          "locations": [],
+          "name": "Is it possibile to shoot alone - show the connection between camera and monitor",
+          "orderindex": "4374133.00000000000000000000000000000000",
+          "parent": null,
+          "permission_level": "create",
+          "points": null,
+          "priority": null,
+          "project": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "sharing": {
+            "public": false,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "public_share_expires_on": null,
+            "seo_optimized": false,
+            "token": null
+          },
+          "space": {
+            "id": "67203119"
+          },
+          "start_date": null,
+          "status": {
+            "color": "#87909e",
+            "id": "sc901602663843_3ustCK6T",
+            "orderindex": 0,
+            "status": "to do",
+            "type": "open"
+          },
+          "tags": [],
+          "team_id": "43273179",
+          "text_content": "",
+          "time_estimate": null,
+          "top_level_parent": null,
+          "url": "https://app.clickup.com/t/86cvera9c",
+          "watchers": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignees": [],
+          "checklists": [],
+          "creator": {
+            "color": "#81b1ff",
+            "email": "sukhneers@gmail.com",
+            "id": 61271308,
+            "profilePicture": null,
+            "username": "Sukhneer Singh"
+          },
+          "custom_fields": [
+            {
+              "date_created": "1769706237702",
+              "hide_from_guests": false,
+              "id": "66124c60-dd0f-491e-a69a-95f91b0d86cf",
+              "name": "Primary Editor Feedback link",
+              "required": false,
+              "type": "short_text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1664822005114",
+              "hide_from_guests": false,
+              "id": "859e9c4a-9ab1-47e1-b87e-cc66d15fccdf",
+              "name": "Release Date",
+              "required": false,
+              "type": "date",
+              "type_config": {}
+            },
+            {
+              "date_created": "1705735383114",
+              "hide_from_guests": false,
+              "id": "b0236517-bba2-4912-9603-3ff60ac76cf6",
+              "name": "Squence ",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "default": 0,
+                "options": [
+                  {
+                    "color": null,
+                    "id": "6e91229e-d046-4e75-a585-267fea5d5409",
+                    "name": "1",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "7d57d41e-76af-4233-90e6-977f0b4aeb5e",
+                    "name": "2",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "2c38e6de-7ff9-4a19-b99e-be3ab9887341",
+                    "name": "3",
+                    "orderindex": 2
+                  },
+                  {
+                    "color": null,
+                    "id": "8f94cf91-dd64-4d68-87b8-98bfed9bfda4",
+                    "name": "4",
+                    "orderindex": 3
+                  },
+                  {
+                    "color": null,
+                    "id": "4df91336-5b04-4a05-af75-05ad1994fbb5",
+                    "name": "5",
+                    "orderindex": 4
+                  }
+                ],
+                "placeholder": null
+              }
+            },
+            {
+              "date_created": "1704967581503",
+              "hide_from_guests": false,
+              "id": "c32793e7-07c4-44d9-a791-8b340a5192ce",
+              "name": "Status ",
+              "required": false,
+              "type": "text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1733123931204",
+              "hide_from_guests": false,
+              "id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+              "name": "Task Added by",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "options": [
+                  {
+                    "color": null,
+                    "id": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                    "name": "Sonal",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "a1956694-4add-4615-a871-2bb1d2d4574e",
+                    "name": "Sukhneer",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "c25dca53-3532-4c00-b387-82c35998e74b",
+                    "name": "Madan",
+                    "orderindex": 2
+                  }
+                ],
+                "sorting": "manual"
+              }
+            }
+          ],
+          "custom_id": null,
+          "custom_item_id": 0,
+          "date_closed": null,
+          "date_created": "1716266694990",
+          "date_done": null,
+          "date_updated": "1716266699549",
+          "dependencies": [],
+          "description": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "group_assignees": [],
+          "id": "86cvera0d",
+          "linked_tasks": [],
+          "list": {
+            "access": true,
+            "id": "901602663843",
+            "name": "VekhiiJaa-Raw"
+          },
+          "locations": [],
+          "name": "How your audio is so clear? - furnitures and mic pointing towards me",
+          "orderindex": "4374132.00000000000000000000000000000000",
+          "parent": null,
+          "permission_level": "create",
+          "points": null,
+          "priority": null,
+          "project": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "sharing": {
+            "public": false,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "public_share_expires_on": null,
+            "seo_optimized": false,
+            "token": null
+          },
+          "space": {
+            "id": "67203119"
+          },
+          "start_date": null,
+          "status": {
+            "color": "#87909e",
+            "id": "sc901602663843_3ustCK6T",
+            "orderindex": 0,
+            "status": "to do",
+            "type": "open"
+          },
+          "tags": [],
+          "team_id": "43273179",
+          "text_content": "",
+          "time_estimate": null,
+          "top_level_parent": null,
+          "url": "https://app.clickup.com/t/86cvera0d",
+          "watchers": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignees": [],
+          "checklists": [],
+          "creator": {
+            "color": "#81b1ff",
+            "email": "sukhneers@gmail.com",
+            "id": 61271308,
+            "profilePicture": null,
+            "username": "Sukhneer Singh"
+          },
+          "custom_fields": [
+            {
+              "date_created": "1769706237702",
+              "hide_from_guests": false,
+              "id": "66124c60-dd0f-491e-a69a-95f91b0d86cf",
+              "name": "Primary Editor Feedback link",
+              "required": false,
+              "type": "short_text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1664822005114",
+              "hide_from_guests": false,
+              "id": "859e9c4a-9ab1-47e1-b87e-cc66d15fccdf",
+              "name": "Release Date",
+              "required": false,
+              "type": "date",
+              "type_config": {}
+            },
+            {
+              "date_created": "1705735383114",
+              "hide_from_guests": false,
+              "id": "b0236517-bba2-4912-9603-3ff60ac76cf6",
+              "name": "Squence ",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "default": 0,
+                "options": [
+                  {
+                    "color": null,
+                    "id": "6e91229e-d046-4e75-a585-267fea5d5409",
+                    "name": "1",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "7d57d41e-76af-4233-90e6-977f0b4aeb5e",
+                    "name": "2",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "2c38e6de-7ff9-4a19-b99e-be3ab9887341",
+                    "name": "3",
+                    "orderindex": 2
+                  },
+                  {
+                    "color": null,
+                    "id": "8f94cf91-dd64-4d68-87b8-98bfed9bfda4",
+                    "name": "4",
+                    "orderindex": 3
+                  },
+                  {
+                    "color": null,
+                    "id": "4df91336-5b04-4a05-af75-05ad1994fbb5",
+                    "name": "5",
+                    "orderindex": 4
+                  }
+                ],
+                "placeholder": null
+              }
+            },
+            {
+              "date_created": "1704967581503",
+              "hide_from_guests": false,
+              "id": "c32793e7-07c4-44d9-a791-8b340a5192ce",
+              "name": "Status ",
+              "required": false,
+              "type": "text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1733123931204",
+              "hide_from_guests": false,
+              "id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+              "name": "Task Added by",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "options": [
+                  {
+                    "color": null,
+                    "id": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                    "name": "Sonal",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "a1956694-4add-4615-a871-2bb1d2d4574e",
+                    "name": "Sukhneer",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "c25dca53-3532-4c00-b387-82c35998e74b",
+                    "name": "Madan",
+                    "orderindex": 2
+                  }
+                ],
+                "sorting": "manual"
+              }
+            }
+          ],
+          "custom_id": null,
+          "custom_item_id": 0,
+          "date_closed": null,
+          "date_created": "1716266559223",
+          "date_done": null,
+          "date_updated": "1716266564367",
+          "dependencies": [],
+          "description": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "group_assignees": [],
+          "id": "86cver97h",
+          "linked_tasks": [],
+          "list": {
+            "access": true,
+            "id": "901602663843",
+            "name": "VekhiiJaa-Raw"
+          },
+          "locations": [],
+          "name": "Editing software I use",
+          "orderindex": "4374131.00000000000000000000000000000000",
+          "parent": null,
+          "permission_level": "create",
+          "points": null,
+          "priority": null,
+          "project": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "sharing": {
+            "public": false,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "public_share_expires_on": null,
+            "seo_optimized": false,
+            "token": null
+          },
+          "space": {
+            "id": "67203119"
+          },
+          "start_date": null,
+          "status": {
+            "color": "#87909e",
+            "id": "sc901602663843_3ustCK6T",
+            "orderindex": 0,
+            "status": "to do",
+            "type": "open"
+          },
+          "tags": [],
+          "team_id": "43273179",
+          "text_content": "",
+          "time_estimate": null,
+          "top_level_parent": null,
+          "url": "https://app.clickup.com/t/86cver97h",
+          "watchers": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignees": [],
+          "checklists": [],
+          "creator": {
+            "color": "#81b1ff",
+            "email": "sukhneers@gmail.com",
+            "id": 61271308,
+            "profilePicture": null,
+            "username": "Sukhneer Singh"
+          },
+          "custom_fields": [
+            {
+              "date_created": "1769706237702",
+              "hide_from_guests": false,
+              "id": "66124c60-dd0f-491e-a69a-95f91b0d86cf",
+              "name": "Primary Editor Feedback link",
+              "required": false,
+              "type": "short_text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1664822005114",
+              "hide_from_guests": false,
+              "id": "859e9c4a-9ab1-47e1-b87e-cc66d15fccdf",
+              "name": "Release Date",
+              "required": false,
+              "type": "date",
+              "type_config": {}
+            },
+            {
+              "date_created": "1705735383114",
+              "hide_from_guests": false,
+              "id": "b0236517-bba2-4912-9603-3ff60ac76cf6",
+              "name": "Squence ",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "default": 0,
+                "options": [
+                  {
+                    "color": null,
+                    "id": "6e91229e-d046-4e75-a585-267fea5d5409",
+                    "name": "1",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "7d57d41e-76af-4233-90e6-977f0b4aeb5e",
+                    "name": "2",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "2c38e6de-7ff9-4a19-b99e-be3ab9887341",
+                    "name": "3",
+                    "orderindex": 2
+                  },
+                  {
+                    "color": null,
+                    "id": "8f94cf91-dd64-4d68-87b8-98bfed9bfda4",
+                    "name": "4",
+                    "orderindex": 3
+                  },
+                  {
+                    "color": null,
+                    "id": "4df91336-5b04-4a05-af75-05ad1994fbb5",
+                    "name": "5",
+                    "orderindex": 4
+                  }
+                ],
+                "placeholder": null
+              }
+            },
+            {
+              "date_created": "1704967581503",
+              "hide_from_guests": false,
+              "id": "c32793e7-07c4-44d9-a791-8b340a5192ce",
+              "name": "Status ",
+              "required": false,
+              "type": "text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1733123931204",
+              "hide_from_guests": false,
+              "id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+              "name": "Task Added by",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "options": [
+                  {
+                    "color": null,
+                    "id": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                    "name": "Sonal",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "a1956694-4add-4615-a871-2bb1d2d4574e",
+                    "name": "Sukhneer",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "c25dca53-3532-4c00-b387-82c35998e74b",
+                    "name": "Madan",
+                    "orderindex": 2
+                  }
+                ],
+                "sorting": "manual"
+              }
+            }
+          ],
+          "custom_id": null,
+          "custom_item_id": 0,
+          "date_closed": null,
+          "date_created": "1716266473697",
+          "date_done": null,
+          "date_updated": "1716266546965",
+          "dependencies": [],
+          "description": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "group_assignees": [],
+          "id": "86cver8tg",
+          "linked_tasks": [],
+          "list": {
+            "access": true,
+            "id": "901602663843",
+            "name": "VekhiiJaa-Raw"
+          },
+          "locations": [],
+          "name": "How do I get content Ideas",
+          "orderindex": "4374130.00000000000000000000000000000000",
+          "parent": null,
+          "permission_level": "create",
+          "points": null,
+          "priority": null,
+          "project": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "sharing": {
+            "public": false,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "public_share_expires_on": null,
+            "seo_optimized": false,
+            "token": null
+          },
+          "space": {
+            "id": "67203119"
+          },
+          "start_date": null,
+          "status": {
+            "color": "#87909e",
+            "id": "sc901602663843_3ustCK6T",
+            "orderindex": 0,
+            "status": "to do",
+            "type": "open"
+          },
+          "tags": [],
+          "team_id": "43273179",
+          "text_content": "",
+          "time_estimate": null,
+          "top_level_parent": null,
+          "url": "https://app.clickup.com/t/86cver8tg",
+          "watchers": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            },
+            {
+              "color": null,
+              "email": "madansablok1508@gmail.com",
+              "id": 72686679,
+              "initials": "MM",
+              "profilePicture": null,
+              "username": "Madan Mohan"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignees": [],
+          "checklists": [],
+          "creator": {
+            "color": "#81b1ff",
+            "email": "sukhneers@gmail.com",
+            "id": 61271308,
+            "profilePicture": null,
+            "username": "Sukhneer Singh"
+          },
+          "custom_fields": [
+            {
+              "date_created": "1769706237702",
+              "hide_from_guests": false,
+              "id": "66124c60-dd0f-491e-a69a-95f91b0d86cf",
+              "name": "Primary Editor Feedback link",
+              "required": false,
+              "type": "short_text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1664822005114",
+              "hide_from_guests": false,
+              "id": "859e9c4a-9ab1-47e1-b87e-cc66d15fccdf",
+              "name": "Release Date",
+              "required": false,
+              "type": "date",
+              "type_config": {}
+            },
+            {
+              "date_created": "1705735383114",
+              "hide_from_guests": false,
+              "id": "b0236517-bba2-4912-9603-3ff60ac76cf6",
+              "name": "Squence ",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "default": 0,
+                "options": [
+                  {
+                    "color": null,
+                    "id": "6e91229e-d046-4e75-a585-267fea5d5409",
+                    "name": "1",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "7d57d41e-76af-4233-90e6-977f0b4aeb5e",
+                    "name": "2",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "2c38e6de-7ff9-4a19-b99e-be3ab9887341",
+                    "name": "3",
+                    "orderindex": 2
+                  },
+                  {
+                    "color": null,
+                    "id": "8f94cf91-dd64-4d68-87b8-98bfed9bfda4",
+                    "name": "4",
+                    "orderindex": 3
+                  },
+                  {
+                    "color": null,
+                    "id": "4df91336-5b04-4a05-af75-05ad1994fbb5",
+                    "name": "5",
+                    "orderindex": 4
+                  }
+                ],
+                "placeholder": null
+              }
+            },
+            {
+              "date_created": "1704967581503",
+              "hide_from_guests": false,
+              "id": "c32793e7-07c4-44d9-a791-8b340a5192ce",
+              "name": "Status ",
+              "required": false,
+              "type": "text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1733123931204",
+              "hide_from_guests": false,
+              "id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+              "name": "Task Added by",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "options": [
+                  {
+                    "color": null,
+                    "id": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                    "name": "Sonal",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "a1956694-4add-4615-a871-2bb1d2d4574e",
+                    "name": "Sukhneer",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "c25dca53-3532-4c00-b387-82c35998e74b",
+                    "name": "Madan",
+                    "orderindex": 2
+                  }
+                ],
+                "sorting": "manual"
+              }
+            }
+          ],
+          "custom_id": null,
+          "custom_item_id": 0,
+          "date_closed": null,
+          "date_created": "1716266454150",
+          "date_done": null,
+          "date_updated": "1716266459402",
+          "dependencies": [],
+          "description": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "group_assignees": [],
+          "id": "86cver8nc",
+          "linked_tasks": [],
+          "list": {
+            "access": true,
+            "id": "901602663843",
+            "name": "VekhiiJaa-Raw"
+          },
+          "locations": [],
+          "name": "My script planning in the clickup tool",
+          "orderindex": "4374129.00000000000000000000000000000000",
+          "parent": null,
+          "permission_level": "create",
+          "points": null,
+          "priority": null,
+          "project": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "sharing": {
+            "public": false,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "public_share_expires_on": null,
+            "seo_optimized": false,
+            "token": null
+          },
+          "space": {
+            "id": "67203119"
+          },
+          "start_date": null,
+          "status": {
+            "color": "#87909e",
+            "id": "sc901602663843_3ustCK6T",
+            "orderindex": 0,
+            "status": "to do",
+            "type": "open"
+          },
+          "tags": [],
+          "team_id": "43273179",
+          "text_content": "",
+          "time_estimate": null,
+          "top_level_parent": null,
+          "url": "https://app.clickup.com/t/86cver8nc",
+          "watchers": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignees": [],
+          "checklists": [],
+          "creator": {
+            "color": "#81b1ff",
+            "email": "sukhneers@gmail.com",
+            "id": 61271308,
+            "profilePicture": null,
+            "username": "Sukhneer Singh"
+          },
+          "custom_fields": [
+            {
+              "date_created": "1769706237702",
+              "hide_from_guests": false,
+              "id": "66124c60-dd0f-491e-a69a-95f91b0d86cf",
+              "name": "Primary Editor Feedback link",
+              "required": false,
+              "type": "short_text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1664822005114",
+              "hide_from_guests": false,
+              "id": "859e9c4a-9ab1-47e1-b87e-cc66d15fccdf",
+              "name": "Release Date",
+              "required": false,
+              "type": "date",
+              "type_config": {}
+            },
+            {
+              "date_created": "1705735383114",
+              "hide_from_guests": false,
+              "id": "b0236517-bba2-4912-9603-3ff60ac76cf6",
+              "name": "Squence ",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "default": 0,
+                "options": [
+                  {
+                    "color": null,
+                    "id": "6e91229e-d046-4e75-a585-267fea5d5409",
+                    "name": "1",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "7d57d41e-76af-4233-90e6-977f0b4aeb5e",
+                    "name": "2",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "2c38e6de-7ff9-4a19-b99e-be3ab9887341",
+                    "name": "3",
+                    "orderindex": 2
+                  },
+                  {
+                    "color": null,
+                    "id": "8f94cf91-dd64-4d68-87b8-98bfed9bfda4",
+                    "name": "4",
+                    "orderindex": 3
+                  },
+                  {
+                    "color": null,
+                    "id": "4df91336-5b04-4a05-af75-05ad1994fbb5",
+                    "name": "5",
+                    "orderindex": 4
+                  }
+                ],
+                "placeholder": null
+              }
+            },
+            {
+              "date_created": "1704967581503",
+              "hide_from_guests": false,
+              "id": "c32793e7-07c4-44d9-a791-8b340a5192ce",
+              "name": "Status ",
+              "required": false,
+              "type": "text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1733123931204",
+              "hide_from_guests": false,
+              "id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+              "name": "Task Added by",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "options": [
+                  {
+                    "color": null,
+                    "id": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                    "name": "Sonal",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "a1956694-4add-4615-a871-2bb1d2d4574e",
+                    "name": "Sukhneer",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "c25dca53-3532-4c00-b387-82c35998e74b",
+                    "name": "Madan",
+                    "orderindex": 2
+                  }
+                ],
+                "sorting": "manual"
+              }
+            }
+          ],
+          "custom_id": null,
+          "custom_item_id": 0,
+          "date_closed": null,
+          "date_created": "1716266438636",
+          "date_done": null,
+          "date_updated": "1716266458756",
+          "dependencies": [],
+          "description": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "group_assignees": [],
+          "id": "86cver8kb",
+          "linked_tasks": [],
+          "list": {
+            "access": true,
+            "id": "901602663843",
+            "name": "VekhiiJaa-Raw"
+          },
+          "locations": [],
+          "name": "you forget script? try teleprompter",
+          "orderindex": "4374128.00000000000000000000000000000000",
+          "parent": null,
+          "permission_level": "create",
+          "points": null,
+          "priority": null,
+          "project": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "sharing": {
+            "public": false,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "public_share_expires_on": null,
+            "seo_optimized": false,
+            "token": null
+          },
+          "space": {
+            "id": "67203119"
+          },
+          "start_date": null,
+          "status": {
+            "color": "#87909e",
+            "id": "sc901602663843_3ustCK6T",
+            "orderindex": 0,
+            "status": "to do",
+            "type": "open"
+          },
+          "tags": [],
+          "team_id": "43273179",
+          "text_content": "",
+          "time_estimate": null,
+          "top_level_parent": null,
+          "url": "https://app.clickup.com/t/86cver8kb",
+          "watchers": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignees": [],
+          "checklists": [],
+          "creator": {
+            "color": "#81b1ff",
+            "email": "sukhneers@gmail.com",
+            "id": 61271308,
+            "profilePicture": null,
+            "username": "Sukhneer Singh"
+          },
+          "custom_fields": [
+            {
+              "date_created": "1769706237702",
+              "hide_from_guests": false,
+              "id": "66124c60-dd0f-491e-a69a-95f91b0d86cf",
+              "name": "Primary Editor Feedback link",
+              "required": false,
+              "type": "short_text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1664822005114",
+              "hide_from_guests": false,
+              "id": "859e9c4a-9ab1-47e1-b87e-cc66d15fccdf",
+              "name": "Release Date",
+              "required": false,
+              "type": "date",
+              "type_config": {}
+            },
+            {
+              "date_created": "1705735383114",
+              "hide_from_guests": false,
+              "id": "b0236517-bba2-4912-9603-3ff60ac76cf6",
+              "name": "Squence ",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "default": 0,
+                "options": [
+                  {
+                    "color": null,
+                    "id": "6e91229e-d046-4e75-a585-267fea5d5409",
+                    "name": "1",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "7d57d41e-76af-4233-90e6-977f0b4aeb5e",
+                    "name": "2",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "2c38e6de-7ff9-4a19-b99e-be3ab9887341",
+                    "name": "3",
+                    "orderindex": 2
+                  },
+                  {
+                    "color": null,
+                    "id": "8f94cf91-dd64-4d68-87b8-98bfed9bfda4",
+                    "name": "4",
+                    "orderindex": 3
+                  },
+                  {
+                    "color": null,
+                    "id": "4df91336-5b04-4a05-af75-05ad1994fbb5",
+                    "name": "5",
+                    "orderindex": 4
+                  }
+                ],
+                "placeholder": null
+              }
+            },
+            {
+              "date_created": "1704967581503",
+              "hide_from_guests": false,
+              "id": "c32793e7-07c4-44d9-a791-8b340a5192ce",
+              "name": "Status ",
+              "required": false,
+              "type": "text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1733123931204",
+              "hide_from_guests": false,
+              "id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+              "name": "Task Added by",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "options": [
+                  {
+                    "color": null,
+                    "id": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                    "name": "Sonal",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "a1956694-4add-4615-a871-2bb1d2d4574e",
+                    "name": "Sukhneer",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "c25dca53-3532-4c00-b387-82c35998e74b",
+                    "name": "Madan",
+                    "orderindex": 2
+                  }
+                ],
+                "sorting": "manual"
+              }
+            }
+          ],
+          "custom_id": null,
+          "custom_item_id": 0,
+          "date_closed": null,
+          "date_created": "1716266416559",
+          "date_done": null,
+          "date_updated": "1716266458023",
+          "dependencies": [],
+          "description": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "group_assignees": [],
+          "id": "86cver8ft",
+          "linked_tasks": [],
+          "list": {
+            "access": true,
+            "id": "901602663843",
+            "name": "VekhiiJaa-Raw"
+          },
+          "locations": [],
+          "name": "video recording without mic vs with mic on phone",
+          "orderindex": "4374127.00000000000000000000000000000000",
+          "parent": null,
+          "permission_level": "create",
+          "points": null,
+          "priority": null,
+          "project": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "sharing": {
+            "public": false,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "public_share_expires_on": null,
+            "seo_optimized": false,
+            "token": null
+          },
+          "space": {
+            "id": "67203119"
+          },
+          "start_date": null,
+          "status": {
+            "color": "#87909e",
+            "id": "sc901602663843_3ustCK6T",
+            "orderindex": 0,
+            "status": "to do",
+            "type": "open"
+          },
+          "tags": [],
+          "team_id": "43273179",
+          "text_content": "",
+          "time_estimate": null,
+          "top_level_parent": null,
+          "url": "https://app.clickup.com/t/86cver8ft",
+          "watchers": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            },
+            {
+              "color": null,
+              "email": "madansablok1508@gmail.com",
+              "id": 72686679,
+              "initials": "MM",
+              "profilePicture": null,
+              "username": "Madan Mohan"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignees": [],
+          "checklists": [],
+          "creator": {
+            "color": "#81b1ff",
+            "email": "sukhneers@gmail.com",
+            "id": 61271308,
+            "profilePicture": null,
+            "username": "Sukhneer Singh"
+          },
+          "custom_fields": [
+            {
+              "date_created": "1769706237702",
+              "hide_from_guests": false,
+              "id": "66124c60-dd0f-491e-a69a-95f91b0d86cf",
+              "name": "Primary Editor Feedback link",
+              "required": false,
+              "type": "short_text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1664822005114",
+              "hide_from_guests": false,
+              "id": "859e9c4a-9ab1-47e1-b87e-cc66d15fccdf",
+              "name": "Release Date",
+              "required": false,
+              "type": "date",
+              "type_config": {}
+            },
+            {
+              "date_created": "1705735383114",
+              "hide_from_guests": false,
+              "id": "b0236517-bba2-4912-9603-3ff60ac76cf6",
+              "name": "Squence ",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "default": 0,
+                "options": [
+                  {
+                    "color": null,
+                    "id": "6e91229e-d046-4e75-a585-267fea5d5409",
+                    "name": "1",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "7d57d41e-76af-4233-90e6-977f0b4aeb5e",
+                    "name": "2",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "2c38e6de-7ff9-4a19-b99e-be3ab9887341",
+                    "name": "3",
+                    "orderindex": 2
+                  },
+                  {
+                    "color": null,
+                    "id": "8f94cf91-dd64-4d68-87b8-98bfed9bfda4",
+                    "name": "4",
+                    "orderindex": 3
+                  },
+                  {
+                    "color": null,
+                    "id": "4df91336-5b04-4a05-af75-05ad1994fbb5",
+                    "name": "5",
+                    "orderindex": 4
+                  }
+                ],
+                "placeholder": null
+              }
+            },
+            {
+              "date_created": "1704967581503",
+              "hide_from_guests": false,
+              "id": "c32793e7-07c4-44d9-a791-8b340a5192ce",
+              "name": "Status ",
+              "required": false,
+              "type": "text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1733123931204",
+              "hide_from_guests": false,
+              "id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+              "name": "Task Added by",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "options": [
+                  {
+                    "color": null,
+                    "id": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                    "name": "Sonal",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "a1956694-4add-4615-a871-2bb1d2d4574e",
+                    "name": "Sukhneer",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "c25dca53-3532-4c00-b387-82c35998e74b",
+                    "name": "Madan",
+                    "orderindex": 2
+                  }
+                ],
+                "sorting": "manual"
+              }
+            }
+          ],
+          "custom_id": null,
+          "custom_item_id": 0,
+          "date_closed": null,
+          "date_created": "1716266261392",
+          "date_done": null,
+          "date_updated": "1716266457384",
+          "dependencies": [],
+          "description": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "group_assignees": [],
+          "id": "86cver7ac",
+          "linked_tasks": [],
+          "list": {
+            "access": true,
+            "id": "901602663843",
+            "name": "VekhiiJaa-Raw"
+          },
+          "locations": [],
+          "name": "How I am making sure to quickly shoot videos",
+          "orderindex": "4374126.00000000000000000000000000000000",
+          "parent": null,
+          "permission_level": "create",
+          "points": null,
+          "priority": null,
+          "project": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "sharing": {
+            "public": false,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "public_share_expires_on": null,
+            "seo_optimized": false,
+            "token": null
+          },
+          "space": {
+            "id": "67203119"
+          },
+          "start_date": null,
+          "status": {
+            "color": "#87909e",
+            "id": "sc901602663843_3ustCK6T",
+            "orderindex": 0,
+            "status": "to do",
+            "type": "open"
+          },
+          "tags": [],
+          "team_id": "43273179",
+          "text_content": "",
+          "time_estimate": null,
+          "top_level_parent": null,
+          "url": "https://app.clickup.com/t/86cver7ac",
+          "watchers": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            },
+            {
+              "color": null,
+              "email": "madansablok1508@gmail.com",
+              "id": 72686679,
+              "initials": "MM",
+              "profilePicture": null,
+              "username": "Madan Mohan"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "archived": false,
+          "assignees": [],
+          "checklists": [],
+          "creator": {
+            "color": "#81b1ff",
+            "email": "sukhneers@gmail.com",
+            "id": 61271308,
+            "profilePicture": null,
+            "username": "Sukhneer Singh"
+          },
+          "custom_fields": [
+            {
+              "date_created": "1769706237702",
+              "hide_from_guests": false,
+              "id": "66124c60-dd0f-491e-a69a-95f91b0d86cf",
+              "name": "Primary Editor Feedback link",
+              "required": false,
+              "type": "short_text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1664822005114",
+              "hide_from_guests": false,
+              "id": "859e9c4a-9ab1-47e1-b87e-cc66d15fccdf",
+              "name": "Release Date",
+              "required": false,
+              "type": "date",
+              "type_config": {}
+            },
+            {
+              "date_created": "1705735383114",
+              "hide_from_guests": false,
+              "id": "b0236517-bba2-4912-9603-3ff60ac76cf6",
+              "name": "Squence ",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "default": 0,
+                "options": [
+                  {
+                    "color": null,
+                    "id": "6e91229e-d046-4e75-a585-267fea5d5409",
+                    "name": "1",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "7d57d41e-76af-4233-90e6-977f0b4aeb5e",
+                    "name": "2",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "2c38e6de-7ff9-4a19-b99e-be3ab9887341",
+                    "name": "3",
+                    "orderindex": 2
+                  },
+                  {
+                    "color": null,
+                    "id": "8f94cf91-dd64-4d68-87b8-98bfed9bfda4",
+                    "name": "4",
+                    "orderindex": 3
+                  },
+                  {
+                    "color": null,
+                    "id": "4df91336-5b04-4a05-af75-05ad1994fbb5",
+                    "name": "5",
+                    "orderindex": 4
+                  }
+                ],
+                "placeholder": null
+              }
+            },
+            {
+              "date_created": "1704967581503",
+              "hide_from_guests": false,
+              "id": "c32793e7-07c4-44d9-a791-8b340a5192ce",
+              "name": "Status ",
+              "required": false,
+              "type": "text",
+              "type_config": {}
+            },
+            {
+              "date_created": "1733123931204",
+              "hide_from_guests": false,
+              "id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+              "name": "Task Added by",
+              "required": false,
+              "type": "drop_down",
+              "type_config": {
+                "options": [
+                  {
+                    "color": null,
+                    "id": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                    "name": "Sonal",
+                    "orderindex": 0
+                  },
+                  {
+                    "color": null,
+                    "id": "a1956694-4add-4615-a871-2bb1d2d4574e",
+                    "name": "Sukhneer",
+                    "orderindex": 1
+                  },
+                  {
+                    "color": null,
+                    "id": "c25dca53-3532-4c00-b387-82c35998e74b",
+                    "name": "Madan",
+                    "orderindex": 2
+                  }
+                ],
+                "sorting": "manual"
+              }
+            }
+          ],
+          "custom_id": null,
+          "custom_item_id": 0,
+          "date_closed": null,
+          "date_created": "1716266209781",
+          "date_done": null,
+          "date_updated": "1716266217238",
+          "dependencies": [],
+          "description": "",
+          "due_date": null,
+          "folder": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "group_assignees": [],
+          "id": "86cver6z3",
+          "linked_tasks": [],
+          "list": {
+            "access": true,
+            "id": "901602663843",
+            "name": "VekhiiJaa-Raw"
+          },
+          "locations": [],
+          "name": "The Mic I use",
+          "orderindex": "4374125.00000000000000000000000000000000",
+          "parent": null,
+          "permission_level": "create",
+          "points": null,
+          "priority": null,
+          "project": {
+            "access": true,
+            "hidden": true,
+            "id": "90161653764",
+            "name": "hidden"
+          },
+          "sharing": {
+            "public": false,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "public_share_expires_on": null,
+            "seo_optimized": false,
+            "token": null
+          },
+          "space": {
+            "id": "67203119"
+          },
+          "start_date": null,
+          "status": {
+            "color": "#87909e",
+            "id": "sc901602663843_3ustCK6T",
+            "orderindex": 0,
+            "status": "to do",
+            "type": "open"
+          },
+          "tags": [],
+          "team_id": "43273179",
+          "text_content": "",
+          "time_estimate": null,
+          "top_level_parent": null,
+          "url": "https://app.clickup.com/t/86cver6z3",
+          "watchers": [
+            {
+              "color": "#81b1ff",
+              "email": "sukhneers@gmail.com",
+              "id": 61271308,
+              "initials": "SS",
+              "profilePicture": null,
+              "username": "Sukhneer Singh"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Webhook": [
+      {
+        "json": {
+          "body": {
+            "auto_id": "461b841f-6d12-4b9b-9776-46636f4c276e:main",
+            "date": "2026-02-24T12:31:50.632Z",
+            "payload": {
+              "_version_vector": {
+                "object_id": "86cz7u8yc",
+                "object_type": "task",
+                "vector": [
+                  {
+                    "deleted": false,
+                    "master_id": 25,
+                    "version": 1771936310440000
+                  }
+                ],
+                "workspace_id": 43273179
+              },
+              "attachments": [],
+              "checklists": [],
+              "content": "{\"ops\":[{\"insert\":{\"bookmark\":{\"service\":\"gdrive\",\"id\":\"https://drive.google.com/file/d/1crsa-1vjvbVdnMhMUKWIrsu-8J1OeCWh/preview\",\"url\":\"https://drive.google.com/file/d/1crsa-1vjvbVdnMhMUKWIrsu-8J1OeCWh/view?usp=drive_link\"}},\"attributes\":{\"block-id\":\"block-84de8728-5c55-48cc-88e9-4d77d8ed7f0e\",\"body-type\":\"image\",\"unfurled\":\"true\"}},{\"insert\":\"VIDEO3\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-d96a7572-b3c6-4b0c-9856-d4a73d42b4c0\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-48ec6a18-ffa7-45cf-930f-4ceb84677666\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-a8f03929-fdc9-4106-a274-e91ed6121c0e\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-fef7bd98-c8a0-4c03-87fb-25861ce4b4ef\"}},{\"insert\":{\"bookmark\":{\"service\":\"gdrive\",\"id\":\"https://drive.google.com/file/d/16aBMUIUqIomFvZFhSVSFKy64rqBmXFvc/preview\",\"url\":\"https://drive.google.com/file/d/16aBMUIUqIomFvZFhSVSFKy64rqBmXFvc/view?usp=drive_link\"}},\"attributes\":{\"block-id\":\"block-814977de-1b64-4954-8d97-b98d0082a48e\",\"body-type\":\"image\",\"unfurled\":\"true\"}},{\"insert\":\"VIDEO2\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-e390d31e-32d0-4a9f-b729-19683f120280\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-bdb79c8d-e1bf-4add-ad8b-50324a62fb85\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-1f6f6a37-e06a-45ee-82c1-b4323d432497\"}},{\"insert\":{\"bookmark\":{\"service\":\"gdrive\",\"id\":\"https://drive.google.com/file/d/1D40D3pM-xT6IYXJVkOPRKMUG4plwc48X/preview\",\"url\":\"https://drive.google.com/file/d/1D40D3pM-xT6IYXJVkOPRKMUG4plwc48X/view?usp=drive_link\"}},\"attributes\":{\"block-id\":\"block-b664244b-01f3-4603-b39f-4966e23b6213\",\"body-type\":\"image\",\"unfurled\":\"true\"}},{\"insert\":\"VIDEO\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-175a403a-e2b0-463f-8323-dbc011b15001\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-f081375f-31f4-4dcf-9b0c-74e7e3a13ab5\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-b1c9dd90-6e5a-4749-b4cf-962b393f4c3a\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-9c241fd3-d05d-4881-a4a7-eec302db9c95\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-6f1d8d97-3d92-4e08-a6df-2b2b66aa9a07\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-07f8a0dd-0800-420b-a4c4-305f8d8d22f5\"}},{\"insert\":\"avtar video: \"},{\"insert\":{\"link_mention\":{\"url\":\"https://drive.google.com/file/d/1uMjXC3zGfi9_-Zju-UrVG-gbUviUGPKP/view?usp=sharing\"}},\"attributes\":{\"unfurled\":\"true\"}},{\"insert\":\" \"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-ce2f6e40-a00b-46be-a410-9dfc686aaaf0\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-779b2bcc-9d2a-40ef-b12e-91e4b4f85d0c\"}},{\"insert\":\"ideo Script (Agentic AI Confusion) – under 150 words\",\"attributes\":{\"bold\":true}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-e548198d-4317-4109-87a8-6ecc8a8d5c92\"}},{\"insert\":\"🎤 Hook (Negative + Funny):\",\"attributes\":{\"bold\":true}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-d735c8c9-c3d9-44e2-aa4a-d1c320b21eb9\"}},{\"insert\":\" “So you think Agentic AI is just a \"},{\"insert\":\"super-intelligent chatbot\",\"attributes\":{\"italic\":true}},{\"insert\":\"? Yeah… no. That’s like saying the delivery guy \"},{\"insert\":\"cooked your food\",\"attributes\":{\"italic\":true}},{\"insert\":\".” 🍔🤖\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-1c80d654-c5d4-4dce-921e-a0109aaf2806\"}},{\"insert\":\"👀 Main Content:\",\"attributes\":{\"bold\":true}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-f69c444a-aecd-403f-b7d1-81b9f836f165\"}},{\"insert\":\" Most people confuse \"},{\"insert\":\"agentic AI\",\"attributes\":{\"italic\":true}},{\"insert\":\" with AI models like ChatGPT or Claude. But here’s the truth—agents \"},{\"insert\":\"aren’t\",\"attributes\":{\"italic\":true}},{\"insert\":\" the models. They’re the \"},{\"insert\":\"managers\",\"attributes\":{\"italic\":true}},{\"insert\":\" that tell different models what to do and when to do it.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-ef57f714-f77a-4572-949f-f480c11f5243\"}},{\"insert\":\"Think of it like this:\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-0a2791e7-682b-4354-acbc-2bc6b00f3860\"}},{\"insert\":\" Your food delivery app didn’t make your biryani—it just coordinated the restaurant, driver, and map. That’s what agents do—they \"},{\"insert\":\"connect models\",\"attributes\":{\"italic\":true}},{\"insert\":\", tools, APIs, even browsers, and make them work together to get things done.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-5b7c15f1-997a-4f4b-8304-b06a4bf1c9fa\"}},{\"insert\":\"Agentic AI = smart project manager.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-7452af0c-2d39-4fc9-9499-dc59324838c4\"}},{\"insert\":\" Models = talented employees.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-4c7c2d02-dc69-44df-9d27-6e1373fc9ef0\"}},{\"insert\":\" You = still confused? Hit follow, and I’ll make AI sound human, not robotic.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-bd07f0f2-586a-4639-9943-bab163ab5b6a\"}},{\"insert\":\"🎬 CTA:\",\"attributes\":{\"bold\":true}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-cdb0da3b-9dc9-454c-9f07-63231bed1ac2\"}},{\"insert\":\" Don’t fear the agents—they’re just here to \"},{\"insert\":\"organize the chaos\",\"attributes\":{\"italic\":true}},{\"insert\":\", not take over.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-856559c1-6da5-4215-95a1-885c7e454169\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-f6c0d292-cb43-4acd-b492-827d6ae88496\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-d99f84fd-9fc8-4219-bf97-01a06560e952\"}},{\"insert\":\"Instagram Description\",\"attributes\":{\"bold\":true}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-13cc49f3-5145-4f9d-aa5d-3e4b4c324041\"}},{\"insert\":\" Agentic AI isn’t just another chatbot. It’s the smart coordinator that tells models like ChatGPT, APIs, and tools what to do—like a project manager for AI.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-558a2fe8-9aa5-47a1-8da8-0a021e1bd651\"}},{\"insert\":\" Most people confuse agents with the models themselves, but they’re not the same thing. Think of agents as delivery apps—they don’t \"},{\"insert\":\"make\",\"attributes\":{\"italic\":true}},{\"insert\":\" the food, they just make sure it \"},{\"insert\":\"gets done\",\"attributes\":{\"italic\":true}},{\"insert\":\".\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-9d44ef7c-c337-4a66-a7e9-5246de087cb6\"}},{\"insert\":\" If you’re a product manager, engineer, or student trying to make sense of AI buzzwords, this one’s for you.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-0c271942-5300-4cff-a7de-ee393b0aaffb\"}},{\"insert\":\" Follow for more clear, simple breakdowns of complex AI terms—no jargon, no drama.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-3e5f63b3-ca2b-45f8-9149-7c06307cdd3e\"}},{\"insert\":{\"divider\":true}},{\"insert\":\"LinkedIn Description\",\"attributes\":{\"bold\":true}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-b00f71bb-5f24-48ee-b435-7c86bad95a6c\"}},{\"insert\":\" Confused between agentic AI and models like ChatGPT? You’re not alone.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-af6521b1-ad86-42be-b6d6-e959f2954b76\"}},{\"insert\":\" Agentic AI is the system that coordinates—connecting multiple tools, models, and APIs to complete tasks across platforms. It’s not the chef; it’s the one who makes sure dinner gets served.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-e02d37d6-1ddb-44ee-8783-0beb1770f61f\"}},{\"insert\":\" If you’re working in product, engineering, or just exploring GenAI in depth, understanding agentic workflows is critical to building smarter applications.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-f77f1165-4cc1-4f58-b58d-798afc010bc9\"}},{\"insert\":\" Follow for more AI breakdowns that speak your language—practical, simple, and relevant to your work.\"},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-819b40db-6400-4718-ab2a-df05457214da\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-a51835f2-48ca-4e89-b392-45b1843b816f\"}},{\"insert\":\"\\n\",\"attributes\":{\"block-id\":\"block-0a1598f9-ed2b-4e54-82f3-40dd8bfe7a84\"}}]}",
+              "content_size": "long",
+              "coverimage": null,
+              "custom_id": null,
+              "custom_type": null,
+              "direct_parent": null,
+              "docs": [],
+              "draft_uuid": null,
+              "fields": [
+                {
+                  "field_id": "15aa7b8a-181c-43fc-a0e8-952fa3796a99",
+                  "reasoning": null,
+                  "task_id": "86cz7u8yc",
+                  "type": 1,
+                  "value": "2aba81f1-e439-468f-b7ae-211c16274fef",
+                  "value_deleted": false,
+                  "value_options": null,
+                  "value_richtext": null
+                },
+                {
+                  "field_id": "2ab4f817-121d-40bd-a685-7e8cf9622f45",
+                  "reasoning": null,
+                  "task_id": "86cz7u8yc",
+                  "type": 1,
+                  "value": "1e74e5f8-c8a6-41c8-8274-76ee9b366c2a",
+                  "value_deleted": false,
+                  "value_options": null,
+                  "value_richtext": null
+                }
+              ],
+              "groups": [],
+              "html_content": null,
+              "id": "86cz7u8yc",
+              "lists": [
+                {
+                  "list_id": "901606638452",
+                  "type": "home"
+                }
+              ],
+              "lower_name": "250601 agentic ai what are those?",
+              "merged_to": null,
+              "name": "250601 Agentic AI what are those?",
+              "ownership": {
+                "created_by_email": null,
+                "creator": 61271308,
+                "delegator": null,
+                "deleted_by": null,
+                "form_id": null,
+                "merged_to": null,
+                "owner": 61271308,
+                "source": "user"
+              },
+              "personal_priority": [],
+              "priority": null,
+              "privacy": {
+                "made_public_by": null,
+                "made_public_time": null,
+                "private": false,
+                "public": false,
+                "public_fields": null,
+                "public_permission_level": null,
+                "public_share_expires_on": null,
+                "public_sharing": false,
+                "public_token": null,
+                "seo_optimized": false
+              },
+              "reccurence": {
+                "v1": {
+                  "recur_copy_original": false,
+                  "recur_daily": false,
+                  "recur_data": null,
+                  "recur_dst": null,
+                  "recur_due_date": null,
+                  "recur_ignore_today": false,
+                  "recur_immediately": false,
+                  "recur_new_status": null,
+                  "recur_next": null,
+                  "recur_on": null,
+                  "recur_on_status": null,
+                  "recur_rule": null,
+                  "recur_skip_missed": false,
+                  "recur_task": null,
+                  "recur_time": false,
+                  "recur_type": null,
+                  "recur_tz": null,
+                  "recur_tz_offset": null,
+                  "recur_until": null,
+                  "recurring": false
+                },
+                "v2": {
+                  "create_new_task": false,
+                  "ignore_weekends": false,
+                  "periodically": false,
+                  "recur_on_schedule": false,
+                  "set_time": false,
+                  "simple_settings": false
+                }
+              },
+              "related_tasks": [],
+              "related_tasks_count": {
+                "dependedBy": 0,
+                "dependsOn": 0
+              },
+              "root_parent": null,
+              "sprint_points": null,
+              "states": {
+                "is_archived": false,
+                "is_deleted": false,
+                "is_encrypted": false
+              },
+              "status_id": "sc901606638452_UeytPJCB",
+              "subcategory": "901606638452",
+              "subtask_ids": [],
+              "subtask_sort": null,
+              "subtask_sort_dir": null,
+              "tags": [],
+              "templating": {
+                "original_subcat": null,
+                "permanent_template_id": null,
+                "team_id": null,
+                "template": false,
+                "template_field_ids": null,
+                "template_name": null,
+                "visibility": null
+              },
+              "text_content": "VIDEO3\n\n\n\nVIDEO2\n\n\nVIDEO\n\n\n\n\n\navtar video:  \n\nideo Script (Agentic AI Confusion) – under 150 words\n🎤 Hook (Negative + Funny):\n “So you think Agentic AI is just a super-intelligent chatbot? Yeah… no. That’s like saying the delivery guy cooked your food.” 🍔🤖\n👀 Main Content:\n Most people confuse agentic AI with AI models like ChatGPT or Claude. But here’s the truth—agents aren’t the models. They’re the managers that tell different models what to do and when to do it.\nThink of it like this:\n Your food delivery app didn’t make your biryani—it just coordinated the restaurant, driver, and map. That’s what agents do—they connect models, tools, APIs, even browsers, and make them work together to get things done.\nAgentic AI = smart project manager.\n Models = talented employees.\n You = still confused? Hit follow, and I’ll make AI sound human, not robotic.\n🎬 CTA:\n Don’t fear the agents—they’re just here to organize the chaos, not take over.\n\n\nInstagram Description\n Agentic AI isn’t just another chatbot. It’s the smart coordinator that tells models like ChatGPT, APIs, and tools what to do—like a project manager for AI.\n Most people confuse agents with the models themselves, but they’re not the same thing. Think of agents as delivery apps—they don’t make the food, they just make sure it gets done.\n If you’re a product manager, engineer, or student trying to make sense of AI buzzwords, this one’s for you.\n Follow for more clear, simple breakdowns of complex AI terms—no jargon, no drama.\nLinkedIn Description\n Confused between agentic AI and models like ChatGPT? You’re not alone.\n Agentic AI is the system that coordinates—connecting multiple tools, models, and APIs to complete tasks across platforms. It’s not the chef; it’s the one who makes sure dinner gets served.\n If you’re working in product, engineering, or just exploring GenAI in depth, understanding agentic workflows is critical to building smarter applications.\n Follow for more AI breakdowns that speak your language—practical, simple, and relevant to your work.",
+              "time_mgmt": {
+                "date_active": "1750528366506",
+                "date_closed": null,
+                "date_created": "1749487675567",
+                "date_delegated": null,
+                "date_deleted": null,
+                "date_done": null,
+                "date_unstarted": null,
+                "date_updated": "1771936310413",
+                "due_date": null,
+                "due_date_time": false,
+                "duration": {},
+                "duration_is_elapsed": false,
+                "is_summary_task": false,
+                "sent_due_date_notif": false,
+                "start_date": null,
+                "start_date_time": false,
+                "time_estimate": null,
+                "time_estimate_string": null,
+                "time_spent": null
+              },
+              "users": [
+                {
+                  "type": "assigned",
+                  "userid": 72686679
+                },
+                {
+                  "type": "assigned",
+                  "userid": 61271308
+                },
+                {
+                  "type": "watcher",
+                  "userid": 61271308
+                },
+                {
+                  "type": "watcher",
+                  "userid": 72686679
+                },
+                {
+                  "type": "owner",
+                  "userid": 61271308
+                },
+                {
+                  "type": "creator",
+                  "userid": 61271308
+                }
+              ],
+              "workspace_id": "43273179"
+            },
+            "trigger_id": "c49aa0fa-fa84-4113-be10-59ea269b05bb"
+          },
+          "executionMode": "test",
+          "headers": {
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip",
+            "b3": "699d9a360000000009ca98669e29bc38-09ca98669e29bc38-0",
+            "content-length": "14179",
+            "content-type": "application/json",
+            "host": "n8n.srv1183038.hstgr.cloud",
+            "traceparent": "00-699d9a360000000009ca98669e29bc38-09ca98669e29bc38-00",
+            "tracestate": "dd=t.tid:699d9a3600000000;t.dm:-3;s:-1;p:09ca98669e29bc38",
+            "user-agent": "axios/0.24.0",
+            "x-b3-sampled": "0",
+            "x-b3-spanid": "09ca98669e29bc38",
+            "x-b3-traceid": "699d9a360000000009ca98669e29bc38",
+            "x-datadog-parent-id": "705543858144525368",
+            "x-datadog-sampling-priority": "-1",
+            "x-datadog-tags": "_dd.p.tid=699d9a3600000000",
+            "x-datadog-trace-id": "705543858144525368",
+            "x-forwarded-for": "54.66.77.228",
+            "x-forwarded-host": "n8n.srv1183038.hstgr.cloud",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "f5ca80908e91",
+            "x-real-ip": "54.66.77.228"
+          },
+          "params": {},
+          "query": {},
+          "webhookUrl": "https://n8n.srv1183038.hstgr.cloud/webhook-test/4fe4a46c-2f98-428e-ad42-7f462da82dac"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-24T12:20:35.032Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-24T12:20:35.032Z",
+      "workflowId": "nBZRZqgDWM0vqPbz"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2026-02-24T14:32:50.247Z",
+  "versionId": "da5fbf07-566b-4715-b8ba-f16cbb36f646"
+}
