@@ -1,0 +1,156 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Aggregate Account Metrics": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Database Maintenance",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Daily at 1 AM": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Aggregate Account Metrics",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Database Maintenance": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Daily Summary",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Daily Summary": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Log Summary",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-15T06:31:05.941Z",
+  "id": "EEd9YVSPGCGMUFqR",
+  "isArchived": false,
+  "meta": null,
+  "name": "Analytics Aggregator",
+  "nodes": [
+    {
+      "id": "73abbec0-3763-42fc-99ac-959cbab6f47e",
+      "name": "Daily at 1 AM",
+      "notes": "Run aggregations daily",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "expression": "0 1 * * *",
+              "field": "cronExpression"
+            }
+          ]
+        }
+      },
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "72ddefda-6ea7-46b3-ba58-ce9aaf3e12d5",
+      "name": "Aggregate Account Metrics",
+      "notes": "Daily rollup of account-level metrics",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Calculate and store daily account metrics\nINSERT INTO account_metrics_daily (account_id, date, followers_count, total_posts, total_views, total_engagement)\nSELECT \n  a.account_id,\n  CURRENT_DATE - INTERVAL '1 day' as date,\n  a.followers_count,\n  COUNT(DISTINCT c.content_id) as total_posts,\n  COALESCE(SUM(m.views), 0) as total_views,\n  COALESCE(SUM(m.likes + m.comments + m.shares + m.saves), 0) as total_engagement\nFROM accounts a\nLEFT JOIN content c ON a.account_id = c.account_id\nLEFT JOIN metrics_daily m ON c.content_id = m.content_id \n  AND m.date = CURRENT_DATE - INTERVAL '1 day'\nWHERE a.active = true\nGROUP BY a.account_id, a.followers_count\nON CONFLICT (account_id, date) DO UPDATE SET\n  followers_count = EXCLUDED.followers_count,\n  total_posts = EXCLUDED.total_posts,\n  total_views = EXCLUDED.total_views,\n  total_engagement = EXCLUDED.total_engagement,\n  created_at = NOW();\n\nSELECT 'Account metrics aggregated' as status, COUNT(*) as accounts_processed \nFROM account_metrics_daily \nWHERE date = CURRENT_DATE - INTERVAL '1 day';"
+      },
+      "position": [
+        208,
+        0
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "be1f2d93-28fa-493a-b49f-2e8499d5fbd7",
+      "name": "Database Maintenance",
+      "notes": "Clean old data and optimize database",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Clean up old execution logs (keep last 30 days)\nDELETE FROM metrics_daily \nWHERE date < CURRENT_DATE - INTERVAL '90 days';\n\n-- Vacuum analyze for performance\nVACUUM ANALYZE metrics_daily;\nVACUUM ANALYZE content;\nVACUUM ANALYZE accounts;\n\nSELECT 'Database maintenance complete' as status;"
+      },
+      "position": [
+        400,
+        0
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "51a21a76-c607-4b80-9639-b900f647a58c",
+      "name": "Get Daily Summary",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Get summary statistics for notification\nSELECT \n  COUNT(DISTINCT account_id) as total_accounts,\n  SUM(total_views) as total_views_yesterday,\n  SUM(total_engagement) as total_engagement_yesterday,\n  ROUND(AVG(total_engagement::DECIMAL / NULLIF(total_views, 0) * 100), 2) as avg_engagement_rate\nFROM account_metrics_daily\nWHERE date = CURRENT_DATE - INTERVAL '1 day';"
+      },
+      "position": [
+        608,
+        0
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "2191e167-2f60-4756-b013-977933a06b03",
+      "name": "Log Summary",
+      "notes": "Optional: Send to Slack/Email",
+      "parameters": {},
+      "position": [
+        800,
+        0
+      ],
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-15T06:31:05.950Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-15T06:31:05.950Z",
+      "workflowId": "EEd9YVSPGCGMUFqR"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-15T06:31:05.000Z",
+  "versionId": "238dfd0a-a47b-4a5a-9b08-b604deb1cd71"
+}
