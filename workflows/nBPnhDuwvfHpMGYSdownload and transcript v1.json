@@ -1,0 +1,541 @@
+{
+  "active": true,
+  "activeVersion": {
+    "authors": "Sukhneer Singh",
+    "autosaved": false,
+    "connections": {
+      "Download file": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Write Data to Disk",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Loop Over Items": {
+        "main": [
+          [],
+          [
+            {
+              "index": 0,
+              "node": "Download file",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Read Data from Disk": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Transcribe Audio",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Start": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Items",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Transcribe Audio": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Items",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Write Data to Disk": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "video to mp3",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "video to mp3": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Read Data from Disk",
+              "type": "main"
+            }
+          ]
+        ]
+      }
+    },
+    "createdAt": "2025-12-27T11:34:11.975Z",
+    "description": null,
+    "name": null,
+    "nodes": [
+      {
+        "credentials": {
+          "openAiApi": {
+            "id": "HtC3pXdXhNPajOpZ",
+            "name": "OpenAi account"
+          }
+        },
+        "id": "d590768b-919f-4715-965e-a1e457e16755",
+        "name": "Transcribe Audio",
+        "parameters": {
+          "authentication": "predefinedCredentialType",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "inputDataFieldName": "file_data",
+                "name": "file",
+                "parameterType": "formBinaryData"
+              },
+              {
+                "name": "model",
+                "value": "whisper-1"
+              },
+              {
+                "name": "response_format",
+                "value": "verbose_json"
+              },
+              {
+                "name": "language",
+                "value": "en"
+              },
+              {
+                "name": "timestamp_granularities[]",
+                "value": "segment"
+              },
+              {
+                "name": "timestamp_granularities[]",
+                "value": "word"
+              },
+              {
+                "name": "temperature",
+                "value": "0.3"
+              }
+            ]
+          },
+          "contentType": "multipart-form-data",
+          "method": "POST",
+          "nodeCredentialType": "openAiApi",
+          "options": {
+            "redirect": {
+              "redirect": {
+                "followRedirects": false
+              }
+            }
+          },
+          "sendBody": true,
+          "url": "https://api.openai.com/v1/audio/transcriptions"
+        },
+        "position": [
+          2992,
+          96
+        ],
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3
+      },
+      {
+        "id": "deba7a8e-4289-4d06-9002-1a837eb8c1e9",
+        "name": "Write Data to Disk",
+        "parameters": {
+          "dataPropertyName": "file_data",
+          "fileName": "=/tmp/{{ $binary.file_data.fileName }}",
+          "operation": "write",
+          "options": {}
+        },
+        "position": [
+          2496,
+          80
+        ],
+        "type": "n8n-nodes-base.readWriteFile",
+        "typeVersion": 1
+      },
+      {
+        "id": "d3e1a0d7-92f5-46b6-88b4-109823cb2c3f",
+        "name": "video to mp3",
+        "parameters": {
+          "command": "=/home/node/.n8n/ffmpeg_bin -y -i \"/tmp/{{$('Write Data to Disk').item.binary.file_data.fileName}}\" -vn -ac 1 -ar 44100 -b:a 256k \"/tmp/{{ $('Write Data to Disk').item.binary.file_data.fileName.split('.')[0] }}.mp3\"",
+          "executeOnce": false
+        },
+        "position": [
+          2656,
+          96
+        ],
+        "type": "n8n-nodes-base.executeCommand",
+        "typeVersion": 1
+      },
+      {
+        "id": "3e2d2b2e-9cf5-4e21-9a53-20425e2ac04a",
+        "name": "Read Data from Disk",
+        "parameters": {
+          "fileSelector": "=/tmp/{{ $('Write Data to Disk').item.binary.file_data.fileName.split('.')[0] }}.mp3",
+          "options": {
+            "dataPropertyName": "file_data"
+          }
+        },
+        "position": [
+          2816,
+          96
+        ],
+        "type": "n8n-nodes-base.readWriteFile",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "b6HZBXRasr7i574n",
+            "name": "Google Drive account 2"
+          }
+        },
+        "id": "308c8ee6-bef1-4a12-b014-5e3d1d69e428",
+        "name": "Download file",
+        "parameters": {
+          "fileId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "operation": "download",
+          "options": {
+            "binaryPropertyName": "file_data"
+          }
+        },
+        "position": [
+          2272,
+          112
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "id": "44affab9-d0f8-4985-8fb6-8e09fff88e50",
+        "name": "Start",
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "id",
+                "type": "any"
+              }
+            ]
+          }
+        },
+        "position": [
+          1840,
+          64
+        ],
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1
+      },
+      {
+        "id": "efc89049-430d-4e64-beb6-38f534c0a684",
+        "name": "Loop Over Items",
+        "parameters": {
+          "options": {}
+        },
+        "position": [
+          2048,
+          80
+        ],
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3
+      }
+    ],
+    "updatedAt": "2025-12-27T11:34:11.975Z",
+    "versionId": "0a85ff09-1ded-4d18-aa90-0db4678b8812",
+    "workflowId": "nBPnhDuwvfHpMGYS"
+  },
+  "activeVersionId": "0a85ff09-1ded-4d18-aa90-0db4678b8812",
+  "connections": {
+    "Download file": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Write Data to Disk",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Download file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Read Data from Disk": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Transcribe Audio",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Transcribe Audio": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Write Data to Disk": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "video to mp3",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "video to mp3": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Read Data from Disk",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-21T10:40:14.566Z",
+  "id": "nBPnhDuwvfHpMGYS",
+  "isArchived": false,
+  "meta": null,
+  "name": "download and transcript v1",
+  "nodes": [
+    {
+      "credentials": {
+        "openAiApi": {
+          "id": "HtC3pXdXhNPajOpZ",
+          "name": "OpenAi account"
+        }
+      },
+      "id": "d590768b-919f-4715-965e-a1e457e16755",
+      "name": "Transcribe Audio",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "inputDataFieldName": "file_data",
+              "name": "file",
+              "parameterType": "formBinaryData"
+            },
+            {
+              "name": "model",
+              "value": "whisper-1"
+            },
+            {
+              "name": "response_format",
+              "value": "verbose_json"
+            },
+            {
+              "name": "language",
+              "value": "en"
+            },
+            {
+              "name": "timestamp_granularities[]",
+              "value": "segment"
+            },
+            {
+              "name": "timestamp_granularities[]",
+              "value": "word"
+            },
+            {
+              "name": "temperature",
+              "value": "0.3"
+            }
+          ]
+        },
+        "contentType": "multipart-form-data",
+        "method": "POST",
+        "nodeCredentialType": "openAiApi",
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          }
+        },
+        "sendBody": true,
+        "url": "https://api.openai.com/v1/audio/transcriptions"
+      },
+      "position": [
+        2992,
+        96
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3
+    },
+    {
+      "id": "deba7a8e-4289-4d06-9002-1a837eb8c1e9",
+      "name": "Write Data to Disk",
+      "parameters": {
+        "dataPropertyName": "file_data",
+        "fileName": "=/tmp/{{ $binary.file_data.fileName }}",
+        "operation": "write",
+        "options": {}
+      },
+      "position": [
+        2480,
+        96
+      ],
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1
+    },
+    {
+      "id": "d3e1a0d7-92f5-46b6-88b4-109823cb2c3f",
+      "name": "video to mp3",
+      "parameters": {
+        "command": "=/home/node/.n8n/ffmpeg_bin -y -i \"/tmp/{{$('Write Data to Disk').item.binary.file_data.fileName}}\" -vn -ac 1 -ar 44100 -b:a 256k \"/tmp/{{ $('Write Data to Disk').item.binary.file_data.fileName.split('.')[0] }}.mp3\"",
+        "executeOnce": false
+      },
+      "position": [
+        2656,
+        96
+      ],
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1
+    },
+    {
+      "id": "3e2d2b2e-9cf5-4e21-9a53-20425e2ac04a",
+      "name": "Read Data from Disk",
+      "parameters": {
+        "fileSelector": "=/tmp/{{ $('Write Data to Disk').item.binary.file_data.fileName.split('.')[0] }}.mp3",
+        "options": {
+          "dataPropertyName": "file_data"
+        }
+      },
+      "position": [
+        2816,
+        96
+      ],
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "308c8ee6-bef1-4a12-b014-5e3d1d69e428",
+      "name": "Download file",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "operation": "download",
+        "options": {
+          "binaryPropertyName": "file_data"
+        }
+      },
+      "position": [
+        2288,
+        96
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "44affab9-d0f8-4985-8fb6-8e09fff88e50",
+      "name": "Start",
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "id",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "position": [
+        1840,
+        64
+      ],
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "efc89049-430d-4e64-beb6-38f534c0a684",
+      "name": "Loop Over Items",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        2048,
+        80
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-12-21T10:40:14.571Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2025-12-21T10:40:14.571Z",
+      "workflowId": "nBPnhDuwvfHpMGYS"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-01T16:39:33.387Z",
+  "versionId": "b2a6c54f-54fd-4c2a-b0d0-fab9efc9e924"
+}
