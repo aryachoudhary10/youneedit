@@ -1,0 +1,572 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Combine all transcripts with all binary data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Connect combined data with script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Connect combined data with script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Step 2 Match with script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create XML binary": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Download file1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create XML format from JSON": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create XML binary",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge to get binary data back",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Step 1 Transcribe Video",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download file1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Form": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Connect combined data with script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get all file details in folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Download file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge for folder name": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create XML format from JSON",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Upload file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge to get binary data back": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Combine all transcripts with all binary data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search Folder in Drive",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Form",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Parse Transcribe output": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge to get binary data back",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Parse matched sequence to json": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge for folder name",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search Folder in Drive": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge for folder name",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Get all file details in folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Step 1 Transcribe Video": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Parse Transcribe output",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Step 2 Match with script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Parse matched sequence to json",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-07T11:23:52.676Z",
+  "id": "8m6f6P3FYTF0mXWe",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "AutoAroll workflowV1",
+  "nodes": [
+    {
+      "id": "655e97d1-b9b5-4e40-ba70-e2a2bed2c7e0",
+      "name": "On form submission",
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Video Folder",
+              "placeholder": "2511n8nTestFolder"
+            }
+          ]
+        },
+        "formTitle": "Vide gen",
+        "options": {}
+      },
+      "position": [
+        -1104,
+        384
+      ],
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
+      "webhookId": "837c3141-1415-4fe8-ad40-d730acb5a57b"
+    },
+    {
+      "id": "ef90ab24-d773-4c8e-abc0-de4b48d89957",
+      "name": "Merge for folder name",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        1584,
+        272
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "e6484fc6-2bf6-403e-a1d6-5f11130871f4",
+      "name": "Download file1",
+      "parameters": {
+        "completionTitle": "Created the XML file for use",
+        "operation": "completion",
+        "options": {},
+        "respondWith": "returnBinary"
+      },
+      "position": [
+        2256,
+        272
+      ],
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.3,
+      "webhookId": "d50b5949-ebac-4325-b160-2048df6c5be0"
+    },
+    {
+      "id": "08ba5cb1-3f07-4b93-9a37-909899435942",
+      "name": "Create XML format from JSON",
+      "parameters": {
+        "jsCode": "// ----------------CONFIGURATION----------------\nconst TIMEBASE = 30; // Timebase is mathematically 30 for NTSC 29.97\nconst NTSC_TAG = 'TRUE'; \nconst TICKS_PER_SECOND = 254016000000;\nconst WIDTH = 1080;\nconst HEIGHT = 1920;\nconst AUDIO_RATE = 48000;\nconst START_FRAME_BUFFER = 5;\nconst END_FRAME_BUFFER = 5;\n\n// Conversion Ratio: TICKS_PER_SECOND / TIMEBASE (Used to convert Frames to Ticks)\nconst FRAME_TO_TICKS_RATIO = TICKS_PER_SECOND / TIMEBASE;\n// ---------------------------------------------\n\n// Helper 1: Returns full seconds float (Kept for consistency, but we won't use it for pproTicks anymore)\nfunction timeToSecondsFloat(timeString) {\n  if (!timeString) return 0;\n   \n    \n  const dotTime = timeString.replace(',', '.');\n  const parts = dotTime.split(':');\n    \n  // --- TIME FORMAT CHECKER AND CORRECTION ---\n    if (parts.length === 2) {\n        // Format is likely \"MM:SS,mmm\". Prepend \"00\" for hours.\n        parts.unshift(\"00\"); // parts is now [\"00\", \"MM\", \"SS,mmm\"]\n    } else if (parts.length === 1) {\n        // Format is likely \"SS,mmm\". Prepend \"00:00\" for hours and minutes.\n        parts.unshift(\"00\", \"00\"); // parts is now [\"00\", \"00\", \"SS,mmm\"]\n    } else if (parts.length !== 3) {\n        // Invalid or unexpected format\n        console.error(`Invalid time string format: ${timeString}`);\n        return 0;\n    }\n    // --- END CORRECTION ---\n  return (parseFloat(parts[0]) * 3600) + \n         (parseFloat(parts[1]) * 60) + \n         parseFloat(parts[2]);\n}\n\n// Helper 2: Returns precise frame integer using seconds + ms calculation\nfunction timeToFrameInteger(timeString, timebase) {\n    if (!timeString) return 0;\n    \n    let parts = timeString.split(':');\n    \n    // --- TIME FORMAT CHECKER AND CORRECTION ---\n    if (parts.length === 2) {\n        // Format is likely \"MM:SS,mmm\". Prepend \"00\" for hours.\n        parts.unshift(\"00\"); // parts is now [\"00\", \"MM\", \"SS,mmm\"]\n    } else if (parts.length === 1) {\n        // Format is likely \"SS,mmm\". Prepend \"00:00\" for hours and minutes.\n        parts.unshift(\"00\", \"00\"); // parts is now [\"00\", \"00\", \"SS,mmm\"]\n    } else if (parts.length !== 3) {\n        // Invalid or unexpected format\n        console.error(`Invalid time string format: ${timeString}`);\n        return 0;\n    }\n    // --- END CORRECTION ---\n\n    // parts is guaranteed to be [\"HH\", \"MM\", \"SS,mmm\"] at this point\n    const ss_ms = parts[2].split(',');   \n\n    // 1. Calculate total seconds portion (HH:MM:SS)\n    const h = parseInt(parts[0]);\n    const m = parseInt(parts[1]);\n    const s = parseInt(ss_ms[0]);\n    const baseSec = (h * 3600) + (m * 60) + s;\n    \n    // 2. Calculate ms portion (mmm)\n    const ms = parseInt(ss_ms[1]) || 0;\n\n    // Calculate frames separately and sum them up\n    const framesFromSeconds = baseSec * timebase;\n    \n    // Calculate fractional frame and round\n    const framesFromMs = Math.round((ms / 1000) * timebase);\n\n    // Note: The -13 correction is preserved from your original code.\n    return (framesFromSeconds + framesFromMs); \n}\n// Helper: UUID Generator\nfunction generateUUID() {\n  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n}\n\n// Get Input Data\nconst matches = items[0].json.matches || [];\nconst sequence_name = items[0].json.name + \"_sequence\";\n\n// 1. Process Files (Identify unique media files)\nconst fileMap = {}; \nlet fileCounter = 1;\n\nmatches.forEach(m => {\n  if (!fileMap[m.name]) {\n    fileMap[m.name] = {\n      id: `file-${fileCounter}`,\n      name: m.name,\n      uuid: generateUUID()\n    };\n    fileCounter++;\n  }\n});\n\n// 2. Process Clips\nlet timelineCursorFrame = 0;\nconst clipData = [];\nlet clipIdCounter = 1;\n\nfor (const match of matches) {\n  if (!match.words || match.words.length === 0) continue; \n\n  const fileInfo = fileMap[match.name];\n  \n  // --- PRECISION CUTTING (Word Level) ---\n  const firstWord = match.words[0];\n  const lastWord = match.words[match.words.length - 1];\n\n  // Frame Calculation using User's Two-Step Integer Logic\n  const startFrame = timeToFrameInteger(firstWord.start, TIMEBASE) -START_FRAME_BUFFER;\n  const endFrame = timeToFrameInteger(lastWord.end, TIMEBASE)+ START_FRAME_BUFFER;\n  const durationFrames = endFrame - startFrame;\n  \n  // *** NEW: PPRO Ticks Derived from the Calculated Integer Frames ***\n  // This ensures perfect frame/tick alignment, resolving the float issue.\n  const pproTicksIn = Math.round(startFrame * FRAME_TO_TICKS_RATIO);\n  const pproTicksOut = Math.round(endFrame * FRAME_TO_TICKS_RATIO);\n\n  // Generate unique IDs for the clip elements\n  const vidClipId = `clipitem-${clipIdCounter++}`;\n  const audClipId1 = `clipitem-${clipIdCounter++}`;\n  const audClipId2 = `clipitem-${clipIdCounter++}`;\n\n  clipData.push({\n    fileId: fileInfo.id,\n    filename: fileInfo.name,\n    vidId: vidClipId,\n    audId1: audClipId1,\n    audId2: audClipId2,\n    \n    // Source Media In/Out\n    inFrame: startFrame,\n    outFrame: endFrame,\n    pproTicksIn: pproTicksIn,\n    pproTicksOut: pproTicksOut,\n    \n    // Sequence Timeline Placement (Continuous)\n    tlStart: timelineCursorFrame,\n    tlEnd: timelineCursorFrame + durationFrames,\n    duration: durationFrames\n  });\n\n  // Increment Timeline Cursor\n  timelineCursorFrame += durationFrames;\n}\n\n// 3. Construct XML String\nconst sequenceDuration = timelineCursorFrame;\n\nlet xml = `<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xmeml version=\"4\">\n<sequence id=\"sequence-1\">\n    <uuid>${generateUUID()}</uuid>\n    <duration>${sequenceDuration}</duration>\n    <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n    <name>${sequence_name}</name>\n    <media>\n`;\n\n// --- VIDEO SECTION ---\nxml += `<video>\n        <format>\n            <samplecharacteristics>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <width>${WIDTH}</width>\n                <height>${HEIGHT}</height>\n                <pixelaspectratio>square</pixelaspectratio>\n            </samplecharacteristics>\n        </format>\n        <track>\n`;\n\n// Generate Video Clips\nclipData.forEach(clip => {\n    const pathUrl = clip.filename; \n\n    xml += `\n            <clipitem id=\"${clip.vidId}\">\n                <masterclipid>${clip.fileId}-master</masterclipid>\n                <name>${clip.filename}</name>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <start>${clip.tlStart}</start>\n                <end>${clip.tlEnd}</end>\n                <in>${clip.inFrame}</in>\n                <out>${clip.outFrame}</out>\n                <pproTicksIn>${clip.pproTicksIn}</pproTicksIn>\n                <pproTicksOut>${clip.pproTicksOut}</pproTicksOut>\n                <file id=\"${clip.fileId}\">\n                    <name>${clip.filename}</name>\n                    <pathurl>${pathUrl}</pathurl>\n                    <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                    <media>\n                        <video><samplecharacteristics><width>${WIDTH}</width><height>${HEIGHT}</height></samplecharacteristics></video>\n                        <audio><samplecharacteristics><depth>16</depth><samplerate>${AUDIO_RATE}</samplerate></samplecharacteristics><channelcount>2</channelcount></audio>\n                    </media>\n                </file>\n                <link><linkclipref>${clip.vidId}</linkclipref><mediatype>video</mediatype><trackindex>1</trackindex><clipindex>1</clipindex></link>\n                <link><linkclipref>${clip.audId1}</linkclipref><mediatype>audio</mediatype><trackindex>1</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n                <link><linkclipref>${clip.audId2}</linkclipref><mediatype>audio</mediatype><trackindex>2</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n            </clipitem>`;\n});\n\nxml += `    </track>\n        </video>\n`;\n\n// --- AUDIO SECTION ---\nxml += `<audio>\n        <numOutputChannels>2</numOutputChannels>\n        <format><samplecharacteristics><depth>16</depth><samplerate>${AUDIO_RATE}</samplerate></samplecharacteristics></format>\n`;\n\n// Audio Track 1\nxml += `<track currentExplodedTrackIndex=\"0\" totalExplodedTrackCount=\"2\" premiereTrackType=\"Stereo\">`;\nclipData.forEach(clip => {\n  xml += `\n            <clipitem id=\"${clip.audId1}\" premiereChannelType=\"stereo\">\n                <masterclipid>${clip.fileId}-master</masterclipid>\n                <name>${clip.filename}</name>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <start>${clip.tlStart}</start>\n                <end>${clip.tlEnd}</end>\n                <in>${clip.inFrame}</in>\n                <out>${clip.outFrame}</out>\n                <pproTicksIn>${clip.pproTicksIn}</pproTicksIn>\n                <pproTicksOut>${clip.pproTicksOut}</pproTicksOut>\n                <file id=\"${clip.fileId}\" />\n                <sourcetrack><mediatype>audio</mediatype><trackindex>1</trackindex></sourcetrack>\n                <link><linkclipref>${clip.vidId}</linkclipref><mediatype>video</mediatype><trackindex>1</trackindex><clipindex>1</clipindex></link>\n                <link><linkclipref>${clip.audId1}</linkclipref><mediatype>audio</mediatype><trackindex>1</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n                <link><linkclipref>${clip.audId2}</linkclipref><mediatype>audio</mediatype><trackindex>2</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n            </clipitem>`;\n});\nxml += `</track>`;\n\n// Audio Track 2\nxml += `<track currentExplodedTrackIndex=\"1\" totalExplodedTrackCount=\"2\" premiereTrackType=\"Stereo\">`;\nclipData.forEach(clip => {\n  xml += `\n            <clipitem id=\"${clip.audId2}\" premiereChannelType=\"stereo\">\n                <masterclipid>${clip.fileId}-master</masterclipid>\n                <name>${clip.filename}</name>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <start>${clip.tlStart}</start>\n                <end>${clip.tlEnd}</end>\n                <in>${clip.inFrame}</in>\n                <out>${clip.outFrame}</out>\n                <pproTicksIn>${clip.pproTicksIn}</pproTicksIn>\n                <pproTicksOut>${clip.pproTicksOut}</pproTicksOut>\n                <file id=\"${clip.fileId}\" />\n                <sourcetrack><mediatype>audio</mediatype><trackindex>2</trackindex></sourcetrack>\n                <link><linkclipref>${clip.vidId}</linkclipref><mediatype>video</mediatype><trackindex>1</trackindex><clipindex>1</clipindex></link>\n                <link><linkclipref>${clip.audId1}</linkclipref><mediatype>audio</mediatype><trackindex>1</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n                <link><linkclipref>${clip.audId2}</linkclipref><mediatype>audio</mediatype><trackindex>2</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n            </clipitem>`;\n});\nxml += `</track>`;\n\nxml += `</audio></media></sequence></xmeml>`;\n\nreturn [{ json: { xml_content: xml, fileName: sequence_name+\".xml\" } }];"
+      },
+      "position": [
+        1808,
+        272
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "b4479268-3c1d-4844-b7a7-7859e976fa6b",
+      "name": "Create XML binary",
+      "parameters": {
+        "jsCode": "const xmlString = $json.xml_content;   // your XML string\n\nconst xmlBuffer = Buffer.from(xmlString, \"utf-8\");\nconst xmlBase64 = xmlBuffer.toString(\"base64\");\n\nreturn [\n  {\n    json: {},\n    binary: {\n      data: {\n        data: xmlBase64,\n        fileName: $input.first().json.fileName,\n        mimeType: \"text/xml\"\n      }\n    }\n  }\n];"
+      },
+      "position": [
+        2032,
+        272
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "d51a3fab-d975-4cb0-b69a-259aff31c519",
+      "name": "Connect combined data with script",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        896,
+        128
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "8339ce57-dea0-4a09-8953-8d35ec1df925",
+      "name": "Combine all transcripts with all binary data",
+      "parameters": {
+        "jsCode": "\nconst combinedJson = [];\nconst binary = {};\nlet idx = 0;\n\nfor (const item of items) {\n\n  // merge json\n  combinedJson.push(item.json);\n\n  // merge binary\n  if (item.binary?.file_data?.data) {\n    binary[`file_${idx}`] = {\n      ...item.binary.file_data,\n      fileName: item.binary.file_data.fileName || `file_${idx}`,\n    };\n    idx++;\n  }\n}\n\nreturn [\n  {\n    json: { combined: combinedJson },\n    binary\n  }\n];\n"
+      },
+      "position": [
+        672,
+        112
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "79a1abc5-4d72-4b1d-b387-3add478fe91a",
+      "name": "Merge to get binary data back",
+      "parameters": {
+        "fieldsToMatchString": "id",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        448,
+        112
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "ed44d2cb-8dea-48a4-8235-b6fb005dcdad",
+      "name": "Form",
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Script",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        528,
+        384
+      ],
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.3,
+      "webhookId": "d5dcd0de-ee9b-415a-a2b4-6e8236cec25c"
+    },
+    {
+      "id": "b46de88b-9c80-4374-af8f-dd664528673a",
+      "name": "Parse matched sequence to json",
+      "parameters": {
+        "jsCode": "const rawText = $json.content.parts[0].text\n// 1. Clean the string: Remove leading/trailing markdown fences and parse the JSON.\n// Removes '```json\\n' from the start and '```' from the end, then strips whitespace.\nconst jsonString = rawText.replace(/^```json\\s*/, '').replace(/\\s*```$/, '').trim();\n\nlet parsedData;\ntry {\n  parsedData = JSON.parse(jsonString);\n} catch (e) {\n  // Return an error item if JSON parsing fails\n  return {'error':e};\n}\n\n//const videoId = parsedData.video_id;\n//const transcriptArray = parsedData.transcript || [];\n\n// 2. Prepare the output items.\n// We will create one item for every segment in the transcript.\nconst outputItems = parsedData;\n\n// Since the video_id is part of the string itself, \n// we ensure the number of output items exactly matches the number of transcript segments.\nreturn outputItems;",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        1344,
+        128
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "e0ea8d2b-350f-4d23-aa40-6b7614fd9243",
+      "name": "Step 2 Match with script",
+      "parameters": {
+        "binaryPropertyName": "={{ Object.keys($binary).join(',') }}",
+        "inputType": "binary",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "operation": "analyze",
+        "options": {},
+        "resource": "video",
+        "text": "=You are a video editor AI. your job is to find the best matching sentences from the video compared to given script. \n\nINPUT:\n1. \"videos\": an array of video in binary.\nalsong with the \"json\" which has the transcript of teh video broken down on sentence with timestmaps and each words with timestamps.\n2. \"script\": an array of final desired script sentences.\n\nTASK RULES:\n\nA. MATCHING\n- For each script sentence:\n  -> find best matching spoken sentence across all videos. use the \"sentence\" key inside \"transcript\" key in json for any video id and video name.\n- Use semantic similarity.\n- if there are multiple matches Prefer clean takes with:\n  - no fumbles\n  - no retakes\n  - no awkward pauses\n  - no repeated attempts\n  - no fillers (umm, uhh, etc.)\n- Completely ignore sentences containing “editor instructions”\n  (unless the instruction says: use last take, skip this, etc.)\n\nB. EXECUTE META-INSTRUCTIONS:\nIf spoken line says:\n- “use the last one”\n- “skip this”\n- “second take is better”\nThen:\n✓ Apply the instruction  \n✗ But do NOT include the instruction in final clips.\n\nC. VIDEO ID SAFETY\n- You MUST pick id and name STRICTLY from the provided list.\n- Never invent a filename.\n- always use the exact time stamp given in json.\n\nD. OUTPUT JSON ONLY in final structure for all the matches in sequence of the script:\n\n{\n  \"matches\": [\n    {\n      \"script_sentence\": \"<sentence from script>\",\n      \"id\": \"<video_id>\",\n       \"name\":<video_name>,\n      \"sentence\": \"<exact matched spoken line in transcript>\",\n      \"start\": <hh:mm:ss,mmm> ,\n      \"end\": <hh:mm:ss,mmm>,\n{\"words\":[\n\ntext:यह\nstart:00:00:00,757\nend:00:00:00,977\n,\ntext:वीडियो\nstart:00:00:01,237\nend:00:00:01,667\n,\ntext:नंबर\nstart:00:00:01,927\nend:00:00:02,177\n    }\n  ]\n}\n\nhere is the script: \n\"{{ $json.Script }}\"\nhere is the input json : {{ $json.combined.toJsonString() }}"
+      },
+      "position": [
+        1120,
+        128
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1
+    },
+    {
+      "id": "e23c19ed-6f26-4d12-8efb-5c8e95522209",
+      "name": "Parse Transcribe output",
+      "parameters": {
+        "jsCode": "const rawText = $json.content.parts[0].text\n// 1. Clean the string: Remove leading/trailing markdown fences and parse the JSON.\n// Removes '```json\\n' from the start and '```' from the end, then strips whitespace.\nconst jsonString = rawText.replace(/^```json\\s*/, '').replace(/\\s*```$/, '').trim();\n\nlet parsedData;\ntry {\n  parsedData = JSON.parse(jsonString);\n} catch (e) {\n  // Return an error item if JSON parsing fails\n  return {'error':e};\n}\n\n//const videoId = parsedData.video_id;\n//const transcriptArray = parsedData.transcript || [];\n\n// 2. Prepare the output items.\n// We will create one item for every segment in the transcript.\nconst outputItems = parsedData;\n\n// Since the video_id is part of the string itself, \n// we ensure the number of output items exactly matches the number of transcript segments.\nreturn outputItems;",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        240,
+        0
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "3a2933a1-c8c8-4d5a-af4d-79669fdcaf3b",
+      "name": "Step 1 Transcribe Video",
+      "parameters": {
+        "binaryPropertyName": "file_data",
+        "inputType": "binary",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "operation": "analyze",
+        "options": {},
+        "resource": "video",
+        "text": "You are a precise transcription model.\n\nThe video you are seeing is named: {{ $json.name }} and its id is: {{ $json.id }}\n\nTASK:\nTranscribe EXACT spoken words.\nInclude sentence-level timestamps.\nthen as nested Json Include word-level timestamps.\nSentence level timestamps must match with internal word level timestamps in start and end.\nstart and end should be in format <hh:mm:ss,mmm>\nDO NOT clean filler words — keep everything.\nDO NOT include silence or awkward expressions in the json, ignore silences and awkward expressions\n\nReturn ONLY the JSON below.\nJSON OUTPUT FORMAT:\n{\n  \"name\": \"{{ $json.name }}\",\n\"id\": \"{{ $json.id }}\",\n  \"transcript\": [\n  {\n  \"sentence\":\"<one complete sentence>\",\n  \"start\": <hh:mm:ss,mmm>,\n  \"end\": <hh:mm:ss,mmm>,\n  \"words\":\n    {\n      \"text\": \"<word>\",\n      \"start\": <hh:mm:ss,mmm>,\n      \"end\": <hh:mm:ss,mmm>\n    }\n  }]\n} "
+      },
+      "position": [
+        0,
+        0
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "678e2e9e-542a-4823-96fd-ddb70475992a",
+      "name": "Download file",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "operation": "download",
+        "options": {
+          "binaryPropertyName": "file_data"
+        }
+      },
+      "position": [
+        -224,
+        128
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "f3296de3-de79-411e-87c5-1bf8e6d411d6",
+      "name": "Get all file details in folder",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "resource": "fileFolder"
+      },
+      "position": [
+        -448,
+        128
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "69ffb23a-27ba-4a42-aa43-0bcdbe310ceb",
+      "name": "Search Folder in Drive",
+      "parameters": {
+        "filter": {
+          "whatToSearch": "folders"
+        },
+        "limit": 10,
+        "options": {},
+        "queryString": "={{ $json['Video Folder'] }}",
+        "resource": "fileFolder"
+      },
+      "position": [
+        -720,
+        288
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "120c7c97-b02f-4783-a23d-af72ae272b3f",
+      "name": "Upload file",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "options": {}
+      },
+      "position": [
+        2416,
+        416
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-12-07T11:23:52.685Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2025-12-07T11:23:52.685Z",
+      "workflowId": "8m6f6P3FYTF0mXWe"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-10T02:28:55.000Z",
+  "versionId": "ca6012f6-e206-4678-84cf-df40dcaf450d"
+}
