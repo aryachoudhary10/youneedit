@@ -1,0 +1,660 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Approve Idea": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Execute a SQL query": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Filter",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "feedback or not",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "reject",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Send a message1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Send a message1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Execute a SQL query",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Update script with feedback": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "need revision",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "get_ideas",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "all ideas": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send a message3",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "feedback or not": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Approve Idea",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Update script with feedback",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "get_ideas": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "all ideas",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "need revision": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send a message1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "reject": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-15T06:27:41.992Z",
+  "id": "owQ3uQNLel6Jpa5T",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "2_idea-approval-engine",
+  "nodes": [
+    {
+      "id": "82072d5f-6ea0-4ec1-8c4e-0d98b4b79298",
+      "name": "When clicking ‘Execute workflow’",
+      "parameters": {},
+      "position": [
+        -656,
+        208
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "slackApi": {
+          "id": "h2vQdDqgzDC5IzAV",
+          "name": "Slack account prod"
+        }
+      },
+      "id": "de15fe2e-8dd1-4858-a052-394dbe55547f",
+      "name": "Send a message1",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "cachedResultName": "idea-approval",
+          "mode": "list",
+          "value": "C0AH9LSDMQR"
+        },
+        "formFields": {
+          "values": [
+            {
+              "defaultValue": "Reject",
+              "fieldLabel": "decision",
+              "fieldName": "Decision",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "approve"
+                  },
+                  {
+                    "option": "reject"
+                  }
+                ]
+              },
+              "fieldType": "dropdown",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Human Feedback",
+              "fieldName": "Feedback",
+              "fieldType": "textarea",
+              "placeholder": "Enter your feedback"
+            }
+          ]
+        },
+        "message": "=🧠 IDEA REVIEW\nIdea:\n{{ $json.idea_text }}\n\nTranscript ID:\n{{ $json.transcript_id }}\n\nIdea Id: \n{{ $json.idea_id }}",
+        "operation": "sendAndWait",
+        "options": {
+          "appendAttribution": true
+        },
+        "responseType": "customForm",
+        "select": "channel"
+      },
+      "position": [
+        128,
+        272
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "e52ea058-ef5f-4a96-bcf3-6335ad405b98"
+    },
+    {
+      "id": "00dbbd12-59ce-4c1d-8e44-3492fc318722",
+      "name": "If",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "be40b0bc-814f-4938-b2a2-ae7eead2d853",
+              "leftValue": "={{ $('Send a message1').item.json.data.Decision }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "approve"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        800,
+        272
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "bcc8a156-ab06-4a78-8de1-68204199a3ad",
+      "name": "Filter",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "130f8c40-6ad7-4991-8317-928a8acd2c24",
+              "leftValue": "={{ $json.idea_id }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "={{ $('Loop Over Items').item.json.idea_id }}"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        592,
+        272
+      ],
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "c0e5e841-703c-4dda-9171-cfdc4b39170e",
+      "name": "Update script with feedback",
+      "parameters": {
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an expert content strategist.\n\nORIGINAL IDEA:\n{{ $json.idea_text }}\n\nHUMAN FEEDBACK:\n{{ $('Send a message1').item.json.data['Feedback'] }}\n\nTASK:\n- Improve the idea based on the feedback\n- Ensure it aligns with current short-form trends\n- Define a clear target audience\n- Suggest a potential viral angle\n- Do NOT explain changes\n- Output ONLY the final improved idea"
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "options": {}
+      },
+      "position": [
+        1200,
+        272
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1
+    },
+    {
+      "id": "1f3a67a4-b112-4e27-b49d-ea113008a674",
+      "name": "feedback or not",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "cba7eb3c-7390-4523-ba91-19eb3ee9f749",
+              "leftValue": "={{ $('Send a message1').item.json.data.Decision }}",
+              "operator": {
+                "name": "filter.operator.equals",
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "approve"
+            },
+            {
+              "id": "17657b1d-0fb2-4db1-84c8-1d5b5ff96bf5",
+              "leftValue": "={{ $('Send a message1').item.json.data['Feedback'] }}",
+              "operator": {
+                "operation": "empty",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "looseTypeValidation": "={{ false }}",
+        "options": {}
+      },
+      "position": [
+        976,
+        256
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "8565346f-d503-4885-96ab-63875b7d836f",
+      "name": "get_ideas",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "SELECT\n  idea_id,\n  transcript_id,\n  idea_text,\n  status\nFROM ideas\nWHERE status = 'generated'\nORDER BY created_at ASC\n--LIMIT 10;\n"
+      },
+      "position": [
+        -432,
+        208
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "c72a22ff-2e34-49cc-9b4a-522633571ebc",
+      "name": "Approve Idea",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "UPDATE ideas\nSET\n  status = 'approved',\n  human_feedback = NULL,\n  updated_at = now()\nWHERE idea_id = '{{$json.idea_id}}';\n"
+      },
+      "position": [
+        1296,
+        624
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "0610a127-9e6f-4d27-9851-c076dd1538d4",
+      "name": "need revision",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "idea_id"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "idea_id",
+              "id": "idea_id",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "transcript_id",
+              "id": "transcript_id",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "idea_text",
+              "id": "idea_text",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "status",
+              "id": "status",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "human_feedback",
+              "id": "human_feedback",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "created_at",
+              "id": "created_at",
+              "required": false,
+              "type": "dateTime"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "updated_at",
+              "id": "updated_at",
+              "required": false,
+              "type": "dateTime"
+            }
+          ],
+          "value": {
+            "human_feedback": "={{ $('Send a message1').item.json.data.Feedback }}",
+            "idea_id": "={{ $('If').item.json.idea_id }}",
+            "idea_text": "={{ $json.content.parts[0].text }}",
+            "status": "revised",
+            "transcript_id": "={{ $('If').item.json.transcript_id }}"
+          }
+        },
+        "operation": "update",
+        "options": {},
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "cachedResultName": "ideas",
+          "mode": "list",
+          "value": "ideas"
+        }
+      },
+      "position": [
+        1520,
+        272
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "e3bf16c0-5445-461b-becb-a97d5c05441c",
+      "name": "reject",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "UPDATE ideas\nSET\n  status = 'rejected',\n  updated_at = now()\nWHERE idea_id = '{{$json.idea_id}}';\n"
+      },
+      "position": [
+        960,
+        576
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "20aa90d7-98be-4fd0-8668-bfaa1722638d",
+      "name": "Execute a SQL query",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "SELECT\n  idea_id,\n  transcript_id,\n  idea_text,\n  status\nFROM ideas\n-- WHERE status = 'generated' or status = 'revised'\n-- ORDER BY created_at ASC\n-- LIMIT 10;\n\nwhere idea_id = '{{ $('Loop Over Items').item.json.idea_id }}'"
+      },
+      "position": [
+        336,
+        272
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    },
+    {
+      "id": "4c8e59cc-52eb-4292-8183-da79096922ae",
+      "name": "Loop Over Items",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -160,
+        256
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "816e72d0-dac5-47d8-8bce-7a6c434d8780",
+      "name": "all ideas",
+      "parameters": {
+        "jsCode": "const ideas = items.map((i, idx) => {\n  return `${idx + 1}. (${i.json.status}) ${i.json.idea_text}`;\n}).join('\\n\\n');\n\nreturn [{\n  json: {\n    idea_list: ideas\n  }\n}];\n"
+      },
+      "position": [
+        -288,
+        96
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "slackApi": {
+          "id": "h2vQdDqgzDC5IzAV",
+          "name": "Slack account prod"
+        }
+      },
+      "id": "dfff1262-1c83-4dcd-9d14-04ff9c1b318d",
+      "name": "Send a message3",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "cachedResultName": "idea-approval",
+          "mode": "list",
+          "value": "C0AH9LSDMQR"
+        },
+        "otherOptions": {},
+        "select": "channel",
+        "text": "={{ $json.idea_list }}"
+      },
+      "position": [
+        -80,
+        96
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "8ba36441-07d8-4bcf-8ae5-00e39ab47273"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-15T06:27:42.005Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-15T06:27:42.005Z",
+      "workflowId": "owQ3uQNLel6Jpa5T"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-28T08:41:37.453Z",
+  "versionId": "1ca918ef-b559-4b97-98dd-6b280dbbd5c1"
+}
