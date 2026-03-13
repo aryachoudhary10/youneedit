@@ -1,0 +1,1079 @@
+{
+  "active": true,
+  "activeVersion": {
+    "authors": "Sukhneer Singh",
+    "autosaved": true,
+    "connections": {
+      "Convert to json": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Respond with Json file",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Create Json with id name and transcript1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Step 2 highlighting and grouping",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "If5": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Respond to Webhook4",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Respond to with no audio file found",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Respond to Webhook4": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Transcribe Audio1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Step 2 highlighting and grouping": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Convert to json",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Transcribe Audio1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Create Json with id name and transcript1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Webhook": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "If5",
+              "type": "main"
+            }
+          ]
+        ]
+      }
+    },
+    "createdAt": "2026-02-24T19:55:45.177Z",
+    "description": "",
+    "name": "Version 1b1dbeb0",
+    "nodes": [
+      {
+        "id": "37665ac0-ec35-4110-b2f2-3d187a58338d",
+        "name": "Webhook",
+        "parameters": {
+          "httpMethod": "POST",
+          "options": {
+            "allowedOrigins": "*"
+          },
+          "path": "subtitle_webhook",
+          "responseMode": "responseNode"
+        },
+        "position": [
+          -4944,
+          -64
+        ],
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "webhookId": "5388a440-1d6e-4b99-921d-cc8f72a91060"
+      },
+      {
+        "id": "af543d67-410f-4099-b706-c692d9d0cca4",
+        "name": "If5",
+        "parameters": {
+          "conditions": {
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "5d519752-5eb3-42e1-b701-53a8082a12fd",
+                "leftValue": "={{ ['mp3', 'wav'].includes($binary.audio_file?.fileExtension?.toLowerCase()) || ['mp3', 'wav'].includes($binary.audio_file?.fileName?.split('.').pop().toLowerCase()) }}",
+                "operator": {
+                  "operation": "true",
+                  "singleValue": true,
+                  "type": "boolean"
+                },
+                "rightValue": ""
+              }
+            ],
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            }
+          },
+          "options": {}
+        },
+        "position": [
+          -4656,
+          -64
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3
+      },
+      {
+        "id": "e58ee623-f72a-40d3-a35d-e97b97d38011",
+        "name": "Respond to with no audio file found",
+        "parameters": {
+          "options": {
+            "responseCode": 404
+          },
+          "respondWith": "json",
+          "responseBody": "{\n  \"message\": \"Uploaded file is not audio file\"\n}"
+        },
+        "position": [
+          -4464,
+          96
+        ],
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4
+      },
+      {
+        "credentials": {
+          "openAiApi": {
+            "id": "HtC3pXdXhNPajOpZ",
+            "name": "OpenAi account"
+          }
+        },
+        "id": "343ad781-5a23-4dc0-b894-0eec26ce0928",
+        "name": "Transcribe Audio1",
+        "parameters": {
+          "authentication": "predefinedCredentialType",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "inputDataFieldName": "audio_file",
+                "name": "file",
+                "parameterType": "formBinaryData"
+              },
+              {
+                "name": "model",
+                "value": "whisper-1"
+              },
+              {
+                "name": "response_format",
+                "value": "verbose_json"
+              },
+              {
+                "name": "language",
+                "value": "en"
+              },
+              {
+                "name": "timestamp_granularities[]",
+                "value": "segment"
+              },
+              {
+                "name": "timestamp_granularities[]",
+                "value": "word"
+              },
+              {
+                "name": "temperature",
+                "value": "0.3"
+              }
+            ]
+          },
+          "contentType": "multipart-form-data",
+          "method": "POST",
+          "nodeCredentialType": "openAiApi",
+          "options": {
+            "redirect": {
+              "redirect": {
+                "followRedirects": false
+              }
+            }
+          },
+          "sendBody": true,
+          "url": "https://api.openai.com/v1/audio/transcriptions"
+        },
+        "position": [
+          -4288,
+          -160
+        ],
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3
+      },
+      {
+        "id": "d7c0bae1-4cac-4d70-a5b1-f91ae721abbb",
+        "name": "Create Json with id name and transcript1",
+        "parameters": {
+          "jsCode": "// Helper function to convert seconds (float) to HH:MM:SS,mmm\nfunction formatTime(totalSeconds) {\n    if (totalSeconds === undefined || totalSeconds === null) return \"00:00:00,000\";\n    \n    const hours = Math.floor(totalSeconds / 3600);\n    const minutes = Math.floor((totalSeconds % 3600) / 60);\n    const seconds = Math.floor(totalSeconds % 60);\n    const milliseconds = Math.floor((totalSeconds % 1) * 1000);\n\n    const h = hours.toString().padStart(2, '0');\n    const m = minutes.toString().padStart(2, '0');\n    const s = seconds.toString().padStart(2, '0');\n    const ms = milliseconds.toString().padStart(3, '0');\n\n    // Returns format HH:MM:SS,mmm\n    return `${h}:${m}:${s},${ms}`;\n}\n\nconst results = [];\n\n// Loop through all incoming items\nfor (const item of $input.all()) {\n    const data = item.json;\n    \n    // 1. Initialize the new structure with retained ID and Name\n    const output = {\n        id: data.id || \"\",\n        name: data.name || \"\",\n        transcript: []\n    };\n\n    const segments = data.segments || [];\n    const allWords = data.words || [];\n\n    // 2. Process each segment and add to the transcript list\n    for (const segment of segments) {\n        const sentenceObj = {\n            sentence: segment.text.trim(),\n            start: formatTime(segment.start),\n            end: formatTime(segment.end),\n            words: []\n        };\n\n        // Find words belonging to this segment\n        let segmentWords = [];\n        if (segment.words && segment.words.length > 0) {\n            segmentWords = segment.words;\n        } else {\n            // Fallback: filter words by time if they aren't nested\n            segmentWords = allWords.filter(w => \n                w.start >= segment.start - 0.05 && w.end <= segment.end + 0.05\n            );\n        }\n\n        // Map words to the desired format\n        sentenceObj.words = segmentWords.map(w => ({\n            text: w.word.trim(),\n            start: formatTime(w.start),\n            end: formatTime(w.end)\n        }));\n\n        output.transcript.push(sentenceObj);\n    }\n\n    results.push({ json: output });\n}\n\nreturn results;"
+        },
+        "position": [
+          -4112,
+          -160
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "7ab09d5b-a654-4509-92a0-b0629d248c9f",
+        "name": "Respond with Json file",
+        "parameters": {
+          "options": {
+            "responseCode": 200
+          },
+          "respondWith": "allIncomingItems"
+        },
+        "position": [
+          -3200,
+          -128
+        ],
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4
+      },
+      {
+        "id": "0ff8325f-fa28-4cbe-acd4-4e5d9da43775",
+        "name": "Respond to Webhook4",
+        "parameters": {
+          "options": {
+            "responseCode": 200
+          },
+          "respondWith": "json",
+          "responseBody": "={\n  \"executionID\":  {{ $execution.id }}\n}"
+        },
+        "position": [
+          -4496,
+          -192
+        ],
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4
+      },
+      {
+        "id": "59210874-1a5a-4de4-a48b-4fba9113b4c2",
+        "name": "Convert to json",
+        "parameters": {
+          "jsCode": "// 1. Extract the raw text from the input JSON structure\nconst rawText = $json.content.parts[0].text;\n\n// 2. Clean the string: Remove leading/trailing markdown fences (```json ... ```)\nconst jsonString = rawText.replace(/^```json\\s*/, '').replace(/\\s*```$/, '').trim();\n\nlet parsedData;\ntry {\n  parsedData = JSON.parse(jsonString);\n} catch (e) {\n  // Return an error item if JSON parsing fails\n  return { 'error': 'Failed to parse internal JSON', 'details': e.message };\n}\n\n// 3. Define your new Global Configuration\nconst newGlobalSettings = {\n  \"normalFont\": \"Poppins-Bold\",\n  \"highlightFont\": \"Poppins-BoldItalic\",\n  \"normalColor\": \"#FFFFFF\",\n  \"highlightColor\": \"#FFE733\",\n  \"normalFontSize\": 120,\n  \"highlightFontSize\": 120,\n  \"highlightUppercase\": true,\n  \"normalUppercase\": false,\n  \"animationPossibilities\": [\"popIn\", \"blurFade\", \"slideReveal\"],\n  \"animation\": \"slideReveal\",\n  \"slideReveal\": {\n    \"normalDirection\": \"bottom\",\n    \"highlightDirection\": \"sides\"\n  },\n  \"animateSequence\": {\n    \"enabled\": true,\n    \"sequence\": [\"popIn\", \"blurFade\", \"slideReveal\"],\n    /**\n     *\"mode Can be \"cycle\", \"random\", or a pattern like '1,2,1,3'\n     */\n    \n    \"mode\": \"random\"\n  },\n  \"shadow\": {\n    \"enabled\": true,\n    \"color\": \"#000000\",\n    \"opacity\": 80,\n    \"direction\": 0,\n    \"distance\": 10,\n    \"size\": 20\n  },\n  \"normalStyle\": {\n    \"stroke\": false,\n    \"strokeWidth\": 3,\n    \"glow\": false,\n    \"glowThreshold\": 30,\n    \"glowRadius\": 40,\n    \"glowIntensity\": 1.8\n  },\n  \"highlightStyle\": {\n    \"stroke\": true,\n    \"strokeWidth\": 3,\n    \"glow\": true,\n    \"glowThreshold\": 30,\n    \"glowRadius\": 40,\n    \"glowIntensity\": 1.8\n  }\n};\n\n// 4. Overwrite the global key with the new settings\nparsedData.global = newGlobalSettings;\n\n// 5. Return the modified object\nreturn parsedData;",
+          "mode": "runOnceForEachItem"
+        },
+        "position": [
+          -3504,
+          -144
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "credentials": {
+          "googlePalmApi": {
+            "id": "4HPFYHEHxx2JZFUX",
+            "name": "Google Gemini(PaLM) Api account"
+          }
+        },
+        "id": "8aa202ca-1765-4c4a-b393-f1442ea6fde3",
+        "name": "Step 2 highlighting and grouping",
+        "parameters": {
+          "jsonOutput": true,
+          "messages": {
+            "values": [
+              {
+                "content": "=\nYour task is to combine the word level input json , conditionaly translate it to English based on the input for translation, and then format the output as a JSON only with 'global' and 'items' keys. Each item in the 'items' list should contain start/end timestamps and words, where each word has 'text' and 'type' ('highlight' for important keywords, 'normal' otherwise and 'filler' for non informative words like 'the, he, she, and ,etc).\n\nMake sure to Group words into segments of 1 to 5 words per timestamp group, and ensure the global parameters remain as specified in the original prompt. The output should be directly the JSON, without any delimiters.\n\n# Step by Step instructions\n1. for the words create highlight , normal and filler\n3. Group the words from the transcribed (and potentially translated) segment into an item, ensuring each item has a 'start' and 'end' timestamp from json and a 'words' array. Each 'words' array should contain 1 to 5 word objects, with each object having 'text' and a 'type' ('highlight' for important keywords, 'normal' otherwise, and 'filler').\n5. Combine all the generated items into a single JSON object under the 'items' key.\n6. keep gloabal as it is\n7. use the below json sample for output\n\n{\n  \"global\": {\n    \"normalFont\": \"Montserrat-Bold\",\n    \"highlightFont\": \"Modish-Regular\",\n    \"normalColor\" : \"#FFFFFF\",\n    \"highlightColor\": \"#FFE733\",\n    \"normalFontSize\": 120,\n    \"highlightFontSize\": 150,\n    \"shadow\": {\n      \"enabled\": true,\n      \"color\": \"#000000\",\n      \"opacity\": 80,\n      \"direction\": 0,\n      \"distance\":10,\n      \"size\": 20\n    },\n    \"highlightUppercase\": true\n  },\n  \"items\": [\n    {\n      \"start\": \"00:00:00,530\",\n      \"end\": \"00:00:01,000\",\n      \"words\": [\n        { \"text\": \"But\", \"type\": \"normal\" },\n        { \"text\": \"this\", \"type\": \"normal\" },\n        { \"text\": \"hack,\", \"type\": \"highlight\" }\n      ]\n    },\n    {\n      \"start\": \"00:00:01,000\",\n      \"end\": \"00:00:01,360\",\n      \"words\": [\n        { \"text\": \"I\", \"type\": \"normal\" },\n        { \"text\": \"bet,\", \"type\": \"highlight\" }\n      ]\n    },\n    {\n      \"start\": \"00:00:01,360\",\n      \"end\": \"00:00:02,300\",\n      \"words\": [\n        { \"text\": \"ye\", \"type\": \"normal\" },\n        { \"text\": \"apne\", \"type\": \"normal\" },\n        { \"text\": \"try\", \"type\": \"highlight\" },\n        { \"text\": \"nahi\", \"type\": \"highlight\" }\n      ]\n    },\n    {\n      \"start\": \"00:00:02,300\",\n      \"end\": \"00:00:02,680\",\n      \"words\": [\n        { \"text\": \"kiya.\", \"type\": \"highlight\" }\n      ]\n    }\n  ]\n }\n\n\nInput json transcribed json:\n{{ $json.transcript.toJsonString() }}\n\n\"\"\"\nIMPORTANT NOTE: Start directly with the output, do not output any delimiters.\n"
+              }
+            ]
+          },
+          "modelId": {
+            "__rl": true,
+            "cachedResultName": "models/gemini-2.5-flash",
+            "mode": "list",
+            "value": "models/gemini-2.5-flash"
+          },
+          "options": {}
+        },
+        "position": [
+          -3856,
+          -160
+        ],
+        "type": "@n8n/n8n-nodes-langchain.googleGemini",
+        "typeVersion": 1
+      }
+    ],
+    "updatedAt": "2026-02-24T19:55:59.000Z",
+    "versionId": "1b1dbeb0-8db2-48d2-9335-0b0e089edf6e",
+    "workflowId": "claIhAtJ9CZeIknt"
+  },
+  "activeVersionId": "1b1dbeb0-8db2-48d2-9335-0b0e089edf6e",
+  "connections": {
+    "Convert to json": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Respond with Json file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Json with id name and transcript1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Step 2 highlighting and grouping",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Respond to Webhook4",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Respond to with no audio file found",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook4": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Transcribe Audio1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Step 2 highlighting and grouping": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Convert to json",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Transcribe Audio1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create Json with id name and transcript1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If5",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-05T17:25:38.535Z",
+  "id": "claIhAtJ9CZeIknt",
+  "isArchived": false,
+  "meta": null,
+  "name": "Subtitle Workflow",
+  "nodes": [
+    {
+      "id": "37665ac0-ec35-4110-b2f2-3d187a58338d",
+      "name": "Webhook",
+      "parameters": {
+        "httpMethod": "POST",
+        "options": {
+          "allowedOrigins": "*"
+        },
+        "path": "subtitle_webhook",
+        "responseMode": "responseNode"
+      },
+      "position": [
+        -4944,
+        -64
+      ],
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "webhookId": "5388a440-1d6e-4b99-921d-cc8f72a91060"
+    },
+    {
+      "id": "af543d67-410f-4099-b706-c692d9d0cca4",
+      "name": "If5",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "5d519752-5eb3-42e1-b701-53a8082a12fd",
+              "leftValue": "={{ ['mp3', 'wav'].includes($binary.audio_file?.fileExtension?.toLowerCase()) || ['mp3', 'wav'].includes($binary.audio_file?.fileName?.split('.').pop().toLowerCase()) }}",
+              "operator": {
+                "operation": "true",
+                "singleValue": true,
+                "type": "boolean"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -4656,
+        -64
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "e58ee623-f72a-40d3-a35d-e97b97d38011",
+      "name": "Respond to with no audio file found",
+      "parameters": {
+        "options": {
+          "responseCode": 404
+        },
+        "respondWith": "json",
+        "responseBody": "{\n  \"message\": \"Uploaded file is not audio file\"\n}"
+      },
+      "position": [
+        -4464,
+        96
+      ],
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4
+    },
+    {
+      "credentials": {
+        "openAiApi": {
+          "id": "HtC3pXdXhNPajOpZ",
+          "name": "OpenAi account"
+        }
+      },
+      "id": "343ad781-5a23-4dc0-b894-0eec26ce0928",
+      "name": "Transcribe Audio1",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "inputDataFieldName": "audio_file",
+              "name": "file",
+              "parameterType": "formBinaryData"
+            },
+            {
+              "name": "model",
+              "value": "whisper-1"
+            },
+            {
+              "name": "response_format",
+              "value": "verbose_json"
+            },
+            {
+              "name": "language",
+              "value": "en"
+            },
+            {
+              "name": "timestamp_granularities[]",
+              "value": "segment"
+            },
+            {
+              "name": "timestamp_granularities[]",
+              "value": "word"
+            },
+            {
+              "name": "temperature",
+              "value": "0.3"
+            }
+          ]
+        },
+        "contentType": "multipart-form-data",
+        "method": "POST",
+        "nodeCredentialType": "openAiApi",
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          }
+        },
+        "sendBody": true,
+        "url": "https://api.openai.com/v1/audio/transcriptions"
+      },
+      "position": [
+        -4288,
+        -160
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3
+    },
+    {
+      "id": "d7c0bae1-4cac-4d70-a5b1-f91ae721abbb",
+      "name": "Create Json with id name and transcript1",
+      "parameters": {
+        "jsCode": "// Helper function to convert seconds (float) to HH:MM:SS,mmm\nfunction formatTime(totalSeconds) {\n    if (totalSeconds === undefined || totalSeconds === null) return \"00:00:00,000\";\n    \n    const hours = Math.floor(totalSeconds / 3600);\n    const minutes = Math.floor((totalSeconds % 3600) / 60);\n    const seconds = Math.floor(totalSeconds % 60);\n    const milliseconds = Math.floor((totalSeconds % 1) * 1000);\n\n    const h = hours.toString().padStart(2, '0');\n    const m = minutes.toString().padStart(2, '0');\n    const s = seconds.toString().padStart(2, '0');\n    const ms = milliseconds.toString().padStart(3, '0');\n\n    // Returns format HH:MM:SS,mmm\n    return `${h}:${m}:${s},${ms}`;\n}\n\nconst results = [];\n\n// Loop through all incoming items\nfor (const item of $input.all()) {\n    const data = item.json;\n    \n    // 1. Initialize the new structure with retained ID and Name\n    const output = {\n        id: data.id || \"\",\n        name: data.name || \"\",\n        transcript: []\n    };\n\n    const segments = data.segments || [];\n    const allWords = data.words || [];\n\n    // 2. Process each segment and add to the transcript list\n    for (const segment of segments) {\n        const sentenceObj = {\n            sentence: segment.text.trim(),\n            start: formatTime(segment.start),\n            end: formatTime(segment.end),\n            words: []\n        };\n\n        // Find words belonging to this segment\n        let segmentWords = [];\n        if (segment.words && segment.words.length > 0) {\n            segmentWords = segment.words;\n        } else {\n            // Fallback: filter words by time if they aren't nested\n            segmentWords = allWords.filter(w => \n                w.start >= segment.start - 0.05 && w.end <= segment.end + 0.05\n            );\n        }\n\n        // Map words to the desired format\n        sentenceObj.words = segmentWords.map(w => ({\n            text: w.word.trim(),\n            start: formatTime(w.start),\n            end: formatTime(w.end)\n        }));\n\n        output.transcript.push(sentenceObj);\n    }\n\n    results.push({ json: output });\n}\n\nreturn results;"
+      },
+      "position": [
+        -4112,
+        -160
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "7ab09d5b-a654-4509-92a0-b0629d248c9f",
+      "name": "Respond with Json file",
+      "parameters": {
+        "options": {
+          "responseCode": 200
+        },
+        "respondWith": "allIncomingItems"
+      },
+      "position": [
+        -3200,
+        -128
+      ],
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4
+    },
+    {
+      "id": "0ff8325f-fa28-4cbe-acd4-4e5d9da43775",
+      "name": "Respond to Webhook4",
+      "parameters": {
+        "options": {
+          "responseCode": 200
+        },
+        "respondWith": "json",
+        "responseBody": "={\n  \"executionID\":  {{ $execution.id }}\n}"
+      },
+      "position": [
+        -4496,
+        -192
+      ],
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4
+    },
+    {
+      "id": "59210874-1a5a-4de4-a48b-4fba9113b4c2",
+      "name": "Convert to json",
+      "parameters": {
+        "jsCode": "// 1. Extract the raw text from the input JSON structure\nconst rawText = $json.content.parts[0].text;\n\n// 2. Clean the string: Remove leading/trailing markdown fences (```json ... ```)\nconst jsonString = rawText.replace(/^```json\\s*/, '').replace(/\\s*```$/, '').trim();\n\nlet parsedData;\ntry {\n  parsedData = JSON.parse(jsonString);\n} catch (e) {\n  // Return an error item if JSON parsing fails\n  return { 'error': 'Failed to parse internal JSON', 'details': e.message };\n}\n\n// 3. Define your new Global Configuration\nconst newGlobalSettings = {\n  \"normalFont\": \"Poppins-Bold\",\n  \"highlightFont\": \"Poppins-BoldItalic\",\n  \"normalColor\": \"#FFFFFF\",\n  \"highlightColor\": \"#FFE733\",\n  \"normalFontSize\": 120,\n  \"highlightFontSize\": 120,\n  \"highlightUppercase\": true,\n  \"normalUppercase\": false,\n  \"animationPossibilities\": [\"popIn\", \"blurFade\", \"slideReveal\"],\n  \"animation\": \"slideReveal\",\n  \"slideReveal\": {\n    \"normalDirection\": \"bottom\",\n    \"highlightDirection\": \"sides\"\n  },\n  \"animateSequence\": {\n    \"enabled\": true,\n    \"sequence\": [\"popIn\", \"blurFade\", \"slideReveal\"],\n    /**\n     *\"mode Can be \"cycle\", \"random\", or a pattern like '1,2,1,3'\n     */\n    \n    \"mode\": \"random\"\n  },\n  \"shadow\": {\n    \"enabled\": true,\n    \"color\": \"#000000\",\n    \"opacity\": 80,\n    \"direction\": 0,\n    \"distance\": 10,\n    \"size\": 20\n  },\n  \"normalStyle\": {\n    \"stroke\": false,\n    \"strokeWidth\": 3,\n    \"glow\": false,\n    \"glowThreshold\": 30,\n    \"glowRadius\": 40,\n    \"glowIntensity\": 1.8\n  },\n  \"highlightStyle\": {\n    \"stroke\": true,\n    \"strokeWidth\": 3,\n    \"glow\": true,\n    \"glowThreshold\": 30,\n    \"glowRadius\": 40,\n    \"glowIntensity\": 1.8\n  }\n};\n\n// 4. Overwrite the global key with the new settings\nparsedData.global = newGlobalSettings;\n\n// 5. Return the modified object\nreturn parsedData;",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        -3504,
+        -144
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "8aa202ca-1765-4c4a-b393-f1442ea6fde3",
+      "name": "Step 2 highlighting and grouping",
+      "parameters": {
+        "jsonOutput": true,
+        "messages": {
+          "values": [
+            {
+              "content": "=\nYour task is to combine the word level input json , conditionaly translate it to English based on the input for translation, and then format the output as a JSON only with 'global' and 'items' keys. Each item in the 'items' list should contain start/end timestamps and words, where each word has 'text' and 'type' ('highlight' for important keywords, 'normal' otherwise and 'filler' for non informative words like 'the, he, she, and ,etc).\n\nMake sure to Group words into segments of 1 to 5 words per timestamp group, and ensure the global parameters remain as specified in the original prompt. The output should be directly the JSON, without any delimiters.\n\n# Step by Step instructions\n1. for the words create highlight , normal and filler\n3. Group the words from the transcribed (and potentially translated) segment into an item, ensuring each item has a 'start' and 'end' timestamp from json and a 'words' array. Each 'words' array should contain 1 to 5 word objects, with each object having 'text' and a 'type' ('highlight' for important keywords, 'normal' otherwise, and 'filler').\n5. Combine all the generated items into a single JSON object under the 'items' key.\n6. keep gloabal as it is\n7. use the below json sample for output\n\n{\n  \"global\": {\n    \"normalFont\": \"Montserrat-Bold\",\n    \"highlightFont\": \"Modish-Regular\",\n    \"normalColor\" : \"#FFFFFF\",\n    \"highlightColor\": \"#FFE733\",\n    \"normalFontSize\": 120,\n    \"highlightFontSize\": 150,\n    \"shadow\": {\n      \"enabled\": true,\n      \"color\": \"#000000\",\n      \"opacity\": 80,\n      \"direction\": 0,\n      \"distance\":10,\n      \"size\": 20\n    },\n    \"highlightUppercase\": true\n  },\n  \"items\": [\n    {\n      \"start\": \"00:00:00,530\",\n      \"end\": \"00:00:01,000\",\n      \"words\": [\n        { \"text\": \"But\", \"type\": \"normal\" },\n        { \"text\": \"this\", \"type\": \"normal\" },\n        { \"text\": \"hack,\", \"type\": \"highlight\" }\n      ]\n    },\n    {\n      \"start\": \"00:00:01,000\",\n      \"end\": \"00:00:01,360\",\n      \"words\": [\n        { \"text\": \"I\", \"type\": \"normal\" },\n        { \"text\": \"bet,\", \"type\": \"highlight\" }\n      ]\n    },\n    {\n      \"start\": \"00:00:01,360\",\n      \"end\": \"00:00:02,300\",\n      \"words\": [\n        { \"text\": \"ye\", \"type\": \"normal\" },\n        { \"text\": \"apne\", \"type\": \"normal\" },\n        { \"text\": \"try\", \"type\": \"highlight\" },\n        { \"text\": \"nahi\", \"type\": \"highlight\" }\n      ]\n    },\n    {\n      \"start\": \"00:00:02,300\",\n      \"end\": \"00:00:02,680\",\n      \"words\": [\n        { \"text\": \"kiya.\", \"type\": \"highlight\" }\n      ]\n    }\n  ]\n }\n\n\nInput json transcribed json:\n{{ $json.transcript.toJsonString() }}\n\n\"\"\"\nIMPORTANT NOTE: Start directly with the output, do not output any delimiters.\n"
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "options": {}
+      },
+      "position": [
+        -3856,
+        -160
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {
+    "Step 2 highlighting and grouping": [
+      {
+        "json": {
+          "content": {
+            "parts": [
+              {
+                "text": "{\n  \"global\": {\n    \"normalFont\": \"Montserrat-Bold\",\n    \"highlightFont\": \"Modish-Regular\",\n    \"normalColor\": \"#FFFFFF\",\n    \"highlightColor\": \"#FFE733\",\n    \"normalFontSize\": 120,\n    \"highlightFontSize\": 150,\n    \"shadow\": {\n      \"enabled\": true,\n      \"color\": [\n        0,\n        0,\n        0\n      ],\n      \"opacity\": 80,\n      \"direction\": 0,\n      \"distance\": 10,\n      \"size\": 20\n    },\n    \"highlightUppercase\": true\n  },\n  \"items\": [\n    {\n      \"start\": \"00:00:00,000\",\n      \"end\": \"00:00:00,660\",\n      \"words\": [\n        {\n          \"text\": \"This\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"is\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"video\",\n          \"type\": \"highlight\"\n        }\n      ]\n    },\n    {\n      \"start\": \"00:00:00,660\",\n      \"end\": \"00:00:02,000\",\n      \"words\": [\n        {\n          \"text\": \"number\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"2\",\n          \"type\": \"highlight\"\n        },\n        {\n          \"text\": \"sometimes\",\n          \"type\": \"normal\"\n        }\n      ]\n    },\n    {\n      \"start\": \"00:00:02,000\",\n      \"end\": \"00:00:03,059\",\n      \"words\": [\n        {\n          \"text\": \"I\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"am\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"continuing\",\n          \"type\": \"highlight\"\n        },\n        {\n          \"text\": \"from\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"line\",\n          \"type\": \"normal\"\n        }\n      ]\n    },\n    {\n      \"start\": \"00:00:04,119\",\n      \"end\": \"00:00:05,039\",\n      \"words\": [\n        {\n          \"text\": \"Okay\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"see\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"in\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"the\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"script\",\n          \"type\": \"highlight\"\n        }\n      ]\n    },\n    {\n      \"start\": \"00:00:05,039\",\n      \"end\": \"00:00:06,199\",\n      \"words\": [\n        {\n          \"text\": \"how\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"to\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"do\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"it\",\n          \"type\": \"normal\"\n        }\n      ]\n    },\n    {\n      \"start\": \"00:00:06,199\",\n      \"end\": \"00:00:06,199\",\n      \"words\": [\n        {\n          \"text\": \"in\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"the\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"best\",\n          \"type\": \"highlight\"\n        },\n        {\n          \"text\": \"way\",\n          \"type\": \"normal\"\n        }\n      ]\n    },\n    {\n      \"start\": \"00:00:06,619\",\n      \"end\": \"00:00:08,140\",\n      \"words\": [\n        {\n          \"text\": \"Sometimes\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"I\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"might\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"go\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"here\",\n          \"type\": \"normal\"\n        }\n      ]\n    },\n    {\n      \"start\": \"00:00:08,140\",\n      \"end\": \"00:00:08,619\",\n      \"words\": [\n        {\n          \"text\": \"and\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"there\",\n          \"type\": \"normal\"\n        }\n      ]\n    },\n    {\n      \"start\": \"00:00:09,060\",\n      \"end\": \"00:00:10,319\",\n      \"words\": [\n        {\n          \"text\": \"Sometimes\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"I\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"speak\",\n          \"type\": \"highlight\"\n        },\n        {\n          \"text\": \"clearly\",\n          \"type\": \"highlight\"\n        }\n      ]\n    },\n    {\n      \"start\": \"00:00:10,939\",\n      \"end\": \"00:00:12,220\",\n      \"words\": [\n        {\n          \"text\": \"I\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"would\",\n          \"type\": \"normal\"\n        },\n        {\n          \"text\": \"test\",\n          \"type\": \"highlight\"\n        },\n        {\n          \"text\": \"if\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"the\",\n          \"type\": \"filler\"\n        }\n      ]\n    },\n    {\n      \"start\": \"00:00:12,220\",\n      \"end\": \"00:00:12,920\",\n      \"words\": [\n        {\n          \"text\": \"system\",\n          \"type\": \"highlight\"\n        },\n        {\n          \"text\": \"is\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"picking\",\n          \"type\": \"highlight\"\n        },\n        {\n          \"text\": \"the\",\n          \"type\": \"filler\"\n        }\n      ]\n    },\n    {\n      \"start\": \"00:00:12,920\",\n      \"end\": \"00:00:14,180\",\n      \"words\": [\n        {\n          \"text\": \"parts\",\n          \"type\": \"highlight\"\n        },\n        {\n          \"text\": \"correctly\",\n          \"type\": \"highlight\"\n        },\n        {\n          \"text\": \"or\",\n          \"type\": \"filler\"\n        },\n        {\n          \"text\": \"not\",\n          \"type\": \"filler\"\n        }\n      ]\n    }\n  ]\n}"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Transcribe Audio1": [
+      {
+        "json": {
+          "duration": 15.380000114440918,
+          "language": "english",
+          "segments": [
+            {
+              "avg_logprob": -0.6417973041534424,
+              "compression_ratio": 1.4698795080184937,
+              "end": 3.059999942779541,
+              "id": 0,
+              "no_speech_prob": 0.26180654764175415,
+              "seek": 0,
+              "start": 0,
+              "temperature": 0.30000001192092896,
+              "text": " This is video number 2, sometimes I am continuing from line.",
+              "tokens": [
+                50364,
+                639,
+                307,
+                960,
+                1230,
+                568,
+                11,
+                2171,
+                286,
+                669,
+                1421,
+                9635,
+                490,
+                1622,
+                13,
+                50526
+              ]
+            },
+            {
+              "avg_logprob": -0.6417973041534424,
+              "compression_ratio": 1.4698795080184937,
+              "end": 6.199999809265137,
+              "id": 1,
+              "no_speech_prob": 0.26180654764175415,
+              "seek": 0,
+              "start": 4.119999885559082,
+              "temperature": 0.30000001192092896,
+              "text": " Okay, see in the script how to do it in the best way.",
+              "tokens": [
+                50526,
+                1033,
+                11,
+                536,
+                294,
+                264,
+                5755,
+                577,
+                281,
+                360,
+                309,
+                294,
+                264,
+                1151,
+                636,
+                13,
+                50676
+              ]
+            },
+            {
+              "avg_logprob": -0.6417973041534424,
+              "compression_ratio": 1.4698795080184937,
+              "end": 8.619999885559082,
+              "id": 2,
+              "no_speech_prob": 0.26180654764175415,
+              "seek": 0,
+              "start": 6.619999885559082,
+              "temperature": 0.30000001192092896,
+              "text": " Sometimes I might go here and there.",
+              "tokens": [
+                50676,
+                4803,
+                286,
+                1062,
+                352,
+                510,
+                293,
+                456,
+                13,
+                50799
+              ]
+            },
+            {
+              "avg_logprob": -0.6417973041534424,
+              "compression_ratio": 1.4698795080184937,
+              "end": 10.319999694824219,
+              "id": 3,
+              "no_speech_prob": 0.26180654764175415,
+              "seek": 0,
+              "start": 9.0600004196167,
+              "temperature": 0.30000001192092896,
+              "text": " Sometimes I speak clearly.",
+              "tokens": [
+                50799,
+                4803,
+                286,
+                1710,
+                4448,
+                13,
+                50899
+              ]
+            },
+            {
+              "avg_logprob": -0.6417973041534424,
+              "compression_ratio": 1.4698795080184937,
+              "end": 14.180000305175781,
+              "id": 4,
+              "no_speech_prob": 0.26180654764175415,
+              "seek": 0,
+              "start": 10.9399995803833,
+              "temperature": 0.30000001192092896,
+              "text": " I would test if the system is picking the parts correctly or not.",
+              "tokens": [
+                50899,
+                286,
+                576,
+                1500,
+                498,
+                264,
+                1185,
+                307,
+                8867,
+                264,
+                3166,
+                8944,
+                420,
+                406,
+                13,
+                51068
+              ]
+            }
+          ],
+          "task": "transcribe",
+          "text": "This is video number 2, sometimes I am continuing from line. Okay, see in the script how to do it in the best way. Sometimes I might go here and there. Sometimes I speak clearly. I would test if the system is picking the parts correctly or not.",
+          "usage": {
+            "seconds": 16,
+            "type": "duration"
+          },
+          "words": [
+            {
+              "end": 0.3799999952316284,
+              "start": 0,
+              "word": "This"
+            },
+            {
+              "end": 0.3799999952316284,
+              "start": 0.3799999952316284,
+              "word": "is"
+            },
+            {
+              "end": 0.6600000262260437,
+              "start": 0.3799999952316284,
+              "word": "video"
+            },
+            {
+              "end": 0.9599999785423279,
+              "start": 0.6600000262260437,
+              "word": "number"
+            },
+            {
+              "end": 1.340000033378601,
+              "start": 0.9599999785423279,
+              "word": "2"
+            },
+            {
+              "end": 2,
+              "start": 1.5399999618530273,
+              "word": "sometimes"
+            },
+            {
+              "end": 2.440000057220459,
+              "start": 2,
+              "word": "I"
+            },
+            {
+              "end": 2.440000057220459,
+              "start": 2.440000057220459,
+              "word": "am"
+            },
+            {
+              "end": 3.059999942779541,
+              "start": 2.440000057220459,
+              "word": "continuing"
+            },
+            {
+              "end": 3.059999942779541,
+              "start": 3.059999942779541,
+              "word": "from"
+            },
+            {
+              "end": 3.059999942779541,
+              "start": 3.059999942779541,
+              "word": "line"
+            },
+            {
+              "end": 4.119999885559082,
+              "start": 4.119999885559082,
+              "word": "Okay"
+            },
+            {
+              "end": 5.039999961853027,
+              "start": 4.340000152587891,
+              "word": "see"
+            },
+            {
+              "end": 5.039999961853027,
+              "start": 5.039999961853027,
+              "word": "in"
+            },
+            {
+              "end": 5.039999961853027,
+              "start": 5.039999961853027,
+              "word": "the"
+            },
+            {
+              "end": 5.039999961853027,
+              "start": 5.039999961853027,
+              "word": "script"
+            },
+            {
+              "end": 5.679999828338623,
+              "start": 5.039999961853027,
+              "word": "how"
+            },
+            {
+              "end": 5.679999828338623,
+              "start": 5.679999828338623,
+              "word": "to"
+            },
+            {
+              "end": 6.159999847412109,
+              "start": 5.679999828338623,
+              "word": "do"
+            },
+            {
+              "end": 6.199999809265137,
+              "start": 6.159999847412109,
+              "word": "it"
+            },
+            {
+              "end": 6.199999809265137,
+              "start": 6.199999809265137,
+              "word": "in"
+            },
+            {
+              "end": 6.199999809265137,
+              "start": 6.199999809265137,
+              "word": "the"
+            },
+            {
+              "end": 6.199999809265137,
+              "start": 6.199999809265137,
+              "word": "best"
+            },
+            {
+              "end": 6.199999809265137,
+              "start": 6.199999809265137,
+              "word": "way"
+            },
+            {
+              "end": 7.019999980926514,
+              "start": 6.619999885559082,
+              "word": "Sometimes"
+            },
+            {
+              "end": 7.420000076293945,
+              "start": 7.019999980926514,
+              "word": "I"
+            },
+            {
+              "end": 7.619999885559082,
+              "start": 7.420000076293945,
+              "word": "might"
+            },
+            {
+              "end": 7.860000133514404,
+              "start": 7.619999885559082,
+              "word": "go"
+            },
+            {
+              "end": 8.140000343322754,
+              "start": 7.860000133514404,
+              "word": "here"
+            },
+            {
+              "end": 8.300000190734863,
+              "start": 8.140000343322754,
+              "word": "and"
+            },
+            {
+              "end": 8.619999885559082,
+              "start": 8.300000190734863,
+              "word": "there"
+            },
+            {
+              "end": 9.420000076293945,
+              "start": 9.0600004196167,
+              "word": "Sometimes"
+            },
+            {
+              "end": 9.680000305175781,
+              "start": 9.420000076293945,
+              "word": "I"
+            },
+            {
+              "end": 9.880000114440918,
+              "start": 9.680000305175781,
+              "word": "speak"
+            },
+            {
+              "end": 10.319999694824219,
+              "start": 9.880000114440918,
+              "word": "clearly"
+            },
+            {
+              "end": 11.100000381469727,
+              "start": 10.9399995803833,
+              "word": "I"
+            },
+            {
+              "end": 11.300000190734863,
+              "start": 11.100000381469727,
+              "word": "would"
+            },
+            {
+              "end": 11.5600004196167,
+              "start": 11.300000190734863,
+              "word": "test"
+            },
+            {
+              "end": 11.760000228881836,
+              "start": 11.5600004196167,
+              "word": "if"
+            },
+            {
+              "end": 12.220000267028809,
+              "start": 11.760000228881836,
+              "word": "the"
+            },
+            {
+              "end": 12.220000267028809,
+              "start": 12.220000267028809,
+              "word": "system"
+            },
+            {
+              "end": 12.380000114440918,
+              "start": 12.220000267028809,
+              "word": "is"
+            },
+            {
+              "end": 12.640000343322754,
+              "start": 12.380000114440918,
+              "word": "picking"
+            },
+            {
+              "end": 12.920000076293945,
+              "start": 12.640000343322754,
+              "word": "the"
+            },
+            {
+              "end": 13.180000305175781,
+              "start": 12.920000076293945,
+              "word": "parts"
+            },
+            {
+              "end": 13.579999923706055,
+              "start": 13.180000305175781,
+              "word": "correctly"
+            },
+            {
+              "end": 13.920000076293945,
+              "start": 13.579999923706055,
+              "word": "or"
+            },
+            {
+              "end": 14.180000305175781,
+              "start": 13.920000076293945,
+              "word": "not"
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-01-05T17:25:38.538Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-01-05T17:25:38.538Z",
+      "workflowId": "claIhAtJ9CZeIknt"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-02-24T19:55:45.176Z",
+  "versionId": "1b1dbeb0-8db2-48d2-9335-0b0e089edf6e"
+}
