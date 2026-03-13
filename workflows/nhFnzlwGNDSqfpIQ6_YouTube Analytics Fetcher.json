@@ -1,0 +1,659 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "All Done?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Complete",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Split Channels",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Every 12 Hours": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get YouTube Accounts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Channel Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Transform Channel Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Recent Videos": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Split Out",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Video Stats": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Transform Video Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get YouTube Accounts": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Split Channels",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Save Channel Info": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Fetch Recent Videos",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Save Video & Metrics": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait (API Quota)",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Split Channels": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Fetch Channel Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Fetch Video Stats",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Transform Channel Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Save Channel Info",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Transform Video Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Save Video & Metrics",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait (API Quota)": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "All Done?",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-17T17:24:36.539Z",
+  "id": "nhFnzlwGNDSqfpIQ",
+  "isArchived": false,
+  "meta": null,
+  "name": "6_YouTube Analytics Fetcher",
+  "nodes": [
+    {
+      "id": "9c346905-69f1-4da1-85fb-5c66dba83b4c",
+      "name": "Every 12 Hours",
+      "notes": "Fetch YouTube analytics twice daily",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 12
+            }
+          ]
+        }
+      },
+      "position": [
+        -1136,
+        464
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "88111507-6155-403b-87a6-e0115961c577",
+      "name": "Get YouTube Accounts",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "SELECT account_id, username FROM accounts WHERE platform = 'youtube' AND active = true"
+      },
+      "position": [
+        -928,
+        464
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "1b959598-4028-42bc-b472-80545baab113",
+      "name": "Split Channels",
+      "notes": "Process 3 channels at a time",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -736,
+        464
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "KXxIBGEjUKl43IzP",
+          "name": "YouTube account"
+        }
+      },
+      "id": "399aec9b-a1d8-4b27-8ce2-5819ff992e2b",
+      "name": "Fetch Channel Data",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "youTubeOAuth2Api",
+        "options": {},
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "part",
+              "value": "snippet,statistics,contentDetails"
+            },
+            {
+              "name": "id",
+              "value": "={{ $json.account_id }}"
+            }
+          ]
+        },
+        "sendQuery": true,
+        "url": "=https://www.googleapis.com/youtube/v3/channels"
+      },
+      "position": [
+        -480,
+        480
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "6372d651-feed-443e-abe0-7324c01110bf",
+      "name": "Transform Channel Data",
+      "parameters": {
+        "jsCode": "// Get the input (which is the whole array of items)\nconst items = $input.all();\n\n// We map over every input item, then map over every channel in 'items'\nreturn items.flatMap(item => {\n  return item.json.items.map(channel => {\n    return {\n      json: {\n        account_id: channel.id,\n        username: channel.snippet.title,\n        display_name: channel.snippet.customUrl || channel.snippet.title,\n        followers_count: parseInt(channel.statistics?.subscriberCount || 0),\n        uploads_playlist_id: channel.contentDetails?.relatedPlaylists?.uploads,\n        metadata: {\n          description: channel.snippet.description,\n          thumbnail: channel.snippet.thumbnails?.high?.url,\n          total_videos: parseInt(channel.statistics?.videoCount || 0),\n          total_views: parseInt(channel.statistics?.viewCount || 0)\n        }\n      }\n    };\n  });\n});"
+      },
+      "position": [
+        -272,
+        464
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "09b54c73-fe58-4ae8-bd50-fd4a66a152b2",
+      "name": "Save Channel Info",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=INSERT INTO accounts (account_id, platform, username, display_name, followers_count, metadata, updated_at)\nVALUES (\n  '{{ $json.account_id }}',\n  'youtube',\n  '{{ $json.username }}',\n  '{{ $json.display_name }}',\n  {{ $json.followers_count }},\n  '{{ JSON.stringify($json.metadata) }}',\n  NOW()\n)\nON CONFLICT (account_id) DO UPDATE SET\n  username = EXCLUDED.username,\n  display_name = EXCLUDED.display_name,\n  followers_count = EXCLUDED.followers_count,\n  metadata = EXCLUDED.metadata,\n  updated_at = NOW()\nRETURNING *;"
+      },
+      "position": [
+        -80,
+        464
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "KXxIBGEjUKl43IzP",
+          "name": "YouTube account"
+        }
+      },
+      "id": "14c9a2bd-d992-4458-93e8-c45e709fc1d2",
+      "name": "Fetch Recent Videos",
+      "notes": "Get last 5 videos from uploads playlist",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "youTubeOAuth2Api",
+        "options": {},
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "playlistId",
+              "value": "={{ $('Transform Channel Data').item.json.uploads_playlist_id }}"
+            },
+            {
+              "name": "part",
+              "value": "snippet,contentDetails"
+            },
+            {
+              "name": "=maxResults",
+              "value": "=5"
+            }
+          ]
+        },
+        "sendQuery": true,
+        "url": "=https://www.googleapis.com/youtube/v3/playlistItems"
+      },
+      "position": [
+        144,
+        464
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "b0e17ff8-a7b5-40a5-b6e7-912014aa9ce6",
+      "name": "Split Videos",
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "KXxIBGEjUKl43IzP",
+          "name": "YouTube account"
+        }
+      },
+      "id": "17f7f1ce-94c5-46da-858c-054110601b5b",
+      "name": "Fetch Video Stats",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "youTubeOAuth2Api",
+        "options": {},
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "part",
+              "value": "statistics,contentDetails,snippet"
+            },
+            {
+              "name": "id",
+              "value": "={{ $json.contentDetails.videoId }}"
+            }
+          ]
+        },
+        "sendQuery": true,
+        "url": "=https://www.googleapis.com/youtube/v3/videos"
+      },
+      "position": [
+        560,
+        464
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "c3114e61-d093-4aa1-ada0-3b7b060b3bf7",
+      "name": "Transform Video Data",
+      "parameters": {
+        "jsCode": "// In \"Run Once for Each Item\" mode, use $input.item.json directly\n// n8n automatically gives you the current item - no need for .first() or .all()\nconst apiResponse = $input.item.json;\n\n// Check if we have valid API response\nif (!apiResponse || !apiResponse.items || apiResponse.items.length === 0) {\n  throw new Error('No video data found in API response');\n}\n\nconst videoData = apiResponse.items[0];\n\n// Get account ID from the workflow context\nconst accountId = $('Get YouTube Accounts').item.json.account_id;\n\n// Parse ISO 8601 duration (PT15M30S -> 930 seconds)\nconst parseDuration = (duration) => {\n  if (!duration) return 0;\n  const match = duration.match(/PT(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)S)?/);\n  if (!match) return 0;\n  const hours = parseInt(match[1] || 0);\n  const minutes = parseInt(match[2] || 0);\n  const seconds = parseInt(match[3] || 0);\n  return hours * 3600 + minutes * 60 + seconds;\n};\n\n// Extract title and description\nconst title = videoData.snippet.title || 'Untitled';\nconst description = videoData.snippet.description || '';\nconst lines = description.split('\\n').filter(line => line.trim());\nconst hook = title;\nconst idea = lines.slice(0, 3).join(' ').substring(0, 500);\n\n// Determine content type based on duration\nconst duration = parseDuration(videoData.contentDetails.duration);\nlet contentType = 'video';\nif (duration > 0 && duration <= 60) contentType = 'short';\n\nreturn {\n  // Content data\n  content_id: videoData.id,\n  account_id: accountId,\n  platform: 'youtube',\n  content_type: contentType,\n  title: title,\n  hook: hook,\n  idea: idea,\n  url: `https://www.youtube.com/watch?v=${videoData.id}`,\n  posted_at: videoData.snippet.publishedAt,\n  duration_sec: duration,\n  metadata: {\n    thumbnail: videoData.snippet.thumbnails?.high?.url || videoData.snippet.thumbnails?.default?.url,\n    tags: videoData.snippet.tags || [],\n    category_id: videoData.snippet.categoryId\n  },\n  \n  // Metrics data\n  date: new Date().toISOString().split('T')[0],\n  views: parseInt(videoData.statistics.viewCount || 0),\n  likes: parseInt(videoData.statistics.likeCount || 0),\n  comments: parseInt(videoData.statistics.commentCount || 0),\n  shares: 0, // YouTube API doesn't provide shares directly\n  saves: 0\n};",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        800,
+        464
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "040d609f-c937-431a-afdb-bc06e8fdd9bd",
+      "name": "Save Video & Metrics",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- Insert content\nINSERT INTO content (content_id, account_id, platform, content_type, title, hook, idea, url, posted_at, duration_sec, metadata)\nVALUES (\n  '{{ $json.content_id }}',\n  '{{ $json.account_id }}',\n  '{{ $json.platform }}',\n  '{{ $json.content_type }}',\n  '{{ $json.title }}',\n  '{{ $json.hook }}',\n  '{{ $json.idea }}',\n  '{{ $json.url }}',\n  '{{ $json.posted_at }}',\n  {{ $json.duration_sec }},\n  '{{ JSON.stringify($json.metadata) }}'\n)\nON CONFLICT (content_id) DO UPDATE SET\n  title = EXCLUDED.title,\n  duration_sec = EXCLUDED.duration_sec,\n  metadata = EXCLUDED.metadata;\n\n-- Insert metrics\nINSERT INTO metrics_daily (content_id, account_id, date, views, likes, comments, shares, saves)\nVALUES (\n  '{{ $json.content_id }}',\n  '{{ $json.account_id }}',\n  '{{ $json.date }}',\n  {{ $json.views }},\n  {{ $json.likes }},\n  {{ $json.comments }},\n  {{ $json.shares }},\n  {{ $json.saves }}\n)\nON CONFLICT (content_id, date) DO UPDATE SET\n  views = EXCLUDED.views,\n  likes = EXCLUDED.likes,\n  comments = EXCLUDED.comments,\n  created_at = NOW();"
+      },
+      "position": [
+        992,
+        464
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "591988d6-83d4-467a-b9ca-3135a3b56a1b",
+      "name": "Wait (API Quota)",
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "position": [
+        1232,
+        464
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "777af1e0-c607-4ffc-ba97-bb3ce2587082"
+    },
+    {
+      "id": "c49fc001-ab16-451e-8d43-ba0b71cc7244",
+      "name": "All Done?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "complete",
+              "leftValue": "={{ $('Split Channels').context.noItemsLeft }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        1440,
+        464
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "8c8541b8-2730-4790-86ef-9fef2c681087",
+      "name": "Complete",
+      "parameters": {},
+      "position": [
+        1888,
+        352
+      ],
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "KXxIBGEjUKl43IzP",
+          "name": "YouTube account"
+        }
+      },
+      "id": "3a5bbaf7-3338-4b33-950c-9122f77c18c0",
+      "name": "Get a channel",
+      "parameters": {
+        "channelId": "={{ $json.account_id }}",
+        "operation": "get"
+      },
+      "position": [
+        -224,
+        16
+      ],
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "KXxIBGEjUKl43IzP",
+          "name": "YouTube account"
+        }
+      },
+      "id": "aabb943e-5c7d-467b-a671-040092a02e3e",
+      "name": "Get many videos",
+      "parameters": {
+        "filters": {},
+        "options": {},
+        "resource": "video"
+      },
+      "position": [
+        240,
+        48
+      ],
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1
+    },
+    {
+      "id": "a7590d39-4272-4d93-a505-182ad7d7b026",
+      "name": "Split Out",
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "position": [
+        352,
+        464
+      ],
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1
+    },
+    {
+      "id": "ffd91982-3b8e-40c1-9f82-534e8afc9f3b",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "in transform video data get the hook and idea from the existing by limking through id\n"
+      },
+      "position": [
+        864,
+        704
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {
+    "Get many videos": [
+      {
+        "json": {
+          "etag": "aPiopUtcQZOASAJ-w5G_KBpFiJ4",
+          "id": {
+            "kind": "youtube#video",
+            "videoId": "SdFhGZ_eKao"
+          },
+          "kind": "youtube#searchResult",
+          "snippet": {
+            "channelId": "UC527mRbP1qmJbwTZd5dwKSQ",
+            "channelTitle": "arya choudhary",
+            "description": "Official video full hd",
+            "liveBroadcastContent": "none",
+            "publishTime": "2019-03-24T10:09:07Z",
+            "publishedAt": "2019-03-24T10:09:07Z",
+            "thumbnails": {
+              "default": {
+                "height": 90,
+                "url": "https://i.ytimg.com/vi/SdFhGZ_eKao/default.jpg",
+                "width": 120
+              },
+              "high": {
+                "height": 360,
+                "url": "https://i.ytimg.com/vi/SdFhGZ_eKao/hqdefault.jpg",
+                "width": 480
+              },
+              "maxres": {
+                "height": 720,
+                "url": "https://i.ytimg.com/vi/SdFhGZ_eKao/maxresdefault.jpg",
+                "width": 1280
+              },
+              "medium": {
+                "height": 180,
+                "url": "https://i.ytimg.com/vi/SdFhGZ_eKao/mqdefault.jpg",
+                "width": 320
+              },
+              "standard": {
+                "height": 480,
+                "url": "https://i.ytimg.com/vi/SdFhGZ_eKao/sddefault.jpg",
+                "width": 640
+              }
+            },
+            "title": "Dabdaba"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "etag": "qgp_jXxb9SbAP7_iUpl2ZLVI4Gs",
+          "id": {
+            "kind": "youtube#video",
+            "videoId": "qYVrSjFbZII"
+          },
+          "kind": "youtube#searchResult",
+          "snippet": {
+            "channelId": "UC527mRbP1qmJbwTZd5dwKSQ",
+            "channelTitle": "arya choudhary",
+            "description": "",
+            "liveBroadcastContent": "none",
+            "publishTime": "2019-03-23T18:35:15Z",
+            "publishedAt": "2019-03-23T18:35:15Z",
+            "thumbnails": {
+              "default": {
+                "height": 90,
+                "url": "https://i9.ytimg.com/vi/qYVrSjFbZII/default.jpg?sqp=CLTm0cwG&rs=AOn4CLAMeKK5wRhfWGezOUSx-etdXXn4QA",
+                "width": 120
+              },
+              "high": {
+                "height": 360,
+                "url": "https://i9.ytimg.com/vi/qYVrSjFbZII/hqdefault.jpg?sqp=CLTm0cwG&rs=AOn4CLDF3Y4fh-5L8IM5RGOEpEYqX8jkkQ",
+                "width": 480
+              },
+              "maxres": {
+                "height": 720,
+                "url": "https://i9.ytimg.com/vi/qYVrSjFbZII/maxresdefault.jpg?sqp=CLTm0cwG&rs=AOn4CLBOIWAaOAgBbdJg8hqX9q2iQU6Evw",
+                "width": 1280
+              },
+              "medium": {
+                "height": 180,
+                "url": "https://i9.ytimg.com/vi/qYVrSjFbZII/mqdefault.jpg?sqp=CLTm0cwG&rs=AOn4CLC-qQJT3dQ-AWIu23Yn3eMe7LAftQ",
+                "width": 320
+              },
+              "standard": {
+                "height": 480,
+                "url": "https://i9.ytimg.com/vi/qYVrSjFbZII/sddefault.jpg?sqp=CLTm0cwG&rs=AOn4CLCqeDe3LRaiSYt1fWoStlB2ovbZsg",
+                "width": 640
+              }
+            },
+            "title": "SANDAL[Official 👠song]"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-17T17:24:36.590Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-17T17:24:36.590Z",
+      "workflowId": "nhFnzlwGNDSqfpIQ"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-17T17:24:36.000Z",
+  "versionId": "bb9ba7f1-ab90-4a32-a124-39325ef47085"
+}
