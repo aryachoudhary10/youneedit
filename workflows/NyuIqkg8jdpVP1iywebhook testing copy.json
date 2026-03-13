@@ -1,0 +1,1900 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search Folder in Drive",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Combine all transcripts with all binary data": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Connect combined data with script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Connect combined data with script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Step 2 Match with script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Json with id name and transcript": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge to get binary data back1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create XML binary": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create XML format from JSON": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create XML binary",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Write Data to Disk",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Merge to get binary data back1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Execute Command": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Respond to Webhook2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get List ID": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Process for ListID",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get List ID from clickup": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get SpaceID from clickup": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Process for SpaceID",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get all file details in folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Download file",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Connect combined data with script",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Merge to get id and name back",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get List ID",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Respond to Webhook",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Respond to Webhook3",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Respond to Webhook1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge for folder name": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create XML format from JSON",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge to get binary data back": {
+      "main": [
+        []
+      ]
+    },
+    "Merge to get binary data back1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Combine all transcripts with all binary data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge to get id and name back": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create Json with id name and transcript",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Parse Transcribe output": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge to get binary data back",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Parse matched sequence to json": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge for folder name",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Process for ListID": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Process for SpaceID": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Read Data from Disk": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Transcribe Audio",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook3": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get List ID from clickup",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search Folder in Drive": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get all file details in folder",
+            "type": "main"
+          },
+          {
+            "index": 1,
+            "node": "Merge for folder name",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Step 1 Transcribe Video": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Parse Transcribe output",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Step 2 Match with script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Parse matched sequence to json",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Transcribe Audio": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge to get id and name back",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Update a task": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Execute Command",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upload file": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Update a task",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get SpaceID from clickup",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Write Data to Disk": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "video to mp3",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "cleanup local files": {
+      "main": [
+        []
+      ]
+    },
+    "video to mp3": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Read Data from Disk",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-21T09:06:20.103Z",
+  "id": "NyuIqkg8jdpVP1iy",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "webhook testing copy",
+  "nodes": [
+    {
+      "id": "c5e6431d-9f10-47fa-9cc9-7a72639e75bf",
+      "name": "Webhook",
+      "parameters": {
+        "options": {
+          "allowedOrigins": "*"
+        },
+        "path": "ed73e332-b365-4958-aee1-1f61dcea1208",
+        "responseMode": "responseNode"
+      },
+      "position": [
+        -672,
+        -96
+      ],
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "webhookId": "ed73e332-b365-4958-aee1-1f61dcea1208"
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "2685990e-6bc2-4423-b244-b71106bbfca4",
+      "name": "Get SpaceID from clickup",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "clickUpApi",
+        "options": {},
+        "queryParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendQuery": true,
+        "url": "https://api.clickup.com/api/v2/team/43273179/space"
+      },
+      "position": [
+        -448,
+        -96
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "ad6e9b0f-5c7c-45c4-bee0-53037fce07d7",
+      "name": "Get List ID from clickup",
+      "parameters": {
+        "filters": {
+          "statuses": [
+            "editing - in progress"
+          ]
+        },
+        "folderless": true,
+        "list": "={{ $json.list_id }}",
+        "operation": "getAll",
+        "space": "={{ $('If').item.json.space_id }}",
+        "team": "=43273179"
+      },
+      "position": [
+        1120,
+        -288
+      ],
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1
+    },
+    {
+      "id": "80911fbc-db05-4ab3-99bc-d46911d1a678",
+      "name": "If",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "d0af84ed-8587-4cb7-94a2-6b88d9f1bd54",
+              "leftValue": "={{ $json.space_id }}",
+              "operator": {
+                "operation": "notEmpty",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        0,
+        -96
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2
+    },
+    {
+      "id": "4ceeb8ec-7b6f-4059-bab0-73650feb7b8b",
+      "name": "Respond to Webhook",
+      "parameters": {
+        "options": {
+          "responseCode": 404
+        },
+        "respondWith": "allIncomingItems"
+      },
+      "position": [
+        224,
+        16
+      ],
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4
+    },
+    {
+      "id": "c11352e7-ef74-4f16-976d-9f7dcd375e71",
+      "name": "Process for SpaceID",
+      "parameters": {
+        "jsCode": "// 1. SETTINGS\nconst targetName = $('Webhook').first().json.query.space_name; // Example of a \"fuzzy\" input\nconst fuzzinessThreshold = 3;    // Maximum number of allowed typos/edits\n\n// 2. HELPER FUNCTION: Levenshtein Distance (Calculates edit distance between strings)\nfunction getEditDistance(a, b) {\n  if (a.length === 0) return b.length;\n  if (b.length === 0) return a.length;\n\n  const matrix = [];\n\n  // increment along the first column of each row\n  for (let i = 0; i <= b.length; i++) {\n    matrix[i] = [i];\n  }\n\n  // increment each column in the first row\n  for (let j = 0; j <= a.length; j++) {\n    matrix[0][j] = j;\n  }\n\n  // Fill in the rest of the matrix\n  for (let i = 1; i <= b.length; i++) {\n    for (let j = 1; j <= a.length; j++) {\n      if (b.charAt(i - 1) === a.charAt(j - 1)) {\n        matrix[i][j] = matrix[i - 1][j - 1];\n      } else {\n        matrix[i][j] = Math.min(\n          matrix[i - 1][j - 1] + 1, // substitution\n          Math.min(\n            matrix[i][j - 1] + 1,   // insertion\n            matrix[i - 1][j] + 1    // deletion\n          )\n        );\n      }\n    }\n  }\n\n  return matrix[b.length][a.length];\n}\n\n// 3. MAIN LOGIC\nconst items = $input.all();\nlet bestMatch = {\n  id: null,\n  name: null,\n  distance: 100 // Start with a high distance\n};\n\n// Normalize target for comparison\nconst normalizedTarget = targetName.toLowerCase().trim();\n\nfor (const item of items) {\n  const spaces = item.json.spaces;\n\n  if (spaces && Array.isArray(spaces)) {\n    for (const space of spaces) {\n      if (!space.name) continue;\n\n      const currentSpaceName = space.name.toLowerCase().trim();\n      \n      // Calculate distance\n      const distance = getEditDistance(normalizedTarget, currentSpaceName);\n\n      // Check if this is the best match so far\n      if (distance < bestMatch.distance) {\n        bestMatch = {\n          id: space.id,\n          name: space.name,\n          distance: distance\n        };\n      }\n    }\n  }\n}\n\n// 4. VALIDATE RESULT\n// Only return the ID if the match is within the allowed threshold\nconst isMatchFound = bestMatch.distance <= fuzzinessThreshold;\n\nreturn [\n  {\n    json: {\n      search_term: targetName,\n      matched_name: isMatchFound ? bestMatch.name : null,\n      space_id: isMatchFound ? bestMatch.id : null,\n      match_quality: isMatchFound ? `Found with ${bestMatch.distance} edits` : \"No match found\",\n      found: isMatchFound\n    }\n  }\n];"
+      },
+      "position": [
+        -224,
+        -96
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "c0dff93f-ff7e-42e2-b856-286618f0126e",
+      "name": "Get List ID",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "clickUpApi",
+        "options": {},
+        "queryParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendQuery": true,
+        "url": "=https://api.clickup.com/api/v2/space/{{ $json.space_id }}/list "
+      },
+      "position": [
+        224,
+        -192
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3
+    },
+    {
+      "id": "a80ca4b2-c45b-454c-87b4-4ccbdd28e51b",
+      "name": "Process for ListID",
+      "parameters": {
+        "jsCode": "// 1. SETTINGS\n// Replace this with the List Name you are looking for\nconst targetListName = $('Webhook').first().json.query.list_name; \nconst fuzzinessThreshold = 3; // Allow up to 3 typos/edits\n\n// 2. HELPER FUNCTION: Levenshtein Distance (Fuzzy Match Logic)\nfunction getEditDistance(a, b) {\n  if (a.length === 0) return b.length;\n  if (b.length === 0) return a.length;\n\n  const matrix = [];\n\n  for (let i = 0; i <= b.length; i++) {\n    matrix[i] = [i];\n  }\n  for (let j = 0; j <= a.length; j++) {\n    matrix[0][j] = j;\n  }\n\n  for (let i = 1; i <= b.length; i++) {\n    for (let j = 1; j <= a.length; j++) {\n      if (b.charAt(i - 1) === a.charAt(j - 1)) {\n        matrix[i][j] = matrix[i - 1][j - 1];\n      } else {\n        matrix[i][j] = Math.min(\n          matrix[i - 1][j - 1] + 1, // substitution\n          matrix[i][j - 1] + 1,   // insertion\n          matrix[i - 1][j] + 1    // deletion\n        );\n      }\n    }\n  }\n  return matrix[b.length][a.length];\n}\n\n// 3. MAIN LOGIC\nconst items = $input.all();\nlet bestMatch = {\n  id: null,\n  name: null,\n  distance: 100 // Start with a high distance\n};\n\n// Normalize target for comparison\nconst normalizedTarget = targetListName.toLowerCase().trim();\n\nfor (const item of items) {\n  // CHANGED: Accessing 'lists' instead of 'spaces'\n  const lists = item.json.lists;\n\n  if (lists && Array.isArray(lists)) {\n    for (const list of lists) {\n      if (!list.name) continue;\n\n      const currentListName = list.name.toLowerCase().trim();\n      \n      // Calculate distance\n      const distance = getEditDistance(normalizedTarget, currentListName);\n\n      // Check if this is the best match so far\n      if (distance < bestMatch.distance) {\n        bestMatch = {\n          id: list.id,\n          name: list.name,\n          distance: distance\n        };\n      }\n    }\n  }\n}\n\n// 4. VALIDATE RESULT\nconst isMatchFound = bestMatch.distance <= fuzzinessThreshold;\n\nreturn [\n  {\n    json: {\n      search_term: targetListName,\n      matched_name: isMatchFound ? bestMatch.name : null,\n      list_id: isMatchFound ? bestMatch.id : null,\n      match_quality: isMatchFound ? `Found with ${bestMatch.distance} edits` : \"No match found\",\n      found: isMatchFound\n    }\n  }\n];"
+      },
+      "position": [
+        448,
+        -192
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "a4b8f671-ff50-4666-a99c-ce1b00e45df3",
+      "name": "If1",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "a72deb4e-4eba-4470-8899-6d4a8fd87e73",
+              "leftValue": "={{ $json.list_id }}",
+              "operator": {
+                "operation": "notEmpty",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        672,
+        -192
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2
+    },
+    {
+      "id": "4d3ef3e4-d13c-4425-96a3-1865afef53d9",
+      "name": "Respond to Webhook1",
+      "parameters": {
+        "options": {
+          "responseCode": 404,
+          "responseKey": ""
+        },
+        "respondWith": "allIncomingItems"
+      },
+      "position": [
+        896,
+        -96
+      ],
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4
+    },
+    {
+      "id": "7dcfcf04-cb05-481f-bfc3-330e9a39fa3e",
+      "name": "Respond to Webhook2",
+      "parameters": {
+        "options": {},
+        "respondWith": "text",
+        "responseBody": "={{ $json.script }}"
+      },
+      "position": [
+        6224,
+        -288
+      ],
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4
+    },
+    {
+      "id": "5fb8dacb-e8af-482e-8c99-36e4b5f8b7e9",
+      "name": "Respond to Webhook3",
+      "parameters": {
+        "options": {
+          "responseCode": 200
+        },
+        "respondWith": "json",
+        "responseBody": "={\n  \"executionID\":  {{ $execution.id }}\n}"
+      },
+      "position": [
+        896,
+        -288
+      ],
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "60b90c8a-0e99-4847-a99d-772da2e8be3c",
+      "name": "Update a task",
+      "parameters": {
+        "id": "={{ $('Get List ID from clickup').item.json.id }}",
+        "operation": "update",
+        "updateFields": {
+          "content": "=XML file link : {{ $json.webViewLink }}       {{ $('Get List ID from clickup').item.json.text_content }}"
+        }
+      },
+      "position": [
+        5808,
+        -288
+      ],
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "3f52e86c-2ab6-4ba5-8c73-b65423ee0be2",
+      "name": "Search Folder in Drive",
+      "parameters": {
+        "filter": {
+          "whatToSearch": "folders"
+        },
+        "limit": 10,
+        "options": {},
+        "queryString": "={{ $json.name }}`",
+        "resource": "fileFolder"
+      },
+      "position": [
+        1568,
+        656
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "bf821c59-05bb-40e8-96ee-f227df65b7a5",
+      "name": "Create XML binary",
+      "parameters": {
+        "jsCode": "const xmlString = $json.xml_content;   // your XML string\n\nconst xmlBuffer = Buffer.from(xmlString, \"utf-8\");\nconst xmlBase64 = xmlBuffer.toString(\"base64\");\n\nreturn [\n  {\n    json: {},\n    binary: {\n      data: {\n        data: xmlBase64,\n        fileName: $input.first().json.fileName,\n        mimeType: \"text/xml\"\n      }\n    }\n  }\n];"
+      },
+      "position": [
+        5152,
+        -352
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "9b3e6c67-7749-4221-bb25-626e1b200cfd",
+      "name": "Create XML format from JSON",
+      "parameters": {
+        "jsCode": "// ----------------CONFIGURATION----------------\nconst TIMEBASE = 30; // Timebase is mathematically 30 for NTSC 29.97\nconst NTSC_TAG = 'TRUE'; \nconst TICKS_PER_SECOND = 254016000000;\nconst WIDTH = 1080;\nconst HEIGHT = 1920;\nconst AUDIO_RATE = 48000;\nconst START_FRAME_BUFFER = 5;\nconst END_FRAME_BUFFER = 3;\n\n// Conversion Ratio: TICKS_PER_SECOND / TIMEBASE (Used to convert Frames to Ticks)\nconst FRAME_TO_TICKS_RATIO = TICKS_PER_SECOND / TIMEBASE;\n// ---------------------------------------------\n\n// Helper 1: Returns full seconds float (Kept for consistency, but we won't use it for pproTicks anymore)\nfunction timeToSecondsFloat(timeString) {\n  if (!timeString) return 0;\n   \n    \n  const dotTime = timeString.replace(',', '.');\n  const parts = dotTime.split(':');\n    \n  // --- TIME FORMAT CHECKER AND CORRECTION ---\n    if (parts.length === 2) {\n        // Format is likely \"MM:SS,mmm\". Prepend \"00\" for hours.\n        parts.unshift(\"00\"); // parts is now [\"00\", \"MM\", \"SS,mmm\"]\n    } else if (parts.length === 1) {\n        // Format is likely \"SS,mmm\". Prepend \"00:00\" for hours and minutes.\n        parts.unshift(\"00\", \"00\"); // parts is now [\"00\", \"00\", \"SS,mmm\"]\n    } else if (parts.length !== 3) {\n        // Invalid or unexpected format\n        console.error(`Invalid time string format: ${timeString}`);\n        return 0;\n    }\n    // --- END CORRECTION ---\n  return (parseFloat(parts[0]) * 3600) + \n         (parseFloat(parts[1]) * 60) + \n         parseFloat(parts[2]);\n}\n\n// Helper 2: Returns precise frame integer using seconds + ms calculation\nfunction timeToFrameInteger(timeString, timebase) {\n    if (!timeString) return 0;\n    \n    let parts = timeString.split(':');\n    \n    // --- TIME FORMAT CHECKER AND CORRECTION ---\n    if (parts.length === 2) {\n        // Format is likely \"MM:SS,mmm\". Prepend \"00\" for hours.\n        parts.unshift(\"00\"); // parts is now [\"00\", \"MM\", \"SS,mmm\"]\n    } else if (parts.length === 1) {\n        // Format is likely \"SS,mmm\". Prepend \"00:00\" for hours and minutes.\n        parts.unshift(\"00\", \"00\"); // parts is now [\"00\", \"00\", \"SS,mmm\"]\n    } else if (parts.length !== 3) {\n        // Invalid or unexpected format\n        console.error(`Invalid time string format: ${timeString}`);\n        return 0;\n    }\n    // --- END CORRECTION ---\n\n    // parts is guaranteed to be [\"HH\", \"MM\", \"SS,mmm\"] at this point\n    const ss_ms = parts[2].split(',');   \n\n    // 1. Calculate total seconds portion (HH:MM:SS)\n    const h = parseInt(parts[0]);\n    const m = parseInt(parts[1]);\n    const s = parseInt(ss_ms[0]);\n    const baseSec = (h * 3600) + (m * 60) + s;\n    \n    // 2. Calculate ms portion (mmm)\n    const ms = parseInt(ss_ms[1]) || 0;\n\n    // Calculate frames separately and sum them up\n    const framesFromSeconds = baseSec * timebase;\n    \n    // Calculate fractional frame and round\n    const framesFromMs = Math.round((ms / 1000) * timebase);\n\n    // Note: The -13 correction is preserved from your original code.\n    return (framesFromSeconds + framesFromMs); \n}\n// Helper: UUID Generator\nfunction generateUUID() {\n  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n}\n\n// Get Input Data\nconst matches = items[0].json.matches || [];\nconst sequence_name = items[0].json.name + \"_sequence\";\n\n// 1. Process Files (Identify unique media files)\nconst fileMap = {}; \nlet fileCounter = 1;\n\nmatches.forEach(m => {\n  if (!fileMap[m.name]) {\n    fileMap[m.name] = {\n      id: `file-${fileCounter}`,\n      name: m.name,\n      uuid: generateUUID()\n    };\n    fileCounter++;\n  }\n});\n\n// 2. Process Clips\nlet timelineCursorFrame = 0;\nconst clipData = [];\nlet clipIdCounter = 1;\n\nfor (const match of matches) {\n  if (!match.words || match.words.length === 0) continue; \n\n  const fileInfo = fileMap[match.name];\n  \n  // --- PRECISION CUTTING (Word Level) ---\n  const firstWord = match.words[0];\n  const lastWord = match.words[match.words.length - 1];\n\n  // Frame Calculation using User's Two-Step Integer Logic\n  let startFrame = timeToFrameInteger(firstWord.start, TIMEBASE) -START_FRAME_BUFFER;\n  if (startFrame<0) startFrame =0;\n  const endFrame = timeToFrameInteger(lastWord.end, TIMEBASE)+ END_FRAME_BUFFER;\n  const durationFrames = endFrame - startFrame;\n  \n  // *** NEW: PPRO Ticks Derived from the Calculated Integer Frames ***\n  // This ensures perfect frame/tick alignment, resolving the float issue.\n  const pproTicksIn = Math.round(startFrame * FRAME_TO_TICKS_RATIO);\n  const pproTicksOut = Math.round(endFrame * FRAME_TO_TICKS_RATIO);\n\n  // Generate unique IDs for the clip elements\n  const vidClipId = `clipitem-${clipIdCounter++}`;\n  const audClipId1 = `clipitem-${clipIdCounter++}`;\n  const audClipId2 = `clipitem-${clipIdCounter++}`;\n\n  clipData.push({\n    fileId: fileInfo.id,\n    filename: fileInfo.name,\n    vidId: vidClipId,\n    audId1: audClipId1,\n    audId2: audClipId2,\n    \n    // Source Media In/Out\n    inFrame: startFrame,\n    outFrame: endFrame,\n    pproTicksIn: pproTicksIn,\n    pproTicksOut: pproTicksOut,\n    \n    // Sequence Timeline Placement (Continuous)\n    tlStart: timelineCursorFrame,\n    tlEnd: timelineCursorFrame + durationFrames,\n    duration: durationFrames\n  });\n\n  // Increment Timeline Cursor\n  timelineCursorFrame += durationFrames;\n}\n\n// 3. Construct XML String\nconst sequenceDuration = timelineCursorFrame;\n\nlet xml = `<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xmeml version=\"4\">\n<sequence id=\"sequence-1\">\n    <uuid>${generateUUID()}</uuid>\n    <duration>${sequenceDuration}</duration>\n    <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n    <name>${sequence_name}</name>\n    <media>\n`;\n\n// --- VIDEO SECTION ---\nxml += `<video>\n        <format>\n            <samplecharacteristics>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <width>${WIDTH}</width>\n                <height>${HEIGHT}</height>\n                <pixelaspectratio>square</pixelaspectratio>\n            </samplecharacteristics>\n        </format>\n        <track>\n`;\n\n// Generate Video Clips\nclipData.forEach(clip => {\n    const pathUrl = clip.filename; \n\n    xml += `\n            <clipitem id=\"${clip.vidId}\">\n                <masterclipid>${clip.fileId}-master</masterclipid>\n                <name>${clip.filename}</name>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <start>${clip.tlStart}</start>\n                <end>${clip.tlEnd}</end>\n                <in>${clip.inFrame}</in>\n                <out>${clip.outFrame}</out>\n                <pproTicksIn>${clip.pproTicksIn}</pproTicksIn>\n                <pproTicksOut>${clip.pproTicksOut}</pproTicksOut>\n                <file id=\"${clip.fileId}\">\n                    <name>${clip.filename}</name>\n                    <pathurl>${pathUrl}</pathurl>\n                    <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                    <media>\n                        <video><samplecharacteristics><width>${WIDTH}</width><height>${HEIGHT}</height></samplecharacteristics></video>\n                        <audio><samplecharacteristics><depth>16</depth><samplerate>${AUDIO_RATE}</samplerate></samplecharacteristics><channelcount>2</channelcount></audio>\n                    </media>\n                </file>\n                <link><linkclipref>${clip.vidId}</linkclipref><mediatype>video</mediatype><trackindex>1</trackindex><clipindex>1</clipindex></link>\n                <link><linkclipref>${clip.audId1}</linkclipref><mediatype>audio</mediatype><trackindex>1</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n                <link><linkclipref>${clip.audId2}</linkclipref><mediatype>audio</mediatype><trackindex>2</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n            </clipitem>`;\n});\n\nxml += `    </track>\n        </video>\n`;\n\n// --- AUDIO SECTION ---\nxml += `<audio>\n        <numOutputChannels>2</numOutputChannels>\n        <format><samplecharacteristics><depth>16</depth><samplerate>${AUDIO_RATE}</samplerate></samplecharacteristics></format>\n`;\n\n// Audio Track 1\nxml += `<track currentExplodedTrackIndex=\"0\" totalExplodedTrackCount=\"2\" premiereTrackType=\"Stereo\">`;\nclipData.forEach(clip => {\n  xml += `\n            <clipitem id=\"${clip.audId1}\" premiereChannelType=\"stereo\">\n                <masterclipid>${clip.fileId}-master</masterclipid>\n                <name>${clip.filename}</name>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <start>${clip.tlStart}</start>\n                <end>${clip.tlEnd}</end>\n                <in>${clip.inFrame}</in>\n                <out>${clip.outFrame}</out>\n                <pproTicksIn>${clip.pproTicksIn}</pproTicksIn>\n                <pproTicksOut>${clip.pproTicksOut}</pproTicksOut>\n                <file id=\"${clip.fileId}\" />\n                <sourcetrack><mediatype>audio</mediatype><trackindex>1</trackindex></sourcetrack>\n                <link><linkclipref>${clip.vidId}</linkclipref><mediatype>video</mediatype><trackindex>1</trackindex><clipindex>1</clipindex></link>\n                <link><linkclipref>${clip.audId1}</linkclipref><mediatype>audio</mediatype><trackindex>1</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n                <link><linkclipref>${clip.audId2}</linkclipref><mediatype>audio</mediatype><trackindex>2</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n            </clipitem>`;\n});\nxml += `</track>`;\n\n// Audio Track 2\nxml += `<track currentExplodedTrackIndex=\"1\" totalExplodedTrackCount=\"2\" premiereTrackType=\"Stereo\">`;\nclipData.forEach(clip => {\n  xml += `\n            <clipitem id=\"${clip.audId2}\" premiereChannelType=\"stereo\">\n                <masterclipid>${clip.fileId}-master</masterclipid>\n                <name>${clip.filename}</name>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <start>${clip.tlStart}</start>\n                <end>${clip.tlEnd}</end>\n                <in>${clip.inFrame}</in>\n                <out>${clip.outFrame}</out>\n                <pproTicksIn>${clip.pproTicksIn}</pproTicksIn>\n                <pproTicksOut>${clip.pproTicksOut}</pproTicksOut>\n                <file id=\"${clip.fileId}\" />\n                <sourcetrack><mediatype>audio</mediatype><trackindex>2</trackindex></sourcetrack>\n                <link><linkclipref>${clip.vidId}</linkclipref><mediatype>video</mediatype><trackindex>1</trackindex><clipindex>1</clipindex></link>\n                <link><linkclipref>${clip.audId1}</linkclipref><mediatype>audio</mediatype><trackindex>1</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n                <link><linkclipref>${clip.audId2}</linkclipref><mediatype>audio</mediatype><trackindex>2</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n            </clipitem>`;\n});\nxml += `</track>`;\n\nxml += `</audio></media></sequence></xmeml>`;\n\nreturn [{ json: { xml_content: xml, fileName: sequence_name+\".xml\" } }];"
+      },
+      "position": [
+        4928,
+        -352
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "ad33ef09-6127-4f25-851d-e453942796c7",
+      "name": "Merge for folder name",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        4672,
+        32
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "6ca26b27-904f-4212-8d6c-f0846819c605",
+      "name": "Get all file details in folder",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "whatToSearch": "files"
+        },
+        "options": {},
+        "resource": "fileFolder"
+      },
+      "position": [
+        1792,
+        -288
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "e8c59050-6fbf-4b7a-a4a0-ab6037ce4af4",
+      "name": "Step 2 Match with script",
+      "parameters": {
+        "binaryPropertyName": "={{ Object.keys($binary).join(',') }}",
+        "inputType": "binary",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "operation": "analyze",
+        "options": {},
+        "resource": "video",
+        "text": "# ROLE\nYou are a High-End Video Creative Director. Your goal is to select the most \"High-Confidence\" takes from raw footage to match a provided Script.\n\n# INPUT\n1. SCRIPT: Target sentences (may be paraphrased or in a different language).\n2. TRANSCRIPTS: JSON containing `id`, `name`, and `transcript[]` (words + timestamps).\n\n# TASK RULES\nVery important: Ignore any instruction said for the editor and not part of the script semantically.\n\n### 1. SEMANTIC MATCHING & FLUENCY\n- Match lines based on MEANING and INTENT. If the speaker uses different words but conveys the exact script idea, evaluate it.\n- CRITICAL: Prioritize \"Confident Takes.\" A confident take has:\n    - NO stutters or repeated words (e.g., \"I I think\" is low confidence).\n    - Natural pacing (look at word timestamps; avoid takes with 3-second gaps between words).\n    - NO filler words (umm, uhh, like).\n\n### 2. TONE & EXPRESSION INFERENCE\n- Analyze the context of the spoken words. \n- Avoid \"instructional\" takes where the speaker sounds like they are practicing.\n- If a speaker says the same line 3 times, do NOT just pick the last one. Pick the one with the most \"fluent\" word flow (consistent timestamp intervals).\n- If a take is followed by \"That felt good\" or \"Got it,\" give that take a high priority.\n\n### 3. THE \"SMOOTH CUT\" RULE (Word-Level Grouping)\n- To ensure the final video looks natural, you must select a CONTIGUOUS block of words.\n- Identify the best start-word and end-word for the semantic match.\n- Include EVERY word in between to maintain natural vocal inflection and \"breath.\"\n- Do not create \"frankentakes\" by stitching individual words together.\n\n### 4. OUTPUT REQUIREMENTS\n- Output ONLY valid JSON. \n- Ensure `start` and `end` reflect the exact word-level timestamps.\n\n# OUTPUT STRUCTURE\n{\n\n  \"matches\": [\n\n    {\n\n      \"script_sentence\": \"<sentence from script>\",\n\n      \"id\": \"<video_id>\",\n\n       \"name\":<video_name>,\n\n      \"sentence\": \"<exact matched spoken line in transcript>\",\n\n      \"start\": <hh:mm:ss,mmm> ,\n\n      \"end\": <hh:mm:ss,mmm>,\n\n{\"words\":[\n\n\n\ntext:यह\n\nstart:00:00:00,757\n\nend:00:00:00,977\n\n,\n\ntext:वीडियो\n\nstart:00:00:01,237\n\nend:00:00:01,667\n\n,\n\ntext:नंबर\n\nstart:00:00:01,927\n\nend:00:00:02,177\n\n    }\n\n  ]\n\n}\n  ]\n}\n\n# DATA\nSCRIPT: \"{{ $('Code in JavaScript1').item.json.script }}\"\n\nhere is the input transcript json : {{ $json.combined.toJsonString() }}"
+      },
+      "position": [
+        4304,
+        -528
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1
+    },
+    {
+      "id": "ce807518-2989-4217-9912-fe20e80db92f",
+      "name": "Parse matched sequence to json",
+      "parameters": {
+        "jsCode": "const rawText = $json.content.parts[0].text\n// 1. Clean the string: Remove leading/trailing markdown fences and parse the JSON.\n// Removes '```json\\n' from the start and '```' from the end, then strips whitespace.\nconst jsonString = rawText.replace(/^```json\\s*/, '').replace(/\\s*```$/, '').trim();\n\nlet parsedData;\ntry {\n  parsedData = JSON.parse(jsonString);\n} catch (e) {\n  // Return an error item if JSON parsing fails\n  return {'error':e};\n}\n\n//const videoId = parsedData.video_id;\n//const transcriptArray = parsedData.transcript || [];\n\n// 2. Prepare the output items.\n// We will create one item for every segment in the transcript.\nconst outputItems = parsedData;\n\n// Since the video_id is part of the string itself, \n// we ensure the number of output items exactly matches the number of transcript segments.\nreturn outputItems;",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        4480,
+        -352
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "3bb4ccd1-6684-43bd-8ac6-83afc8b41467",
+      "name": "Connect combined data with script",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        3968,
+        -432
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "5916f3ba-19bd-4602-968a-622cc95f91a9",
+      "name": "Merge to get binary data back",
+      "parameters": {
+        "fieldsToMatchString": "id",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        -224,
+        464
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "af04282b-61b8-4467-8d1e-fb746a642ee1",
+      "name": "Combine all transcripts with all binary data",
+      "parameters": {
+        "jsCode": "\nconst combinedJson = [];\nconst binary = {};\nlet idx = 0;\n\nfor (const item of items) {\n\n  // merge json\n  combinedJson.push(item.json);\n\n  // merge binary\n  if (item.binary?.file_data?.data) {\n    binary[`file_${idx}`] = {\n      ...item.binary.file_data,\n      fileName: item.binary.file_data.fileName || `file_${idx}`,\n    };\n    idx++;\n  }\n}\n\nreturn [\n  {\n    json: { combined: combinedJson },\n    binary\n  }\n];\n"
+      },
+      "position": [
+        3808,
+        -288
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "68ed7eaa-2310-42a3-b926-3598198cd91a",
+      "name": "Step 1 Transcribe Video",
+      "parameters": {
+        "binaryPropertyName": "file_data",
+        "inputType": "binary",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "operation": "analyze",
+        "options": {},
+        "resource": "video",
+        "text": "=You are a precise transcription model, which create transcription in format as hh:mm:ss,mmm.\n\nThe video you are seeing is named: {{ $json.name }} and its id is: {{ $json.id }}\n\nTASK:\nTranscribe EXACT spoken words.\nInclude sentence-level timestamps.\nthen as nested Json Include word-level timestamps.\nSentence level timestamps must match with internal word level timestamps in start and end.\nstart and end should be in format <hh:mm:ss,mmm>\nDO NOT clean filler words — keep everything.\nDO NOT include silence or awkward expressions in the json, ignore silences and awkward expressions\n\nReturn ONLY the JSON below.\nJSON OUTPUT FORMAT:\n{\n  \"name\": \"{{ $json.name }}\",\n\"id\": \"{{ $json.id }}\",\n  \"transcript\": [\n  {\n  \"sentence\":\"<one complete sentence>\",\n  \"start\": <hh:mm:ss,mmm> (make sure to keep this format of time stamp),\n  \"end\": <hh:mm:ss,mmm>,\n  \"words\":\n    {\n      \"text\": \"<word>\",\n      \"start\": <hh:mm:ss,mmm>,\n      \"end\": <hh:mm:ss,mmm>\n    }\n  }]\n} "
+      },
+      "position": [
+        -672,
+        464
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1
+    },
+    {
+      "id": "5e11b49e-a434-432d-be32-73ca64a9cf8a",
+      "name": "Parse Transcribe output",
+      "parameters": {
+        "jsCode": "const rawText = $json.content.parts[0].text\n// 1. Clean the string: Remove leading/trailing markdown fences and parse the JSON.\n// Removes '```json\\n' from the start and '```' from the end, then strips whitespace.\nconst jsonString = rawText.replace(/^```json\\s*/, '').replace(/\\s*```$/, '').trim();\n\nlet parsedData;\ntry {\n  parsedData = JSON.parse(jsonString);\n} catch (e) {\n  // Return an error item if JSON parsing fails\n  return {'error':e};\n}\n\n//const videoId = parsedData.video_id;\n//const transcriptArray = parsedData.transcript || [];\n\n// 2. Prepare the output items.\n// We will create one item for every segment in the transcript.\nconst outputItems = parsedData;\n\n// Since the video_id is part of the string itself, \n// we ensure the number of output items exactly matches the number of transcript segments.\nreturn outputItems;",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        -448,
+        464
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "executeOnce": true,
+      "id": "b74a90cb-b084-4161-84e4-9695990d2cca",
+      "name": "Upload file",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Create folder').item.json.id }}"
+        },
+        "inputDataFieldName": "={{ $('Create XML binary').item.binary.data}}",
+        "options": {}
+      },
+      "position": [
+        5600,
+        -240
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "67769a5e-e91f-4149-9600-dc769089a483",
+      "name": "Code in JavaScript1",
+      "parameters": {
+        "jsCode": "const outputItems = [];\n\nfor (const item of $input.all()) {\n  // Assuming the input fields are named 'name' and 'text_content'\n  const rawName =  item.json.name || '';\n  const rawContent = item.json.text_content || ''; \n\n  // --- 1. Clean the Text Content (script) ---\n\n  let cleanedScript = rawContent;\n\n  // 1a. Remove URLs (common patterns for HTTP/HTTPS/drive links)\n  // This Regex targets common URL structures (e.g., https://...)\n  const urlRegex = /(https?:\\/\\/[^\\s]+|www\\.[^\\s]+)/g;\n  cleanedScript = cleanedScript.replace(urlRegex, '').trim();\n\n  // 1b. Remove emoticons/emojis (Unicode ranges for common emojis)\n  // This Regex targets various common emoji ranges and symbols.\n  // Note: This is an extensive list and might not catch 100% of all rare Unicode symbols.\n  const emojiRegex = /(\\u00a9|\\u00ae|[\\u2000-\\u3300]|\\ud83c[\\ud000-\\udfff]|\\ud83d[\\ud000-\\udfff]|\\ud83e[\\ud000-\\udfff])/g;\n  cleanedScript = cleanedScript.replace(emojiRegex, '').trim();\n\n  // 1c. Remove all text contained within brackets () or []\n  // This Regex targets anything between ( ) or [ ] globally (non-greedy match).\n  const bracketRegex = /[\\(\\[].*?[\\)\\]]/g;\n  cleanedScript = cleanedScript.replace(bracketRegex, '').trim();\n  \n  // 1d. Final cleanup: Remove unwanted characters (like leftover '\\n' or consecutive spaces)\n  cleanedScript = cleanedScript.replace(/[\\n\\t\\r]+/g, ' '); // Replace newlines/tabs with space\n  cleanedScript = cleanedScript.replace(/\\s{2,}/g, ' ').trim(); // Collapse multiple spaces\n  \n  // --- 2. Clean the Name Field ---\n\n  // For the name, just remove leading identifiers (e.g., \"250501 \") and extra spaces.\n  let cleanedName = rawName.replace(/^\\s*\\d+\\s*/, '').trim(); \n  \n  // --- 3. Create Output Fields ---\n\n  outputItems.push({\n    json: {\n      // Requested field 1: Cleaned text content\n      script: cleanedScript, \n      // Requested field 2: Cleaned name\n      name: cleanedName \n    }\n  });\n}\n\nreturn outputItems;"
+      },
+      "position": [
+        1344,
+        -288
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "openAiApi": {
+          "id": "HtC3pXdXhNPajOpZ",
+          "name": "OpenAi account"
+        }
+      },
+      "id": "6a794ba7-8a4e-46c8-8a61-2302f3d3c24e",
+      "name": "Transcribe Audio",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "inputDataFieldName": "file_data",
+              "name": "file",
+              "parameterType": "formBinaryData"
+            },
+            {
+              "name": "model",
+              "value": "whisper-1"
+            },
+            {
+              "name": "response_format",
+              "value": "verbose_json"
+            },
+            {
+              "name": "language",
+              "value": "en"
+            },
+            {
+              "name": "timestamp_granularities[]",
+              "value": "segment"
+            },
+            {
+              "name": "timestamp_granularities[]",
+              "value": "word"
+            }
+          ]
+        },
+        "contentType": "multipart-form-data",
+        "method": "POST",
+        "nodeCredentialType": "openAiApi",
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          }
+        },
+        "sendBody": true,
+        "url": "https://api.openai.com/v1/audio/transcriptions"
+      },
+      "position": [
+        2512,
+        320
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3
+    },
+    {
+      "id": "cf38130b-a0a5-4010-9aa3-05d23503a98a",
+      "name": "Merge to get binary data back1",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        3440,
+        -176
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "d2e4910e-a5a9-419a-a616-493ded29a852",
+      "name": "Write Data to Disk",
+      "parameters": {
+        "dataPropertyName": "file_data",
+        "fileName": "=/tmp/{{ $binary.file_data.fileName }}",
+        "operation": "write",
+        "options": {}
+      },
+      "position": [
+        2032,
+        352
+      ],
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1
+    },
+    {
+      "id": "9c829e99-0f6d-47a5-9298-8cbbbb9d2d20",
+      "name": "video to mp3",
+      "parameters": {
+        "command": "=/home/node/.n8n/ffmpeg_bin -y -i \"/tmp/{{$('Write Data to Disk').item.binary.file_data.fileName}}\" -vn -ac 1 -ar 44100 -b:a 128k \"/tmp/{{ $('Write Data to Disk').item.binary.file_data.fileName.split('.')[0] }}.mp3\"",
+        "executeOnce": false
+      },
+      "position": [
+        2176,
+        336
+      ],
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1
+    },
+    {
+      "id": "dbdb9a4c-720c-4661-ada4-e76e4a401601",
+      "name": "Read Data from Disk",
+      "parameters": {
+        "fileSelector": "=/tmp/{{ $('Write Data to Disk').item.binary.file_data.fileName.split('.')[0] }}.mp3",
+        "options": {
+          "dataPropertyName": "file_data"
+        }
+      },
+      "position": [
+        2336,
+        336
+      ],
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1
+    },
+    {
+      "id": "18544fbe-2de1-42f5-8ea9-09c1f73ef1a4",
+      "name": "cleanup local files",
+      "parameters": {
+        "command": "=rm /tmp/{{ $('Write Data to Disk').item.binary.file_data.fileName.split('.')[0] }}.*"
+      },
+      "position": [
+        -672,
+        736
+      ],
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1
+    },
+    {
+      "id": "38ccce57-e7dd-4ca5-bf47-7944de916bb5",
+      "name": "Merge to get id and name back",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        2800,
+        224
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "313c5bf9-a605-4e78-b1c9-6a8eca31ae0c",
+      "name": "Create Json with id name and transcript",
+      "parameters": {
+        "jsCode": "// Helper function to convert seconds (float) to HH:MM:SS,mmm\nfunction formatTime(totalSeconds) {\n    if (totalSeconds === undefined || totalSeconds === null) return \"00:00:00,000\";\n    \n    const hours = Math.floor(totalSeconds / 3600);\n    const minutes = Math.floor((totalSeconds % 3600) / 60);\n    const seconds = Math.floor(totalSeconds % 60);\n    const milliseconds = Math.floor((totalSeconds % 1) * 1000);\n\n    const h = hours.toString().padStart(2, '0');\n    const m = minutes.toString().padStart(2, '0');\n    const s = seconds.toString().padStart(2, '0');\n    const ms = milliseconds.toString().padStart(3, '0');\n\n    // Returns format HH:MM:SS,mmm\n    return `${h}:${m}:${s},${ms}`;\n}\n\nconst results = [];\n\n// Loop through all incoming items\nfor (const item of $input.all()) {\n    const data = item.json;\n    \n    // 1. Initialize the new structure with retained ID and Name\n    const output = {\n        id: data.id || \"\",\n        name: data.name || \"\",\n        transcript: []\n    };\n\n    const segments = data.segments || [];\n    const allWords = data.words || [];\n\n    // 2. Process each segment and add to the transcript list\n    for (const segment of segments) {\n        const sentenceObj = {\n            sentence: segment.text.trim(),\n            start: formatTime(segment.start),\n            end: formatTime(segment.end),\n            words: []\n        };\n\n        // Find words belonging to this segment\n        let segmentWords = [];\n        if (segment.words && segment.words.length > 0) {\n            segmentWords = segment.words;\n        } else {\n            // Fallback: filter words by time if they aren't nested\n            segmentWords = allWords.filter(w => \n                w.start >= segment.start - 0.05 && w.end <= segment.end + 0.05\n            );\n        }\n\n        // Map words to the desired format\n        sentenceObj.words = segmentWords.map(w => ({\n            text: w.word.trim(),\n            start: formatTime(w.start),\n            end: formatTime(w.end)\n        }));\n\n        output.transcript.push(sentenceObj);\n    }\n\n    results.push({ json: output });\n}\n\nreturn results;"
+      },
+      "position": [
+        3040,
+        32
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "3aaed3a6-02d2-452c-85dd-c643281cfc6d",
+      "name": "ffmpeg install",
+      "parameters": {
+        "command": "cd /home/node/.n8n && wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz && tar xvf ffmpeg-release-amd64-static.tar.xz && mv ffmpeg-*-amd64-static/ffmpeg ./ffmpeg_bin && rm -rf ffmpeg-*-amd64-static*"
+      },
+      "position": [
+        -672,
+        240
+      ],
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "00f35378-0bed-400f-806e-f11e86e5695a",
+      "name": "Create folder",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Search Folder in Drive').item.json.id }}"
+        },
+        "name": "input_XML",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        5424,
+        -432
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "b6ee27d8-5f57-49fe-b5fa-d52a53b353fe",
+      "name": "Execute Command",
+      "parameters": {
+        "command": "=\n{{ \n  $nodes[\"Merge for folder name\"].json.matches.map(m => \n    `rm -f /tmp/${m.name.split('.')[0]}.*`\n  ).join(' && ') \n}}"
+      },
+      "position": [
+        6016,
+        -288
+      ],
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "deeb2808-01c1-487d-b658-b3d15655f0db",
+      "name": "Download file",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "operation": "download",
+        "options": {
+          "binaryPropertyName": "file_data"
+        }
+      },
+      "position": [
+        2032,
+        -48
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    }
+  ],
+  "pinData": {
+    "Get SpaceID from clickup": [
+      {
+        "json": {
+          "spaces": [
+            {
+              "admin_can_manage": null,
+              "archived": false,
+              "avatar": null,
+              "color": null,
+              "features": {
+                "check_unresolved": {
+                  "checklists": null,
+                  "comments": null,
+                  "enabled": true,
+                  "subtasks": true
+                },
+                "custom_fields": {
+                  "enabled": true
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "dependency_type_enabled": false,
+                "due_dates": {
+                  "enabled": true,
+                  "remap_closed_due_date": false,
+                  "remap_due_dates": false,
+                  "start_date": true
+                },
+                "milestones": {
+                  "enabled": true
+                },
+                "multiple_assignees": {
+                  "enabled": true
+                },
+                "points": {
+                  "enabled": false
+                },
+                "priorities": {
+                  "enabled": true,
+                  "priorities": [
+                    {
+                      "color": "#f50000",
+                      "id": "1",
+                      "orderindex": "1",
+                      "priority": "urgent"
+                    },
+                    {
+                      "color": "#f8ae00",
+                      "id": "2",
+                      "orderindex": "2",
+                      "priority": "high"
+                    },
+                    {
+                      "color": "#6fddff",
+                      "id": "3",
+                      "orderindex": "3",
+                      "priority": "normal"
+                    },
+                    {
+                      "color": "#d8d8d8",
+                      "id": "4",
+                      "orderindex": "4",
+                      "priority": "low"
+                    }
+                  ]
+                },
+                "reschedule_closed_dependencies": true,
+                "scheduler_enabled": false,
+                "sprints": {
+                  "enabled": true
+                },
+                "status_pies": {
+                  "enabled": false
+                },
+                "tags": {
+                  "enabled": true
+                },
+                "time_tracking": {
+                  "default_to_billable": 2,
+                  "enabled": true,
+                  "harvest": false,
+                  "rollup": false
+                }
+              },
+              "id": "67203119",
+              "multiple_assignees": true,
+              "name": "Short Videos",
+              "private": false,
+              "statuses": [
+                {
+                  "color": "#87909e",
+                  "id": "p67203119_Lx97SW7r",
+                  "orderindex": 0,
+                  "status": "to do",
+                  "type": "open"
+                },
+                {
+                  "color": "#008844",
+                  "id": "p67203119_Uc3wbZmA",
+                  "orderindex": 1,
+                  "status": "complete",
+                  "type": "closed"
+                }
+              ]
+            },
+            {
+              "admin_can_manage": false,
+              "archived": false,
+              "avatar": null,
+              "color": null,
+              "features": {
+                "check_unresolved": {
+                  "checklists": null,
+                  "comments": null,
+                  "enabled": true,
+                  "subtasks": null
+                },
+                "custom_fields": {
+                  "enabled": true
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "dependency_type_enabled": false,
+                "dependency_warning": {
+                  "enabled": true
+                },
+                "due_dates": {
+                  "enabled": true,
+                  "remap_closed_due_date": false,
+                  "remap_due_dates": false,
+                  "start_date": true
+                },
+                "milestones": {
+                  "enabled": false
+                },
+                "multiple_assignees": {
+                  "enabled": true
+                },
+                "points": {
+                  "enabled": false
+                },
+                "priorities": {
+                  "enabled": true,
+                  "priorities": [
+                    {
+                      "color": "#f50000",
+                      "id": "1",
+                      "orderindex": "1",
+                      "priority": "urgent"
+                    },
+                    {
+                      "color": "#f8ae00",
+                      "id": "2",
+                      "orderindex": "2",
+                      "priority": "high"
+                    },
+                    {
+                      "color": "#6fddff",
+                      "id": "3",
+                      "orderindex": "3",
+                      "priority": "normal"
+                    },
+                    {
+                      "color": "#d8d8d8",
+                      "id": "4",
+                      "orderindex": "4",
+                      "priority": "low"
+                    }
+                  ]
+                },
+                "reschedule_closed_dependencies": true,
+                "scheduler_enabled": false,
+                "sprints": {
+                  "enabled": false
+                },
+                "status_pies": {
+                  "enabled": false
+                },
+                "tags": {
+                  "enabled": true
+                },
+                "time_tracking": {
+                  "default_to_billable": 2,
+                  "enabled": true,
+                  "harvest": false,
+                  "rollup": false
+                }
+              },
+              "id": "67203766",
+              "multiple_assignees": true,
+              "name": "Long Videos",
+              "private": false,
+              "statuses": [
+                {
+                  "color": "#87909e",
+                  "id": "p67203766_RwiapfKD",
+                  "orderindex": 0,
+                  "status": "to do",
+                  "type": "open"
+                },
+                {
+                  "color": "#008844",
+                  "id": "p67203766_uMK9fvrR",
+                  "orderindex": 1,
+                  "status": "complete",
+                  "type": "closed"
+                }
+              ]
+            },
+            {
+              "admin_can_manage": false,
+              "archived": false,
+              "avatar": null,
+              "color": null,
+              "features": {
+                "check_unresolved": {
+                  "checklists": null,
+                  "comments": null,
+                  "enabled": true,
+                  "subtasks": null
+                },
+                "custom_fields": {
+                  "enabled": true
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "dependency_type_enabled": false,
+                "dependency_warning": {
+                  "enabled": true
+                },
+                "due_dates": {
+                  "enabled": true,
+                  "remap_closed_due_date": false,
+                  "remap_due_dates": false,
+                  "start_date": true
+                },
+                "milestones": {
+                  "enabled": false
+                },
+                "multiple_assignees": {
+                  "enabled": true
+                },
+                "points": {
+                  "enabled": false
+                },
+                "priorities": {
+                  "enabled": true,
+                  "priorities": [
+                    {
+                      "color": "#f50000",
+                      "id": "1",
+                      "orderindex": "1",
+                      "priority": "urgent"
+                    },
+                    {
+                      "color": "#f8ae00",
+                      "id": "2",
+                      "orderindex": "2",
+                      "priority": "high"
+                    },
+                    {
+                      "color": "#6fddff",
+                      "id": "3",
+                      "orderindex": "3",
+                      "priority": "normal"
+                    },
+                    {
+                      "color": "#d8d8d8",
+                      "id": "4",
+                      "orderindex": "4",
+                      "priority": "low"
+                    }
+                  ]
+                },
+                "reschedule_closed_dependencies": true,
+                "scheduler_enabled": false,
+                "sprints": {
+                  "enabled": false
+                },
+                "status_pies": {
+                  "enabled": false
+                },
+                "tags": {
+                  "enabled": true
+                },
+                "time_tracking": {
+                  "default_to_billable": 2,
+                  "enabled": true,
+                  "harvest": false,
+                  "rollup": false
+                }
+              },
+              "id": "67203769",
+              "multiple_assignees": true,
+              "name": "Client Videos",
+              "private": false,
+              "statuses": [
+                {
+                  "color": "#87909e",
+                  "id": "p67203769_HDmtYcru",
+                  "orderindex": 0,
+                  "status": "to do",
+                  "type": "open"
+                },
+                {
+                  "color": "#ee5e99",
+                  "id": "p67203769_1Ki8PQYT",
+                  "orderindex": 1,
+                  "status": "discarded",
+                  "type": "custom"
+                },
+                {
+                  "color": "#1090e0",
+                  "id": "p67203769_r1333u1G",
+                  "orderindex": 2,
+                  "status": "research-creator/brand",
+                  "type": "custom"
+                },
+                {
+                  "color": "#656f7d",
+                  "id": "p67203769_e8LqCV3G",
+                  "orderindex": 3,
+                  "status": "scripting",
+                  "type": "custom"
+                },
+                {
+                  "color": "#f8ae00",
+                  "id": "p67203769_xlrWbi6x",
+                  "orderindex": 4,
+                  "status": "script - review",
+                  "type": "custom"
+                },
+                {
+                  "color": "#3db88b",
+                  "id": "p67203769_javiD2rk",
+                  "orderindex": 5,
+                  "status": "shoot",
+                  "type": "custom"
+                },
+                {
+                  "color": "#3db88b",
+                  "id": "p67203769_KQikfjjR",
+                  "orderindex": 6,
+                  "status": "shot edit setup",
+                  "type": "custom"
+                },
+                {
+                  "color": "#b660e0",
+                  "id": "p67203769_C5ykFXC1",
+                  "orderindex": 7,
+                  "status": "video task review-manager",
+                  "type": "custom"
+                },
+                {
+                  "color": "#f8ae00",
+                  "id": "p67203769_B3OFVNT0",
+                  "orderindex": 8,
+                  "status": "editing",
+                  "type": "custom"
+                },
+                {
+                  "color": "#f8ae00",
+                  "id": "p67203769_HdMkSRv7",
+                  "orderindex": 9,
+                  "status": "editing in progress",
+                  "type": "custom"
+                },
+                {
+                  "color": "#b660e0",
+                  "id": "p67203769_ImeS0xUN",
+                  "orderindex": 10,
+                  "status": "editing-changes",
+                  "type": "custom"
+                },
+                {
+                  "color": "#3db88b",
+                  "id": "p67203769_DKOpJDoG",
+                  "orderindex": 11,
+                  "status": "edit review-manager",
+                  "type": "custom"
+                },
+                {
+                  "color": "#4466ff",
+                  "id": "p67203769_VYreeaTp",
+                  "orderindex": 12,
+                  "status": "edit change-manager",
+                  "type": "custom"
+                },
+                {
+                  "color": "#008844",
+                  "id": "p67203769_eWxRo3Zb",
+                  "orderindex": 13,
+                  "status": "edit review-creator/brand",
+                  "type": "done"
+                },
+                {
+                  "color": "#008844",
+                  "id": "p67203769_dSX0gub5",
+                  "orderindex": 14,
+                  "status": "ready to schedule",
+                  "type": "done"
+                },
+                {
+                  "color": "#008844",
+                  "id": "p67203769_Ahe4s8Mn",
+                  "orderindex": 15,
+                  "status": "complete",
+                  "type": "closed"
+                }
+              ]
+            },
+            {
+              "admin_can_manage": false,
+              "archived": false,
+              "avatar": null,
+              "color": null,
+              "features": {
+                "check_unresolved": {
+                  "checklists": null,
+                  "comments": null,
+                  "enabled": true,
+                  "subtasks": null
+                },
+                "custom_fields": {
+                  "enabled": true
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "dependency_type_enabled": false,
+                "dependency_warning": {
+                  "enabled": true
+                },
+                "due_dates": {
+                  "enabled": true,
+                  "remap_closed_due_date": false,
+                  "remap_due_dates": false,
+                  "start_date": true
+                },
+                "milestones": {
+                  "enabled": false
+                },
+                "multiple_assignees": {
+                  "enabled": true
+                },
+                "points": {
+                  "enabled": false
+                },
+                "priorities": {
+                  "enabled": true,
+                  "priorities": [
+                    {
+                      "color": "#f50000",
+                      "id": "1",
+                      "orderindex": "1",
+                      "priority": "urgent"
+                    },
+                    {
+                      "color": "#f8ae00",
+                      "id": "2",
+                      "orderindex": "2",
+                      "priority": "high"
+                    },
+                    {
+                      "color": "#6fddff",
+                      "id": "3",
+                      "orderindex": "3",
+                      "priority": "normal"
+                    },
+                    {
+                      "color": "#d8d8d8",
+                      "id": "4",
+                      "orderindex": "4",
+                      "priority": "low"
+                    }
+                  ]
+                },
+                "reschedule_closed_dependencies": true,
+                "scheduler_enabled": false,
+                "sprints": {
+                  "enabled": false
+                },
+                "status_pies": {
+                  "enabled": false
+                },
+                "tags": {
+                  "enabled": true
+                },
+                "time_tracking": {
+                  "default_to_billable": 2,
+                  "enabled": true,
+                  "harvest": false,
+                  "rollup": false
+                }
+              },
+              "id": "90160467060",
+              "multiple_assignees": true,
+              "name": "Action Items",
+              "private": false,
+              "statuses": [
+                {
+                  "color": "#87909e",
+                  "id": "p90160467060_MoFQhhOb",
+                  "orderindex": 0,
+                  "status": "to do",
+                  "type": "open"
+                },
+                {
+                  "color": "#FF7FAB",
+                  "id": "p90160467060_V6TnIKF2",
+                  "orderindex": 1,
+                  "status": "in progress",
+                  "type": "custom"
+                },
+                {
+                  "color": "#008844",
+                  "id": "p90160467060_qu2wS9Tu",
+                  "orderindex": 2,
+                  "status": "complete",
+                  "type": "closed"
+                }
+              ]
+            },
+            {
+              "admin_can_manage": null,
+              "archived": false,
+              "avatar": null,
+              "color": null,
+              "features": {
+                "checklists": {
+                  "enabled": true
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "dependency_type_enabled": false,
+                "dependency_warning": {
+                  "enabled": true
+                },
+                "due_dates": {
+                  "enabled": true,
+                  "remap_closed_due_date": false,
+                  "remap_due_dates": true,
+                  "start_date": true
+                },
+                "emails": {
+                  "enabled": true
+                },
+                "milestones": {
+                  "enabled": false
+                },
+                "multiple_assignees": {
+                  "enabled": true
+                },
+                "points": {
+                  "enabled": false
+                },
+                "remap_dependencies": {
+                  "enabled": true
+                },
+                "reschedule_closed_dependencies": true,
+                "scheduler_enabled": false,
+                "sprints": {
+                  "enabled": false
+                },
+                "status_pies": {
+                  "enabled": true
+                },
+                "time_tracking": {
+                  "default_to_billable": 2
+                }
+              },
+              "id": "90161007190",
+              "multiple_assignees": true,
+              "name": "AI-videos",
+              "private": false,
+              "statuses": [
+                {
+                  "color": "#b5bcc2",
+                  "id": "p90161007190_Mk2jRLcE",
+                  "orderindex": 0,
+                  "status": "to do",
+                  "type": "open"
+                },
+                {
+                  "color": "#008844",
+                  "id": "p90161007190_XViCePeA",
+                  "orderindex": 1,
+                  "status": "complete",
+                  "type": "closed"
+                }
+              ]
+            }
+          ]
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Step 1 Transcribe Video": [
+      {
+        "json": {
+          "content": {
+            "parts": [
+              {
+                "text": "```json\n{\n  \"name\": \"IMG_4636.mp4\",\n  \"id\": \"1DYouoWitxLYrpoi67RWGwbSATeSGU9Fb\",\n  \"transcript\": [\n    {\n      \"sentence\": \"यह वीडियो नंबर टू है, समटाइम्स और लाइंस से कंटिन्यू कर रहा हूं।\",\n      \"start\": \"00:00:00,000\",\n      \"end\": \"00:00:04,580\",\n      \"words\": [\n        {\n          \"text\": \"यह\",\n          \"start\": \"00:00:00,000\",\n          \"end\": \"00:00:00,180\"\n        },\n        {\n          \"text\": \"वीडियो\",\n          \"start\": \"00:00:00,180\",\n          \"end\": \"00:00:00,670\"\n        },\n        {\n          \"text\": \"नंबर\",\n          \"start\": \"00:00:00,670\",\n          \"end\": \"00:00:01,060\"\n        },\n        {\n          \"text\": \"टू\",\n          \"start\": \"00:00:01,060\",\n          \"end\": \"00:00:01,360\"\n        },\n        {\n          \"text\": \"है,\",\n          \"start\": \"00:00:01,360\",\n          \"end\": \"00:00:01,700\"\n        },\n        {\n          \"text\": \"समटाइम्स\",\n          \"start\": \"00:00:02,320\",\n          \"end\": \"00:00:02,930\"\n        },\n        {\n          \"text\": \"और\",\n          \"start\": \"00:00:03,090\",\n          \"end\": \"00:00:03,240\"\n        },\n        {\n          \"text\": \"लाइंस\",\n          \"start\": \"00:00:03,240\",\n          \"end\": \"00:00:03,600\"\n        },\n        {\n          \"text\": \"से\",\n          \"start\": \"00:00:03,600\",\n          \"end\": \"00:00:03,760\"\n        },\n        {\n          \"text\": \"कंटिन्यू\",\n          \"start\": \"00:00:03,760\",\n          \"end\": \"00:00:04,220\"\n        },\n        {\n          \"text\": \"कर\",\n          \"start\": \"00:00:04,220\",\n          \"end\": \"00:00:04,380\"\n        },\n        {\n          \"text\": \"रहा\",\n          \"start\": \"00:00:04,380\",\n          \"end\": \"00:00:04,510\"\n        },\n        {\n          \"text\": \"हूं\",\n          \"start\": \"00:00:04,510\",\n          \"end\": \"00:00:04,580\"\n        }\n      ]\n    },\n    {\n      \"sentence\": \"ठीक है स्क्रिप्ट में देख लेना बेस्ट तरीके से कैसे करना है।\",\n      \"start\": \"00:00:04,870\",\n      \"end\": \"00:00:07,350\",\n      \"words\": [\n        {\n          \"text\": \"ठीक\",\n          \"start\": \"00:00:04,870\",\n          \"end\": \"00:00:05,170\"\n        },\n        {\n          \"text\": \"है\",\n          \"start\": \"00:00:05,170\",\n          \"end\": \"00:00:05,250\"\n        },\n        {\n          \"text\": \"स्क्रिप्ट\",\n          \"start\": \"00:00:05,420\",\n          \"end\": \"00:00:05,820\"\n        },\n        {\n          \"text\": \"में\",\n          \"start\": \"00:00:05,820\",\n          \"end\": \"00:00:05,940\"\n        },\n        {\n          \"text\": \"देख\",\n          \"start\": \"00:00:05,940\",\n          \"end\": \"00:00:06,170\"\n        },\n        {\n          \"text\": \"लेना\",\n          \"start\": \"00:00:06,170\",\n          \"end\": \"00:00:06,370\"\n        },\n        {\n          \"text\": \"बेस्ट\",\n          \"start\": \"00:00:06,370\",\n          \"end\": \"00:00:06,600\"\n        },\n        {\n          \"text\": \"तरीके\",\n          \"start\": \"00:00:06,600\",\n          \"end\": \"00:00:06,800\"\n        },\n        {\n          \"text\": \"से\",\n          \"start\": \"00:00:06,800\",\n          \"end\": \"00:00:06,940\"\n        },\n        {\n          \"text\": \"कैसे\",\n          \"start\": \"00:00:06,940\",\n          \"end\": \"00:00:07,170\"\n        },\n        {\n          \"text\": \"करना\",\n          \"start\": \"00:00:07,170\",\n          \"end\": \"00:00:07,300\"\n        },\n        {\n          \"text\": \"है\",\n          \"start\": \"00:00:07,300\",\n          \"end\": \"00:00:07,350\"\n        }\n      ]\n    },\n    {\n      \"sentence\": \"Sometimes I might go here and there.\",\n      \"start\": \"00:00:08,270\",\n      \"end\": \"00:00:10,240\",\n      \"words\": [\n        {\n          \"text\": \"Sometimes\",\n          \"start\": \"00:00:08,270\",\n          \"end\": \"00:00:08,860\"\n        },\n        {\n          \"text\": \"I\",\n          \"start\": \"00:00:09,100\",\n          \"end\": \"00:00:09,180\"\n        },\n        {\n          \"text\": \"might\",\n          \"start\": \"00:00:09,180\",\n          \"end\": \"00:00:09,490\"\n        },\n        {\n          \"text\": \"go\",\n          \"start\": \"00:00:09,490\",\n          \"end\": \"00:00:09,720\"\n        },\n        {\n          \"text\": \"here\",\n          \"start\": \"00:00:09,720\",\n          \"end\": \"00:00:10,030\"\n        },\n        {\n          \"text\": \"and\",\n          \"start\": \"00:00:10,030\",\n          \"end\": \"00:00:10,130\"\n        },\n        {\n          \"text\": \"there.\",\n          \"start\": \"00:00:10,130\",\n          \"end\": \"00:00:10,240\"\n        }\n      ]\n    },\n    {\n      \"sentence\": \"Sometimes I speak clearly.\",\n      \"start\": \"00:00:10,480\",\n      \"end\": \"00:00:12,140\",\n      \"words\": [\n        {\n          \"text\": \"Sometimes\",\n          \"start\": \"00:00:10,480\",\n          \"end\": \"00:00:11,100\"\n        },\n        {\n          \"text\": \"I\",\n          \"start\": \"00:00:11,100\",\n          \"end\": \"00:00:11,190\"\n        },\n        {\n          \"text\": \"speak\",\n          \"start\": \"00:00:11,460\",\n          \"end\": \"00:00:11,810\"\n        },\n        {\n          \"text\": \"clearly.\",\n          \"start\": \"00:00:11,810\",\n          \"end\": \"00:00:12,140\"\n        }\n      ]\n    },\n    {\n      \"sentence\": \"I would test if the system is picking the parts correctly or not.\",\n      \"start\": \"00:00:12,610\",\n      \"end\": \"00:00:16,290\",\n      \"words\": [\n        {\n          \"text\": \"I\",\n          \"start\": \"00:00:12,610\",\n          \"end\": \"00:00:12,700\"\n        },\n        {\n          \"text\": \"would\",\n          \"start\": \"00:00:12,700\",\n          \"end\": \"00:00:12,940\"\n        },\n        {\n          \"text\": \"test\",\n          \"start\": \"00:00:12,940\",\n          \"end\": \"00:00:13,380\"\n        },\n        {\n          \"text\": \"if\",\n          \"start\": \"00:00:13,380\",\n          \"end\": \"00:00:13,560\"\n        },\n        {\n          \"text\": \"the\",\n          \"start\": \"00:00:13,560\",\n          \"end\": \"00:00:13,670\"\n        },\n        {\n          \"text\": \"system\",\n          \"start\": \"00:00:13,670\",\n          \"end\": \"00:00:14,270\"\n        },\n        {\n          \"text\": \"is\",\n          \"start\": \"00:00:14,270\",\n          \"end\": \"00:00:14,400\"\n        },\n        {\n          \"text\": \"picking\",\n          \"start\": \"00:00:14,400\",\n          \"end\": \"00:00:14,840\"\n        },\n        {\n          \"text\": \"the\",\n          \"start\": \"00:00:14,840\",\n          \"end\": \"00:00:14,940\"\n        },\n        {\n          \"text\": \"parts\",\n          \"start\": \"00:00:14,940\",\n          \"end\": \"00:00:15,360\"\n        },\n        {\n          \"text\": \"correctly\",\n          \"start\": \"00:00:15,360\",\n          \"end\": \"00:00:15,990\"\n        },\n        {\n          \"text\": \"or\",\n          \"start\": \"00:00:15,990\",\n          \"end\": \"00:00:16,160\"\n        },\n        {\n          \"text\": \"not.\",\n          \"start\": \"00:00:16,160\",\n          \"end\": \"00:00:16,290\"\n        }\n      ]\n    }\n  ]\n}\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "content": {
+            "parts": [
+              {
+                "text": "```json\n{\n  \"name\": \"IMG_4635.mp4\",\n  \"id\": \"1UedPKls0rLKosyH0ANKyY5w_92Vl7LWw\",\n  \"transcript\": [\n    {\n      \"sentence\": \"So ye jo mai video bol raha hu ye editor ke liye bata raha hu ke bas best part isme se rakhna, okay.\",\n      \"start\": \"00:00:03,638\",\n      \"end\": \"00:00:12,190\",\n      \"words\": [\n        {\n          \"text\": \"So\",\n          \"start\": \"00:00:03,638\",\n          \"end\": \"00:00:03,918\"\n        },\n        {\n          \"text\": \"ye\",\n          \"start\": \"00:00:04,138\",\n          \"end\": \"00:00:04,338\"\n        },\n        {\n          \"text\": \"jo\",\n          \"start\": \"00:00:04,508\",\n          \"end\": \"00:00:04,658\"\n        },\n        {\n          \"text\": \"mai\",\n          \"start\": \"00:00:04,788\",\n          \"end\": \"00:00:05,038\"\n        },\n        {\n          \"text\": \"video\",\n          \"start\": \"00:00:05,258\",\n          \"end\": \"00:00:05,628\"\n        },\n        {\n          \"text\": \"bol\",\n          \"start\": \"00:00:05,828\",\n          \"end\": \"00:00:06,068\"\n        },\n        {\n          \"text\": \"raha\",\n          \"start\": \"00:00:06,238\",\n          \"end\": \"00:00:06,448\"\n        },\n        {\n          \"text\": \"hu\",\n          \"start\": \"00:00:06,628\",\n          \"end\": \"00:00:06,828\"\n        },\n        {\n          \"text\": \"ye\",\n          \"start\": \"00:00:07,178\",\n          \"end\": \"00:00:07,378\"\n        },\n        {\n          \"text\": \"editor\",\n          \"start\": \"00:00:08,018\",\n          \"end\": \"00:00:08,498\"\n        },\n        {\n          \"text\": \"ke\",\n          \"start\": \"00:00:08,618\",\n          \"end\": \"00:00:08,748\"\n        },\n        {\n          \"text\": \"liye\",\n          \"start\": \"00:00:08,988\",\n          \"end\": \"00:00:09,238\"\n        },\n        {\n          \"text\": \"bata\",\n          \"start\": \"00:00:09,478\",\n          \"end\": \"00:00:09,708\"\n        },\n        {\n          \"text\": \"raha\",\n          \"start\": \"00:00:09,918\",\n          \"end\": \"00:00:10,098\"\n        },\n        {\n          \"text\": \"hu\",\n          \"start\": \"00:00:10,188\",\n          \"end\": \"00:00:10,388\"\n        },\n        {\n          \"text\": \"ke\",\n          \"start\": \"00:00:10,648\",\n          \"end\": \"00:00:10,798\"\n        },\n        {\n          \"text\": \"bas\",\n          \"start\": \"00:00:11,108\",\n          \"end\": \"00:00:11,368\"\n        },\n        {\n          \"text\": \"best\",\n          \"start\": \"00:00:11,578\",\n          \"end\": \"00:00:11,828\"\n        },\n        {\n          \"text\": \"part\",\n          \"start\": \"00:00:12,018\",\n          \"end\": \"00:00:12,190\"\n        }\n      ]\n    },\n    {\n      \"sentence\": \"To mai skip bolunga.\",\n      \"start\": \"00:00:12,478\",\n      \"end\": \"00:00:13,910\",\n      \"words\": [\n        {\n          \"text\": \"To\",\n          \"start\": \"00:00:12,478\",\n          \"end\": \"00:00:12,658\"\n        },\n        {\n          \"text\": \"mai\",\n          \"start\": \"00:00:12,788\",\n          \"end\": \"00:00:12,968\"\n        },\n        {\n          \"text\": \"skip\",\n          \"start\": \"00:00:13,178\",\n          \"end\": \"00:00:13,448\"\n        },\n        {\n          \"text\": \"bolunga.\",\n          \"start\": \"00:00:13,678\",\n          \"end\": \"00:00:13,910\"\n        }\n      ]\n    },\n    {\n      \"sentence\": \"This is the script which I am speaking for the video auto generation.\",\n      \"start\": \"00:00:14,795\",\n      \"end\": \"00:00:19,265\",\n      \"words\": [\n        {\n          \"text\": \"This\",\n          \"start\": \"00:00:14,795\",\n          \"end\": \"00:00:15,075\"\n        },\n        {\n          \"text\": \"is\",\n          \"start\": \"00:00:15,165\",\n          \"end\": \"00:00:15,285\"\n        },\n        {\n          \"text\": \"the\",\n          \"start\": \"00:00:15,385\",\n          \"end\": \"00:00:15,465\"\n        },\n        {\n          \"text\": \"script\",\n          \"start\": \"00:00:15,745\",\n          \"end\": \"00:00:16,045\"\n        },\n        {\n          \"text\": \"which\",\n          \"start\": \"00:00:16,215\",\n          \"end\": \"00:00:16,425\"\n        },\n        {\n          \"text\": \"I\",\n          \"start\": \"00:00:16,455\",\n          \"end\": \"00:00:16,565\"\n        },\n        {\n          \"text\": \"am\",\n          \"start\": \"00:00:16,665\",\n          \"end\": \"00:00:16,775\"\n        },\n        {\n          \"text\": \"speaking\",\n          \"start\": \"00:00:17,045\",\n          \"end\": \"00:00:17,495\"\n        },\n        {\n          \"text\": \"for\",\n          \"start\": \"00:00:17,645\",\n          \"end\": \"00:00:17,795\"\n        },\n        {\n          \"text\": \"the\",\n          \"start\": \"00:00:17,895\",\n          \"end\": \"00:00:17,995\"\n        },\n        {\n          \"text\": \"video\",\n          \"start\": \"00:00:18,345\",\n          \"end\": \"00:00:18,655\"\n        },\n        {\n          \"text\": \"auto\",\n          \"start\": \"00:00:18,875\",\n          \"end\": \"00:00:19,085\"\n        },\n        {\n          \"text\": \"generation.\",\n          \"start\": \"00:00:19,105\",\n          \"end\": \"00:00:19,265\"\n        }\n      ]\n    },\n    {\n      \"sentence\": \"Sometimes I might go here and there.\",\n      \"start\": \"00:00:24,205\",\n      \"end\": \"00:00:26,205\",\n      \"words\": [\n        {\n          \"text\": \"Sometimes\",\n          \"start\": \"00:00:24,205\",\n          \"end\": \"00:00:24,805\"\n        },\n        {\n          \"text\": \"I\",\n          \"start\": \"00:00:24,945\",\n          \"end\": \"00:00:25,055\"\n        },\n        {\n          \"text\": \"might\",\n          \"start\": \"00:00:25,275\",\n          \"end\": \"00:00:25,485\"\n        },\n        {\n          \"text\": \"go\",\n          \"start\": \"00:00:25,665\",\n          \"end\": \"00:00:25,835\"\n        },\n        {\n          \"text\": \"here\",\n          \"start\": \"00:00:25,975\",\n          \"end\": \"00:00:26,105\"\n        },\n        {\n          \"text\": \"and\",\n          \"start\": \"00:00:26,135\",\n          \"end\": \"00:00:26,205\"\n        },\n        {\n          \"text\": \"there.\",\n          \"start\": \"00:00:26,205\",\n          \"end\": \"00:00:26,205\"\n        }\n      ]\n    },\n    {\n      \"sentence\": \"Sometimes kafi acche se main bol sakta hu.\",\n      \"start\": \"00:00:26,715\",\n      \"end\": \"00:00:29,675\",\n      \"words\": [\n        {\n          \"text\": \"Sometimes\",\n          \"start\": \"00:00:26,715\",\n          \"end\": \"00:00:27,335\"\n        },\n        {\n          \"text\": \"kafi\",\n          \"start\": \"00:00:27,565\",\n          \"end\": \"00:00:27,905\"\n        },\n        {\n          \"text\": \"acche\",\n          \"start\": \"00:00:28,095\",\n          \"end\": \"00:00:28,385\"\n        },\n        {\n          \"text\": \"se\",\n          \"start\": \"00:00:28,525\",\n          \"end\": \"00:00:28,655\"\n        },\n        {\n          \"text\": \"main\",\n          \"start\": \"00:00:28,805\",\n          \"end\": \"00:00:28,995\"\n        },\n        {\n          \"text\": \"bol\",\n          \"start\": \"00:00:29,195\",\n          \"end\": \"00:00:29,405\"\n        },\n        {\n          \"text\": \"sakta\",\n          \"start\": \"00:00:29,565\",\n          \"end\": \"00:00:29,675\"\n        },\n        {\n          \"text\": \"hu.\",\n          \"start\": \"00:00:29,675\",\n          \"end\": \"00:00:29,675\"\n        }\n      ]\n    }\n  ]\n}\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-12-21T09:06:20.110Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2025-12-21T09:06:20.110Z",
+      "workflowId": "NyuIqkg8jdpVP1iy"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-28T17:17:50.941Z",
+  "versionId": "3810243a-527f-4300-a3fa-a53f17ba83e7"
+}
