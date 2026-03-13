@@ -1,0 +1,508 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "All Ideas Reviewed?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send Summary",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Process One Idea at a Time",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Approve Idea": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Notify Result",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Check Decision": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Approve Idea",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Needs Revision?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Every 2 Hours (or Manual)": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Ideas for Approval",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Ideas for Approval": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Process One Idea at a Time",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Mark for Revision": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Notify Result",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Needs Revision?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Mark for Revision",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Reject Idea",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Notify Result": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Process One Idea at a Time": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send to Slack for Approval",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Reject Idea": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Notify Result",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Send to Slack for Approval": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check Decision",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "All Ideas Reviewed?",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-16T17:55:54.728Z",
+  "id": "wREG88U0jfyYo61n",
+  "isArchived": true,
+  "meta": null,
+  "name": "Idea Approval Engine - IMPROVED",
+  "nodes": [
+    {
+      "id": "abdeb1d3-2fdc-45f9-b09c-4e7cf1c27f7c",
+      "name": "Every 2 Hours (or Manual)",
+      "notes": "Runs automatically every 2 hours OR click Execute for manual run",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2
+            }
+          ]
+        }
+      },
+      "position": [
+        -1024,
+        80
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "802b107a-5e3a-4a63-9f67-e4781289be2a",
+      "name": "Get Ideas for Approval",
+      "notes": "Fetches unapproved ideas with full context",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Get generated ideas that haven't been reviewed yet\nSELECT\n  i.idea_id,\n  i.transcript_id,\n  i.idea_text,\n  i.status,\n  i.created_at,\n  t.transcript_text,\n  sr.caption as source_caption,\n  c.username as source_creator,\n  c.niche\nFROM ideas i\nJOIN transcripts t ON i.transcript_id = t.transcript_id\nLEFT JOIN source_reels sr ON t.source_reel_id = sr.source_reel_id\nLEFT JOIN creators c ON sr.creator_id = c.creator_id\nWHERE i.status = 'generated'\nORDER BY i.created_at ASC\nLIMIT 10;"
+      },
+      "position": [
+        -816,
+        80
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "cfb26a58-16ff-4404-93e7-0f1db1a05cb9",
+      "name": "Process One Idea at a Time",
+      "notes": "Handles each idea separately for approval",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -624,
+        80
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "slackApi": {
+          "id": "p6EI21qs6fl5ZxNR",
+          "name": "Slack account"
+        }
+      },
+      "id": "e10c8ba5-ba4e-407b-b4d2-e3a35aa4aa18",
+      "name": "Send to Slack for Approval",
+      "notes": "Waits for human decision with 24h timeout",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "YOUR_SLACK_CHANNEL_ID"
+        },
+        "formFields": {
+          "values": [
+            {
+              "defaultValue": "approve",
+              "fieldLabel": "Decision",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "approve"
+                  },
+                  {
+                    "option": "reject"
+                  },
+                  {
+                    "option": "needs_revision"
+                  }
+                ]
+              },
+              "fieldType": "dropdown",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Feedback (optional)",
+              "fieldType": "textarea",
+              "placeholder": "Add feedback if rejecting or requesting revision..."
+            }
+          ]
+        },
+        "message": "=🧠 **NEW IDEA FOR REVIEW** #{{ $itemIndex + 1 }}\n\n📝 **Idea:**\n{{ $json.idea_text }}\n\n🎬 **Source Context:**\nCreator: {{ $json.source_creator || 'Unknown' }}\nNiche: {{ $json.niche || 'Unknown' }}\n\n📜 **Original Transcript:**\n{{ $json.transcript_text.substring(0, 200) }}{{ $json.transcript_text.length > 200 ? '...' : '' }}\n\n🆔 **Idea ID:** `{{ $json.idea_id }}`\n\n👇 **Please review:**",
+        "operation": "sendAndWait",
+        "options": {},
+        "responseType": "customForm",
+        "select": "channel"
+      },
+      "position": [
+        -416,
+        80
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "f08e141e-d4c7-4aeb-bcbf-98da632d1547"
+    },
+    {
+      "id": "87cc3dbe-b438-489e-b6bb-8216192c39dd",
+      "name": "Check Decision",
+      "notes": "Routes based on approval decision",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "approved",
+              "leftValue": "={{ $json.data.Decision }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "approve"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -224,
+        80
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "52b4dfec-e08c-413a-98c2-a951d3bd5943",
+      "name": "Approve Idea",
+      "notes": "Updates status to approved",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- Approve the idea\nUPDATE ideas\nSET\n  status = 'approved',\n  human_feedback = {{ $('Send to Slack for Approval').item.json.data['Feedback (optional)'] ? \"'\" + $('Send to Slack for Approval').item.json.data['Feedback (optional)'].replace(/'/g, \"''\") + \"'\" : \"NULL\" }},\n  updated_at = NOW()\nWHERE idea_id = '{{ $('Get Ideas for Approval').item.json.idea_id }}';\n"
+      },
+      "position": [
+        192,
+        -32
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "5a1638b3-4499-42ed-988f-2c20a8b9fb6e",
+      "name": "Needs Revision?",
+      "notes": "Checks if revision requested",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "needs_revision",
+              "leftValue": "={{ $('Send to Slack for Approval').item.json.data.Decision }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "needs_revision"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -16,
+        176
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "502ff259-921f-4212-97c0-e121fe3cd974",
+      "name": "Mark for Revision",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- Mark for revision\nUPDATE ideas\nSET\n  status = 'needs_revision',\n  human_feedback = '{{ $('Send to Slack for Approval').item.json.data['Feedback (optional)'].replace(/'/g, \"''\") }}',\n  updated_at = NOW()\nWHERE idea_id = '{{ $('Get Ideas for Approval').item.json.idea_id }}';\n"
+      },
+      "position": [
+        192,
+        128
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "67860e5d-79b1-4b85-a4c7-602e866df87f",
+      "name": "Reject Idea",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- Reject the idea\nUPDATE ideas\nSET\n  status = 'rejected',\n  human_feedback = {{ $('Send to Slack for Approval').item.json.data['Feedback (optional)'] ? \"'\" + $('Send to Slack for Approval').item.json.data['Feedback (optional)'].replace(/'/g, \"''\") + \"'\" : \"NULL\" }},\n  updated_at = NOW()\nWHERE idea_id = '{{ $('Get Ideas for Approval').item.json.idea_id }}';\n"
+      },
+      "position": [
+        176,
+        304
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "slackApi": {
+          "id": "p6EI21qs6fl5ZxNR",
+          "name": "Slack account"
+        }
+      },
+      "id": "c10c2b1c-1fc4-4699-81b7-ccf25001badc",
+      "name": "Notify Result",
+      "notes": "Confirms the action taken",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "YOUR_SLACK_CHANNEL_ID"
+        },
+        "otherOptions": {},
+        "select": "channel",
+        "text": "=✅ **Idea {{ $('Send to Slack for Approval').item.json.data.Decision }}!**\n\nIdea: {{ $('Get Ideas for Approval').item.json.idea_text.substring(0, 100) }}...\nStatus: {{ $('Send to Slack for Approval').item.json.data.Decision }}\n{{ $('Send to Slack for Approval').item.json.data['Feedback (optional)'] ? 'Feedback: ' + $('Send to Slack for Approval').item.json.data['Feedback (optional)'] : '' }}"
+      },
+      "position": [
+        384,
+        80
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "5d98b500-cbf8-4e41-87e4-bb5ca991c91a"
+    },
+    {
+      "id": "d5cbcf12-1589-416f-bf29-d200d67a9863",
+      "name": "Wait",
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "position": [
+        592,
+        80
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "c76111f9-056c-409b-ac0b-e477a4c2ae88"
+    },
+    {
+      "id": "b26f0923-ab1a-453e-8c30-c039fc79adc6",
+      "name": "All Ideas Reviewed?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "complete",
+              "leftValue": "={{ $('Process One Idea at a Time').context.noItemsLeft }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        736,
+        288
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "slackApi": {
+          "id": "p6EI21qs6fl5ZxNR",
+          "name": "Slack account"
+        }
+      },
+      "id": "c94da27b-2fcb-47a9-b2e7-d050557eb0a1",
+      "name": "Send Summary",
+      "parameters": {
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "YOUR_SLACK_CHANNEL_ID"
+        },
+        "otherOptions": {},
+        "select": "channel",
+        "text": "=🎉 **Idea Approval Complete!**\n\nTotal ideas reviewed: {{ $('Get Ideas for Approval').itemMatching(0).$itemCount }}\nTime: {{ $now.format('YYYY-MM-DD HH:mm:ss') }}\n\nApproved ideas will be picked up by Script Generator workflow."
+      },
+      "position": [
+        992,
+        -32
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "e3e460b3-3704-4776-869b-0165952af512"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-16T17:55:54.739Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-16T17:55:54.739Z",
+      "workflowId": "wREG88U0jfyYo61n"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-16T18:51:52.000Z",
+  "versionId": "93205d99-5eec-424b-8604-c22b5bcef271"
+}
