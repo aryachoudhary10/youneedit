@@ -1,0 +1,3417 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "2. Extract Reel Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "checking if concept is present",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "3. Download Song MP": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Translate a recording1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "5. Merge concept + Reel Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Client Folder name",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Merge for concept and Avatar Data",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create file from text1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Call 'check file existence'": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Call 'check file existence'1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Catch Reel Error": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Update Status = error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "get image based on url",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Approved_images Folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create Review_images Folder",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Master Shot folder with subworkflow": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge for image and drive folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Reelfolder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Reel FolderID",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Review FolderID": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create Master Shot folder with subworkflow",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create Review_images Folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create Review FolderID",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create automation directory in client folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get automation directory ID",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download Master Image": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge for image and drive folder",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Generate Master Image": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search for automation Directory",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Download Master Image",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get All Avatar names and total": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge for concept and Avatar Data",
+            "type": "main"
+          },
+          {
+            "index": 1,
+            "node": "Merge for Avatar names and shots",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Avatar Folder name and Id": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get all Image link in avatars",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Client Folder name": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get video Avatar Folders",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Gemini output again": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Split for story shots",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Reel FolderID": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "checking for review image folder exist",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get all Avatars": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get all Image link in avatars": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge Folder and Image Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get automation directory ID": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search parent Reel",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Reels",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get video Avatar Folders": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get video Avatar to use based on account",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get video Avatar to use based on account": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get all Avatars",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Group the Avtar & Image links": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get All Avatar names and total",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Reel FolderID",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Create Reelfolder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload file",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Get Gemini output again",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Group the Avtar & Image links",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Get Avatar Folder name and Id",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "fetch response",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "check status",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Reels": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "2. Extract Reel Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge Folder and Image Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge for Avatar names and shots": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Generate Master Image",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge for concept and Avatar Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Message a model1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge for image and drive folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Call 'check file existence'",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Message a model1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Parse Gemini Output",
+            "type": "main"
+          }
+        ],
+        []
+      ]
+    },
+    "Output the concept": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "output the concept",
+            "type": "main"
+          }
+        ],
+        []
+      ]
+    },
+    "Parse Gemini Output": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge for Avatar names and shots",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search for automation Directory": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "check if directory exists",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search parent Reel": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Split for story shots": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "create generate model prompts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Translate a recording1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Output the concept",
+            "type": "main"
+          }
+        ],
+        []
+      ]
+    },
+    "Update Status = error": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Reels",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Update Status = image_generated": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Reels",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upload file": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Share file",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Get Gemini output again",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get row(s) in sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "call model generations": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "check if directory exists": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get automation directory ID",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Create automation directory in client folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "check status": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "if in progress?",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "checking for review image folder exist": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "review image folder found?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "checking if concept is present": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "output the concept",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "3. Download Song MP",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "create generate model prompts": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "call model generations",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Aggregate",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "fetch response": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Call 'check file existence'1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "get image based on url": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "upload images for review",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "if in progress?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "wait and try again",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "output the concept": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "concept update",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "5. Merge concept + Reel Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "review image folder found?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create Review FolderID",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Create Approved_images Folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "upload images for review": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Update Status = image_generated",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "wait and try again": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "check status",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-07T17:02:08.618Z",
+  "id": "Vt1Jad5ezlm7LGfg",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "PHASE 1: Data to Image Generation- Concept Videos",
+  "nodes": [
+    {
+      "id": "936038f7-858a-446c-9c27-7e1a2b76c1ea",
+      "name": "2. Extract Reel Data",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a1",
+              "name": "reelNumber",
+              "type": "string",
+              "value": "={{ $json['Reel number'] }}"
+            },
+            {
+              "id": "a2",
+              "name": "accountToPost",
+              "type": "string",
+              "value": "={{ $json['Account to post'] }}"
+            },
+            {
+              "id": "a3",
+              "name": "reelType",
+              "type": "string",
+              "value": "={{ $json['Reel Type'] }}"
+            },
+            {
+              "id": "a4",
+              "name": "conceptInput",
+              "type": "string",
+              "value": "={{ $json['Concept input(optional)'] ?? '' }}"
+            },
+            {
+              "id": "a5",
+              "name": "songLink",
+              "type": "string",
+              "value": "={{ $json['Song link(direct download)'] }}"
+            },
+            {
+              "id": "a6",
+              "name": "startTimeSong",
+              "type": "string",
+              "value": "={{ $json['Start Time of Song'] }}"
+            },
+            {
+              "id": "d783bf3d-e17b-4a3c-8fe4-f5ba5060bccf",
+              "name": "totalTimeReel",
+              "type": "string",
+              "value": "={{ $json['Total Time of Reel(Secs)'] }}"
+            },
+            {
+              "id": "9bc96e5b-bcea-4c2d-90d6-1a7a4a85ac76",
+              "name": "statusOfAutomation",
+              "type": "string",
+              "value": "={{ $json['Status of Automation'] }}"
+            },
+            {
+              "id": "ad0bfff0-c10e-4ff8-b262-a3b4f2abbb8a",
+              "name": "avtarList",
+              "type": "string",
+              "value": "={{ $json['Avatars to use(comma seperated)'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        -1952,
+        -736
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "b08cd885-2fda-460e-9cdd-e54579964ab7",
+      "name": "Get row(s) in sheet",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Short Video Generation DB- Jass Records",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Reel Type",
+              "lookupValue": "Story"
+            },
+            {
+              "lookupColumn": "Status of Automation",
+              "lookupValue": "to be picked"
+            }
+          ]
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Main DB",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        -3008,
+        -816
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "4ce749ac-8488-4407-b457-d98c1297b1df",
+      "name": "If",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "90a23ba2-af30-431c-ba06-db22f173040f",
+              "leftValue": "={{ $json.id }}",
+              "operator": {
+                "operation": "exists",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -480,
+        304
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "0ee68ba9-2ef3-4721-bc07-7632ef51f1c7",
+      "name": "Upload file",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Merge for image and drive folder').item.json.folderId }}"
+        },
+        "inputDataFieldName": "={{ $('Merge for image and drive folder').item.binary.data}}",
+        "name": "Master_Reference_image",
+        "options": {}
+      },
+      "position": [
+        -1168,
+        1360
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "082885ee-827b-45ab-bd5e-68faa21363be",
+      "name": "Share file",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "operation": "share",
+        "options": {},
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        }
+      },
+      "position": [
+        -816,
+        1264
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "aae8a8dd-895c-4fca-9ef3-7f50e66e255e",
+      "name": "Search parent Reel",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.parentFolderId }}"
+          }
+        },
+        "options": {},
+        "queryString": "=Reel_{{ $('2. Extract Reel Data').item.json.reelNumber }}",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        -752,
+        320
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "206113ca-98e2-488e-8a57-2c2458b536fb",
+      "name": "Create Reelfolder",
+      "notes": "Creates: Reel_{number} folder",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Get automation directory ID').item.json.parentFolderId }}"
+        },
+        "name": "=Reel_{{ $('2. Extract Reel Data').item.json.reelNumber }}",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        -48,
+        544
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "3d6a352e-5faa-4fcc-a68a-70951a7ea70f",
+      "name": "Create Review_images Folder",
+      "notes": "Only runs if folder does NOT exist",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Get Reel FolderID').item.json.parentFolderId }}"
+        },
+        "name": "=Review_images",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        1040,
+        544
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "714f09d1-6e26-4b5f-8f83-f1bb0913cbcd",
+      "name": "Create Approved_images Folder",
+      "notes": "Only runs if folder does NOT exist",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Get Reel FolderID').item.json.parentFolderId }}"
+        },
+        "name": "=Approved_images",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        784,
+        544
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "b14cdbcd-f3d5-4106-b83f-24ad76b5d188",
+      "name": "When clicking ‘Execute workflow’",
+      "parameters": {},
+      "position": [
+        -3184,
+        -816
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "75ed0673-7e7b-48fb-9a9b-18ae775f78f9",
+      "name": "checking if concept is present",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "8364534a-ae01-438f-9713-e9b6294e6ce2",
+              "leftValue": "={{ $json.conceptInput }}",
+              "operator": {
+                "operation": "notEmpty",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -1712,
+        -752
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "5cd1f362-7d46-4040-8406-7317188fc53e",
+      "name": "5. Merge concept + Reel Data",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b1",
+              "name": "Concept",
+              "type": "string",
+              "value": "={{ $json.conceptInput }}"
+            },
+            {
+              "id": "b2",
+              "name": "reelNumber",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data').item.json.reelNumber }}"
+            },
+            {
+              "id": "b3",
+              "name": "accountToPost",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data').item.json.accountToPost }}"
+            },
+            {
+              "id": "b4",
+              "name": "reelType",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data').item.json.reelType }}"
+            },
+            {
+              "id": "b5",
+              "name": "conceptInput",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data').item.json.conceptInput }}"
+            },
+            {
+              "id": "b6",
+              "name": "songLink",
+              "type": "string",
+              "value": "={{ $('2. Extract Reel Data').item.json.songLink }}"
+            },
+            {
+              "id": "b7",
+              "name": "startTimeSong",
+              "type": "string",
+              "value": "={{ $json.startTimeSong }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        -352,
+        -576
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "17ef8acc-5da8-4493-b629-357f87d1f3d9",
+      "name": "Get Client Folder name",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "cachedResultName": "Clients",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-",
+            "mode": "list",
+            "value": "1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-"
+          }
+        },
+        "limit": 1,
+        "options": {},
+        "queryString": "={{ $('Get row(s) in sheet').item.json['Client(drive folder name)'] }}",
+        "resource": "fileFolder"
+      },
+      "position": [
+        -1824,
+        -192
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "d031216b-358d-4f01-9342-a58d8ca1abab",
+      "name": "Get video Avatar Folders",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "whatToSearch": "folders"
+        },
+        "options": {},
+        "queryString": "video_avatar_accounts",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        -1584,
+        -208
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "c0749c45-6504-461a-8f77-22a21ae7d4fd",
+      "name": "Get video Avatar to use based on account",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "whatToSearch": "folders"
+        },
+        "options": {},
+        "queryString": "={{ $('Get row(s) in sheet').item.json['Account to post'] }}",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        -1392,
+        -208
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "701b09af-bc79-4804-8925-ad4ce5cd2e6b",
+      "name": "Get all Avatars",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "whatToSearch": "folders"
+        },
+        "options": {},
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        -1200,
+        -208
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "a2e5e7a8-a8c5-4aa4-a5d7-7a284834d788",
+      "name": "Get all Image link in avatars",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json['Avatar Id'] }}"
+          },
+          "whatToSearch": "files"
+        },
+        "options": {},
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        -512,
+        -192
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "4a7b4b78-69c3-465f-bbc2-28cffa6610a2",
+      "name": "Loop Over Items",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -992,
+        -208
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "2095ff3b-25dd-48ce-892e-6aa1802cfbfc",
+      "name": "Merge Folder and Image Data",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9891ad26-6ad0-4b87-b4dd-91a73ebd3960",
+              "name": "Avatar Name",
+              "type": "string",
+              "value": "={{ $('Get Avatar Folder name and Id').item.json['Avatar Name'] }}"
+            },
+            {
+              "id": "3809959e-384e-4055-b0ed-aa964fab3cea",
+              "name": "Avatar Id",
+              "type": "string",
+              "value": "={{ $('Get Avatar Folder name and Id').item.json['Avatar Id'] }}"
+            },
+            {
+              "id": "75ec39ad-a6f7-4f92-b3ff-6b50f64465aa",
+              "name": "Image name",
+              "type": "string",
+              "value": "={{ $('Get all Image link in avatars').item.json.name }}"
+            },
+            {
+              "id": "19e78621-522c-41ae-bbd2-b4984d1c14e5",
+              "name": "Image Id",
+              "type": "string",
+              "value": "={{ $('Get all Image link in avatars').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        -48,
+        -112
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "db6ec2a0-7b8c-4921-8dfd-da8afc723dba",
+      "name": "Get Avatar Folder name and Id",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9891ad26-6ad0-4b87-b4dd-91a73ebd3960",
+              "name": "Avatar Name",
+              "type": "string",
+              "value": "={{ $('Loop Over Items').item.json.name }}"
+            },
+            {
+              "id": "3809959e-384e-4055-b0ed-aa964fab3cea",
+              "name": "Avatar Id",
+              "type": "string",
+              "value": "={{ $('Loop Over Items').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        -752,
+        -192
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "69da59eb-59c6-4b95-8dfe-32722be52a41",
+      "name": "Group the Avtar & Image links",
+      "parameters": {
+        "jsCode": "// 1. Get the raw string from your specific node\n// Replace '2. Extract Reel Data' with the exact name if different\nconst rawList = $node[\"2. Extract Reel Data\"].json[\"avtarList\"] || \"\";\n\n// 2. Clean the list: split by comma, trim whitespace, and remove empty values\nconst targetAvatars = rawList.split(',')\n  .map(name => name.trim())\n  .filter(name => name.length > 0);\n\n// 3. Get all the input items (the list of image rows you provided)\nconst allRows = items.map(item => item.json);\n\n// 4. Group data by Avatar Name\nconst grouped = {};\n\nallRows.forEach(row => {\n  const name = row[\"Avatar Name\"];\n  \n  // Only process if this name exists in our target list\n  if (targetAvatars.includes(name)) {\n    if (!grouped[name]) {\n      grouped[name] = {\n        \"Avatar Name\": name,\n        \"Avatar Id\": row[\"Avatar Id\"],\n        \"Images\": []\n      };\n    }\n    \n    // Construct the Google Drive download link\n    const downloadLink = `https://drive.google.com/uc?export=download&id=${row[\"Image Id\"]}`;\n    \n    grouped[name].Images.push({\n      \"Image Name\": row[\"Image name\"],\n      \"Download Link\": downloadLink\n    });\n  }\n});\n\n// 5. Convert the grouped object back into an array for n8n output\nreturn Object.values(grouped);"
+      },
+      "position": [
+        -848,
+        -400
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "alwaysOutputData": false,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "7b58a678-8692-4619-b676-3adc707b0aad",
+      "name": "Message a model1",
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "builtInTools": {},
+        "jsonOutput": true,
+        "messages": {
+          "values": [
+            {
+              "content": "=Think like a director of the short video wwhere based on avtars and given concept\nyour job is to define prompt for \nMaster shot \nDetails of cloths for all avatars\nMultishot JSON which has 4-5 prompts for mulitple shots defining action, camera angle, action of the avatars\nRules\n1. Whereever avatar name is referred. so start and end with <<>>, example for av_name make it <<av_name>> \n2. No Turning shots\n3. No 360 Shots, no entering in frame shot.\n4. for every framePrompt do mention in the end 'Dont change the face of <<av_name>> keep it same.'\n5. add variations in camera angle and characters action as story proceeds.\n6. framePrompt's Camera angles can be - mid shot from eyeline, OTS shots(if 2 avatars), wide shots, long shot angle, low angle shots, closeups of emotions, variation as avatar(s) have moved to another place in the same scene.\n7. not 2 consecutive shot to have same camera angle to add interesting feels\n\nJson output only as:\n{\n\"MasterShot\":\"\",\n\"ClothingDetails\":\"\",\n\"LocationDetails:\"\",\n\"StoryShots\":[\n{\"framePrompt\":<detailed prompt for changed frame basis the master shot given the storyline, which utilises camera angles inspirations mentioned above>,\n\"cameraAndActionPrompt\":<detailed prompt for subtle camera angle and motion along with the actions of avatars, define subtle camera movements.>\n},\n{\"framePrompt\":\"\",\n\"cameraAndActionPrompt\":\"\"\n}\n... so on]\n\n}",
+              "role": "model"
+            },
+            {
+              "content": "=Here is the list of all avatars: {{ $json['Avatar Names'][0] }} total number of avatars to use in concept is {{ $json['Total Avatars'] }}\n\nhighllevel concept: {{ $json.Concept }}"
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-3-flash-preview",
+          "mode": "list",
+          "value": "models/gemini-3-flash-preview"
+        },
+        "options": {}
+      },
+      "position": [
+        432,
+        -464
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "0e8a3ed8-dea1-48f6-8aef-7fdee7db5988",
+      "name": "Get All Avatar names and total",
+      "parameters": {
+        "jsCode": "// Get all incoming items\nconst inputData = items.map(item => item.json);\n\n// Extract names\nconst allNames = inputData.map(avatar => avatar[\"Avatar Name\"]);\n\n// Extract the \"Front\" or \"Fallback\" URLs\nconst referenceUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  \n  // 1. Try to find the image that contains \"front\" (case-insensitive)\n  const frontImage = images.find(img => \n    img[\"Image Name\"].toLowerCase().includes('front')\n  );\n\n  // 2. If found, return its link. If not, take the first image link available.\n  if (frontImage) {\n    return frontImage[\"Download Link\"];\n  } else if (images.length > 0) {\n    return images[0][\"Download Link\"]; // Random/First fallback\n  }\n  \n  return null; // No images found at all\n});\n\n// NEW: Extract all URLs for each avatar as a list of lists\nconst elementUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  // Return an array of just the \"Download Link\" strings for this specific avatar\n  return images.map(img => img[\"Download Link\"]);\n});\n\n// Return a single object with the consolidated lists\nreturn [{\n  \"Avatar Names\": allNames,\n  \"Total Avatars\": allNames.length,\n  \"Reference URLs\": referenceUrls,\n  \"Element URLs\": elementUrls // The list of lists containing all links\n}];"
+      },
+      "position": [
+        -560,
+        -352
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "a79379a9-9ee0-4e40-ba0d-0ee1c897d844",
+      "name": "Parse Gemini Output",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "jsCode": "// Get the items from the previous node\nconst input = items[0].json;\n\n// 1. Navigate to the deeply nested 'text' property\nconst rawString = input.content.parts[0].text;\n\n// 2. Parse the string into a real JSON object\nconst parsedData = JSON.parse(rawString);\n\n// 3. Return the parsed object as the new output\nreturn [\n  {\n    json: parsedData\n  }\n];"
+      },
+      "position": [
+        896,
+        -464
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "aeedda1a-ede6-437c-aa6b-76719cadfa31",
+      "name": "Merge for Avatar names and shots",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        1264,
+        -64
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "8fc4d059-1dc8-4427-945b-bda61a2ba835",
+      "name": "Generate Master Image",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "cachedResultName": "Nano Banana [image-to-image]",
+          "mode": "list",
+          "value": "fal-ai/nano-banana/edit"
+        },
+        "modelParameters": {
+          "parameters": [
+            {
+              "parameter": "prompt",
+              "value": "=Create 9:16 Image in 2K resolution Keeping the faces and characters same as in the image(s). name of characters are {{ $json['Avatar Names'] }} which are refer in below shot details Shot Details: {{ $json.MasterShot }}  Clothing Details: {{ $json.ClothingDetails }} Location Details: {{ $json.LocationDetails }}"
+            },
+            {
+              "parameter": "num_images",
+              "value": "1"
+            },
+            {
+              "parameter": "aspect_ratio",
+              "value": "9:16"
+            },
+            {
+              "parameter": "image_urls",
+              "value": "={{ $json['Reference URLs'] }}"
+            }
+          ]
+        },
+        "options": {
+          "maxWaitTime": 600,
+          "pollInterval": 5,
+          "waitForCompletion": true
+        }
+      },
+      "position": [
+        -2128,
+        208
+      ],
+      "type": "@fal-ai/n8n-nodes-fal.falAi",
+      "typeVersion": 1
+    },
+    {
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "1d873409-0665-4704-bcad-b7625d2f126d",
+      "name": "Search for automation Directory",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $('Get Client Folder name').first().json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "=short_video_automation",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        -1808,
+        192
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "cd32d5d6-ccd4-47a1-9672-4fdce9293a52",
+      "name": "check if directory exists",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "90a23ba2-af30-431c-ba06-db22f173040f",
+              "leftValue": "={{ $json.id }}",
+              "operator": {
+                "operation": "exists",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -1616,
+        192
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "4098935b-ea1c-4358-8696-84e0b3222f32",
+      "name": "Create automation directory in client folder",
+      "notes": "Creates: Reel_{number} folder",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Get Client Folder name').first().json.id }}"
+        },
+        "name": "=short_video_automation",
+        "options": {},
+        "resource": "folder"
+      },
+      "position": [
+        -1376,
+        320
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "e23ae9a0-86a2-41ee-8465-fcd9591125d1",
+      "name": "Get automation directory ID",
+      "parameters": {
+        "jsCode": "let parentId;\n\n// Try getting searched folder\nconst searchNode = $node[\"Search for automation Directory\"].json;\n\nif (searchNode && searchNode.id) {\n  parentId = searchNode.id;\n} else {\n  const createdNode = $node[\"Create automation directory in client folder\"].json;\n\n  if (!createdNode || !createdNode.id) {\n    throw new Error(\"Parent folder not found and not created.\");\n  }\n\n  parentId = createdNode.id;\n}\n\nreturn [{\n  json: {\n    parentFolderId: parentId\n  }\n}];"
+      },
+      "position": [
+        -1072,
+        176
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "cf714927-e25d-4ea4-b8bb-1d966411ee03",
+      "name": "Get Reel FolderID",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "jsCode": "let parentId;\n\n// Try getting searched folder\nconst searchNode = $node[\"Search parent Reel\"].json;\n\nif (searchNode && searchNode.id) {\n  parentId = searchNode.id;\n} else {\n  const createdNode = $node[\"Create Reelfolder\"].json;\n\n  if (!createdNode || !createdNode.id) {\n    throw new Error(\"Parent folder not found and not created.\");\n  }\n\n  parentId = createdNode.id;\n}\n\nreturn [{\n  json: {\n    parentFolderId: parentId\n  }\n}];"
+      },
+      "position": [
+        96,
+        320
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "6afd65fc-9f75-4473-8aec-b08349b738fa",
+      "name": "Create file from text",
+      "parameters": {
+        "content": "={{ $('Merge for Avatar names and shots').item.json.toJsonString() }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.parentFolderId }}"
+        },
+        "name": "={{ $('Search parent Reel').item.json.name }}_Shots_script",
+        "operation": "createFromText",
+        "options": {}
+      },
+      "position": [
+        192,
+        160
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "036a39b9-708d-4f7f-8ea2-b4af076c955e",
+      "name": "checking for review image folder exist",
+      "notes": "Searches for Reel_{number} folder. If found, skip creation.",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $('Get Reel FolderID').item.json.parentFolderId }}"
+          }
+        },
+        "options": {},
+        "queryString": "Review_images",
+        "resource": "fileFolder"
+      },
+      "position": [
+        368,
+        384
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "15a26710-b908-48fc-aa94-0d87ca901355",
+      "name": "review image folder found?",
+      "notes": "TRUE = folder exists, use it. FALSE = create it.",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "cond1",
+              "leftValue": "={{ $json.id }}",
+              "operator": {
+                "operation": "notEmpty",
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        576,
+        384
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "8e1209ae-f99c-47ba-9218-4396cb352986",
+      "name": "Create Review FolderID",
+      "parameters": {
+        "jsCode": "let ReelId;\n\n// Get search results safely\nconst searchItems = $node[\"checking for review image folder exist\"].json;\n\nif (searchItems && searchItems.id) {\n  ReelId = searchItems.id;\n} else {\n  const createdItems = $node[\"Create Review_images Folder\"].json;\n  \n  if (!createdItems || !createdItems.id) {\n    throw new Error(\"Reelfolder not found and not created.\");\n  }\n\n  ReelId = createdItems.id;\n}\n\nreturn [{\n  json: {\n    ReelReviewId: ReelId\n  }\n}];\n"
+      },
+      "position": [
+        1392,
+        368
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "5cf9065a-3cbc-45be-bcac-cd6fdcc186ac",
+      "name": "Merge for image and drive folder",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        1808,
+        1024
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "8a4d23ab-852a-4ddd-8035-1c504afc595f",
+      "name": "Download Master Image",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "options": {},
+        "url": "={{ $json.images[0].url }}"
+      },
+      "position": [
+        -1600,
+        912
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "8d216aee-b0d5-4aa0-88fe-325135fed16f",
+      "name": "Create Master Shot folder with subworkflow",
+      "parameters": {
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        },
+        "workflowId": {
+          "__rl": true,
+          "cachedResultName": "Check and Create Drive folder subworkflow",
+          "cachedResultUrl": "/workflow/LV6KV28deGpPkOEm",
+          "mode": "list",
+          "value": "LV6KV28deGpPkOEm"
+        },
+        "workflowInputs": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "parentFolderID",
+              "id": "parentFolderID",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "folderToCreateOrSearch",
+              "id": "folderToCreateOrSearch",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "value": {
+            "folderToCreateOrSearch": "Master_shot_reference",
+            "parentFolderID": "={{ $('Get Reel FolderID').item.json.parentFolderId }}"
+          }
+        }
+      },
+      "position": [
+        1600,
+        368
+      ],
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3
+    },
+    {
+      "id": "4631fca1-b9b1-46dc-8268-331638b7c086",
+      "name": "Split for story shots",
+      "parameters": {
+        "fieldToSplitOut": "StoryShots",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "position": [
+        -640,
+        1696
+      ],
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1
+    },
+    {
+      "id": "83c5f401-a3b6-4bed-b684-5cd8ffdebbce",
+      "name": "Get Gemini output again",
+      "parameters": {
+        "jsCode": "return [{\n  json: {\n    ...$node[\"Parse Gemini Output\"].json\n  }\n}];"
+      },
+      "position": [
+        -896,
+        1696
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "executeOnce": false,
+      "id": "b41dfee2-b487-40a1-b91f-a43d7004dc6c",
+      "name": "call model generations",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key REDACTED"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"prompt\": \"{{ $json.kling_prompt }}, keep clothing exaclty as in <image:0>, refer the background vibe from <image:0> but not exactly like it Maintain natural skin textures and keep the exact skin texture and micro-texture as in <image:1>. Make sure to have atleast one face in the image. \",\n  \"image_urls\":{{ $json.image_urls.toJsonString() }} ,\n  \"elements\": [{}],\n  \"resolution\": \"2K\",\n  \"result_type\": \"single\",\n  \"num_images\": 1,\n  \"aspect_ratio\": \"9:16\",\n  \"output_format\": \"png\"\n}\n",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://queue.fal.run/fal-ai/nano-banana-2/edit"
+      },
+      "position": [
+        0,
+        1696
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "3550aadc-3b3d-461f-9193-56cf6d60b599",
+      "name": "check status",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "falAiApi",
+        "options": {},
+        "url": "={{ $json.status_url }}"
+      },
+      "position": [
+        448,
+        1712
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "0c9e0b54-6a09-4835-bedc-303bf6225ada",
+      "name": "if in progress?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "b4ea925c-9cd5-4c90-bffe-2703f42b352c",
+              "leftValue": "={{ $json.status }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "COMPLETED"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {
+          "ignoreCase": false
+        }
+      },
+      "position": [
+        720,
+        1744
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "bccf43af-6e3e-4b19-8079-bbad329d8c16",
+      "name": "wait and try again",
+      "parameters": {},
+      "position": [
+        848,
+        2064
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "f66bfdef-9bfc-41c8-897a-81e6ea56cf1b"
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "dfa6c987-7024-4ccc-9c85-0c3179532d18",
+      "name": "fetch response",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "falAiApi",
+        "options": {},
+        "url": "={{ $('call model generations').item.json.response_url }}"
+      },
+      "position": [
+        1024,
+        1664
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "9fe07fa9-5cf9-44b3-bb74-1f37b99c0bb7",
+      "name": "get image based on url",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "options": {},
+        "url": "={{ $json['0'].url }}"
+      },
+      "position": [
+        2560,
+        1744
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "c93f510b-4aaa-4d63-8f5b-5f08aaf21b9e",
+      "name": "upload images for review",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Create Review FolderID').item.json.ReelReviewId }}"
+        },
+        "name": "=reel_{{ $('Get row(s) in sheet').item.json['Reel number'] }}_shotno_{{ $position + 1 }}",
+        "options": {}
+      },
+      "position": [
+        2896,
+        1808
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "711d3b2e-15d7-4b20-862e-255e4102aba3",
+      "name": "3. Download Song MP",
+      "notes": "Downloads the MP3 file from the Google Drive/direct link in the sheet",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "responseFormat": "file"
+            }
+          }
+        },
+        "url": "={{ $json.songLink }}"
+      },
+      "position": [
+        -1488,
+        -624
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "credentials": {
+        "openAiApi": {
+          "id": "HtC3pXdXhNPajOpZ",
+          "name": "OpenAi account"
+        }
+      },
+      "id": "04d29b79-92d2-426e-8834-5501fff88e67",
+      "name": "Translate a recording1",
+      "parameters": {
+        "operation": "translate",
+        "options": {},
+        "resource": "audio"
+      },
+      "position": [
+        -1216,
+        -624
+      ],
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1
+    },
+    {
+      "alwaysOutputData": false,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "3123bdd9-41d6-4466-b57c-daaf8499e213",
+      "name": "Output the concept",
+      "parameters": {
+        "builtInTools": {},
+        "messages": {
+          "values": [
+            {
+              "content": "=Task: Create a 2-line visual concept for a 20-30 second reel.\n\nInputs: > * Avatar Folder: \n\nSong Lyrics: \n\nInstructions:\nWrite a high-quality, practical 2-line concept that blends the provided Avatars with the song's feel.\n\nAvoid all drama, sadness, or complex storytelling.\n\nThe first line must establish the setting and the Avatar's presence.\n\nThe second line must list 4-5 specific, to-generate visual shots.\n\nOutput Format: Two sentences only. Do not use labels like \"Vibe:\", \"Line 1:\", or \"Shots:\". Just provide the plain text.\n\nExample Output:\n$json.avatarList  enjoys a peaceful morning in a sunlit modern kitchen while sipping coffee to the rhythm of the song. The visuals feature a close-up of her smiling, steam rising from the mug, soft light hitting the countertop, and a wide shot of her leaning against the window.",
+              "role": "model"
+            },
+            {
+              "content": "=\nInput Data:{{ $json.text }}\n\nAvatar Folder: {{ $('2. Extract Reel Data').item.json.avtarList }}"
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "options": {}
+      },
+      "position": [
+        -960,
+        -624
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "750f9d69-6583-4601-83ad-eae1ba14afb9",
+      "name": "output the concept",
+      "parameters": {
+        "jsCode": "let concept = $json.conceptInput;\n\n// If sheet concept is empty → use Gemini output\nif (!concept || concept.trim() === \"\") {\n\n  const geminiItem = $items(\"Output the concept\", 0, $itemIndex);\n\n  if (geminiItem.length > 0) {\n    concept = geminiItem[0].json.content.parts[0].text;\n  }\n}\n\nreturn {\n  json: {\n    ...$json,\n    conceptInput: concept\n  }\n};"
+      },
+      "position": [
+        -608,
+        -768
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "db0bb31c-5982-45d2-ae6d-c594d170fa19",
+      "name": "Merge for concept and Avatar Data",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        176,
+        -464
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "a6797e3a-72ae-421c-8f97-d8604a197502",
+      "name": "Call 'check file existence'",
+      "parameters": {
+        "options": {},
+        "workflowId": {
+          "__rl": true,
+          "cachedResultName": "check file existence",
+          "cachedResultUrl": "/workflow/NHtAA68XwRTbAXHO",
+          "mode": "list",
+          "value": "NHtAA68XwRTbAXHO"
+        },
+        "workflowInputs": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "filename",
+              "id": "filename",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "folderid",
+              "id": "folderid",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "deleteUpdate",
+              "id": "deleteUpdate",
+              "removed": false,
+              "required": false,
+              "type": "boolean"
+            }
+          ],
+          "value": {
+            "deleteUpdate": true,
+            "filename": "Master_Reference_image",
+            "folderid": "={{ $json.folderId }}"
+          }
+        }
+      },
+      "position": [
+        -1696,
+        1376
+      ],
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3
+    },
+    {
+      "id": "cb873e0e-1dcd-43bb-b21c-65d42a87aad2",
+      "name": "If1",
+      "parameters": {
+        "conditions": {
+          "combinator": "or",
+          "conditions": [
+            {
+              "id": "eab8f4b6-0dda-4916-b33e-543a2e673505",
+              "leftValue": "={{ $json.proceedWithFileUpload }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            },
+            {
+              "id": "8d2715a7-9875-4547-9f1c-3ecbc0352db3",
+              "leftValue": "",
+              "operator": {
+                "name": "filter.operator.equals",
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -1424,
+        1536
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "3443d6e3-1c59-4f98-a9e7-9bd1e62ee384",
+      "name": "Call 'check file existence'1",
+      "parameters": {
+        "options": {
+          "waitForSubWorkflow": true
+        },
+        "workflowId": {
+          "__rl": true,
+          "cachedResultName": "check file existence",
+          "cachedResultUrl": "/workflow/NHtAA68XwRTbAXHO",
+          "mode": "list",
+          "value": "NHtAA68XwRTbAXHO"
+        },
+        "workflowInputs": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "filename",
+              "id": "filename",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "folderid",
+              "id": "folderid",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "deleteUpdate",
+              "id": "deleteUpdate",
+              "removed": false,
+              "required": false,
+              "type": "boolean"
+            }
+          ],
+          "value": {
+            "deleteUpdate": true,
+            "filename": "=reel_{{ $('Get row(s) in sheet').item.json['Reel number'] }}_shotno_{{ $('create generate model prompts').item.json.shot_num }}",
+            "folderid": "={{ $('Create Review FolderID').item.json.ReelReviewId }}"
+          }
+        }
+      },
+      "position": [
+        1616,
+        1744
+      ],
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3
+    },
+    {
+      "id": "0c6e31be-f4a8-4818-af2d-b6112c19c077",
+      "name": "If2",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "2f10f19f-80b5-4d05-ab91-3802121e5169",
+              "leftValue": "={{ $json.proceedWithFileUpload }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        1824,
+        1744
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "33b20e94-da86-4422-a62f-8339039d7116",
+      "name": "Code in JavaScript",
+      "parameters": {
+        "jsCode": "return $items(\"fetch response\").map(item => {\n  return {\n    json: {\n      ...item.json,          // Keep original data\n      ...item.json.images    // Extract and flatten everything inside \"images\"\n    }\n  };\n});"
+      },
+      "position": [
+        2064,
+        1584
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "executeOnce": false,
+      "id": "49e4b76c-c724-44c6-bdd2-a2fa80acfd65",
+      "name": "Loop Over Reels",
+      "notes": "Processes one reel at a time. On error, updates sheet and continues to next reel.",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -2208,
+        -752
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "6705ffb7-8a9a-427d-b878-f93773b4848c",
+      "name": "Catch Reel Error",
+      "notes": "Receives errors from any critical node. Passes to sheet updater then continues loop.",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "err-1",
+              "name": "errorMessage",
+              "type": "string",
+              "value": "={{ $json.error?.message ?? 'Unknown error' }}"
+            },
+            {
+              "id": "err-2",
+              "name": "failedNode",
+              "type": "string",
+              "value": "={{ $json.error?.node?.name ?? 'unknown node' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        -3584,
+        64
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "ae8e1cb0-8682-410f-9ce7-0be496c4a8c1",
+      "name": "Update Status = error",
+      "notes": "Marks failed reel as error, then loops back to continue next reel.",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel number",
+              "id": "Reel number",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Client(drive folder name)",
+              "id": "Client(drive folder name)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Account to post",
+              "id": "Account to post",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Avatars to use(comma seperated)",
+              "id": "Avatars to use(comma seperated)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Avtar Drive links(optional & bypasses Avatar to use field)",
+              "id": "Avtar Drive links(optional & bypasses Avatar to use field)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel Type",
+              "id": "Reel Type",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Concept input(optional)",
+              "id": "Concept input(optional)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Song link(direct download)",
+              "id": "Song link(direct download)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Start Time of Song",
+              "id": "Start Time of Song",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Total Time of Reel(Secs)",
+              "id": "Total Time of Reel(Secs)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Status of Automation",
+              "id": "Status of Automation",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Drive link for image approvals",
+              "id": "Drive link for image approvals",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Drive link for video approval",
+              "id": "Drive link for video approval",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Final Video Drive Download Link",
+              "id": "Final Video Drive Download Link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Post Schedule Date",
+              "id": "Post Schedule Date",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Post Schedule Time",
+              "id": "Post Schedule Time",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Workflow execution link",
+              "id": "Workflow execution link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Error Details",
+              "id": "Error Details",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "row_number",
+              "id": "row_number",
+              "readOnly": true,
+              "required": false,
+              "type": "number"
+            }
+          ],
+          "value": {
+            "Error Details": "={{ $json.errorMessage }}",
+            "Status of Automation": "error in image generation",
+            "row_number": "={{ $('Get row(s) in sheet').item.json['row_number'] }}"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Short Video Generation DB- Jass Records",
+          "mode": "list",
+          "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+        },
+        "operation": "update",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Main DB",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        -3344,
+        64
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "7004c4a7-7e40-400b-ac20-852101731c61",
+      "name": "Update Status = image_generated",
+      "notes": "Marks reel as image_generated on success, then continues to next reel.",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": true,
+              "display": true,
+              "displayName": "row_number",
+              "id": "row_number",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": false,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Status of Automation",
+              "id": "Status of Automation",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "value": {
+            "Status of Automation": "images_generated",
+            "row_number": "={{ $('Get row(s) in sheet').item.json['row_number'] }}"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Short Video Generation DB- Jass Records",
+          "mode": "list",
+          "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+        },
+        "operation": "update",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Main DB",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        3280,
+        2112
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "808b6571-1c51-46d1-b9a1-19a981ef9f82",
+      "name": "concept update",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "Reel number"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel number",
+              "id": "Reel number",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Client(drive folder name)",
+              "id": "Client(drive folder name)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Account to post",
+              "id": "Account to post",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Avatars to use(comma seperated)",
+              "id": "Avatars to use(comma seperated)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Avtar Drive links(optional & bypasses Avatar to use field)",
+              "id": "Avtar Drive links(optional & bypasses Avatar to use field)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel Type",
+              "id": "Reel Type",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Concept input(optional)",
+              "id": "Concept input(optional)",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Song link(direct download)",
+              "id": "Song link(direct download)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Start Time of Song",
+              "id": "Start Time of Song",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Total Time of Reel(Secs)",
+              "id": "Total Time of Reel(Secs)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Status of Automation",
+              "id": "Status of Automation",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Drive link for image approvals",
+              "id": "Drive link for image approvals",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Drive link for video approval",
+              "id": "Drive link for video approval",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Final Video Drive Download Link",
+              "id": "Final Video Drive Download Link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Post Schedule Date",
+              "id": "Post Schedule Date",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Post Schedule Time",
+              "id": "Post Schedule Time",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Workflow execution link",
+              "id": "Workflow execution link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Error Details",
+              "id": "Error Details",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "row_number",
+              "id": "row_number",
+              "readOnly": true,
+              "removed": true,
+              "required": false,
+              "type": "number"
+            }
+          ],
+          "value": {
+            "Concept input(optional)": "={{ $json.conceptInput }}",
+            "Reel number": "={{ $('Loop Over Reels').item.json['Reel number'] }}"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Short Video Generation DB- Jass Records",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+        },
+        "operation": "update",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Main DB",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        -416,
+        -848
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "ad21d500-ffe9-4a44-9112-684b272a70b8",
+      "name": "Loop Over Items1",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        240,
+        1616
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "executeOnce": false,
+      "id": "a3513eb6-15dd-401b-a143-737a6d9d0c0e",
+      "name": "Create file from text1",
+      "parameters": {
+        "content": "={{ $json.toJsonString() }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Get Reel FolderID').item.json.parentFolderId }}"
+        },
+        "name": "=Reel_{{ $('2. Extract Reel Data').item.json.reelNumber }}_Shots_script",
+        "operation": "createFromText",
+        "options": {}
+      },
+      "position": [
+        16,
+        1376
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "74b83eb5-2764-424b-8fbd-7706f9254788",
+      "name": "create generate model prompts",
+      "parameters": {
+        "jsCode": "// Get avatar data for the CURRENT row\nconst data = $items(\"Merge for concept and Avatar Data\", 0, $itemIndex)?.[0]?.json || {};\n\nconst avatarNames = data[\"Avatar Names\"] || [];\nconst urls = data[\"Reference URLs\"] || [];\n\n// Get master shot URL for the CURRENT row\nconst masterShotUrl = $items(\"Upload file\", 0, $itemIndex)?.[0]?.json?.webContentLink || \"\";\n\n// Build mapping\nconst mapping = {};\nconst image_urls = [];\n\n// Add master shot at index 0\nif (masterShotUrl) {\n  image_urls.push(masterShotUrl);\n}\n\n// Avatar images start from index 1\navatarNames.forEach((name, index) => {\n  const imageIndex = index + 1;\n  mapping[name] = `<image:${imageIndex}>`;\n  if (urls[index]) {\n    image_urls.push(urls[index]);\n  }\n});\n\n// Get fields\nconst storyShot = $json.StoryShots?.framePrompt || \"\";\nconst clothing = $json.ClothingDetails || \"\";\n\n// Combine prompt\nlet combinedPrompt = `${storyShot}. Character appearance: ${clothing}`;\n\n// Replace placeholders with image references\navatarNames.forEach((name, index) => {\n\n  const imageIndex = index + 1;\n\n  const placeholder1 = `<<${name}>>`;\n  const placeholder2 = `<<${name.replace(/[0-9]/g,\"\")}>>`;\n\n  combinedPrompt = combinedPrompt.replaceAll(placeholder1, `<image:${imageIndex}>`);\n  combinedPrompt = combinedPrompt.replaceAll(placeholder2, `<image:${imageIndex}>`);\n\n});\n\n// Determine shot number (per shot loop)\nconst shot_num = $itemIndex + 1;\n\nreturn {\n  json: {\n    ...$json,\n    shot_num,\n    shot_prompt: storyShot,\n    kling_prompt: combinedPrompt,\n    image_urls,\n    mapping\n  }\n};",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        -448,
+        1696
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "421f22c2-529f-4a32-b875-1d957bd4d47c",
+      "name": "Aggregate",
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "position": [
+        -208,
+        1376
+      ],
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1
+    },
+    {
+      "executeOnce": false,
+      "id": "7bc9ab9e-0c46-41b8-9c99-3a52a2fbcc7c",
+      "name": "call model generations1",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key REDACTED"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "={\n  \"prompt\": \"{{ $json.kling_prompt }}, keep clothing exaclty as in <image:0>, refer the background vibe from <image:0> but not exactly like it Maintain natural skin textures and keep the exact skin texture and micro-texture as in <image:1>. Make sure to have atleast one face in the image. \",\n  \"image_urls\":{{ $json.image_urls.toJsonString() }} ,\n  \"elements\": [{}],\n  \"resolution\": \"2K\",\n  \"result_type\": \"single\",\n  \"num_images\": 1,\n  \"aspect_ratio\": \"9:16\",\n  \"output_format\": \"png\"\n}\n",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://queue.fal.run/fal-ai/kling-image/o3/image-to-image"
+      },
+      "position": [
+        64,
+        2512
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    }
+  ],
+  "pinData": {
+    "Generate Master Image": [
+      {
+        "json": {
+          "description": "",
+          "images": [
+            {
+              "content_type": "image/png",
+              "file_name": "H5ISh1IIkFIGtCwRnuALk_rtGWbFxQ.png",
+              "file_size": null,
+              "height": null,
+              "url": "https://v3b.fal.media/files/b/0a91c21f/H5ISh1IIkFIGtCwRnuALk_rtGWbFxQ.png",
+              "width": null
+            }
+          ],
+          "model": "fal-ai/nano-banana/edit",
+          "request_id": "2300d595-d99b-409c-b5a0-9a56508466f3"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Message a model1": [
+      {
+        "json": {
+          "content": {
+            "parts": [
+              {
+                "text": "{\n  \"MasterShot\": \"A breathtaking cinematic vista of Himachal Pradesh featuring <<Avatar2_Male>> and <<Avatar1_Female>> exploring a riverside trail. The scene is dominated by the turquoise Beas river, dense pine forests, and towering snow-capped Himalayan peaks under a clear blue sky. The lighting is bright morning sun, creating sharp shadows and vibrant colors.\",\n  \"ClothingDetails\": \"<<Avatar2_Male>> is wearing a mustard yellow heavy puffer jacket over a charcoal turtleneck, dark denim jeans, and brown leather hiking boots. <<Avatar1_Female>> is dressed in a long beige wool trench coat, a chunky red knitted scarf, black thermal leggings, and dark brown suede boots.\",\n  \"LocationDetails\": \"The location is a mix of a rocky riverbank with smooth boulders and a rustic mountain-side wooden cafe with an open deck overlooking the valley.\",\n  \"StoryShots\": [\n    {\n      \"framePrompt\": \"Wide shot from eyeline of <<Avatar2_Male>> and <<Avatar1_Female>> walking side-by-side along the rocky bank of a rushing turquoise river, with massive snow-covered mountains in the far distance. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same.\",\n      \"cameraAndActionPrompt\": \"A slow tracking side-profile shot moving parallel to the avatars as they walk, with a subtle handheld sway to capture the rugged terrain.\"\n    },\n    {\n      \"framePrompt\": \"Over-the-shoulder shot (OTS) from behind <<Avatar2_Male>> looking at <<Avatar1_Female>> as they sit across a rough-hewn wooden table at an outdoor cafe, mountains visible behind her. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same.\",\n      \"cameraAndActionPrompt\": \"Static camera focusing on the female avatar, with slight depth of field blurring the male avatar's shoulder. <<Avatar1_Female>> points toward a distant peak.\"\n    },\n    {\n      \"framePrompt\": \"Close-up of <<Avatar1_Female>>'s face as she holds a steaming glass of cutting chai to her lips, her eyes crinkling in a gentle smile, the mountain breeze blowing her hair. Dont change the face of <<Avatar1_Female>> keep it same.\",\n      \"cameraAndActionPrompt\": \"Slow zoom-in on the face, capturing the steam rising from the tea glass and the subtle movement of the hair.\"\n    },\n    {\n      \"framePrompt\": \"Low angle shot looking up at <<Avatar2_Male>> and <<Avatar1_Female>> as they stand on a weathered wooden bridge, looking up at the towering pine trees and the vast sky. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same.\",\n      \"cameraAndActionPrompt\": \"The camera starts low and performs a subtle tilt-up motion to emphasize the scale of the mountains and the height of the trees.\"\n    },\n    {\n      \"framePrompt\": \"Mid shot from the side of <<Avatar2_Male>> leaning against a wooden railing, handing a snack to <<Avatar1_Female>> while the sun sets behind the peaks, casting a golden glow. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same.\",\n      \"cameraAndActionPrompt\": \"A gentle pan from the mountains onto the characters, capturing the exchange and the warm golden-hour lighting on their faces.\"\n    }\n  ]\n}",
+                "thoughtSignature": "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"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Translate a recording1": [
+      {
+        "json": {
+          "text": "All the piercings that were suppose to bite me, everything is going to bite me All the piercings that were suppose to bite me, everything is going to bite me Music With the laughter, we will share the tea If the piercings were to bite me, then we will share our breath Show your heart to the river, someday it will know the reason All the piercings that were suppose to bite me, everything is going to bite me All the piercings that were suppose to bite me, everything is going to bite me Music I look at you with my eyes, but my soul is like a fire I don't keep my head down I am like a fire, I am like you All the piercings that were suppose to bite me, everything is going to bite me All the piercings that were suppose to bite me, everything is going to bite me Music Our laughter is like a beautiful field, it is like a beautiful house I tell everyone, I tell everyone, how much happiness I have kept for you I will make you my captain, I will take you to the top All the piercings that were suppose to bite me, everything is going to bite me All the piercings that were suppose to bite me, everything is going to bite me Music"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "call model generations": [
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/97eda00d-c038-4441-8775-76463d12d36a/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 0,
+          "request_id": "97eda00d-c038-4441-8775-76463d12d36a",
+          "response_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/97eda00d-c038-4441-8775-76463d12d36a",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/97eda00d-c038-4441-8775-76463d12d36a/status"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/b822a817-d324-41cb-9e4d-87d37927c8db/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 1,
+          "request_id": "b822a817-d324-41cb-9e4d-87d37927c8db",
+          "response_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/b822a817-d324-41cb-9e4d-87d37927c8db",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/b822a817-d324-41cb-9e4d-87d37927c8db/status"
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/fde3593e-6e27-421b-a771-64ea6e8698b6/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 1,
+          "request_id": "fde3593e-6e27-421b-a771-64ea6e8698b6",
+          "response_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/fde3593e-6e27-421b-a771-64ea6e8698b6",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/fde3593e-6e27-421b-a771-64ea6e8698b6/status"
+        },
+        "pairedItem": {
+          "item": 2
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/9fcea529-17bc-40d2-ba9c-b960626db077/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 0,
+          "request_id": "9fcea529-17bc-40d2-ba9c-b960626db077",
+          "response_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/9fcea529-17bc-40d2-ba9c-b960626db077",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/9fcea529-17bc-40d2-ba9c-b960626db077/status"
+        },
+        "pairedItem": {
+          "item": 3
+        }
+      },
+      {
+        "json": {
+          "cancel_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/c9d811d3-3ebc-4acc-9d74-729ec932f222/cancel",
+          "logs": null,
+          "metrics": {},
+          "queue_position": 1,
+          "request_id": "c9d811d3-3ebc-4acc-9d74-729ec932f222",
+          "response_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/c9d811d3-3ebc-4acc-9d74-729ec932f222",
+          "status": "IN_QUEUE",
+          "status_url": "https://queue.fal.run/fal-ai/nano-banana-2/requests/c9d811d3-3ebc-4acc-9d74-729ec932f222/status"
+        },
+        "pairedItem": {
+          "item": 4
+        }
+      }
+    ]
+  },
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-07T17:02:08.622Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-07T17:02:08.622Z",
+      "workflowId": "Vt1Jad5ezlm7LGfg"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-11T16:16:46.681Z",
+  "versionId": "c8a15387-c956-4ebf-9086-35c86900cddd"
+}
