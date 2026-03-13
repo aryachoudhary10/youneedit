@@ -1,0 +1,936 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Analyze an image": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Parse AI output Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get files in the folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge with parent",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get folders inside Parent folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over each row",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Ignoring if Data present": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Analyze an image",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Loop Over each row",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Restructure Data",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Get files in the folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over each row": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Ignoring if Data present",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge with parent": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Parse AI output Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "update analysis data in motion sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Restructure Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Append or update data in motion sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get row(s) in sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get folders inside Parent folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "update analysis data in motion sheet": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over each row",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-01T10:53:37.000Z",
+  "id": "VRG9PDns2uQNdAYJ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Video Images Details Addition Batch Flow",
+  "nodes": [
+    {
+      "id": "b865bc15-3218-4ce4-abf2-e2a393083c56",
+      "name": "When clicking ‘Execute workflow’",
+      "parameters": {},
+      "position": [
+        -864,
+        -352
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "c1de05f8-2682-4267-9c59-a5ae05e453d4",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "## Pose motion Addition to sheet\nWorkflow reads the drive folder and add descriptive details to google sheets for future use."
+      },
+      "position": [
+        -1168,
+        -368
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "5de5948d-761f-495e-bdbe-5f26a1a8cc94",
+      "name": "Sticky Note1",
+      "parameters": {
+        "content": "### Set input Drive Folder here",
+        "height": 240,
+        "width": 192
+      },
+      "position": [
+        -704,
+        -400
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "31c12bb6-cb30-41e5-9293-af9e36eace29",
+      "name": "Get folders inside Parent folder",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "url",
+            "value": "https://drive.google.com/drive/u/1/folders/1x-I6OzKAt-_lu4aJx7Hm4mfziJzGcBVE"
+          }
+        },
+        "options": {},
+        "resource": "fileFolder"
+      },
+      "position": [
+        -656,
+        -352
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "0528bd0f-c4e5-432c-96f6-e34f3314c554",
+      "name": "Loop Over Items",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -384,
+        -352
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "executeOnce": false,
+      "id": "0a9fa617-d5de-42a3-bac3-2503b24bc1b1",
+      "name": "Get files in the folder",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "whatToSearch": "files"
+        },
+        "limit": 1000,
+        "options": {},
+        "resource": "fileFolder"
+      },
+      "position": [
+        -208,
+        -192
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "fd33294e-0f8a-4c64-851e-3e8869abb3bc",
+      "name": "Merge with parent",
+      "parameters": {
+        "jsCode": "// Reference the current parent folder item from the Loop node\nconst parentFolder = $('Loop Over Items').item.json;\n\n// Get all 55 items from the files node and map them\nconst files = $('Get files in the folder').all().map(item => {\n  const fileData = item.json;\n  \n  return {\n    id: fileData.id,\n    name: fileData.name,\n    // Construct the direct download link using the file ID\n    file_link: `https://drive.google.com/uc?export=download&id=${fileData.id}`\n  };\n});\n\n// Create the single final object structure\nreturn {\n  parent_id: parentFolder.id,\n  parent_name: parentFolder.name,\n  file_list: files\n};"
+      },
+      "position": [
+        16,
+        -192
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "23bb4d08-e6e9-4bc5-b347-e0c9dda5eed9",
+      "name": "Restructure Data",
+      "parameters": {
+        "jsCode": "// --- CONFIGURATION: Set your folder names here ---\nconst FOLDER_MOTIONS = 'Motion Bank';\nconst FOLDER_THUMBS = 'Motion Bank Thumbnails';\nconst FOLDER_ORIGINALS = 'Video Downloads';\n\n// 1. Get all input items\nconst allData = $input.all().map(item => item.json);\n\n// 2. Identify the specific datasets using the variables defined above\nconst motionBank = allData.find(d => d.parent_name === FOLDER_MOTIONS) || { file_list: [] };\nconst thumbnails = allData.find(d => d.parent_name === FOLDER_THUMBS) || { file_list: [] };\nconst videoDownloads = allData.find(d => d.parent_name === FOLDER_ORIGINALS) || { file_list: [] };\n\n// Helper function to remove extension\nconst removeExt = (filename) => filename.replace(/\\.[^/.]+$/, \"\");\n\n// 3. Map through the Motion Bank files to create the final consolidated JSON\nconst finalOutput = motionBank.file_list.map(file => {\n  const motionId = removeExt(file.name);\n  \n  // Logic for Thumbnail: Match filename (no ext) exactly with MotionId\n  const thumbMatch = thumbnails.file_list.find(t => removeExt(t.name) === motionId);\n  \n  // Logic for Original Video: Split MotionId on '_' and match the first part\n  const originalPrefix = motionId.split('_')[0];\n  const originalMatch = videoDownloads.file_list.find(v => removeExt(v.name) === originalPrefix);\n\n  return {\n    \"MotionID\": motionId,\n    \"Motion Video Link\": file.file_link,\n    \"Motion Thumbnail Link\": thumbMatch ? thumbMatch.file_link : \"No Thumbnail Found\",\n    \"Original Video Link\": originalMatch ? originalMatch.file_link : \"No Original Found\"\n  };\n});\n\nreturn finalOutput;"
+      },
+      "position": [
+        -144,
+        -368
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "c6d2cf2d-1ae9-42aa-9d98-07468a341944",
+      "name": "Append or update data in motion sheet",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "MotionID"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "MotionID",
+              "id": "MotionID",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Motion Video Link",
+              "id": "Motion Video Link",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Motion Thumbnail Link",
+              "id": "Motion Thumbnail Link",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Original Video Link",
+              "id": "Original Video Link",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Thumbnail Image",
+              "id": "Thumbnail Image",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Motion Type(Posing/Action)",
+              "id": "Motion Type(Posing/Action)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Gender",
+              "id": "Gender",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Num of people",
+              "id": "Num of people",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Shot Type",
+              "id": "Shot Type",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Shot Angle",
+              "id": "Shot Angle",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Clothing Highlevel",
+              "id": "Clothing Highlevel",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Shot Angle Description",
+              "id": "Shot Angle Description",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Clothing Description",
+              "id": "Clothing Description",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Background Desicription",
+              "id": "Background Desicription",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Lighting Mood Description",
+              "id": "Lighting Mood Description",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Action Description",
+              "id": "Action Description",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Is_active",
+              "id": "Is_active",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "value": {
+            "Motion Thumbnail Link": "={{ $json['Motion Thumbnail Link'] }}",
+            "Motion Video Link": "={{ $json['Motion Video Link'] }}",
+            "MotionID": "={{ $json.MotionID }}",
+            "Original Video Link": "={{ $json['Original Video Link'] }}"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Motion Videos Normal Influencer Details",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZmoIMuSZ0WjwxmTxPIW1DKHZcNdJtVEK9THYlzTefO4/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "1ZmoIMuSZ0WjwxmTxPIW1DKHZcNdJtVEK9THYlzTefO4"
+        },
+        "operation": "appendOrUpdate",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Motion Bank",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZmoIMuSZ0WjwxmTxPIW1DKHZcNdJtVEK9THYlzTefO4/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        128,
+        -368
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "1099e400-fa63-42e6-a535-2d611aaa8dba",
+      "name": "Get row(s) in sheet",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Motion Videos Normal Influencer Details",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZmoIMuSZ0WjwxmTxPIW1DKHZcNdJtVEK9THYlzTefO4/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "1ZmoIMuSZ0WjwxmTxPIW1DKHZcNdJtVEK9THYlzTefO4"
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Motion Bank",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZmoIMuSZ0WjwxmTxPIW1DKHZcNdJtVEK9THYlzTefO4/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        -768,
+        448
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "executeOnce": true,
+      "id": "38e0ebed-c646-4ac5-b874-e6cff8939c0b",
+      "name": "Analyze an image",
+      "parameters": {
+        "imageUrls": "={{ $json['Motion Thumbnail Link'] }}",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "operation": "analyze",
+        "options": {},
+        "resource": "image",
+        "simplify": false,
+        "text": "given the image describe the following in json format\n\n\n\nJSON output only as :\n{\n  \"motion_type\": \"Posing/Action (Choose Posing for standing/looking/twirl/side looks etc; Action for only when holding something or sitting)\",\n  \"gender\": \"Male / Female / Both\",\n  \"num_of_people\": 1,\n  \"shot_type\": \"Extreme Wide / Wide / Mid / Close up / Extreme Close up\",\n  \"shot_angle\": \"Eye level / Top Angle / Low Angle\",\n  \"pose_type\": \"Front / Side / Back\",\n  \"orientation\": \"Sitting / Standing / Walking / Running \",\n\"face_visibile\":\"Yes/ No\",\n  \"clothing_highlevel\": \"Casual / Ethnic / Formals\",\n  \"shot_angle_description\": \"Detailed description of the shot angle.\",\n  \"clothing_description\": \"Detailed description of clothing (approx. 50 words).\",\n  \"background_description\": \"Detailed description of the background (approx. 50 words).\",\n  \"lighting_mood_description\": \"Detailed description of the lighting and mood (approx. 50 words).\",\n  \"action_description\": \"Detailed description of the action in the image (approx. 50 words).\"\n}"
+      },
+      "position": [
+        -32,
+        560
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "id": "d3bb5400-ae6b-4419-88c5-d3254231e704",
+      "name": "Loop Over each row",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -512,
+        448
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "465b8f7a-a293-4b28-abaf-779e42bc04a1",
+      "name": "Parse AI output Data",
+      "parameters": {
+        "jsCode": "// 1. Reference the nodes by their specific names\nconst aiNode = $('Analyze an image').item;\nconst loopNode = $('Loop Over each row').item;\n\n// 2. Safety check: Ensure the nodes actually have data\nif (!aiNode || !loopNode) {\n  return {\n    json: {\n      error: \"Could not find data from 'Analyze an image' or 'Loop Over each row' nodes.\"\n    }\n  };\n}\n\nconst rawText = aiNode.json.candidates[0].content.parts[0].text;\nconst motionId = loopNode.json.MotionID;\n\n// 3. Clean and Extract JSON using Regex (handles extra conversational text)\nconst jsonMatch = rawText.match(/```json\\n?([\\s\\S]*?)\\n?```/) || rawText.match(/{[\\s\\S]*}/);\nconst cleanJsonString = jsonMatch ? (jsonMatch[1] || jsonMatch[0]) : rawText;\n\ntry {\n  // 4. Parse the string into a real JSON object\n  const parsedData = JSON.parse(cleanJsonString.trim());\n\n  // 5. Return the merged result wrapped in the required 'json' key\n  return {\n    json: {\n      MotionID: motionId,\n      ...parsedData\n    }\n  };\n} catch (e) {\n  // 6. If parsing fails, return the error safely inside the 'json' key\n  return {\n    json: {\n      MotionID: motionId,\n      status: \"error\",\n      error_message: e.message,\n      raw_ai_output: rawText\n    }\n  };\n}"
+      },
+      "position": [
+        112,
+        544
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "568265b6-08cc-490b-be81-5164ee896290",
+      "name": "update analysis data in motion sheet",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "autoMapInputData",
+          "matchingColumns": [
+            "MotionID"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "MotionID",
+              "id": "MotionID",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Motion Video Link",
+              "id": "Motion Video Link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Motion Thumbnail Link",
+              "id": "Motion Thumbnail Link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Original Video Link",
+              "id": "Original Video Link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Thumbnail Image",
+              "id": "Thumbnail Image",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "motion_type",
+              "id": "motion_type",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "gender",
+              "id": "gender",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "num_of_people",
+              "id": "num_of_people",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "shot_type",
+              "id": "shot_type",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "shot_angle",
+              "id": "shot_angle",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "pose_type",
+              "id": "pose_type",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "orientation",
+              "id": "orientation",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "face_visibile",
+              "id": "face_visibile",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "clothing_highlevel",
+              "id": "clothing_highlevel",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "shot_angle_description",
+              "id": "shot_angle_description",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "clothing_description",
+              "id": "clothing_description",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "background_description",
+              "id": "background_description",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "lighting_mood_description",
+              "id": "lighting_mood_description",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "action_description",
+              "id": "action_description",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "value": {
+            "MotionID": "={{ $json.MotionID }}"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Motion Videos Normal Influencer Details",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZmoIMuSZ0WjwxmTxPIW1DKHZcNdJtVEK9THYlzTefO4/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "1ZmoIMuSZ0WjwxmTxPIW1DKHZcNdJtVEK9THYlzTefO4"
+        },
+        "operation": "appendOrUpdate",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Motion Bank",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZmoIMuSZ0WjwxmTxPIW1DKHZcNdJtVEK9THYlzTefO4/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        288,
+        624
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "3c1cad89-d6aa-423e-9d41-bce5c571cc83",
+      "name": "Ignoring if Data present",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "9c4cfc0d-a68a-4c86-9edc-cddf471e8951",
+              "leftValue": "={{ $json.shot_type }}",
+              "operator": {
+                "operation": "empty",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": 1
+            },
+            {
+              "id": "fce43aa7-b58b-4377-8f4d-3402d89e2839",
+              "leftValue": "",
+              "operator": {
+                "name": "filter.operator.equals",
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "position": [
+        -288,
+        576
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "8c301f32-dba1-46d4-802d-483864936908",
+      "name": "Schedule Trigger",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "position": [
+        -992,
+        448
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-01T10:53:37.005Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-01T10:53:37.005Z",
+      "workflowId": "VRG9PDns2uQNdAYJ"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-01T12:59:43.631Z",
+  "versionId": "3c9b76e4-f916-4fdf-931a-245b3b8cfe04"
+}
