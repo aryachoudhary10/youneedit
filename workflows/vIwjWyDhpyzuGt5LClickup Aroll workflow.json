@@ -1,0 +1,621 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search Folder in Drive",
+            "type": "main"
+          },
+          {
+            "index": 1,
+            "node": "Connect combined data with script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Combine all transcripts with all binary data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Connect combined data with script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Connect combined data with script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Step 2 Match with script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create XML binary": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Upload file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Create XML format from JSON": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create XML binary",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Step 1 Transcribe Video",
+            "type": "main"
+          },
+          {
+            "index": 1,
+            "node": "Merge to get binary data back",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get all file details in folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Download file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get many tasks": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Code in JavaScript",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge for folder name": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create XML format from JSON",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Upload file",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge to get binary data back": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Combine all transcripts with all binary data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Parse Transcribe output": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge to get binary data back",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Parse matched sequence to json": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge for folder name",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search Folder in Drive": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get all file details in folder",
+            "type": "main"
+          },
+          {
+            "index": 1,
+            "node": "Merge for folder name",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Step 1 Transcribe Video": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Parse Transcribe output",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Step 2 Match with script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Parse matched sequence to json",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Upload file": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Update a task",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get many tasks",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-07T11:34:25.025Z",
+  "id": "vIwjWyDhpyzuGt5L",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Clickup Aroll workflow",
+  "nodes": [
+    {
+      "id": "8f5a0537-24e1-43a3-a704-526f8ebeb3fe",
+      "name": "When clicking ‘Execute workflow’",
+      "parameters": {},
+      "position": [
+        -720,
+        -416
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "e33e4b46-7134-43b0-91e9-2de7740f3509",
+      "name": "Get many tasks",
+      "parameters": {
+        "filters": {
+          "statuses": [
+            "editing - in progress"
+          ]
+        },
+        "folderless": true,
+        "list": "901606638452",
+        "operation": "getAll",
+        "space": "67203119",
+        "team": "43273179"
+      },
+      "position": [
+        -528,
+        -416
+      ],
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1
+    },
+    {
+      "id": "8b1d2e78-bb88-43fc-9b10-b41e65028b8d",
+      "name": "Code in JavaScript",
+      "parameters": {
+        "jsCode": "const outputItems = [];\n\nfor (const item of $input.all()) {\n  // Assuming the input fields are named 'name' and 'text_content'\n  const rawName =  item.json.name || '';\n  const rawContent = item.json.text_content || ''; \n\n  // --- 1. Clean the Text Content (script) ---\n\n  let cleanedScript = rawContent;\n\n  // 1a. Remove URLs (common patterns for HTTP/HTTPS/drive links)\n  // This Regex targets common URL structures (e.g., https://...)\n  const urlRegex = /(https?:\\/\\/[^\\s]+|www\\.[^\\s]+)/g;\n  cleanedScript = cleanedScript.replace(urlRegex, '').trim();\n\n  // 1b. Remove emoticons/emojis (Unicode ranges for common emojis)\n  // This Regex targets various common emoji ranges and symbols.\n  // Note: This is an extensive list and might not catch 100% of all rare Unicode symbols.\n  const emojiRegex = /(\\u00a9|\\u00ae|[\\u2000-\\u3300]|\\ud83c[\\ud000-\\udfff]|\\ud83d[\\ud000-\\udfff]|\\ud83e[\\ud000-\\udfff])/g;\n  cleanedScript = cleanedScript.replace(emojiRegex, '').trim();\n\n  // 1c. Remove all text contained within brackets () or []\n  // This Regex targets anything between ( ) or [ ] globally (non-greedy match).\n  const bracketRegex = /[\\(\\[].*?[\\)\\]]/g;\n  cleanedScript = cleanedScript.replace(bracketRegex, '').trim();\n  \n  // 1d. Final cleanup: Remove unwanted characters (like leftover '\\n' or consecutive spaces)\n  cleanedScript = cleanedScript.replace(/[\\n\\t\\r]+/g, ' '); // Replace newlines/tabs with space\n  cleanedScript = cleanedScript.replace(/\\s{2,}/g, ' ').trim(); // Collapse multiple spaces\n  \n  // --- 2. Clean the Name Field ---\n\n  // For the name, just remove leading identifiers (e.g., \"250501 \") and extra spaces.\n  let cleanedName = rawName.replace(/^\\s*\\d+\\s*/, '').trim(); \n  \n  // --- 3. Create Output Fields ---\n\n  outputItems.push({\n    json: {\n      // Requested field 1: Cleaned text content\n      script: cleanedScript, \n      // Requested field 2: Cleaned name\n      name: cleanedName \n    }\n  });\n}\n\nreturn outputItems;"
+      },
+      "position": [
+        -336,
+        -432
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "b58fb935-b3cf-4ec3-b8fa-afbdfb8f30ea",
+      "name": "Update a task",
+      "parameters": {
+        "id": "={{ $('Get many tasks').item.json.id }}",
+        "operation": "update",
+        "updateFields": {
+          "content": "=XML file link : {{ $json.webViewLink }}       {{ $('Get many tasks').item.json.text_content }}"
+        }
+      },
+      "position": [
+        2832,
+        224
+      ],
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "fd6097b6-3370-4143-8219-dfb8767314ef",
+      "name": "Search Folder in Drive",
+      "parameters": {
+        "filter": {
+          "whatToSearch": "folders"
+        },
+        "limit": 10,
+        "options": {},
+        "queryString": "={{ $json.name }}`",
+        "resource": "fileFolder"
+      },
+      "position": [
+        -384,
+        16
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "016727d8-dedc-4045-a000-0facc2d81148",
+      "name": "Create XML binary",
+      "parameters": {
+        "jsCode": "const xmlString = $json.xml_content;   // your XML string\n\nconst xmlBuffer = Buffer.from(xmlString, \"utf-8\");\nconst xmlBase64 = xmlBuffer.toString(\"base64\");\n\nreturn [\n  {\n    json: {},\n    binary: {\n      data: {\n        data: xmlBase64,\n        fileName: $input.first().json.fileName,\n        mimeType: \"text/xml\"\n      }\n    }\n  }\n];"
+      },
+      "position": [
+        2368,
+        0
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "5d9690c0-fe87-4d15-a8b5-6e1d22de346b",
+      "name": "Create XML format from JSON",
+      "parameters": {
+        "jsCode": "// ----------------CONFIGURATION----------------\nconst TIMEBASE = 30; // Timebase is mathematically 30 for NTSC 29.97\nconst NTSC_TAG = 'TRUE'; \nconst TICKS_PER_SECOND = 254016000000;\nconst WIDTH = 1080;\nconst HEIGHT = 1920;\nconst AUDIO_RATE = 48000;\nconst START_FRAME_BUFFER = 5;\nconst END_FRAME_BUFFER = 5;\n\n// Conversion Ratio: TICKS_PER_SECOND / TIMEBASE (Used to convert Frames to Ticks)\nconst FRAME_TO_TICKS_RATIO = TICKS_PER_SECOND / TIMEBASE;\n// ---------------------------------------------\n\n// Helper 1: Returns full seconds float (Kept for consistency, but we won't use it for pproTicks anymore)\nfunction timeToSecondsFloat(timeString) {\n  if (!timeString) return 0;\n   \n    \n  const dotTime = timeString.replace(',', '.');\n  const parts = dotTime.split(':');\n    \n  // --- TIME FORMAT CHECKER AND CORRECTION ---\n    if (parts.length === 2) {\n        // Format is likely \"MM:SS,mmm\". Prepend \"00\" for hours.\n        parts.unshift(\"00\"); // parts is now [\"00\", \"MM\", \"SS,mmm\"]\n    } else if (parts.length === 1) {\n        // Format is likely \"SS,mmm\". Prepend \"00:00\" for hours and minutes.\n        parts.unshift(\"00\", \"00\"); // parts is now [\"00\", \"00\", \"SS,mmm\"]\n    } else if (parts.length !== 3) {\n        // Invalid or unexpected format\n        console.error(`Invalid time string format: ${timeString}`);\n        return 0;\n    }\n    // --- END CORRECTION ---\n  return (parseFloat(parts[0]) * 3600) + \n         (parseFloat(parts[1]) * 60) + \n         parseFloat(parts[2]);\n}\n\n// Helper 2: Returns precise frame integer using seconds + ms calculation\nfunction timeToFrameInteger(timeString, timebase) {\n    if (!timeString) return 0;\n    \n    let parts = timeString.split(':');\n    \n    // --- TIME FORMAT CHECKER AND CORRECTION ---\n    if (parts.length === 2) {\n        // Format is likely \"MM:SS,mmm\". Prepend \"00\" for hours.\n        parts.unshift(\"00\"); // parts is now [\"00\", \"MM\", \"SS,mmm\"]\n    } else if (parts.length === 1) {\n        // Format is likely \"SS,mmm\". Prepend \"00:00\" for hours and minutes.\n        parts.unshift(\"00\", \"00\"); // parts is now [\"00\", \"00\", \"SS,mmm\"]\n    } else if (parts.length !== 3) {\n        // Invalid or unexpected format\n        console.error(`Invalid time string format: ${timeString}`);\n        return 0;\n    }\n    // --- END CORRECTION ---\n\n    // parts is guaranteed to be [\"HH\", \"MM\", \"SS,mmm\"] at this point\n    const ss_ms = parts[2].split(',');   \n\n    // 1. Calculate total seconds portion (HH:MM:SS)\n    const h = parseInt(parts[0]);\n    const m = parseInt(parts[1]);\n    const s = parseInt(ss_ms[0]);\n    const baseSec = (h * 3600) + (m * 60) + s;\n    \n    // 2. Calculate ms portion (mmm)\n    const ms = parseInt(ss_ms[1]) || 0;\n\n    // Calculate frames separately and sum them up\n    const framesFromSeconds = baseSec * timebase;\n    \n    // Calculate fractional frame and round\n    const framesFromMs = Math.round((ms / 1000) * timebase);\n\n    // Note: The -13 correction is preserved from your original code.\n    return (framesFromSeconds + framesFromMs); \n}\n// Helper: UUID Generator\nfunction generateUUID() {\n  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n}\n\n// Get Input Data\nconst matches = items[0].json.matches || [];\nconst sequence_name = items[0].json.name + \"_sequence\";\n\n// 1. Process Files (Identify unique media files)\nconst fileMap = {}; \nlet fileCounter = 1;\n\nmatches.forEach(m => {\n  if (!fileMap[m.name]) {\n    fileMap[m.name] = {\n      id: `file-${fileCounter}`,\n      name: m.name,\n      uuid: generateUUID()\n    };\n    fileCounter++;\n  }\n});\n\n// 2. Process Clips\nlet timelineCursorFrame = 0;\nconst clipData = [];\nlet clipIdCounter = 1;\n\nfor (const match of matches) {\n  if (!match.words || match.words.length === 0) continue; \n\n  const fileInfo = fileMap[match.name];\n  \n  // --- PRECISION CUTTING (Word Level) ---\n  const firstWord = match.words[0];\n  const lastWord = match.words[match.words.length - 1];\n\n  // Frame Calculation using User's Two-Step Integer Logic\n  const startFrame = timeToFrameInteger(firstWord.start, TIMEBASE) -START_FRAME_BUFFER;\n  const endFrame = timeToFrameInteger(lastWord.end, TIMEBASE)+ START_FRAME_BUFFER;\n  const durationFrames = endFrame - startFrame;\n  \n  // *** NEW: PPRO Ticks Derived from the Calculated Integer Frames ***\n  // This ensures perfect frame/tick alignment, resolving the float issue.\n  const pproTicksIn = Math.round(startFrame * FRAME_TO_TICKS_RATIO);\n  const pproTicksOut = Math.round(endFrame * FRAME_TO_TICKS_RATIO);\n\n  // Generate unique IDs for the clip elements\n  const vidClipId = `clipitem-${clipIdCounter++}`;\n  const audClipId1 = `clipitem-${clipIdCounter++}`;\n  const audClipId2 = `clipitem-${clipIdCounter++}`;\n\n  clipData.push({\n    fileId: fileInfo.id,\n    filename: fileInfo.name,\n    vidId: vidClipId,\n    audId1: audClipId1,\n    audId2: audClipId2,\n    \n    // Source Media In/Out\n    inFrame: startFrame,\n    outFrame: endFrame,\n    pproTicksIn: pproTicksIn,\n    pproTicksOut: pproTicksOut,\n    \n    // Sequence Timeline Placement (Continuous)\n    tlStart: timelineCursorFrame,\n    tlEnd: timelineCursorFrame + durationFrames,\n    duration: durationFrames\n  });\n\n  // Increment Timeline Cursor\n  timelineCursorFrame += durationFrames;\n}\n\n// 3. Construct XML String\nconst sequenceDuration = timelineCursorFrame;\n\nlet xml = `<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xmeml version=\"4\">\n<sequence id=\"sequence-1\">\n    <uuid>${generateUUID()}</uuid>\n    <duration>${sequenceDuration}</duration>\n    <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n    <name>${sequence_name}</name>\n    <media>\n`;\n\n// --- VIDEO SECTION ---\nxml += `<video>\n        <format>\n            <samplecharacteristics>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <width>${WIDTH}</width>\n                <height>${HEIGHT}</height>\n                <pixelaspectratio>square</pixelaspectratio>\n            </samplecharacteristics>\n        </format>\n        <track>\n`;\n\n// Generate Video Clips\nclipData.forEach(clip => {\n    const pathUrl = clip.filename; \n\n    xml += `\n            <clipitem id=\"${clip.vidId}\">\n                <masterclipid>${clip.fileId}-master</masterclipid>\n                <name>${clip.filename}</name>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <start>${clip.tlStart}</start>\n                <end>${clip.tlEnd}</end>\n                <in>${clip.inFrame}</in>\n                <out>${clip.outFrame}</out>\n                <pproTicksIn>${clip.pproTicksIn}</pproTicksIn>\n                <pproTicksOut>${clip.pproTicksOut}</pproTicksOut>\n                <file id=\"${clip.fileId}\">\n                    <name>${clip.filename}</name>\n                    <pathurl>${pathUrl}</pathurl>\n                    <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                    <media>\n                        <video><samplecharacteristics><width>${WIDTH}</width><height>${HEIGHT}</height></samplecharacteristics></video>\n                        <audio><samplecharacteristics><depth>16</depth><samplerate>${AUDIO_RATE}</samplerate></samplecharacteristics><channelcount>2</channelcount></audio>\n                    </media>\n                </file>\n                <link><linkclipref>${clip.vidId}</linkclipref><mediatype>video</mediatype><trackindex>1</trackindex><clipindex>1</clipindex></link>\n                <link><linkclipref>${clip.audId1}</linkclipref><mediatype>audio</mediatype><trackindex>1</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n                <link><linkclipref>${clip.audId2}</linkclipref><mediatype>audio</mediatype><trackindex>2</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n            </clipitem>`;\n});\n\nxml += `    </track>\n        </video>\n`;\n\n// --- AUDIO SECTION ---\nxml += `<audio>\n        <numOutputChannels>2</numOutputChannels>\n        <format><samplecharacteristics><depth>16</depth><samplerate>${AUDIO_RATE}</samplerate></samplecharacteristics></format>\n`;\n\n// Audio Track 1\nxml += `<track currentExplodedTrackIndex=\"0\" totalExplodedTrackCount=\"2\" premiereTrackType=\"Stereo\">`;\nclipData.forEach(clip => {\n  xml += `\n            <clipitem id=\"${clip.audId1}\" premiereChannelType=\"stereo\">\n                <masterclipid>${clip.fileId}-master</masterclipid>\n                <name>${clip.filename}</name>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <start>${clip.tlStart}</start>\n                <end>${clip.tlEnd}</end>\n                <in>${clip.inFrame}</in>\n                <out>${clip.outFrame}</out>\n                <pproTicksIn>${clip.pproTicksIn}</pproTicksIn>\n                <pproTicksOut>${clip.pproTicksOut}</pproTicksOut>\n                <file id=\"${clip.fileId}\" />\n                <sourcetrack><mediatype>audio</mediatype><trackindex>1</trackindex></sourcetrack>\n                <link><linkclipref>${clip.vidId}</linkclipref><mediatype>video</mediatype><trackindex>1</trackindex><clipindex>1</clipindex></link>\n                <link><linkclipref>${clip.audId1}</linkclipref><mediatype>audio</mediatype><trackindex>1</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n                <link><linkclipref>${clip.audId2}</linkclipref><mediatype>audio</mediatype><trackindex>2</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n            </clipitem>`;\n});\nxml += `</track>`;\n\n// Audio Track 2\nxml += `<track currentExplodedTrackIndex=\"1\" totalExplodedTrackCount=\"2\" premiereTrackType=\"Stereo\">`;\nclipData.forEach(clip => {\n  xml += `\n            <clipitem id=\"${clip.audId2}\" premiereChannelType=\"stereo\">\n                <masterclipid>${clip.fileId}-master</masterclipid>\n                <name>${clip.filename}</name>\n                <rate><timebase>${TIMEBASE}</timebase><ntsc>${NTSC_TAG}</ntsc></rate>\n                <start>${clip.tlStart}</start>\n                <end>${clip.tlEnd}</end>\n                <in>${clip.inFrame}</in>\n                <out>${clip.outFrame}</out>\n                <pproTicksIn>${clip.pproTicksIn}</pproTicksIn>\n                <pproTicksOut>${clip.pproTicksOut}</pproTicksOut>\n                <file id=\"${clip.fileId}\" />\n                <sourcetrack><mediatype>audio</mediatype><trackindex>2</trackindex></sourcetrack>\n                <link><linkclipref>${clip.vidId}</linkclipref><mediatype>video</mediatype><trackindex>1</trackindex><clipindex>1</clipindex></link>\n                <link><linkclipref>${clip.audId1}</linkclipref><mediatype>audio</mediatype><trackindex>1</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n                <link><linkclipref>${clip.audId2}</linkclipref><mediatype>audio</mediatype><trackindex>2</trackindex><clipindex>1</clipindex><groupindex>1</groupindex></link>\n            </clipitem>`;\n});\nxml += `</track>`;\n\nxml += `</audio></media></sequence></xmeml>`;\n\nreturn [{ json: { xml_content: xml, fileName: sequence_name+\".xml\" } }];"
+      },
+      "position": [
+        2144,
+        0
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "938b4ce7-8ae0-4357-9e8d-9472b61d08b7",
+      "name": "Merge for folder name",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        1920,
+        0
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "3bc41cd7-6077-472a-a6b8-8ffb692b2e7d",
+      "name": "Get all file details in folder",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "resource": "fileFolder"
+      },
+      "position": [
+        -112,
+        -144
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "c25273e7-51fc-45c0-a9f4-49ba3043d3ee",
+      "name": "Download file",
+      "parameters": {
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "operation": "download",
+        "options": {
+          "binaryPropertyName": "file_data"
+        }
+      },
+      "position": [
+        112,
+        -144
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "62381d1a-badf-4a3a-a8b0-9ff7fadacd80",
+      "name": "Step 2 Match with script",
+      "parameters": {
+        "binaryPropertyName": "={{ Object.keys($binary).join(',') }}",
+        "inputType": "binary",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "operation": "analyze",
+        "options": {},
+        "resource": "video",
+        "text": "=You are a video editor AI. your job is to find the best matching sentences from the video compared to given script. \n\nINPUT:\n1. \"videos\": an array of video in binary.\nalsong with the \"json\" which has the transcript of teh video broken down on sentence with timestmaps and each words with timestamps.\n2. \"script\": an array of final desired script sentences.\n\nTASK RULES:\n\nA. MATCHING\n- For each script sentence:\n  -> find best matching spoken sentence across all videos. use the \"sentence\" key inside \"transcript\" key in json for any video id and video name.\n- Use semantic similarity.\n- if there are multiple matches Prefer clean takes with:\n  - no fumbles\n  - no retakes\n  - no awkward pauses\n  - no repeated attempts\n  - no fillers (umm, uhh, etc.)\n- Completely ignore sentences containing “editor instructions”\n  (unless the instruction says: use last take, skip this, etc.)\n\nB. EXECUTE META-INSTRUCTIONS:\nIf spoken line says:\n- “use the last one”\n- “skip this”\n- “second take is better”\nThen:\n✓ Apply the instruction  \n✗ But do NOT include the instruction in final clips.\n\nC. VIDEO ID SAFETY\n- You MUST pick id and name STRICTLY from the provided list.\n- Never invent a filename.\n- always use the exact time stamp given in json.\n\nD. OUTPUT JSON ONLY in final structure for all the matches in sequence of the script:\n\n{\n  \"matches\": [\n    {\n      \"script_sentence\": \"<sentence from script>\",\n      \"id\": \"<video_id>\",\n       \"name\":<video_name>,\n      \"sentence\": \"<exact matched spoken line in transcript>\",\n      \"start\": <hh:mm:ss,mmm> ,\n      \"end\": <hh:mm:ss,mmm>,\n{\"words\":[\n\ntext:यह\nstart:00:00:00,757\nend:00:00:00,977\n,\ntext:वीडियो\nstart:00:00:01,237\nend:00:00:01,667\n,\ntext:नंबर\nstart:00:00:01,927\nend:00:00:02,177\n    }\n  ]\n}\n\nhere is the script: \n\"{{ $('Code in JavaScript').item.json.script }}\"\n\nhere is the input json : {{ $json.combined.toJsonString() }}"
+      },
+      "position": [
+        1456,
+        -144
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1
+    },
+    {
+      "id": "810005f1-ee12-4b61-87b0-e5acb365c63f",
+      "name": "Parse matched sequence to json",
+      "parameters": {
+        "jsCode": "const rawText = $json.content.parts[0].text\n// 1. Clean the string: Remove leading/trailing markdown fences and parse the JSON.\n// Removes '```json\\n' from the start and '```' from the end, then strips whitespace.\nconst jsonString = rawText.replace(/^```json\\s*/, '').replace(/\\s*```$/, '').trim();\n\nlet parsedData;\ntry {\n  parsedData = JSON.parse(jsonString);\n} catch (e) {\n  // Return an error item if JSON parsing fails\n  return {'error':e};\n}\n\n//const videoId = parsedData.video_id;\n//const transcriptArray = parsedData.transcript || [];\n\n// 2. Prepare the output items.\n// We will create one item for every segment in the transcript.\nconst outputItems = parsedData;\n\n// Since the video_id is part of the string itself, \n// we ensure the number of output items exactly matches the number of transcript segments.\nreturn outputItems;",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        1680,
+        -144
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "acb4a6dc-ef34-4d56-898c-e7ac4cf5b5be",
+      "name": "Connect combined data with script",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        1232,
+        -144
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "1c47ed3d-1e65-4087-9529-ac93f966146a",
+      "name": "Merge to get binary data back",
+      "parameters": {
+        "fieldsToMatchString": "id",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        784,
+        -160
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "6d429f71-cb8a-4bd2-967b-e1aac3eb8313",
+      "name": "Combine all transcripts with all binary data",
+      "parameters": {
+        "jsCode": "\nconst combinedJson = [];\nconst binary = {};\nlet idx = 0;\n\nfor (const item of items) {\n\n  // merge json\n  combinedJson.push(item.json);\n\n  // merge binary\n  if (item.binary?.file_data?.data) {\n    binary[`file_${idx}`] = {\n      ...item.binary.file_data,\n      fileName: item.binary.file_data.fileName || `file_${idx}`,\n    };\n    idx++;\n  }\n}\n\nreturn [\n  {\n    json: { combined: combinedJson },\n    binary\n  }\n];\n"
+      },
+      "position": [
+        1008,
+        -160
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "ebcbce47-8919-48ac-a53e-35108dc5dfe5",
+      "name": "Step 1 Transcribe Video",
+      "parameters": {
+        "binaryPropertyName": "file_data",
+        "inputType": "binary",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "operation": "analyze",
+        "options": {},
+        "resource": "video",
+        "text": "=You are a precise transcription model, which create transcription in format as hh:mm:ss,mmm.\n\nThe video you are seeing is named: {{ $json.name }} and its id is: {{ $json.id }}\n\nTASK:\nTranscribe EXACT spoken words.\nInclude sentence-level timestamps.\nthen as nested Json Include word-level timestamps.\nSentence level timestamps must match with internal word level timestamps in start and end.\nstart and end should be in format <hh:mm:ss,mmm>\nDO NOT clean filler words — keep everything.\nDO NOT include silence or awkward expressions in the json, ignore silences and awkward expressions\n\nReturn ONLY the JSON below.\nJSON OUTPUT FORMAT:\n{\n  \"name\": \"{{ $json.name }}\",\n\"id\": \"{{ $json.id }}\",\n  \"transcript\": [\n  {\n  \"sentence\":\"<one complete sentence>\",\n  \"start\": <hh:mm:ss,mmm> (make sure to keep this format of time stamp),\n  \"end\": <hh:mm:ss,mmm>,\n  \"words\":\n    {\n      \"text\": \"<word>\",\n      \"start\": <hh:mm:ss,mmm>,\n      \"end\": <hh:mm:ss,mmm>\n    }\n  }]\n} "
+      },
+      "position": [
+        336,
+        -272
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1
+    },
+    {
+      "id": "6cf82b85-4739-457e-a74b-30e6d629d724",
+      "name": "Parse Transcribe output",
+      "parameters": {
+        "jsCode": "const rawText = $json.content.parts[0].text\n// 1. Clean the string: Remove leading/trailing markdown fences and parse the JSON.\n// Removes '```json\\n' from the start and '```' from the end, then strips whitespace.\nconst jsonString = rawText.replace(/^```json\\s*/, '').replace(/\\s*```$/, '').trim();\n\nlet parsedData;\ntry {\n  parsedData = JSON.parse(jsonString);\n} catch (e) {\n  // Return an error item if JSON parsing fails\n  return {'error':e};\n}\n\n//const videoId = parsedData.video_id;\n//const transcriptArray = parsedData.transcript || [];\n\n// 2. Prepare the output items.\n// We will create one item for every segment in the transcript.\nconst outputItems = parsedData;\n\n// Since the video_id is part of the string itself, \n// we ensure the number of output items exactly matches the number of transcript segments.\nreturn outputItems;",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        576,
+        -272
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "b6HZBXRasr7i574n",
+          "name": "Google Drive account 2"
+        }
+      },
+      "id": "46cd96d6-9cf1-4812-a0c0-94ccf50cdc85",
+      "name": "Upload file",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Search Folder in Drive').item.json.id }}"
+        },
+        "options": {}
+      },
+      "position": [
+        2528,
+        304
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    }
+  ],
+  "pinData": {
+    "Search Folder in Drive": [
+      {
+        "json": {
+          "id": "1PZlX8S7doX-D3MM0W0Iy6myYO8xuIQhy",
+          "name": "250501 The Future of AI in Relationships – Can You Date a Robot"
+        }
+      }
+    ],
+    "Step 2 Match with script": [
+      {
+        "json": {
+          "content": {
+            "parts": [
+              {
+                "text": "```json\n{\n  \"matches\": [\n    {\n      \"script_sentence\": \"Human relationships are exhausting, right?\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"Human relationships are exhausting, right?\",\n      \"start\": \"00:01:770\",\n      \"end\": \"00:04:140\",\n      \"words\": [\n        {\n          \"text\": \"Human\",\n          \"start\": \"00:02:180\",\n          \"end\": \"00:02:490\"\n        },\n        {\n          \"text\": \"relationships\",\n          \"start\": \"00:03:030\",\n          \"end\": \"00:03:570\"\n        },\n        {\n          \"text\": \"are\",\n          \"start\": \"00:03:700\",\n          \"end\": \"00:03:830\"\n        },\n        {\n          \"text\": \"exhausting,\",\n          \"start\": \"00:03:890\",\n          \"end\": \"00:04:360\"\n        },\n        {\n          \"text\": \"right?\",\n          \"start\": \"00:04:360\",\n          \"end\": \"00:04:470\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"Now some people are just dating AI instead.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"Now some people are just dating AI instead.\",\n      \"start\": \"00:04:950\",\n      \"end\": \"00:08:020\",\n      \"words\": [\n        {\n          \"text\": \"Now\",\n          \"start\": \"00:05:420\",\n          \"end\": \"00:05:680\"\n        },\n        {\n          \"text\": \"some\",\n          \"start\": \"00:05:830\",\n          \"end\": \"00:06:050\"\n        },\n        {\n          \"text\": \"people\",\n          \"start\": \"00:06:210\",\n          \"end\": \"00:06:440\"\n        },\n        {\n          \"text\": \"are\",\n          \"start\": \"00:06:560\",\n          \"end\": \"00:06:730\"\n        },\n        {\n          \"text\": \"just\",\n          \"start\": \"00:06:910\",\n          \"end\": \"00:07:070\"\n        },\n        {\n          \"text\": \"dating\",\n          \"start\": \"00:07:370\",\n          \"end\": \"00:07:730\"\n        },\n        {\n          \"text\": \"AI\",\n          \"start\": \"00:07:840\",\n          \"end\": \"00:08:020\"\n        },\n        {\n          \"text\": \"instead.\",\n          \"start\": \"00:08:020\",\n          \"end\": \"00:08:020\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"Swipe left on humans? Some folks already did.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"Swipe left on humans or swipe right, some folks already did.\",\n      \"start\": \"00:08:440\",\n      \"end\": \"00:12:470\",\n      \"words\": [\n        {\n          \"text\": \"Swipe\",\n          \"start\": \"00:08:860\",\n          \"end\": \"00:09:230\"\n        },\n        {\n          \"text\": \"left\",\n          \"start\": \"00:09:500\",\n          \"end\": \"00:09:770\"\n        },\n        {\n          \"text\": \"on\",\n          \"start\": \"00:09:860\",\n          \"end\": \"00:09:940\"\n        },\n        {\n          \"text\": \"humans\",\n          \"start\": \"00:10:040\",\n          \"end\": \"00:10:480\"\n        },\n        {\n          \"text\": \"or\",\n          \"start\": \"00:10:550\",\n          \"end\": \"00:10:650\"\n        },\n        {\n          \"text\": \"swipe\",\n          \"start\": \"00:10:810\",\n          \"end\": \"00:11:090\"\n        },\n        {\n          \"text\": \"right,\",\n          \"start\": \"00:11:420\",\n          \"end\": \"00:11:790\"\n        },\n        {\n          \"text\": \"some\",\n          \"start\": \"00:11:900\",\n          \"end\": \"00:12:090\"\n        },\n        {\n          \"text\": \"folks\",\n          \"start\": \"00:12:150\",\n          \"end\": \"00:12:350\"\n        },\n        {\n          \"text\": \"already\",\n          \"start\": \"00:12:410\",\n          \"end\": \"00:12:690\"\n        },\n        {\n          \"text\": \"did.\",\n          \"start\": \"00:12:690\",\n          \"end\": \"00:12:750\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"Lets be real AI partners are already a thing.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"Let's be real, AI partners are already a thing.\",\n      \"start\": \"00:13:300\",\n      \"end\": \"00:16:340\",\n      \"words\": [\n        {\n          \"text\": \"Let's\",\n          \"start\": \"00:13:580\",\n          \"end\": \"00:13:830\"\n        },\n        {\n          \"text\": \"be\",\n          \"start\": \"00:13:920\",\n          \"end\": \"00:14:020\"\n        },\n        {\n          \"text\": \"real,\",\n          \"start\": \"00:14:260\",\n          \"end\": \"00:14:550\"\n        },\n        {\n          \"text\": \"AI\",\n          \"start\": \"00:14:980\",\n          \"end\": \"00:15:200\"\n        },\n        {\n          \"text\": \"partners\",\n          \"start\": \"00:15:610\",\n          \"end\": \"00:16:030\"\n        },\n        {\n          \"text\": \"are\",\n          \"start\": \"00:16:110\",\n          \"end\": \"00:16:210\"\n        },\n        {\n          \"text\": \"already\",\n          \"start\": \"00:16:270\",\n          \"end\": \"00:16:620\"\n        },\n        {\n          \"text\": \"a\",\n          \"start\": \"00:16:710\",\n          \"end\": \"00:16:750\"\n        },\n        {\n          \"text\": \"thing.\",\n          \"start\": \"00:16:750\",\n          \"end\": \"00:16:910\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"Apps like Replika and Anima let you build your dream partner\",\n      \"id\": \"134yvumIrzWzWLSGfrGoKaEGDlsveMpDS\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV2.mp4\",\n      \"sentence\": \"Apps like Replika and Anima let you build your dream partner.\",\n      \"start\": \"00:16:898\",\n      \"end\": \"00:21:058\",\n      \"words\": [\n        {\n          \"text\": \"Apps\",\n          \"start\": \"00:16:898\",\n          \"end\": \"00:17:158\"\n        },\n        {\n          \"text\": \"like\",\n          \"start\": \"00:17:348\",\n          \"end\": \"00:17:548\"\n        },\n        {\n          \"text\": \"Replika\",\n          \"start\": \"00:17:748\",\n          \"end\": \"00:18:278\"\n        },\n        {\n          \"text\": \"and\",\n          \"start\": \"00:18:498\",\n          \"end\": \"00:18:618\"\n        },\n        {\n          \"text\": \"Anima\",\n          \"start\": \"00:18:968\",\n          \"end\": \"00:19:408\"\n        },\n        {\n          \"text\": \"let\",\n          \"start\": \"00:19:578\",\n          \"end\": \"00:19:758\"\n        },\n        {\n          \"text\": \"you\",\n          \"start\": \"00:19:878\",\n          \"end\": \"00:19:988\"\n        },\n        {\n          \"text\": \"build\",\n          \"start\": \"00:20:258\",\n          \"end\": \"00:20:538\"\n        },\n        {\n          \"text\": \"your\",\n          \"start\": \"00:20:648\",\n          \"end\": \"00:20:798\"\n        },\n        {\n          \"text\": \"dream\",\n          \"start\": \"00:20:948\",\n          \"end\": \"00:21:058\"\n        },\n        {\n          \"text\": \"partner.\",\n          \"start\": \"00:21:058\",\n          \"end\": \"00:21:058\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"someone who listens, replies instantly, never ghosts, and always agrees with you.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"Someone who listens, replies instantly, never goes, and always agrees with you.\",\n      \"start\": \"00:22:830\",\n      \"end\": \"00:27:000\",\n      \"words\": [\n        {\n          \"text\": \"Someone\",\n          \"start\": \"00:22:830\",\n          \"end\": \"00:23:250\"\n        },\n        {\n          \"text\": \"who\",\n          \"start\": \"00:23:410\",\n          \"end\": \"00:23:550\"\n        },\n        {\n          \"text\": \"listens,\",\n          \"start\": \"00:23:810\",\n          \"end\": \"00:24:320\"\n        },\n        {\n          \"text\": \"replies\",\n          \"start\": \"00:24:590\",\n          \"end\": \"00:24:930\"\n        },\n        {\n          \"text\": \"instantly,\",\n          \"start\": \"00:25:290\",\n          \"end\": \"00:25:860\"\n        },\n        {\n          \"text\": \"never\",\n          \"start\": \"00:26:080\",\n          \"end\": \"00:26:330\"\n        },\n        {\n          \"text\": \"goes,\",\n          \"start\": \"00:26:400\",\n          \"end\": \"00:26:770\"\n        },\n        {\n          \"text\": \"and\",\n          \"start\": \"00:26:880\",\n          \"end\": \"00:27:000\"\n        },\n        {\n          \"text\": \"always\",\n          \"start\": \"00:27:140\",\n          \"end\": \"00:27:460\"\n        },\n        {\n          \"text\": \"agrees\",\n          \"start\": \"00:27:540\",\n          \"end\": \"00:27:850\"\n        },\n        {\n          \"text\": \"with\",\n          \"start\": \"00:28:020\",\n          \"end\": \"00:28:090\"\n        },\n        {\n          \"text\": \"you.\",\n          \"start\": \"00:28:090\",\n          \"end\": \"00:28:130\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"In fact, people are in love with their bots.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"In fact, people are in love with their bots.\",\n      \"start\": \"00:28:900\",\n      \"end\": \"00:30:460\",\n      \"words\": [\n        {\n          \"text\": \"In\",\n          \"start\": \"00:28:900\",\n          \"end\": \"00:29:160\"\n        },\n        {\n          \"text\": \"fact,\",\n          \"start\": \"00:29:190\",\n          \"end\": \"00:29:430\"\n        },\n        {\n          \"text\": \"people\",\n          \"start\": \"00:29:560\",\n          \"end\": \"00:29:850\"\n        },\n        {\n          \"text\": \"are\",\n          \"start\": \"00:29:940\",\n          \"end\": \"00:30:080\"\n        },\n        {\n          \"text\": \"in\",\n          \"start\": \"00:30:170\",\n          \"end\": \"00:30:260\"\n        },\n        {\n          \"text\": \"love\",\n          \"start\": \"00:30:380\",\n          \"end\": \"00:30:540\"\n        },\n        {\n          \"text\": \"with\",\n          \"start\": \"00:30:720\",\n          \"end\": \"00:30:860\"\n        },\n        {\n          \"text\": \"their\",\n          \"start\": \"00:30:970\",\n          \"end\": \"00:31:160\"\n        },\n        {\n          \"text\": \"bots.\",\n          \"start\": \"00:31:160\",\n          \"end\": \"00:31:260\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"In China, virtual girlfriends are trending.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"In China, virtual girlfriends are trending.\",\n      \"start\": \"00:31:370\",\n      \"end\": \"00:33:430\",\n      \"words\": [\n        {\n          \"text\": \"In\",\n          \"start\": \"00:31:370\",\n          \"end\": \"00:31:510\"\n        },\n        {\n          \"text\": \"China,\",\n          \"start\": \"00:31:810\",\n          \"end\": \"00:32:160\"\n        },\n        {\n          \"text\": \"virtual\",\n          \"start\": \"00:32:380\",\n          \"end\": \"00:32:740\"\n        },\n        {\n          \"text\": \"girlfriends\",\n          \"start\": \"00:33:040\",\n          \"end\": \"00:33:430\"\n        },\n        {\n          \"text\": \"are\",\n          \"start\": \"00:33:530\",\n          \"end\": \"00:33:710\"\n        },\n        {\n          \"text\": \"trending.\",\n          \"start\": \"00:33:710\",\n          \"end\": \"00:34:250\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"Some even have anniversaries with their AI.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"Some even have anniversaries with their AI.\",\n      \"start\": \"00:34:250\",\n      \"end\": \"00:36:130\",\n      \"words\": [\n        {\n          \"text\": \"Some\",\n          \"start\": \"00:34:250\",\n          \"end\": \"00:34:530\"\n        },\n        {\n          \"text\": \"even\",\n          \"start\": \"00:34:650\",\n          \"end\": \"00:34:860\"\n        },\n        {\n          \"text\": \"have\",\n          \"start\": \"00:34:940\",\n          \"end\": \"00:35:140\"\n        },\n        {\n          \"text\": \"anniversaries\",\n          \"start\": \"00:35:550\",\n          \"end\": \"00:36:090\"\n        },\n        {\n          \"text\": \"with\",\n          \"start\": \"00:36:130\",\n          \"end\": \"00:36:310\"\n        },\n        {\n          \"text\": \"their\",\n          \"start\": \"00:36:440\",\n          \"end\": \"00:36:580\"\n        },\n        {\n          \"text\": \"AI.\",\n          \"start\": \"00:36:580\",\n          \"end\": \"00:36:740\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"Sounds perfect, right?\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"Sounds perfect, right?\",\n      \"start\": \"00:37:050\",\n      \"end\": \"00:38:090\",\n      \"words\": [\n        {\n          \"text\": \"Sounds\",\n          \"start\": \"00:37:050\",\n          \"end\": \"00:37:580\"\n        },\n        {\n          \"text\": \"perfect,\",\n          \"start\": \"00:37:770\",\n          \"end\": \"00:38:090\"\n        },\n        {\n          \"text\": \"right?\",\n          \"start\": \"00:38:090\",\n          \"end\": \"00:38:090\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"But heres the catch theres no real emotional growth.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"But here's the catch: there's no real emotional growth.\",\n      \"start\": \"00:38:430\",\n      \"end\": \"00:41:260\",\n      \"words\": [\n        {\n          \"text\": \"But\",\n          \"start\": \"00:38:430\",\n          \"end\": \"00:38:590\"\n        },\n        {\n          \"text\": \"here's\",\n          \"start\": \"00:38:710\",\n          \"end\": \"00:38:970\"\n        },\n        {\n          \"text\": \"the\",\n          \"start\": \"00:39:100\",\n          \"end\": \"00:39:230\"\n        },\n        {\n          \"text\": \"catch:\",\n          \"start\": \"00:39:230\",\n          \"end\": \"00:39:560\"\n        },\n        {\n          \"text\": \"there's\",\n          \"start\": \"00:39:900\",\n          \"end\": \"00:40:170\"\n        },\n        {\n          \"text\": \"no\",\n          \"start\": \"00:40:270\",\n          \"end\": \"00:40:400\"\n        },\n        {\n          \"text\": \"real\",\n          \"start\": \"00:40:600\",\n          \"end\": \"00:40:870\"\n        },\n        {\n          \"text\": \"emotional\",\n          \"start\": \"00:40:990\",\n          \"end\": \"00:41:350\"\n        },\n        {\n          \"text\": \"growth.\",\n          \"start\": \"00:41:350\",\n          \"end\": \"00:41:710\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"Youre not in a relationship youre just customizing comfort.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"You are not in a relationship, you are just customizing comfort.\",\n      \"start\": \"00:41:960\",\n      \"end\": \"00:47:110\",\n      \"words\": [\n        {\n          \"text\": \"You\",\n          \"start\": \"00:42:040\",\n          \"end\": \"00:42:250\"\n        },\n        {\n          \"text\": \"are\",\n          \"start\": \"00:42:370\",\n          \"end\": \"00:42:510\"\n        },\n        {\n          \"text\": \"not\",\n          \"start\": \"00:42:610\",\n          \"end\": \"00:42:850\"\n        },\n        {\n          \"text\": \"in\",\n          \"start\": \"00:42:920\",\n          \"end\": \"00:43:030\"\n        },\n        {\n          \"text\": \"a\",\n          \"start\": \"00:43:080\",\n          \"end\": \"00:43:110\"\n        },\n        {\n          \"text\": \"relationship,\",\n          \"start\": \"00:43:400\",\n          \"end\": \"00:44:030\"\n        },\n        {\n          \"text\": \"you\",\n          \"start\": \"00:44:200\",\n          \"end\": \"00:44:310\"\n        },\n        {\n          \"text\": \"are\",\n          \"start\": \"00:44:480\",\n          \"end\": \"00:44:600\"\n        },\n        {\n          \"text\": \"just\",\n          \"start\": \"00:44:810\",\n          \"end\": \"00:45:060\"\n        },\n        {\n          \"text\": \"customizing\",\n          \"start\": \"00:45:410\",\n          \"end\": \"00:46:120\"\n        },\n        {\n          \"text\": \"comfort.\",\n          \"start\": \"00:46:120\",\n          \"end\": \"00:47:110\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"Its less dating, more like building your ideal Google Doc boyfriend.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"It's less dating, more like building your ideal Google Doc boyfriend.\",\n      \"start\": \"00:47:600\",\n      \"end\": \"00:51:750\",\n      \"words\": [\n        {\n          \"text\": \"It's\",\n          \"start\": \"00:47:600\",\n          \"end\": \"00:47:820\"\n        },\n        {\n          \"text\": \"less\",\n          \"start\": \"00:47:940\",\n          \"end\": \"00:48:200\"\n        },\n        {\n          \"text\": \"dating,\",\n          \"start\": \"00:48:560\",\n          \"end\": \"00:48:980\"\n        },\n        {\n          \"text\": \"more\",\n          \"start\": \"00:49:150\",\n          \"end\": \"00:49:330\"\n        },\n        {\n          \"text\": \"like\",\n          \"start\": \"00:49:500\",\n          \"end\": \"00:49:680\"\n        },\n        {\n          \"text\": \"building\",\n          \"start\": \"00:49:850\",\n          \"end\": \"00:50:180\"\n        },\n        {\n          \"text\": \"your\",\n          \"start\": \"00:50:280\",\n          \"end\": \"00:50:410\"\n        },\n        {\n          \"text\": \"ideal\",\n          \"start\": \"00:50:570\",\n          \"end\": \"00:50:900\"\n        },\n        {\n          \"text\": \"Google\",\n          \"start\": \"00:51:170\",\n          \"end\": \"00:51:440\"\n        },\n        {\n          \"text\": \"Doc\",\n          \"start\": \"00:51:600\",\n          \"end\": \"00:51:750\"\n        },\n        {\n          \"text\": \"boyfriend.\",\n          \"start\": \"00:51:750\",\n          \"end\": \"00:52:430\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"No conflict. No effort. But maybe no depth either?\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"No conflict, no effort, but maybe no depth either.\",\n      \"start\": \"00:52:840\",\n      \"end\": \"00:56:060\",\n      \"words\": [\n        {\n          \"text\": \"No\",\n          \"start\": \"00:52:840\",\n          \"end\": \"00:53:060\"\n        },\n        {\n          \"text\": \"conflict,\",\n          \"start\": \"00:53:390\",\n          \"end\": \"00:53:790\"\n        },\n        {\n          \"text\": \"no\",\n          \"start\": \"00:53:930\",\n          \"end\": \"00:54:090\"\n        },\n        {\n          \"text\": \"effort,\",\n          \"start\": \"00:54:410\",\n          \"end\": \"00:54:830\"\n        },\n        {\n          \"text\": \"but\",\n          \"start\": \"00:55:040\",\n          \"end\": \"00:55:200\"\n        },\n        {\n          \"text\": \"maybe\",\n          \"start\": \"00:55:500\",\n          \"end\": \"00:55:820\"\n        },\n        {\n          \"text\": \"no\",\n          \"start\": \"00:55:920\",\n          \"end\": \"00:56:060\"\n        },\n        {\n          \"text\": \"depth\",\n          \"start\": \"00:56:190\",\n          \"end\": \"00:56:490\"\n        },\n        {\n          \"text\": \"either.\",\n          \"start\": \"00:56:490\",\n          \"end\": \"00:56:690\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"AI can give you attention, not connection.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"AI can give you attention, not connection.\",\n      \"start\": \"00:57:430\",\n      \"end\": \"00:59:840\",\n      \"words\": [\n        {\n          \"text\": \"AI\",\n          \"start\": \"00:57:430\",\n          \"end\": \"00:57:670\"\n        },\n        {\n          \"text\": \"can\",\n          \"start\": \"00:57:790\",\n          \"end\": \"00:57:900\"\n        },\n        {\n          \"text\": \"give\",\n          \"start\": \"00:58:050\",\n          \"end\": \"00:58:200\"\n        },\n        {\n          \"text\": \"you\",\n          \"start\": \"00:58:260\",\n          \"end\": \"00:58:440\"\n        },\n        {\n          \"text\": \"attention,\",\n          \"start\": \"00:58:700\",\n          \"end\": \"00:59:220\"\n        },\n        {\n          \"text\": \"not\",\n          \"start\": \"00:59:360\",\n          \"end\": \"00:59:600\"\n        },\n        {\n          \"text\": \"connection.\",\n          \"start\": \"00:59:600\",\n          \"end\": \"01:00:190\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"Easy feels goodbut real growth comes from the messy stuff.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"Easy feels good, but real growth comes from messy stuff.\",\n      \"start\": \"01:00:230\",\n      \"end\": \"01:03:770\",\n      \"words\": [\n        {\n          \"text\": \"Easy\",\n          \"start\": \"01:00:230\",\n          \"end\": \"01:00:550\"\n        },\n        {\n          \"text\": \"feels\",\n          \"start\": \"01:00:720\",\n          \"end\": \"01:00:990\"\n        },\n        {\n          \"text\": \"good,\",\n          \"start\": \"01:01:130\",\n          \"end\": \"01:01:450\"\n        },\n        {\n          \"text\": \"but\",\n          \"start\": \"01:01:730\",\n          \"end\": \"01:01:880\"\n        },\n        {\n          \"text\": \"real\",\n          \"start\": \"01:02:110\",\n          \"end\": \"01:02:350\"\n        },\n        {\n          \"text\": \"growth\",\n          \"start\": \"01:02:590\",\n          \"end\": \"01:02:910\"\n        },\n        {\n          \"text\": \"comes\",\n          \"start\": \"01:03:090\",\n          \"end\": \"01:03:320\"\n        },\n        {\n          \"text\": \"from\",\n          \"start\": \"01:03:470\",\n          \"end\": \"01:03:710\"\n        },\n        {\n          \"text\": \"messy\",\n          \"start\": \"01:03:770\",\n          \"end\": \"01:04:120\"\n        },\n        {\n          \"text\": \"stuff.\",\n          \"start\": \"01:04:120\",\n          \"end\": \"01:04:470\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"Would you date an AI? Or maybe already are?\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"Would you date an AI or maybe already are?\",\n      \"start\": \"01:05:030\",\n      \"end\": \"01:08:240\",\n      \"words\": [\n        {\n          \"text\": \"Would\",\n          \"start\": \"01:05:030\",\n          \"end\": \"01:05:320\"\n        },\n        {\n          \"text\": \"you\",\n          \"start\": \"01:05:430\",\n          \"end\": \"01:05:540\"\n        },\n        {\n          \"text\": \"date\",\n          \"start\": \"01:05:680\",\n          \"end\": \"01:05:920\"\n        },\n        {\n          \"text\": \"an\",\n          \"start\": \"01:06:050\",\n          \"end\": \"01:06:170\"\n        },\n        {\n          \"text\": \"AI\",\n          \"start\": \"01:06:330\",\n          \"end\": \"01:06:650\"\n        },\n        {\n          \"text\": \"or\",\n          \"start\": \"01:06:810\",\n          \"end\": \"01:06:950\"\n        },\n        {\n          \"text\": \"maybe\",\n          \"start\": \"01:07:220\",\n          \"end\": \"01:07:540\"\n        },\n        {\n          \"text\": \"already\",\n          \"start\": \"01:07:650\",\n          \"end\": \"01:08:050\"\n        },\n        {\n          \"text\": \"are?\",\n          \"start\": \"01:08:050\",\n          \"end\": \"01:08:240\"\n        }\n      ]\n    },\n    {\n      \"script_sentence\": \"Tell me belowI genuinely want to know.\",\n      \"id\": \"1NEK6HbSqr17vYo1p_fPlZ7p-vxO3ILup\",\n      \"name\": \"250501 The Future of AI in Relationships – Can You Date a Robot AV3.mp4\",\n      \"sentence\": \"Tell me below, I genuinely want to know.\",\n      \"start\": \"01:08:480\",\n      \"end\": \"01:10:910\",\n      \"words\": [\n        {\n          \"text\": \"Tell\",\n          \"start\": \"01:08:480\",\n          \"end\": \"01:08:660\"\n        },\n        {\n          \"text\": \"me\",\n          \"start\": \"01:08:760\",\n          \"end\": \"01:08:920\"\n        },\n        {\n          \"text\": \"below,\",\n          \"start\": \"01:09:070\",\n          \"end\": \"01:09:390\"\n        },\n        {\n          \"text\": \"I\",\n          \"start\": \"01:09:590\",\n          \"end\": \"01:09:720\"\n        },\n        {\n          \"text\": \"genuinely\",\n          \"start\": \"01:10:040\",\n          \"end\": \"01:10:480\"\n        },\n        {\n          \"text\": \"want\",\n          \"start\": \"01:10:650\",\n          \"end\": \"01:10:810\"\n        },\n        {\n          \"text\": \"to\",\n          \"start\": \"01:10:870\",\n          \"end\": \"01:10:910\"\n        },\n        {\n          \"text\": \"know.\",\n          \"start\": \"01:10:910\",\n          \"end\": \"01:11:060\"\n        }\n      ]\n    }\n  ]\n}\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-12-07T11:34:25.032Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2025-12-07T11:34:25.032Z",
+      "workflowId": "vIwjWyDhpyzuGt5L"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-10T18:12:16.347Z",
+  "versionId": "6a8d211d-c1a5-48db-9b2d-3357f678f302"
+}
