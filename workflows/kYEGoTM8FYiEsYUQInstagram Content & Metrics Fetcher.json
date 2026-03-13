@@ -1,0 +1,503 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Check If Complete": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Done",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Split Accounts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Every 6 Hours": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Instagram Accounts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Facebook Graph API": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Facebook Graph API1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge & Transform Data",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Media Insights": {
+      "main": [
+        []
+      ]
+    },
+    "Fetch Recent Media": {
+      "main": [
+        []
+      ]
+    },
+    "Get Instagram Accounts": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Split Accounts",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Facebook Graph API1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge & Transform Data": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Save Content & Metrics",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        []
+      ]
+    },
+    "Save Content & Metrics": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Split Accounts": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Facebook Graph API",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Split Media Items": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Fetch Media Insights",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check If Complete",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-15T06:30:30.348Z",
+  "id": "kYEGoTM8FYiEsYUQ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Instagram Content & Metrics Fetcher",
+  "nodes": [
+    {
+      "id": "09b51609-c15a-4843-9bc0-2dbcddeffc29",
+      "name": "Every 6 Hours",
+      "notes": "Fetch content metrics every 6 hours",
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 6
+            }
+          ]
+        }
+      },
+      "position": [
+        -2000,
+        112
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "0a1a9a90-ab5a-4bc7-94ba-80a9859a1224",
+      "name": "Get Instagram Accounts",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "SELECT account_id, username FROM accounts WHERE platform = 'instagram' AND active = true"
+      },
+      "position": [
+        -1808,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "569c277f-7c98-4b32-809c-eae0ca896123",
+      "name": "Split Accounts",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -1600,
+        112
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "instagramApi": {
+          "id": "W4khjnVzMig7ISny",
+          "name": "Instagram account"
+        }
+      },
+      "id": "1469a824-7ed4-43e1-9908-3ee4e78264ad",
+      "name": "Fetch Recent Media",
+      "notes": "Get last 50 posts from each account",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "instagramApi",
+        "options": {},
+        "url": "=https://graph.facebook.com/v18.0/{{ $json.account_id }}/media"
+      },
+      "position": [
+        -1360,
+        -240
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "9873067b-7b76-49bf-8006-9eb7b64706a1",
+      "name": "Split Media Items",
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "position": [
+        -1200,
+        384
+      ],
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1
+    },
+    {
+      "continueOnFail": true,
+      "id": "43753c31-d2a6-4b08-bd48-c56680a30646",
+      "name": "Fetch Media Insights",
+      "notes": "Get detailed metrics (impressions, reach, saves, etc.)",
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "instagramGraphApi",
+        "options": {},
+        "url": "=https://graph.facebook.com/v18.0/{{ $json.id }}/insights"
+      },
+      "position": [
+        -1040,
+        384
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4
+    },
+    {
+      "id": "b4cb2c6a-09d3-434c-9ffc-2f4850e4dc14",
+      "name": "Merge & Transform Data",
+      "notes": "Combine media + insights into our schema",
+      "parameters": {
+        "jsCode": "// Merge media data with insights\nconst mediaData = $input.first().json;\nconst insightsData = $input.last().json;\n\n// Extract metrics from insights\nconst metrics = {};\nif (insightsData && insightsData.data) {\n  insightsData.data.forEach(metric => {\n    metrics[metric.name] = metric.values[0].value;\n  });\n}\n\n// Extract caption parts (hook & idea)\nconst caption = mediaData.caption || '';\nconst lines = caption.split('\\n').filter(line => line.trim());\nconst hook = lines[0] || '';\nconst idea = lines.slice(1).join(' ').substring(0, 500) || '';\n\n// Determine content type\nlet contentType = 'post';\nif (mediaData.media_type === 'VIDEO') contentType = 'reel';\nif (mediaData.media_type === 'CAROUSEL_ALBUM') contentType = 'carousel';\n\nreturn {\n  // Content data\n  content_id: mediaData.id,\n  account_id: $('Get Instagram Accounts').item.json.account_id,\n  platform: 'instagram',\n  content_type: contentType,\n  title: hook.substring(0, 200),\n  hook: hook,\n  idea: idea,\n  url: mediaData.permalink,\n  posted_at: mediaData.timestamp,\n  metadata: {\n    media_type: mediaData.media_type,\n    media_url: mediaData.media_url,\n    thumbnail_url: mediaData.thumbnail_url\n  },\n  \n  // Metrics data\n  date: new Date().toISOString().split('T')[0],\n  views: metrics.video_views || 0,\n  reach: metrics.reach || 0,\n  impressions: metrics.impressions || 0,\n  likes: mediaData.like_count || 0,\n  comments: mediaData.comments_count || 0,\n  shares: metrics.shares || 0,\n  saves: metrics.saved || 0\n};"
+      },
+      "position": [
+        -800,
+        64
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "I73Fy2WxZHWGX3DC",
+          "name": "Postgres account"
+        }
+      },
+      "id": "3576e66c-4153-4e43-bd53-45abee43ff0e",
+      "name": "Save Content & Metrics",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "=-- Insert content\nINSERT INTO content (content_id, account_id, platform, content_type, title, hook, idea, url, posted_at, metadata)\nVALUES (\n  '{{ $json.content_id }}',\n  '{{ $json.account_id }}',\n  '{{ $json.platform }}',\n  '{{ $json.content_type }}',\n  '{{ $json.title }}',\n  '{{ $json.hook }}',\n  '{{ $json.idea }}',\n  '{{ $json.url }}',\n  '{{ $json.posted_at }}',\n  '{{ JSON.stringify($json.metadata) }}'\n)\nON CONFLICT (content_id) DO UPDATE SET\n  title = EXCLUDED.title,\n  metadata = EXCLUDED.metadata,\n  updated_at = NOW();\n\n-- Insert metrics\nINSERT INTO metrics_daily (content_id, account_id, date, views, reach, impressions, likes, comments, shares, saves)\nVALUES (\n  '{{ $json.content_id }}',\n  '{{ $json.account_id }}',\n  '{{ $json.date }}',\n  {{ $json.views }},\n  {{ $json.reach }},\n  {{ $json.impressions }},\n  {{ $json.likes }},\n  {{ $json.comments }},\n  {{ $json.shares }},\n  {{ $json.saves }}\n)\nON CONFLICT (content_id, date) DO UPDATE SET\n  views = EXCLUDED.views,\n  reach = EXCLUDED.reach,\n  impressions = EXCLUDED.impressions,\n  likes = EXCLUDED.likes,\n  comments = EXCLUDED.comments,\n  shares = EXCLUDED.shares,\n  saves = EXCLUDED.saves,\n  created_at = NOW();"
+      },
+      "position": [
+        -608,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2
+    },
+    {
+      "id": "88f049f2-3bbd-4bfc-b5e6-2763e8eb1033",
+      "name": "Wait",
+      "parameters": {
+        "unit": "seconds"
+      },
+      "position": [
+        -400,
+        112
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "32eaf908-ca42-429c-86c1-63861851ac52"
+    },
+    {
+      "id": "0e56fc16-4c31-40f4-a1a2-4fe59e57c86f",
+      "name": "Check If Complete",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "batch_complete",
+              "leftValue": "={{ $('Split Accounts').context.noItemsLeft }}",
+              "operator": {
+                "operation": "equals",
+                "type": "boolean"
+              },
+              "rightValue": true
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -208,
+        112
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2
+    },
+    {
+      "id": "6cd2d816-d8fc-41af-9cf3-b57e2c1d4da5",
+      "name": "Done",
+      "parameters": {},
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "SJstlJXO7E1CAbz8",
+          "name": "Facebook Graph account"
+        }
+      },
+      "id": "4d35ac0d-05b0-4058-a3c6-7704ef3a28b5",
+      "name": "Facebook Graph API",
+      "parameters": {
+        "edge": "media",
+        "graphApiVersion": "v23.0",
+        "node": "=17841474119999455",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "fields",
+                "value": "id,caption,media_type,timestamp"
+              }
+            ]
+          }
+        }
+      },
+      "position": [
+        -1376,
+        16
+      ],
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1
+    },
+    {
+      "id": "5fab2f68-7f44-4b84-b25f-5cafdef215a3",
+      "name": "Loop Over Items",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -1184,
+        -48
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "99382ff4-7d7b-4e5b-8662-ff23fd27c192",
+      "name": "Replace Me",
+      "parameters": {},
+      "position": [
+        -736,
+        -192
+      ],
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "SJstlJXO7E1CAbz8",
+          "name": "Facebook Graph account"
+        }
+      },
+      "id": "c5f3c968-b715-44be-97bf-2f9f6f37fbfd",
+      "name": "Facebook Graph API1",
+      "parameters": {
+        "edge": "insights",
+        "graphApiVersion": "v23.0",
+        "node": "={{ $json.data[0].id }}",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "metric",
+                "value": "=reach,views,likes,comments,saved,shares\n"
+              }
+            ]
+          }
+        }
+      },
+      "position": [
+        -960,
+        -32
+      ],
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "falAiApi": {
+          "id": "Itle3koBNa9fJuAk",
+          "name": "fal.ai account"
+        }
+      },
+      "id": "df17558b-dd10-4362-a832-a195d4fc1b94",
+      "name": "Generate media using AI model",
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "cachedResultName": "Kling O1 Image [image-to-image]",
+          "mode": "list",
+          "value": "fal-ai/kling-image/o1"
+        },
+        "modelParameters": {
+          "parameters": [
+            {
+              "parameter": "reference_image_urls"
+            }
+          ]
+        },
+        "options": {
+          "maxWaitTime": 600,
+          "pollInterval": 5,
+          "waitForCompletion": true
+        }
+      },
+      "position": [
+        144,
+        144
+      ],
+      "type": "@fal-ai/n8n-nodes-fal.falAi",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-02-15T06:30:30.352Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-02-15T06:30:30.352Z",
+      "workflowId": "kYEGoTM8FYiEsYUQ"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-22T12:30:46.270Z",
+  "versionId": "7fbef6d1-2329-4c4b-9685-6f5cacfb61d5"
+}
