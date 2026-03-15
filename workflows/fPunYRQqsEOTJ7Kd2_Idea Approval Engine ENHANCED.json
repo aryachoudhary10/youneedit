@@ -1,0 +1,661 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Approve Idea (No Feedback)": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Ideas",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Check Decision": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Has Feedback?",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Reject Idea",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Filter Matching Idea": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check Decision",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Format Ideas Summary": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send Ideas Summary",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Ideas with Source Info": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Format Ideas Summary",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Loop Over Ideas",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Has Feedback?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Approve Idea (No Feedback)",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Revise Idea with Gemini",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Loop Over Ideas": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Send Idea for Review",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Ideas with Source Info",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Mark as Revised": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send Idea for Review",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Re-fetch Idea": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Filter Matching Idea",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Reject Idea": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Ideas",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Revise Idea with Gemini": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Mark as Revised",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Send Idea for Review": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Re-fetch Idea",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-14T11:11:24.273Z",
+  "id": "fPunYRQqsEOTJ7Kd",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "2_Idea Approval Engine ENHANCED",
+  "nodes": [
+    {
+      "id": "76ff2dcd-407b-4e92-b693-8dd10c5f4958",
+      "name": "Manual Trigger",
+      "parameters": {},
+      "position": [
+        -1632,
+        80
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "c5942e97-2ae6-4596-b528-1d416f950d96",
+      "name": "Get Ideas with Source Info",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Get ideas with source reel and creator info\nSELECT\n  i.idea_id,\n  i.transcript_id,\n  i.idea_text,\n  i.status,\n  i.human_feedback,\n  \n  -- Transcript info\n  t.transcript_text,\n  t.quality_score,\n  \n  -- Source reel info\n  sr.source_reel_id,\n  sr.reel_url as source_reel_url,\n  sr.caption as source_caption,\n  sr.views as source_views,\n  sr.likes as source_likes,\n  sr.posted_at as source_posted_at,\n  \n  -- Creator info\n  c.creator_id,\n  c.username as source_creator,\n  c.platform as source_platform,\n  c.niche as source_niche,\n  c.profile_url as creator_profile_url\n  \nFROM ideas i\nJOIN transcripts t ON i.transcript_id = t.transcript_id\nLEFT JOIN source_reels sr ON t.source_reel_id = sr.source_reel_id\nLEFT JOIN creators c ON sr.creator_id = c.creator_id\nWHERE i.status = 'generated'\nORDER BY i.created_at ASC;"
+      },
+      "position": [
+        -1392,
+        80
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    },
+    {
+      "id": "7204a89c-a062-4ea1-8186-34a6a691ba7a",
+      "name": "Format Ideas Summary",
+      "parameters": {
+        "jsCode": "// Format all ideas into a summary list\nconst ideas = items.map((item, idx) => {\n  const i = item.json;\n  const creator = i.source_creator ? `@${i.source_creator}` : 'Unknown';\n  const platform = i.source_platform || 'Unknown';\n  const views = i.source_views ? `${(i.source_views/1000).toFixed(0)}K views` : '';\n  \n  return `${idx + 1}. (${i.status}) ${i.idea_text}\\n   📍 Source: ${creator} on ${platform} ${views}`;\n}).join('\\n\\n');\n\nreturn [{\n  json: {\n    idea_list: ideas,\n    total_count: items.length\n  }\n}];"
+      },
+      "position": [
+        -1152,
+        -128
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "bZDd3ArExczM4Xnk",
+          "name": "Vekhii Jaa Slack Account"
+        }
+      },
+      "id": "6ece19ee-4181-4a77-a978-3cf78e78b479",
+      "name": "Send Ideas Summary",
+      "parameters": {
+        "authentication": "oAuth2",
+        "channelId": {
+          "__rl": true,
+          "cachedResultName": "idea-approval",
+          "mode": "list",
+          "value": "C0AH9LSDMQR"
+        },
+        "otherOptions": {},
+        "select": "channel",
+        "text": "=📋 **PENDING IDEAS: {{ $json.total_count }}**\n\n{{ $json.idea_list }}"
+      },
+      "position": [
+        -896,
+        -144
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "1b54cd4a-bc4f-4831-8a2d-69ef38f4bc2c"
+    },
+    {
+      "id": "c6280ba6-0538-4e04-91f7-bea656a764c6",
+      "name": "Loop Over Ideas",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        -992,
+        80
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "bZDd3ArExczM4Xnk",
+          "name": "Vekhii Jaa Slack Account"
+        }
+      },
+      "id": "3ca03de2-b93b-4388-81a8-98bcbdc30b1a",
+      "name": "Send Idea for Review",
+      "parameters": {
+        "authentication": "oAuth2",
+        "channelId": {
+          "__rl": true,
+          "cachedResultName": "idea-approval",
+          "mode": "list",
+          "value": "C0AH9LSDMQR"
+        },
+        "formFields": {
+          "values": [
+            {
+              "defaultValue": "approve",
+              "fieldLabel": "Decision",
+              "fieldName": "Decision",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "approve"
+                  },
+                  {
+                    "option": "reject"
+                  }
+                ]
+              },
+              "fieldType": "dropdown",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Human Feedback",
+              "fieldName": "Feedback",
+              "fieldType": "textarea",
+              "placeholder": "Enter your feedback (optional for approval, required for revision)"
+            }
+          ]
+        },
+        "message": "=🧠 **IDEA REVIEW**\n\n💡 **Idea:**\n{{ $json.idea_text }}\n\n📺 **Source Reel:**\n👤 Creator: {{ $json.source_creator ? '@' + $json.source_creator : 'Unknown' }}\n🌐 Platform: {{ $json.source_platform || 'Unknown' }}\n📊 Performance: {{ $json.source_views ? (($json.source_views / 1000).toFixed(0) + 'K views, ' + ($json.source_likes / 1000).toFixed(0) + 'K likes') : 'N/A' }}\n🔗 URL: {{ $json.source_reel_url || 'Not available' }}\n{{ $json.source_caption ? '📝 Caption: ' + $json.source_caption.substring(0, 100) + ($json.source_caption.length > 100 ? '...' : '') : '' }}\n\n\n🔑 **IDs:**\nIdea: `{{ $json.idea_id }}`\nTranscript: `{{ $json.transcript_id }}`",
+        "operation": "sendAndWait",
+        "options": {
+          "appendAttribution": true
+        },
+        "responseType": "customForm",
+        "select": "channel"
+      },
+      "position": [
+        -784,
+        112
+      ],
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "webhookId": "7324747d-416d-45a7-828b-960e3a4115ad"
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "0524ba11-268c-42a4-a30b-14699e991f23",
+      "name": "Re-fetch Idea",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "-- Re-fetch the idea to get current state\nSELECT\n  i.idea_id,\n  i.transcript_id,\n  i.idea_text,\n  i.status,\n  sr.reel_url as source_reel_url,\n  c.username as source_creator\nFROM ideas i\nJOIN transcripts t ON i.transcript_id = t.transcript_id\nLEFT JOIN source_reels sr ON t.source_reel_id = sr.source_reel_id\nLEFT JOIN creators c ON sr.creator_id = c.creator_id\nWHERE i.idea_id = '{{ $('Loop Over Ideas').item.json.idea_id }}';"
+      },
+      "position": [
+        -624,
+        112
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    },
+    {
+      "id": "ce71af74-cab5-47f4-911f-d41f8d86daa2",
+      "name": "Filter Matching Idea",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "check-id-match",
+              "leftValue": "={{ $json.idea_id }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "={{ $('Loop Over Ideas').item.json.idea_id }}"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -464,
+        112
+      ],
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "6115c7ea-0056-44dc-96dc-9ff152a9152d",
+      "name": "Check Decision",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "check-approve",
+              "leftValue": "={{ $('Send Idea for Review').item.json.data.Decision }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "approve"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -272,
+        112
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "dc4bc11b-6660-44f3-84f4-cc1aa6bc7c38",
+      "name": "Has Feedback?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "check-approve-no-feedback",
+              "leftValue": "={{ $('Send Idea for Review').item.json.data.Decision }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "approve"
+            },
+            {
+              "id": "check-feedback-empty",
+              "leftValue": "={{ $('Send Idea for Review').item.json.data.Feedback }}",
+              "operator": {
+                "operation": "empty",
+                "singleValue": true,
+                "type": "string"
+              },
+              "rightValue": ""
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -128,
+        -144
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "8cdbc958-f0b5-4a36-9169-73d0f7cca2e1",
+      "name": "Approve Idea (No Feedback)",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "UPDATE ideas\nSET\n  status = 'approved',\n  human_feedback = NULL,\n  updated_at = NOW()\nWHERE idea_id = '{{ $json.idea_id }}'\nRETURNING *;"
+      },
+      "position": [
+        96,
+        -160
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "008e8467-75f5-49e0-8e6c-d01055ac070f",
+      "name": "Revise Idea with Gemini",
+      "parameters": {
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an expert content strategist.\n\nORIGINAL IDEA:\n{{ $json.idea_text }}\n\nHUMAN FEEDBACK:\n{{ $('Send Idea for Review').item.json.data.Feedback }}\n\nTASK:\n- Improve the idea based on the feedback\n- Ensure it aligns with current short-form trends\n- Define a clear target audience\n- Suggest a potential viral angle\n- Do NOT explain changes\n- Output ONLY the final improved idea"
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.5-flash",
+          "mode": "list",
+          "value": "models/gemini-2.5-flash"
+        },
+        "options": {}
+      },
+      "position": [
+        96,
+        80
+      ],
+      "retryOnFail": true,
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "55517db4-cc1f-421c-ae3d-84281f081fd8",
+      "name": "Mark as Revised",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "idea_id"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "idea_id",
+              "id": "idea_id",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "transcript_id",
+              "id": "transcript_id",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "idea_text",
+              "id": "idea_text",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "status",
+              "id": "status",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "human_feedback",
+              "id": "human_feedback",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "created_at",
+              "id": "created_at",
+              "removed": false,
+              "required": false,
+              "type": "dateTime"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "updated_at",
+              "id": "updated_at",
+              "removed": false,
+              "required": false,
+              "type": "dateTime"
+            }
+          ],
+          "value": {
+            "human_feedback": "={{ $('Send Idea for Review').item.json.data.Feedback }}",
+            "idea_id": "={{ $('Check Decision').item.json.idea_id }}",
+            "idea_text": "={{ $json.content.parts[0].text }}",
+            "status": "revised",
+            "transcript_id": "={{ $('Check Decision').item.json.transcript_id }}"
+          }
+        },
+        "operation": "update",
+        "options": {},
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "mode": "list",
+          "value": "ideas"
+        }
+      },
+      "position": [
+        400,
+        176
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    },
+    {
+      "credentials": {
+        "postgres": {
+          "id": "sUg1sghbME0EY2jw",
+          "name": "Postgres account prod"
+        }
+      },
+      "id": "2a4b74f5-077e-41d1-a427-967fd961a089",
+      "name": "Reject Idea",
+      "parameters": {
+        "operation": "executeQuery",
+        "options": {},
+        "query": "UPDATE ideas\nSET\n  status = 'rejected',\n  human_feedback = {{ $('Send Idea for Review').item.json.data.Feedback ? \"'\" + $('Send Idea for Review').item.json.data.Feedback.replace(/'/g, \"''\") + \"'\" : \"NULL\" }},\n  updated_at = NOW()\nWHERE idea_id = '{{ $json.idea_id }}'\nRETURNING *;"
+      },
+      "position": [
+        -16,
+        416
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-14T11:11:24.282Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-14T11:11:24.282Z",
+      "workflowId": "fPunYRQqsEOTJ7Kd"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-14T12:31:04.617Z",
+  "versionId": "5a0669ed-efa6-4874-ab5e-3321f90da5de"
+}
