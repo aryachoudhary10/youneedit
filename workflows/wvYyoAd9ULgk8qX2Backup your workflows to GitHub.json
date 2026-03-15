@@ -502,7 +502,7 @@
       "parameters": {
         "commitMessage": "={{$('Execute Workflow Trigger').first().json.name}} ({{$json.github_status}})",
         "fileContent": "={{$('isDiffOrNew').item.json[\"n8n_data_stringy\"]}}",
-        "filePath": "={{ $('Globals').item.json.repo.path }}{{$('Execute Workflow Trigger').first().json.id}}.json",
+        "filePath": "={{ $('Globals').item.json.repo.path }}{{$('Execute Workflow Trigger').first().json.id}}{{$('Execute Workflow Trigger').first().json.name}}.json",
         "operation": "edit",
         "owner": {
           "__rl": true,
@@ -604,7 +604,7 @@
       "parameters": {
         "additionalParameters": {},
         "asBinaryProperty": false,
-        "filePath": "={{ $json.repo.path }}{{ $('Execute Workflow Trigger').item.json.id }}.json",
+        "filePath": "={{ $('Globals').item.json.repo.path }}{{$('Execute Workflow Trigger').first().json.id}}{{$('Execute Workflow Trigger').first().json.name}}.json",
         "operation": "get",
         "owner": {
           "__rl": true,
@@ -764,6 +764,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-03-13T18:34:10.108Z",
-  "versionId": "7c2979e5-3d74-4c50-a424-5d8dbb4cc3e4"
+  "updatedAt": "2026-03-15T08:18:57.871Z",
+  "versionId": "936b1e36-8fd3-42be-a78f-2f45bddc23fc"
 }
