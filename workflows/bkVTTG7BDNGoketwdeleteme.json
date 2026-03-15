@@ -1,0 +1,194 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Convert millis to seconds1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Filter",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "select & group clips from running total1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Convert millis to seconds1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "extract motion file id1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge",
+            "type": "main"
+          },
+          {
+            "index": 1,
+            "node": "Merge",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "shuffle the motion clips based on seed[IMP]": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "extract motion file id1",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-12T07:15:09.552Z",
+  "id": "bkVTTG7BDNGoketw",
+  "isArchived": true,
+  "meta": null,
+  "name": "deleteme",
+  "nodes": [
+    {
+      "id": "c16ae8db-68f1-4a46-83af-d6cdfbf16b36",
+      "name": "extract motion file id1",
+      "parameters": {
+        "jsCode": "// This code extracts the ID from a Google Drive URL\nfor (const item of $input.all()) {\n  const url = item.json[\"Motion Video Link\"] || \"\"; // Replace with your field name\n  \n  // Regex to capture the ID after 'id=' or within the '/d/ID/view' format\n  const regex = /(?:id=|\\/d\\/)([a-zA-Z0-9_-]+)/;\n  const match = url.match(regex);\n  \n  item.json.driveFileId = match ? match[1] : null;\n}\n\nreturn $input.all();"
+      },
+      "position": [
+        -3216,
+        -2896
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "41c36cdb-e940-437b-8c9c-5351b5ae1bcc",
+      "name": "Convert millis to seconds1",
+      "parameters": {
+        "jsCode": "for (const item of $input.all()) {\n  // 1. Get the duration from the existing metadata (if it exists)\n  const durationMillis = item.json.videoMediaMetadata?.durationMillis;\n  \n  if (durationMillis) {\n    // 2. Add the durationSeconds field while keeping all other fields\n    item.json.durationSeconds = parseFloat((durationMillis / 1000).toFixed(2));\n  } else {\n    // 3. Add fallback values if metadata isn't ready\n    item.json.durationSeconds = 0; // Better for math than a string\n    item.json._processingStatus = \"Pending\";\n    item.json._note = \"Google may still be processing this video's metadata.\";\n  }\n}\n\n// 4. Return the full array of items with all original fields + new fields\nreturn $input.all();"
+      },
+      "position": [
+        -2512,
+        -2880
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "64b3753e-b776-4317-8201-58ae0d2f2745",
+      "name": "Filter",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "aae1141a-f7af-4f16-98c3-6b65f652de47",
+              "leftValue": "={{ $json.durationSeconds }}",
+              "operator": {
+                "operation": "gt",
+                "type": "number"
+              },
+              "rightValue": 3
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -2304,
+        -2880
+      ],
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "4fade721-18a9-44f9-a08d-fa4c52f48c23",
+      "name": "Merge",
+      "parameters": {
+        "combineBy": "combineByPosition",
+        "mode": "combine",
+        "options": {}
+      },
+      "position": [
+        -2768,
+        -2880
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "4bc92561-b62a-4710-ab5a-d7e598e36202",
+      "name": "select & group clips from running total1",
+      "parameters": {
+        "jsCode": "// 1. Get the target duration from the previous node\nconst MAX_DURATION = $('Get row(s) in sheet').first().json['Total Time of Reel(Secs)'] || 20;\n\nconst allInputItems = $input.all();\nconst finalOutput = [];\n\nlet totalRunningDuration = 0; // The continuous total across all groups\nlet currentGroupItems = [];\nlet currentGroupTime = 0;\nlet groupCounter = 1;\n\n// 2. Iterate through items to form groups\nfor (const item of allInputItems) {\n  const duration = item.json.durationSeconds || 0;\n\n  // Add item to the current forming group\n  currentGroupItems.push(item.json);\n  currentGroupTime += duration;\n\n  // CLUBBING RULE: If group reaches 3 seconds, \"seal\" it\n  if (currentGroupTime >= 3) {\n    totalRunningDuration += currentGroupTime;\n\n    finalOutput.push({\n      group_id: `group_${groupCounter}`,\n      group_duration: parseFloat(currentGroupTime.toFixed(2)),\n      running_duration: parseFloat(totalRunningDuration.toFixed(2)), // Cumulative total\n      items: currentGroupItems\n    });\n\n    // Reset group trackers\n    currentGroupItems = [];\n    currentGroupTime = 0;\n    groupCounter++;\n  }\n\n  // TOTAL DURATION RULE: Ensure total is AT LEAST MAX_DURATION\n  if (totalRunningDuration >= MAX_DURATION && currentGroupTime === 0) {\n    break;\n  }\n}\n\n// 3. Cleanup: Catch any remaining items if we haven't hit the target yet\nif (currentGroupItems.length > 0 && totalRunningDuration < MAX_DURATION) {\n    totalRunningDuration += currentGroupTime;\n    finalOutput.push({\n      group_id: `group_${groupCounter}`,\n      group_duration: parseFloat(currentGroupTime.toFixed(2)),\n      running_duration: parseFloat(totalRunningDuration.toFixed(2)),\n      items: currentGroupItems\n    });\n}\n\nreturn finalOutput;"
+      },
+      "position": [
+        -2096,
+        -2880
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "7d4d7b3e-628d-4281-ac0a-886a01cfd4de",
+      "name": "shuffle the motion clips based on seed[IMP]",
+      "parameters": {
+        "jsCode": "// 1. Define your Seed\n// You can hardcode this, or use a value from a previous node like:\n// const seed = $('Get Settings').first().json.seedValue;\nconst seed = 999; \n\n// 2. Mulberry32 Seeded Random Generator Function\nfunction seededRandom(a) {\n    return function() {\n      let t = a += 0x6D2B79F5;\n      t = Math.imul(t ^ t >>> 15, t | 1);\n      t ^= t + Math.imul(t ^ t >>> 7, t | 61);\n      return ((t ^ t >>> 14) >>> 0) / 4294967296;\n    }\n}\n\nconst randomGen = seededRandom(seed);\n\n// 3. Get all input items\nlet items = $input.all();\n\n/**\n * 4. Fisher-Yates Shuffle Algorithm (Deterministic)\n * We use the seeded random instead of Math.random()\n */\nfor (let i = items.length - 1; i > 0; i--) {\n    const j = Math.floor(randomGen() * (i + 1));\n    // Swap elements\n    [items[i], items[j]] = [items[j], items[i]];\n}\n\n// 5. Return the shuffled items\nreturn items;"
+      },
+      "position": [
+        -3440,
+        -2896
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-12T07:15:09.555Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-12T07:15:09.555Z",
+      "workflowId": "bkVTTG7BDNGoketw"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-13T18:39:02.000Z",
+  "versionId": "9ebe8fc9-fdc3-4c88-bc7f-bdf561ba389d"
+}
