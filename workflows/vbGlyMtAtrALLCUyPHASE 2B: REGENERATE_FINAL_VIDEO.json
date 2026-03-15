@@ -1,7 +1,1462 @@
 {
-  "active": false,
-  "activeVersion": null,
-  "activeVersionId": null,
+  "active": true,
+  "activeVersion": {
+    "authors": "Sukhneer Singh",
+    "autosaved": true,
+    "connections": {
+      "Call 'video render v1'": {
+        "main": [
+          [
+            {
+              "index": 1,
+              "node": "Mege for Final video folder",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Catch Reel Error": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Update Status = error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Check or create Approved_videos folder": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "List Approved Videos",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Check or create Final_Video folder": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Mege for Final video folder",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Continue Loop": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Reels",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Edit Fields": {
+        "main": [
+          [
+            {
+              "index": 1,
+              "node": "Merge video urls and sheet data",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Execute Command": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Continue Loop",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get Automation folder": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Search Reel Folder",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get Client Folder name": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get Automation folder",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get Rows": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Reels",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get video binary": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Upload Final Video",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get video urls": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Merge video urls and sheet data",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "List Approved Videos": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Split Out Videos",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Loop Over Reels": {
+        "main": [
+          [],
+          [
+            {
+              "index": 0,
+              "node": "Get Client Folder name",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Mege for Final video folder": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "check file and delete for the update",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Merge video urls and sheet data": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Call 'video render v1'",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Search Reel Folder": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Check or create Approved_videos folder",
+              "type": "main"
+            },
+            {
+              "index": 0,
+              "node": "Check or create Final_Video folder",
+              "type": "main"
+            },
+            {
+              "index": 0,
+              "node": "Edit Fields",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Share Video File": {
+        "main": [
+          [],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Sort on shot number": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Share Video File",
+              "type": "main"
+            },
+            {
+              "index": 0,
+              "node": "Get video urls",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Split Out Videos": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Sort on shot number",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Submit video re-generation": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get Rows",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Update Status = error": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Reels",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Update sheet for final status and link": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Execute Command",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Upload Final Video": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Update sheet for final status and link",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "When clicking 'Execute workflow'": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get Rows",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "check file and delete for the update": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get video binary",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Catch Reel Error",
+              "type": "main"
+            }
+          ]
+        ]
+      }
+    },
+    "createdAt": "2026-03-15T06:38:24.172Z",
+    "description": "",
+    "name": "Version bf9ea323",
+    "nodes": [
+      {
+        "id": "6800f5f7-cf94-4640-ad32-f8a896fe03c9",
+        "name": "When clicking 'Execute workflow'",
+        "parameters": {},
+        "position": [
+          -528,
+          176
+        ],
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "fhIAilo8SGlashT9",
+            "name": "Google Sheets account 3"
+          }
+        },
+        "id": "418ee9af-b19d-437f-a411-539abadab415",
+        "name": "Get Rows",
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "cachedResultName": "Short Video Generation DB- Jass Records",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+            "mode": "list",
+            "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+          },
+          "filtersUI": {
+            "values": [
+              {
+                "lookupColumn": "Status of Automation",
+                "lookupValue": "Regenerate_final_video"
+              }
+            ]
+          },
+          "options": {},
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": "Main DB",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+            "mode": "list",
+            "value": "gid=0"
+          }
+        },
+        "position": [
+          -336,
+          176
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7
+      },
+      {
+        "id": "6f7c254e-3eec-4b97-9cbd-553afe038873",
+        "name": "Loop Over Reels",
+        "notes": "One reel at a time. Error -> marks error and continues.",
+        "parameters": {
+          "options": {}
+        },
+        "position": [
+          -128,
+          176
+        ],
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "81826f9b-2087-4fdc-ae9b-cd6100847809",
+        "name": "Get Client Folder name",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "cachedResultName": "Clients",
+              "cachedResultUrl": "https://drive.google.com/drive/folders/1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-",
+              "mode": "list",
+              "value": "1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-"
+            }
+          },
+          "limit": 1,
+          "options": {},
+          "queryString": "={{ $json['Client(drive folder name)'] }}",
+          "resource": "fileFolder"
+        },
+        "position": [
+          96,
+          176
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "f94f31f3-b48e-4ae6-9b40-edaef7b62ff5",
+        "name": "Get Automation folder",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "limit": 1,
+          "options": {},
+          "queryString": "=short_video_automation",
+          "resource": "fileFolder"
+        },
+        "position": [
+          320,
+          176
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "0630d7c8-23ea-4dfb-b661-7bf124f1ee13",
+        "name": "Search Reel Folder",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "queryString": "=Reel_{{ $('Loop Over Reels').item.json['Reel number'] }}",
+          "resource": "fileFolder",
+          "returnAll": true
+        },
+        "position": [
+          544,
+          176
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "id": "53e12236-00a9-4981-b9a8-d888dabedd5d",
+        "name": "Check or create Approved_videos folder",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "options": {},
+          "workflowId": {
+            "__rl": true,
+            "cachedResultName": "Check and Create Drive folder subworkflow",
+            "cachedResultUrl": "/workflow/LV6KV28deGpPkOEm",
+            "mode": "list",
+            "value": "LV6KV28deGpPkOEm"
+          },
+          "workflowInputs": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "parentFolderID",
+                "id": "parentFolderID",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "folderToCreateOrSearch",
+                "id": "folderToCreateOrSearch",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              }
+            ],
+            "value": {
+              "folderToCreateOrSearch": "Approved_videos ",
+              "parentFolderID": "={{ $('Search Reel Folder').item.json.id }}"
+            }
+          }
+        },
+        "position": [
+          736,
+          304
+        ],
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.3
+      },
+      {
+        "id": "8323a65a-8438-4e22-9871-b5fd05dc9f12",
+        "name": "Check or create Final_Video folder",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "mode": "each",
+          "options": {},
+          "workflowId": {
+            "__rl": true,
+            "cachedResultName": "Check and Create Drive folder subworkflow",
+            "cachedResultUrl": "/workflow/LV6KV28deGpPkOEm",
+            "mode": "list",
+            "value": "LV6KV28deGpPkOEm"
+          },
+          "workflowInputs": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "parentFolderID",
+                "id": "parentFolderID",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "folderToCreateOrSearch",
+                "id": "folderToCreateOrSearch",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              }
+            ],
+            "value": {
+              "folderToCreateOrSearch": "Final_video",
+              "parentFolderID": "={{ $('Search Reel Folder').item.json.id }}"
+            }
+          }
+        },
+        "position": [
+          752,
+          48
+        ],
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "f9924bfb-3c16-414f-a7e9-dc7a698aa301",
+        "name": "List Approved Videos",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.folderId }}"
+            }
+          },
+          "options": {},
+          "queryString": "=",
+          "resource": "fileFolder"
+        },
+        "position": [
+          992,
+          288
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "id": "8fa64360-d002-4ffb-9317-ccbeb20ef948",
+        "name": "Split Out Videos",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "fieldToSplitOut": "id",
+          "include": "allOtherFields",
+          "options": {}
+        },
+        "position": [
+          1216,
+          288
+        ],
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1
+      },
+      {
+        "id": "f342a6c1-11ad-46c3-8880-16596cbe58c0",
+        "name": "Sort on shot number",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "options": {},
+          "sortFieldsUi": {
+            "sortField": [
+              {
+                "fieldName": "name"
+              }
+            ]
+          }
+        },
+        "position": [
+          1392,
+          288
+        ],
+        "type": "n8n-nodes-base.sort",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "71368965-a634-4cb0-8afb-98c9f1f8fc54",
+        "name": "Share Video File",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "fileId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "operation": "share",
+          "options": {},
+          "permissionsUi": {
+            "permissionsValues": {
+              "role": "reader",
+              "type": "anyone"
+            }
+          }
+        },
+        "position": [
+          1632,
+          112
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "id": "fa1b24cd-6cb4-4354-ac82-001531e839c2",
+        "name": "Get video urls",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "jsCode": "const items = $input.all();\n\nconst urls = items.map(item => {\n  const id = item.json.id;\n  return `https://drive.google.com/uc?export=download&id=${id}`;\n});\n\nreturn [\n  {\n    json: {\n      urls: urls\n    }\n  }\n];"
+        },
+        "position": [
+          1872,
+          288
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "86aad1f1-0fe1-480f-b419-74ec9911d053",
+        "name": "Edit Fields",
+        "notes": "Pulls song link, start time and reel number from the sheet row for the render subworkflow",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "rfv-ef-1",
+                "name": "Song link(direct download)",
+                "type": "string",
+                "value": "={{ $('Loop Over Reels').item.json['Song link(direct download)'] }}"
+              },
+              {
+                "id": "rfv-ef-2",
+                "name": "Start Time of Song",
+                "type": "string",
+                "value": "={{ $('Loop Over Reels').item.json['Start Time of Song'] }}"
+              },
+              {
+                "id": "rfv-ef-3",
+                "name": "Reel number",
+                "type": "string",
+                "value": "={{ $('Loop Over Reels').item.json['Reel number'] }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "position": [
+          1872,
+          96
+        ],
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4
+      },
+      {
+        "id": "238aa508-1beb-4cba-8f31-01f3c990ba57",
+        "name": "Merge video urls and sheet data",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "combineBy": "combineByPosition",
+          "mode": "combine",
+          "options": {}
+        },
+        "position": [
+          2112,
+          208
+        ],
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2
+      },
+      {
+        "id": "21c25f99-d697-44c6-a4ed-fa3fbe46b5fb",
+        "name": "Call 'video render v1'",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "options": {},
+          "workflowId": {
+            "__rl": true,
+            "cachedResultName": "video render v1",
+            "cachedResultUrl": "/workflow/uzd38cC6ZsZfpLSq",
+            "mode": "list",
+            "value": "uzd38cC6ZsZfpLSq"
+          },
+          "workflowInputs": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "video_link_list",
+                "id": "video_link_list",
+                "removed": false,
+                "required": false,
+                "type": "array"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "audio_link",
+                "id": "audio_link",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "audio_start_time",
+                "id": "audio_start_time",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "output_video_name",
+                "id": "output_video_name",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              }
+            ],
+            "value": {
+              "audio_link": "={{ $json['Song link(direct download)'] }}",
+              "audio_start_time": "={{ $json['Start Time of Song'] }}",
+              "output_video_name": "={{ $json['Reel number'] }}.mp4",
+              "video_link_list": "={{ $json.urls }}"
+            }
+          }
+        },
+        "position": [
+          2400,
+          256
+        ],
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.3
+      },
+      {
+        "id": "5f32e0fd-9ae7-457a-aade-b9852cc58337",
+        "name": "Mege for Final video folder",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "combineBy": "combineAll",
+          "mode": "combine",
+          "options": {}
+        },
+        "position": [
+          2544,
+          32
+        ],
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2
+      },
+      {
+        "id": "ede028af-a316-4368-9693-582af8bfbd35",
+        "name": "Get video binary",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "fileSelector": "=/tmp/{{ $('Get Rows').item.json['Reel number'] }}.mp4",
+          "options": {}
+        },
+        "position": [
+          3056,
+          160
+        ],
+        "type": "n8n-nodes-base.readWriteFile",
+        "typeVersion": 1
+      },
+      {
+        "id": "9e17a60e-9212-4ed7-99ac-77de0aaba137",
+        "name": "check file and delete for the update",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "options": {
+            "waitForSubWorkflow": true
+          },
+          "workflowId": {
+            "__rl": true,
+            "cachedResultName": "check file existence",
+            "cachedResultUrl": "/workflow/NHtAA68XwRTbAXHO",
+            "mode": "list",
+            "value": "NHtAA68XwRTbAXHO"
+          },
+          "workflowInputs": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "filename",
+                "id": "filename",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "folderid",
+                "id": "folderid",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "deleteUpdate",
+                "id": "deleteUpdate",
+                "removed": false,
+                "required": false,
+                "type": "boolean"
+              }
+            ],
+            "value": {
+              "deleteUpdate": true,
+              "filename": "={{ $('Get Rows').item.json['Reel number'] }}_final_reel.mp4",
+              "folderid": "={{ $('Mege for Final video folder').item.json.folderId }}"
+            }
+          }
+        },
+        "position": [
+          2816,
+          144
+        ],
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "d84f14e6-14c2-4be2-8510-bfd580029888",
+        "name": "Upload Final Video",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $('Mege for Final video folder').item.json.folderId }}"
+          },
+          "name": "={{ $('Get Rows').item.json['Reel number'] }}_final_reel.mp4",
+          "options": {}
+        },
+        "position": [
+          3264,
+          208
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "fhIAilo8SGlashT9",
+            "name": "Google Sheets account 3"
+          }
+        },
+        "id": "af259443-f096-45ed-bc26-c81ae3d6f6c6",
+        "name": "Update sheet for final status and link",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "columns": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [
+              "Reel number"
+            ],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Reel number",
+                "id": "Reel number",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Client(drive folder name)",
+                "id": "Client(drive folder name)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Account to post",
+                "id": "Account to post",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Avatars to use(comma seperated)",
+                "id": "Avatars to use(comma seperated)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Avtar Drive links(optional & bypasses Avatar to use field)",
+                "id": "Avtar Drive links(optional & bypasses Avatar to use field)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Reel Type",
+                "id": "Reel Type",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Concept input(optional)",
+                "id": "Concept input(optional)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Song link(direct download)",
+                "id": "Song link(direct download)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Start Time of Song",
+                "id": "Start Time of Song",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Total Time of Reel(Secs)",
+                "id": "Total Time of Reel(Secs)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Status of Automation",
+                "id": "Status of Automation",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Drive link for image approvals",
+                "id": "Drive link for image approvals",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Drive link for video approval",
+                "id": "Drive link for video approval",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Final Video Drive Download Link",
+                "id": "Final Video Drive Download Link",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Post Schedule Date",
+                "id": "Post Schedule Date",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Post Schedule Time",
+                "id": "Post Schedule Time",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Workflow execution link",
+                "id": "Workflow execution link",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Error Details",
+                "id": "Error Details",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              }
+            ],
+            "value": {
+              "Final Video Drive Download Link": "={{ $json.webContentLink }}",
+              "Reel number": "={{ $('Get Rows').item.json['Reel number'] }}",
+              "Status of Automation": "Final_video_Generated"
+            }
+          },
+          "documentId": {
+            "__rl": true,
+            "cachedResultName": "Short Video Generation DB- Jass Records",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+            "mode": "list",
+            "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+          },
+          "operation": "appendOrUpdate",
+          "options": {},
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": "Main DB",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+            "mode": "list",
+            "value": "gid=0"
+          }
+        },
+        "position": [
+          3488,
+          272
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7
+      },
+      {
+        "id": "ca593582-9cf5-4679-81ff-08484592721a",
+        "name": "Execute Command",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "command": "=rm /tmp/{{ $('Get Rows').item.json['Reel number'] }}.mp4"
+        },
+        "position": [
+          3696,
+          208
+        ],
+        "type": "n8n-nodes-base.executeCommand",
+        "typeVersion": 1
+      },
+      {
+        "id": "dc80abc5-3f6c-444c-8a65-7fc30d0f70a3",
+        "name": "Continue Loop",
+        "parameters": {},
+        "position": [
+          4032,
+          448
+        ],
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1
+      },
+      {
+        "id": "e97187bc-146f-47d2-a5e3-45bf217093cb",
+        "name": "Catch Reel Error",
+        "notes": "Receives errors from any critical node.",
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "err-1",
+                "name": "errorMessage",
+                "type": "string",
+                "value": "={{ $json.error?.message ?? 'Unknown error' }}"
+              },
+              {
+                "id": "err-2",
+                "name": "failedNode",
+                "type": "string",
+                "value": "={{ $json.error?.node?.name ?? 'unknown node' }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "position": [
+          3168,
+          2032
+        ],
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "fhIAilo8SGlashT9",
+            "name": "Google Sheets account 3"
+          }
+        },
+        "id": "a6f30154-dc2e-4464-bb0d-b6b9705563e3",
+        "name": "Update Status = error",
+        "parameters": {
+          "columns": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [
+              "row_number"
+            ],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": true,
+                "display": true,
+                "displayName": "row_number",
+                "id": "row_number",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": false,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Status of Automation",
+                "id": "Status of Automation",
+                "required": false,
+                "type": "string"
+              }
+            ],
+            "value": {
+              "Status of Automation": "error in final video generation",
+              "row_number": "={{ $('Get Rows').item.json['row_number'] }}"
+            }
+          },
+          "documentId": {
+            "__rl": true,
+            "cachedResultName": "Short Video Generation DB- Jass Records",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+            "mode": "list",
+            "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+          },
+          "operation": "update",
+          "options": {},
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": "Main DB",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+            "mode": "list",
+            "value": "gid=0"
+          }
+        },
+        "position": [
+          -400,
+          1536
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7
+      },
+      {
+        "id": "346a55cc-82c7-4377-8c37-ef545db806f8",
+        "name": "Submit video re-generation",
+        "parameters": {
+          "formDescription": "[VIDEO RE- GENERATION] With this you will be able to submit job for Story videos",
+          "formFields": {
+            "values": [
+              {
+                "fieldLabel": "Client Name",
+                "fieldOptions": {
+                  "values": [
+                    {
+                      "option": "Jass Records"
+                    }
+                  ]
+                },
+                "fieldType": "dropdown"
+              }
+            ]
+          },
+          "formTitle": "Submit Video Re-Generation Workflow",
+          "options": {}
+        },
+        "position": [
+          -544,
+          464
+        ],
+        "type": "n8n-nodes-base.formTrigger",
+        "typeVersion": 2.5,
+        "webhookId": "72533bec-1f90-47ea-b61f-84470b773ce8"
+      }
+    ],
+    "updatedAt": "2026-03-15T06:38:25.000Z",
+    "versionId": "bf9ea323-091e-49bc-aff4-765b595164ca",
+    "workflowId": "vbGlyMtAtrALLCUy"
+  },
+  "activeVersionId": "bf9ea323-091e-49bc-aff4-765b595164ca",
   "connections": {
     "Call 'video render v1'": {
       "main": [
@@ -340,6 +1795,17 @@
           {
             "index": 0,
             "node": "Catch Reel Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Submit video re-generation": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Rows",
             "type": "main"
           }
         ]
@@ -1409,6 +2875,37 @@
       ],
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7
+    },
+    {
+      "id": "346a55cc-82c7-4377-8c37-ef545db806f8",
+      "name": "Submit video re-generation",
+      "parameters": {
+        "formDescription": "[VIDEO RE- GENERATION] With this you will be able to submit job for Story videos",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Client Name",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Jass Records"
+                  }
+                ]
+              },
+              "fieldType": "dropdown"
+            }
+          ]
+        },
+        "formTitle": "Submit Video Re-Generation Workflow",
+        "options": {}
+      },
+      "position": [
+        -544,
+        464
+      ],
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "webhookId": "72533bec-1f90-47ea-b61f-84470b773ce8"
     }
   ],
   "pinData": {},
@@ -1428,7 +2925,7 @@
   ],
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2026-03-09T19:43:52.955Z",
-  "versionId": "27845b8a-0f03-4feb-a933-89873eca38a0"
+  "triggerCount": 1,
+  "updatedAt": "2026-03-15T06:38:24.171Z",
+  "versionId": "bf9ea323-091e-49bc-aff4-765b595164ca"
 }
