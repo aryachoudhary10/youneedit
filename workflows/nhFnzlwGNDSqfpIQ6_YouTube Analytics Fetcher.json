@@ -277,7 +277,7 @@
       "parameters": {
         "operation": "executeQuery",
         "options": {},
-        "query": "=INSERT INTO accounts (account_id, platform, username, display_name, followers_count, metadata, updated_at)\nVALUES (\n  '{{ $json.account_id }}',\n  'youtube',\n  '{{ $json.username }}',\n  '{{ $json.display_name }}',\n  {{ $json.followers_count }},\n  '{{ JSON.stringify($json.metadata) }}',\n  NOW()\n)\nON CONFLICT (account_id) DO UPDATE SET\n  username = EXCLUDED.username,\n  display_name = EXCLUDED.display_name,\n  followers_count = EXCLUDED.followers_count,\n  metadata = EXCLUDED.metadata,\n  updated_at = NOW()\nRETURNING *;"
+        "query": "INSERT INTO accounts (account_id, platform, username, display_name, followers_count, metadata, updated_at)\nVALUES (\n  '{{ $json.account_id }}',\n  'youtube',\n  '{{ $json.username }}',\n  '{{ $json.display_name }}',\n  {{ $json.followers_count }},\n  '{{ JSON.stringify($json.metadata) }}',\n  NOW()\n)\nON CONFLICT (account_id) DO UPDATE SET\n  username = EXCLUDED.username,\n  display_name = EXCLUDED.display_name,\n  followers_count = EXCLUDED.followers_count,\n  metadata = EXCLUDED.metadata,\n  updated_at = NOW()\nRETURNING *;"
       },
       "position": [
         -80,
@@ -401,10 +401,10 @@
       "parameters": {
         "operation": "executeQuery",
         "options": {},
-        "query": "=-- Insert content\nINSERT INTO content (content_id, account_id, platform, content_type, title, hook, idea, url, posted_at, duration_sec, metadata)\nVALUES (\n  '{{ $json.content_id }}',\n  '{{ $json.account_id }}',\n  '{{ $json.platform }}',\n  '{{ $json.content_type }}',\n  '{{ $json.title }}',\n  '{{ $json.hook }}',\n  '{{ $json.idea }}',\n  '{{ $json.url }}',\n  '{{ $json.posted_at }}',\n  {{ $json.duration_sec }},\n  '{{ JSON.stringify($json.metadata) }}'\n)\nON CONFLICT (content_id) DO UPDATE SET\n  title = EXCLUDED.title,\n  duration_sec = EXCLUDED.duration_sec,\n  metadata = EXCLUDED.metadata;\n\n-- Insert metrics\nINSERT INTO metrics_daily (content_id, account_id, date, views, likes, comments, shares, saves)\nVALUES (\n  '{{ $json.content_id }}',\n  '{{ $json.account_id }}',\n  '{{ $json.date }}',\n  {{ $json.views }},\n  {{ $json.likes }},\n  {{ $json.comments }},\n  {{ $json.shares }},\n  {{ $json.saves }}\n)\nON CONFLICT (content_id, date) DO UPDATE SET\n  views = EXCLUDED.views,\n  likes = EXCLUDED.likes,\n  comments = EXCLUDED.comments,\n  created_at = NOW();"
+        "query": "-- Insert content\nINSERT INTO content (content_id, account_id, platform, content_type, title, hook, idea, url, posted_at, duration_sec, metadata)\nVALUES (\n  '{{ $json.content_id }}',\n  '{{ $json.account_id }}',\n  '{{ $json.platform }}',\n  '{{ $json.content_type }}',\n  '{{ $json.title }}',\n  '{{ $json.hook }}',\n  '{{ $json.idea }}',\n  '{{ $json.url }}',\n  '{{ $json.posted_at }}',\n  {{ $json.duration_sec }},\n  '{{ JSON.stringify($json.metadata) }}'\n)\nON CONFLICT (content_id) DO UPDATE SET\n  title = EXCLUDED.title,\n  duration_sec = EXCLUDED.duration_sec,\n  metadata = EXCLUDED.metadata;\n\n-- Insert metrics\nINSERT INTO metrics_daily (content_id, account_id, date, views, likes, comments, shares, saves)\nVALUES (\n  '{{ $json.content_id }}',\n  '{{ $json.account_id }}',\n  '{{ $json.date }}',\n  {{ $json.views }},\n  {{ $json.likes }},\n  {{ $json.comments }},\n  {{ $json.shares }},\n  {{ $json.saves }}\n)\nON CONFLICT (content_id, date) DO UPDATE SET\n  views = EXCLUDED.views,\n  likes = EXCLUDED.likes,\n  comments = EXCLUDED.comments,\n  created_at = NOW();"
       },
       "position": [
-        992,
+        1008,
         464
       ],
       "type": "n8n-nodes-base.postgres",
@@ -654,6 +654,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-17T17:24:36.000Z",
-  "versionId": "bb9ba7f1-ab90-4a32-a124-39325ef47085"
+  "updatedAt": "2026-03-14T10:48:46.466Z",
+  "versionId": "09e5f1e1-f559-4dff-ad24-c79536b58e72"
 }
