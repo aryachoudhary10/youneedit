@@ -440,11 +440,11 @@
       "parameters": {
         "operation": "executeQuery",
         "options": {},
-        "query": "=INSERT INTO scripts (\n  script_id,\n  idea_id,\n  hook_variant_id,\n  transcript_id,\n  script_text,\n  scenes,\n  duration_sec,\n  status,\n  metadata,\n  created_at,\n  updated_at\n)\nVALUES (\n  '{{ $json.script_id }}',\n  '{{ $json.idea_id }}',\n  {{ $json.hook_variant_id ? \"'\" + $json.hook_variant_id + \"'\" : \"NULL\" }},\n  '{{ $json.transcript_id }}',\n  $$ {{ $json.script_text }} $$,\n  $$ {{ JSON.stringify($json.scenes) }} $$::jsonb,\n  {{ $json.duration_sec }},\n  'draft',\n  $$ {{ JSON.stringify({\n    analytics_used: $json.analytics_used,\n    target_duration: $json.target_duration,\n    top_hook_pattern: $json.top_hook_pattern_used,\n    word_count: $json.word_count\n  }) }} $$::jsonb,\n  NOW(),\n  NOW()\n)\nRETURNING *;"
+        "query": "INSERT INTO scripts (\n  script_id,\n  idea_id,\n  hook_variant_id,\n  transcript_id,\n  script_text,\n  scenes,\n  duration_sec,\n  status,\n  metadata,\n  created_at,\n  updated_at\n)\nVALUES (\n  '{{ $json.script_id }}',\n  '{{ $json.idea_id }}',\n  {{ $json.hook_variant_id ? \"'\" + $json.hook_variant_id + \"'\" : \"NULL\" }},\n  '{{ $json.transcript_id }}',\n  $$ {{ $json.script_text }} $$,\n  $$ {{ JSON.stringify($json.scenes) }} $$::jsonb,\n  {{ $json.duration_sec }},\n  'draft',\n  $$ {{ JSON.stringify({\n    analytics_used: $json.analytics_used,\n    target_duration: $json.target_duration,\n    top_hook_pattern: $json.top_hook_pattern_used,\n    word_count: $json.word_count\n  }) }} $$::jsonb,\n  NOW(),\n  NOW()\n)\nRETURNING *;"
       },
       "position": [
-        128,
-        32
+        96,
+        16
       ],
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2
@@ -582,7 +582,7 @@
       "parameters": {
         "operation": "executeQuery",
         "options": {},
-        "query": "=UPDATE scripts\nSET\n  status = 'approved',\n  human_feedback = {{ $('Wait for Human Approval').item.json.data.Feedback ? \"'\" + $('Wait for Human Approval').item.json.data.Feedback.replace(/'/g, \"''\") + \"'\" : \"NULL\" }},\n  updated_at = NOW()\nWHERE script_id = '{{ $('Structure Script Data').item.json.script_id }}'\nRETURNING *;"
+        "query": "UPDATE scripts\nSET\n  status = 'approved',\n  human_feedback = {{ $('Wait for Human Approval').item.json.data.Feedback ? \"'\" + $('Wait for Human Approval').item.json.data.Feedback.replace(/'/g, \"''\") + \"'\" : \"NULL\" }},\n  updated_at = NOW()\nWHERE script_id = '{{ $('Structure Script Data').item.json.script_id }}'\nRETURNING *;"
       },
       "position": [
         1088,
@@ -603,7 +603,7 @@
       "parameters": {
         "operation": "executeQuery",
         "options": {},
-        "query": "=UPDATE scripts\nSET\n  status = '{{ $('Wait for Human Approval').item.json.data.Decision }}',\n  human_feedback = '{{ $('Wait for Human Approval').item.json.data.Feedback.replace(/'/g, \"''\") }}',\n  updated_at = NOW()\nWHERE script_id = '{{ $('Structure Script Data').item.json.script_id }}';"
+        "query": "UPDATE scripts\nSET\n  status = '{{ $('Wait for Human Approval').item.json.data.Decision }}',\n  human_feedback = '{{ $('Wait for Human Approval').item.json.data.Feedback.replace(/'/g, \"''\") }}',\n  updated_at = NOW()\nWHERE script_id = '{{ $('Structure Script Data').item.json.script_id }}';"
       },
       "position": [
         896,
@@ -695,7 +695,7 @@
       "parameters": {
         "operation": "executeQuery",
         "options": {},
-        "query": "=UPDATE ideas SET status = 'script_generated' WHERE idea_id = '{{ $('Structure Script Data').item.json.idea_id }}';"
+        "query": "UPDATE ideas SET status = 'script_generated' WHERE idea_id = '{{ $('Structure Script Data').item.json.idea_id }}';"
       },
       "position": [
         1440,
@@ -940,6 +940,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-28T08:51:21.423Z",
-  "versionId": "77e0b1aa-6cfc-41ae-8b2a-8f8ed3646a01"
+  "updatedAt": "2026-03-14T12:34:26.594Z",
+  "versionId": "fde2e4b0-d4b2-44d3-853c-785b1552a14f"
 }
