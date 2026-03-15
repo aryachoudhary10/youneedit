@@ -743,9 +743,9 @@
         ]
       }
     },
-    "createdAt": "2026-03-11T17:37:10.967Z",
+    "createdAt": "2026-03-14T15:37:37.572Z",
     "description": "",
-    "name": "Version 190fd923",
+    "name": "Version 1f7e358a",
     "nodes": [
       {
         "credentials": {
@@ -990,8 +990,8 @@
         "name": "wait and try again",
         "parameters": {},
         "position": [
-          928,
-          1552
+          976,
+          1536
         ],
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
@@ -1226,7 +1226,7 @@
         "typeVersion": 2
       },
       {
-        "executeOnce": true,
+        "executeOnce": false,
         "id": "cd8118a4-8988-4ae5-893c-c5c7a50b6a0c",
         "name": "call model generations",
         "parameters": {
@@ -1280,6 +1280,7 @@
         },
         "id": "7a5ccbd9-e4df-4a94-b93a-c5a83c92f631",
         "name": "fetch response",
+        "onError": "continueErrorOutput",
         "parameters": {
           "authentication": "predefinedCredentialType",
           "nodeCredentialType": "falAiApi",
@@ -1907,19 +1908,20 @@
           }
         },
         "id": "ca7ba6ff-57fa-4f8f-afdb-8a18c4a5e937",
+        "maxTries": 2,
         "name": "Generate Master Image",
         "parameters": {
           "model": {
             "__rl": true,
-            "cachedResultName": "Nano Banana [image-to-image]",
+            "cachedResultName": "Nano Banana 2 [image-to-image]",
             "mode": "list",
-            "value": "fal-ai/nano-banana/edit"
+            "value": "fal-ai/nano-banana-2/edit"
           },
           "modelParameters": {
             "parameters": [
               {
                 "parameter": "prompt",
-                "value": "=Create 9:16 Image in 2K resolution Keeping the faces and characters same as in the image(s). name of characters are {{ $json['Avatar Names'] }} which are refer in below shot details Shot Details: {{ $json.MasterShot }}  Clothing Details: {{ $json.ClothingDetails }} Location Details: {{ $json.LocationDetails }}"
+                "value": "=Create 9:16 Image in 1K resolution Keeping the faces and characters same as in the image(s). name of characters are {{ $json['Avatar Names'] }} which are refer in below shot details Shot Details: {{ $json.MasterShot }}  Clothing Details: {{ $json.ClothingDetails }} Location Details: {{ $json.LocationDetails }}"
               },
               {
                 "parameter": "num_images",
@@ -1945,6 +1947,7 @@
           -2128,
           208
         ],
+        "retryOnFail": true,
         "type": "@fal-ai/n8n-nodes-fal.falAi",
         "typeVersion": 1
       },
@@ -2024,38 +2027,6 @@
         ],
         "type": "n8n-nodes-base.code",
         "typeVersion": 2
-      },
-      {
-        "credentials": {
-          "googleDriveOAuth2Api": {
-            "id": "V3dLSPaQzHr78Y7i",
-            "name": "Google Drive account"
-          }
-        },
-        "id": "7febe974-9272-4ab8-b360-733c9a33086c",
-        "name": "Create file from text",
-        "parameters": {
-          "content": "={{ $('Merge for Avatar names and shots').item.json.toJsonString() }}",
-          "driveId": {
-            "__rl": true,
-            "mode": "list",
-            "value": "My Drive"
-          },
-          "folderId": {
-            "__rl": true,
-            "mode": "id",
-            "value": "={{ $json.parentFolderId }}"
-          },
-          "name": "={{ $('Search parent Reel').item.json.name }}_Shots_script",
-          "operation": "createFromText",
-          "options": {}
-        },
-        "position": [
-          -2720,
-          288
-        ],
-        "type": "n8n-nodes-base.googleDrive",
-        "typeVersion": 3
       },
       {
         "id": "bd9c404e-7fc2-4345-8e5d-6c5d52255d97",
@@ -2309,7 +2280,7 @@
         "id": "513c25dc-660e-424a-8b10-61c02e801210",
         "name": "Get All Avatar names and total",
         "parameters": {
-          "jsCode": "// Get all incoming items\nconst inputData = items.map(item => item.json);\n\n// Extract names\nconst allNames = inputData.map(avatar => avatar[\"Avatar Name\"]);\n\n// Extract the \"Front\" or \"Fallback\" URLs\nconst referenceUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  \n  // 1. Try to find the image that contains \"front\" (case-insensitive)\n  const frontImage = images.find(img => \n    img[\"Image Name\"].toLowerCase().includes('front')\n  );\n\n  // 2. If found, return its link. If not, take the first image link available.\n  if (frontImage) {\n    return frontImage[\"Download Link\"];\n  } else if (images.length > 0) {\n    return images[0][\"Download Link\"]; // Random/First fallback\n  }\n  \n  return null; // No images found at all\n});\n\n// NEW: Extract all URLs for each avatar as a list of lists\nconst elementUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  // Return an array of just the \"Download Link\" strings for this specific avatar\n  return images.map(img => img[\"Download Link\"]);\n});\n\n// Return a single object with the consolidated lists\nreturn [{\n  \"Avatar Names\": allNames,\n  \"Total Avatars\": allNames.length,\n  \"Reference URLs\": referenceUrls,\n  \"Element URLs\": elementUrls // The list of lists containing all links\n}];"
+          "jsCode": "// Get all incoming items\nconst inputData = items.map(item => item.json);\n\n// Extract names\nconst allNames = inputData.map(avatar => avatar[\"Avatar Name\"]);\n\n// Extract the \"Front\" or \"Fallback\" URLs\nconst referenceUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  \n  // 1. Try to find the image that contains \"grid\" (case-insensitive)\n  const frontImage = images.find(img => \n    img[\"Image Name\"].toLowerCase().includes('grid')\n  );\n\n  // 2. If found, return its link. If not, take the first image link available.\n  if (frontImage) {\n    return frontImage[\"Download Link\"];\n  } else if (images.length > 0) {\n    return images[0][\"Download Link\"]; // Random/First fallback\n  }\n  \n  return null; // No images found at all\n});\n\n// NEW: Extract all URLs for each avatar as a list of lists\nconst elementUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  // Return an array of just the \"Download Link\" strings for this specific avatar\n  return images.map(img => img[\"Download Link\"]);\n});\n\n// Return a single object with the consolidated lists\nreturn [{\n  \"Avatar Names\": allNames,\n  \"Total Avatars\": allNames.length,\n  \"Reference URLs\": referenceUrls,\n  \"Element URLs\": elementUrls // The list of lists containing all links\n}];"
         },
         "position": [
           -576,
@@ -2340,6 +2311,7 @@
           }
         },
         "id": "85663a06-c77f-4c03-b8ce-9db16ae61fbc",
+        "maxTries": 2,
         "name": "Message a model1",
         "parameters": {
           "builtInTools": {},
@@ -2347,11 +2319,11 @@
           "messages": {
             "values": [
               {
-                "content": "=Think like a director of the short video wwhere based on avtars and given concept\nyour job is to define prompt for \nMaster shot \nDetails of cloths for all avatars\nMultishot JSON which has 4-5 prompts for mulitple shots defining action, camera angle, action of the avatars\nRules\n1. Whereever avatar name is referred. so start and end with <<>>, example for av_name make it <<av_name>> \n2. No Turning shots\n3. No 360 Shots, no entering in frame shot.\n4. for every framePrompt do mention in the end 'Dont change the face of <<av_name>> keep it same.'\n5. add variations in camera angle and characters action as story proceeds.\n6. framePrompt's Camera angles can be - mid shot from eyeline, OTS shots(if 2 avatars), wide shots, long shot angle, low angle shots, closeups of emotions, variation as avatar(s) have moved to another place in the same scene.\n7. not 2 consecutive shot to have same camera angle to add interesting feels\n\nJson output only as:\n{\n\"MasterShot\":\"\",\n\"ClothingDetails\":\"\",\n\"LocationDetails:\"\",\n\"StoryShots\":[\n{\"framePrompt\":<detailed prompt for changed frame basis the master shot given the storyline, which utilises camera angles inspirations mentioned above>,\n\"cameraAndActionPrompt\":<detailed prompt for subtle camera angle and motion along with the actions of avatars, define subtle camera movements.>\n},\n{\"framePrompt\":\"\",\n\"cameraAndActionPrompt\":\"\"\n}\n... so on]\n\n}",
+                "content": "=Think like a director of the short video wwhere based on avtars and given concept\nyour job is to define prompt for \nMaster shot \nDetails of cloths for all avatars\nMultishot JSON which has 4-5 prompts for mulitple shots defining action, camera angle, action of the avatars\nRules\n1. Wherever avatar/person/male female name is to be mentioned- start and end with <<>>, example for  {{ $json['Avatar Names'][0] }} make it << {{ $json['Avatar Names'][0] }}>> \n2. No Turning shots\n3. No 360 Shots, no entering in frame shot.\n4. for every framePrompt do mention in the end 'Dont change the face of <<av_name>> keep it same.'\n5. add variations in camera angle and characters action as story proceeds.\n6. framePrompt's Camera angles can be - mid shot from eyeline, OTS shots(if 2 avatars), wide shots, long shot angle, low angle shots, closeups of emotions, variation as avatar(s) have moved to another place in the same scene.\n7. not 2 consecutive shot to have same camera angle to add interesting feels\n8. Make sure you dont mention same avatar such that double role is created. avoid issues of double role of avatar\n\nJson output only as:\n{\n\"MasterShot\":\"\",\n\"ClothingDetails\":\"\",\n\"LocationDetails:\"\",\n\"StoryShots\":[\n{\"framePrompt\":<detailed prompt for changed frame basis the master shot given the storyline, which utilises camera angles inspirations mentioned above>,\n\"cameraAndActionPrompt\":<detailed prompt for subtle camera angle and motion along with the actions of avatars, define subtle camera movements.>\n},\n{\"framePrompt\":\"\",\n\"cameraAndActionPrompt\":\"\"\n}\n... so on]\n\n}",
                 "role": "model"
               },
               {
-                "content": "=Here is the list of all avatars: {{ $json['Avatar Names'][0] }} total number of avatars to use in concept is {{ $json['Total Avatars'] }}\n\nhighllevel concept: {{ $json.Concept }}"
+                "content": "=Here is the list of avatars names: {{ $json['Avatar Names'] }} total number of avatars to use in concept is {{ $json['Total Avatars'] }}, make sure that you have understood the names of avatars well, which is  {{ $json['Avatar Names'] }} hence use exactly these in <<>>\n\nhighllevel concept: {{ $json.Concept }}"
               }
             ]
           },
@@ -2367,6 +2339,7 @@
           400,
           -592
         ],
+        "retryOnFail": true,
         "type": "@n8n/n8n-nodes-langchain.googleGemini",
         "typeVersion": 1.1
       },
@@ -2657,7 +2630,7 @@
         },
         "position": [
           -1056,
-          -864
+          -880
         ],
         "type": "n8n-nodes-base.code",
         "typeVersion": 2
@@ -2919,35 +2892,13 @@
         ],
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "typeVersion": 1.1
-      },
-      {
-        "credentials": {
-          "googleDriveOAuth2Api": {
-            "id": "h3JY0RD1UyXn0wXp",
-            "name": "Google Drive account Arya"
-          }
-        },
-        "id": "0c243584-59a3-4802-b310-b46bbd8d82e5",
-        "name": "Search files and folders",
-        "parameters": {
-          "filter": {},
-          "options": {},
-          "queryString": "vd",
-          "resource": "fileFolder"
-        },
-        "position": [
-          -3024,
-          -448
-        ],
-        "type": "n8n-nodes-base.googleDrive",
-        "typeVersion": 3
       }
     ],
-    "updatedAt": "2026-03-11T17:37:43.000Z",
-    "versionId": "190fd923-fd92-4b2d-9d2b-b578e55a01fb",
+    "updatedAt": "2026-03-14T15:40:43.000Z",
+    "versionId": "1f7e358a-273c-4e33-bf07-0af050c3a1af",
     "workflowId": "9AxPDoQDqa05SS1G"
   },
-  "activeVersionId": "190fd923-fd92-4b2d-9d2b-b578e55a01fb",
+  "activeVersionId": "1f7e358a-273c-4e33-bf07-0af050c3a1af",
   "connections": {
     "2. Extract Reel Data": {
       "main": [
@@ -4175,7 +4126,7 @@
       "typeVersion": 2
     },
     {
-      "executeOnce": true,
+      "executeOnce": false,
       "id": "cd8118a4-8988-4ae5-893c-c5c7a50b6a0c",
       "name": "call model generations",
       "parameters": {
@@ -4210,7 +4161,7 @@
       "id": "532f6d80-cb30-4171-ad18-60262799017e",
       "name": "create generate model prompts",
       "parameters": {
-        "jsCode": "// Get avatar data\nconst data = $items(\"Merge for concept and Avatar Data\", 0, 0)[0].json;\n\nconst avatarNames = data[\"Avatar Names\"];\nconst urls = data[\"Reference URLs\"];\n\n// Get master shot URL safely\nconst masterShotUrl = $items(\"Upload file\", 0, 0)[0].json.webContentLink;\n\n// Build mapping\nconst mapping = {};\nconst image_urls = [];\n\n// Add master shot at index 0\nimage_urls.push(masterShotUrl);\n\n// Avatar images start from index 1\navatarNames.forEach((name, index) => {\n  const imageIndex = index + 1;\n  mapping[name] = `<image:${imageIndex}>`;\n  image_urls.push(urls[index]);\n});\n\n// Get fields\nconst storyShot = $json.StoryShots.framePrompt || \"\";\nconst clothing = $json.ClothingDetails || \"\";\n\n// Combine prompt\nlet combinedPrompt = `${storyShot}`;\n\n// Replace placeholders\navatarNames.forEach((name, index) => {\n  const imageIndex = index + 1;\n  const placeholder1 = `<<${name}>>`;\n  const placeholder2 = `<<${name.replace(/[0-9]/g,\"\")}>>`;\n\n  combinedPrompt = combinedPrompt.replaceAll(placeholder1, `<image:${imageIndex}>`);\n  combinedPrompt = combinedPrompt.replaceAll(placeholder2, `<image:${imageIndex}>`);\n});\n\n// Determine the shot number based on the item's position in the loop\n// We add 1 so the first row starts at 1 instead of 0\nconst shot_num = $itemIndex + 1;\n\nreturn {\n  json: {\n    ...$json,\n    shot_num, // Added the new key here\n    shot_prompt: storyShot,\n    kling_prompt: combinedPrompt,\n    image_urls,\n    mapping\n  }\n};",
+        "jsCode": "// Get avatar data\nconst data = $items(\"Merge for concept and Avatar Data\", 0, 0)[0].json;\n\nconst avatarNames = data[\"Avatar Names\"];\nconst urls = data[\"Reference URLs\"];\n\n// Get master shot URL safely\nconst masterShotUrl = $items(\"Upload file\", 0, 0)[0].json.webContentLink;\n\n// Build mapping\nconst mapping = {};\nconst image_urls = [];\n\n// Add master shot at index 0\nimage_urls.push(masterShotUrl);\n\n// Avatar images start from index 1\navatarNames.forEach((name, index) => {\n  const imageIndex = index + 1;\n  mapping[name] = `<image:${imageIndex}>`;\n  image_urls.push(urls[index]);\n});\n\n// Get fields\nconst storyShot = $json.StoryShots.framePrompt || \"\";\nconst clothing = $json.ClothingDetails || \"\";\n\n// Combine prompt\nlet combinedPrompt = `${storyShot} , ${clothing} `;\n\n// Replace placeholders\navatarNames.forEach((name, index) => {\n  const imageIndex = index + 1;\n  const placeholder1 = `<<${name}>>`;\n  const placeholder2 = `<<${name.replace(/[0-9]/g,\"\")}>>`;\n\n  combinedPrompt = combinedPrompt.replaceAll(placeholder1, `<image:${imageIndex}>`);\n  combinedPrompt = combinedPrompt.replaceAll(placeholder2, `<image:${imageIndex}>`);\n});\n\n// Determine the shot number based on the item's position in the loop\n// We add 1 so the first row starts at 1 instead of 0\nconst shot_num = $itemIndex + 1;\n\nreturn {\n  json: {\n    ...$json,\n    shot_num, // Added the new key here\n    shot_prompt: storyShot,\n    kling_prompt: combinedPrompt,\n    image_urls,\n    mapping\n  }\n};",
         "mode": "runOnceForEachItem"
       },
       "position": [
@@ -4862,15 +4813,15 @@
       "parameters": {
         "model": {
           "__rl": true,
-          "cachedResultName": "Nano Banana [image-to-image]",
+          "cachedResultName": "Nano Banana 2 [image-to-image]",
           "mode": "list",
-          "value": "fal-ai/nano-banana/edit"
+          "value": "fal-ai/nano-banana-2/edit"
         },
         "modelParameters": {
           "parameters": [
             {
               "parameter": "prompt",
-              "value": "=Create 9:16 Image in 2K resolution Keeping the faces and characters same as in the image(s). name of characters are {{ $json['Avatar Names'] }} which are refer in below shot details Shot Details: {{ $json.MasterShot }}  Clothing Details: {{ $json.ClothingDetails }} Location Details: {{ $json.LocationDetails }}"
+              "value": "=Create 9:16 Image in 1K resolution Keeping the faces and characters same as in the image(s). name of characters are {{ $json['Avatar Names'] }} which are refer in below shot details Shot Details: {{ $json.MasterShot }}  Clothing Details: {{ $json.ClothingDetails }} Location Details: {{ $json.LocationDetails }}"
             },
             {
               "parameter": "num_images",
@@ -5229,7 +5180,7 @@
       "id": "513c25dc-660e-424a-8b10-61c02e801210",
       "name": "Get All Avatar names and total",
       "parameters": {
-        "jsCode": "// Get all incoming items\nconst inputData = items.map(item => item.json);\n\n// Extract names\nconst allNames = inputData.map(avatar => avatar[\"Avatar Name\"]);\n\n// Extract the \"Front\" or \"Fallback\" URLs\nconst referenceUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  \n  // 1. Try to find the image that contains \"front\" (case-insensitive)\n  const frontImage = images.find(img => \n    img[\"Image Name\"].toLowerCase().includes('front')\n  );\n\n  // 2. If found, return its link. If not, take the first image link available.\n  if (frontImage) {\n    return frontImage[\"Download Link\"];\n  } else if (images.length > 0) {\n    return images[0][\"Download Link\"]; // Random/First fallback\n  }\n  \n  return null; // No images found at all\n});\n\n// NEW: Extract all URLs for each avatar as a list of lists\nconst elementUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  // Return an array of just the \"Download Link\" strings for this specific avatar\n  return images.map(img => img[\"Download Link\"]);\n});\n\n// Return a single object with the consolidated lists\nreturn [{\n  \"Avatar Names\": allNames,\n  \"Total Avatars\": allNames.length,\n  \"Reference URLs\": referenceUrls,\n  \"Element URLs\": elementUrls // The list of lists containing all links\n}];"
+        "jsCode": "// Get all incoming items\nconst inputData = items.map(item => item.json);\n\n// Extract names\nconst allNames = inputData.map(avatar => avatar[\"Avatar Name\"]);\n\n// Extract the \"Front\" or \"Fallback\" URLs\nconst referenceUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  \n  // 1. Try to find the image that contains \"grid\" (case-insensitive)\n  const frontImage = images.find(img => \n    img[\"Image Name\"].toLowerCase().includes('grid')\n  );\n\n  // 2. If found, return its link. If not, take the first image link available.\n  if (frontImage) {\n    return frontImage[\"Download Link\"];\n  } else if (images.length > 0) {\n    return images[0][\"Download Link\"]; // Random/First fallback\n  }\n  \n  return null; // No images found at all\n});\n\n// NEW: Extract all URLs for each avatar as a list of lists\nconst elementUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  // Return an array of just the \"Download Link\" strings for this specific avatar\n  return images.map(img => img[\"Download Link\"]);\n});\n\n// Return a single object with the consolidated lists\nreturn [{\n  \"Avatar Names\": allNames,\n  \"Total Avatars\": allNames.length,\n  \"Reference URLs\": referenceUrls,\n  \"Element URLs\": elementUrls // The list of lists containing all links\n}];"
       },
       "position": [
         -576,
@@ -5268,11 +5219,11 @@
         "messages": {
           "values": [
             {
-              "content": "=Think like a director of the short video wwhere based on avtars and given concept\nyour job is to define prompt for \nMaster shot \nDetails of cloths for all avatars\nMultishot JSON which has 4-5 prompts for mulitple shots defining action, camera angle, action of the avatars\nRules\n1. Whereever avatar name is referred. so start and end with <<>>, example for av_name make it <<av_name>> \n2. No Turning shots\n3. No 360 Shots, no entering in frame shot.\n4. for every framePrompt do mention in the end 'Dont change the face of <<av_name>> keep it same.'\n5. add variations in camera angle and characters action as story proceeds.\n6. framePrompt's Camera angles can be - mid shot from eyeline, OTS shots(if 2 avatars), wide shots, long shot angle, low angle shots, closeups of emotions, variation as avatar(s) have moved to another place in the same scene.\n7. not 2 consecutive shot to have same camera angle to add interesting feels\n\nJson output only as:\n{\n\"MasterShot\":\"\",\n\"ClothingDetails\":\"\",\n\"LocationDetails:\"\",\n\"StoryShots\":[\n{\"framePrompt\":<detailed prompt for changed frame basis the master shot given the storyline, which utilises camera angles inspirations mentioned above>,\n\"cameraAndActionPrompt\":<detailed prompt for subtle camera angle and motion along with the actions of avatars, define subtle camera movements.>\n},\n{\"framePrompt\":\"\",\n\"cameraAndActionPrompt\":\"\"\n}\n... so on]\n\n}",
+              "content": "=Think like a director of the short video wwhere based on avtars and given concept\nyour job is to define prompt for \nMaster shot \nDetails of cloths for all avatars\nMultishot JSON which has 4-5 prompts for mulitple shots defining action, camera angle, action of the avatars\nRules\n1. Wherever avatar/person/male female name is to be mentioned- start and end with <<>>, example for  {{ $json['Avatar Names'][0] }} make it << {{ $json['Avatar Names'][0] }}>> \n2. No Turning shots\n3. No 360 Shots, no entering in frame shot.\n4. for every framePrompt do mention in the end 'Dont change the face of <<av_name>> keep it same.'\n5. add variations in camera angle and characters action as story proceeds.\n6. framePrompt's Camera angles can be - mid shot from eyeline, OTS shots(if 2 avatars), wide shots, long shot angle, low angle shots, closeups of emotions, variation as avatar(s) have moved to another place in the same scene.\n7. not 2 consecutive shot to have same camera angle to add interesting feels\n8. Make sure you dont mention same avatar such that double role is created. avoid issues of double role of avatar\n\nJson output only as:\n{\n\"MasterShot\":\"\",\n\"ClothingDetails\":\"\",\n\"LocationDetails:\"\",\n\"StoryShots\":[\n{\"framePrompt\":<detailed prompt for changed frame basis the master shot given the storyline, which utilises camera angles inspirations mentioned above>,\n\"cameraAndActionPrompt\":<detailed prompt for subtle camera angle and motion along with the actions of avatars, define subtle camera movements.>\n},\n{\"framePrompt\":\"\",\n\"cameraAndActionPrompt\":\"\"\n}\n... so on]\n\n}",
               "role": "model"
             },
             {
-              "content": "=Here is the list of all avatars: {{ $json['Avatar Names'][0] }} total number of avatars to use in concept is {{ $json['Total Avatars'] }}\n\nhighllevel concept: {{ $json.Concept }}"
+              "content": "=Here is the list of avatars names: {{ $json['Avatar Names'] }} total number of avatars to use in concept is {{ $json['Total Avatars'] }}, make sure that you have understood the names of avatars well, which is  {{ $json['Avatar Names'] }} hence use exactly these in <<>>\n\nhighllevel concept: {{ $json.Concept }}"
             }
           ]
         },
@@ -5844,6 +5795,26 @@
     }
   ],
   "pinData": {
+    "Message a model1": [
+      {
+        "json": {
+          "content": {
+            "parts": [
+              {
+                "text": "{\n  \"MasterShot\": \"A breathtaking cinematic vista of the Himachal Pradesh mountains featuring a sparkling blue river cutting through a valley. <<Avatar2_Male>> and <<Avatar1_Female>> are positioned in the landscape, surrounded by pine trees and snow-capped peaks in the distance under a clear sunny sky.\",\n  \"ClothingDetails\": \"<<Avatar2_Male>> is wearing a thick olive green parka jacket with a fur hood, dark denim jeans, and sturdy brown hiking boots. <<Avatar1_Female>> is dressed in a bright red puffer jacket, a multi-colored traditional Himachali woollen scarf wrapped around her neck, and black thermal leggings with trekking boots.\",\n  \"LocationDetails\": \"The scene is set in a high-altitude Himalayan valley near Manali. A rushing river with crystal clear water flows over smooth grey boulders. Nearby, a rustic wooden mountain tea stall (dhaba) with smoke rising from a small chimney sits against a backdrop of steep, pine-covered slopes.\",\n  \"StoryShots\": [\n    {\n      \"framePrompt\": \"A wide shot of the vast Himalayan landscape where <<Avatar2_Male>> and <<Avatar1_Female>> stand by the edge of a rushing turquoise river, looking out at the massive snow peaks. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same.\",\n      \"cameraAndActionPrompt\": \"A slow, majestic drone-like pull back from a wide angle, showcasing the scale of the mountains while the avatars stand still admiring the view.\"\n    },\n    {\n      \"framePrompt\": \"A mid shot from eyeline level of <<Avatar1_Female>> and <<Avatar2_Male>> sitting comfortably on large sun-warmed river stones. They are sharing a lighthearted conversation with the flowing water behind them. Dont change the face of <<Avatar1_Female>> keep it same. Dont change the face of <<Avatar2_Male>> keep it same.\",\n      \"cameraAndActionPrompt\": \"A static mid shot with a subtle handheld sway to create an organic feel as the avatars gesture naturally while talking.\"\n    },\n    {\n      \"framePrompt\": \"An over-the-shoulder (OTS) shot from behind <<Avatar2_Male>>, focusing on <<Avatar1_Female>> as she points towards a distant mountain eagle soaring above the ridges. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same.\",\n      \"cameraAndActionPrompt\": \"The camera stays fixed behind the shoulder of <<Avatar2_Male>>, with a slight rack focus from his shoulder to the excited expression on the face of <<Avatar1_Female>>.\"\n    },\n    {\n      \"framePrompt\": \"A close-up shot showing the joyful expressions of <<Avatar2_Male>> and <<Avatar1_Female>> as they both hold steaming hot glass tumblers of chai, the steam rising into the cold mountain air. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same.\",\n      \"cameraAndActionPrompt\": \"A tight close-up moving slowly in a horizontal slide (dolly left to right), capturing the steam and the warmth in their eyes.\"\n    },\n    {\n      \"framePrompt\": \"A low angle shot of <<Avatar1_Female>> and <<Avatar2_Male>> walking slowly along a narrow dirt path lined with pine needles, with the towering trees reaching toward the sky above them. Dont change the face of <<Avatar1_Female>> keep it same. Dont change the face of <<Avatar2_Male>> keep it same.\",\n      \"cameraAndActionPrompt\": \"A low-angle tracking shot moving forward at the same pace as the avatars, looking up to emphasize the height of the trees and the grandeur of the environment.\"\n    }\n  ]\n}",
+                "thoughtSignature": "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"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
     "Start": [
       {
         "json": {
@@ -5887,6 +5858,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-03-13T18:03:55.686Z",
-  "versionId": "38a973cc-dbdd-48d5-b379-95f7decacc41"
+  "updatedAt": "2026-03-14T15:46:23.080Z",
+  "versionId": "aad9397b-f44f-4ef5-bd3f-34061110fb0c"
 }
