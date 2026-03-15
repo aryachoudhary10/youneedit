@@ -137,7 +137,7 @@
       "parameters": {
         "operation": "executeQuery",
         "options": {},
-        "query": "-- Hook Pattern Performance Analysis\nSELECT \n  hp.pattern_name,\n  hp.description,\n  COUNT(c.content_id) as times_used,\n  AVG(m.views) as avg_views,\n  AVG(m.likes) as avg_likes,\n  ROUND(AVG((m.likes + m.comments)::DECIMAL / NULLIF(m.views, 0) * 100), 2) as avg_engagement_rate,\n  MAX(m.views) as best_performance\nFROM hook_patterns hp\nJOIN hook_variants hv ON hp.hook_pattern_id = hv.hook_pattern_id\nJOIN content c ON c.hook_variant_id = hv.hook_variant_id\nJOIN metrics_daily m ON c.content_id = m.content_id\nWHERE m.date >= CURRENT_DATE - INTERVAL '30 days'\nGROUP BY hp.hook_pattern_id, hp.pattern_name, hp.description\nHAVING COUNT(c.content_id) >= 3\nORDER BY avg_views DESC;"
+        "query": "-- Hook Pattern Performance Analysis\nSELECT \n  hp.pattern_name,\n  hp.pattern,\n  COUNT(c.content_id) as times_used,\n  AVG(m.views) as avg_views,\n  AVG(m.likes) as avg_likes,\n  ROUND(AVG((m.likes + m.comments)::DECIMAL / NULLIF(m.views, 0) * 100), 2) as avg_engagement_rate,\n  MAX(m.views) as best_performance\nFROM hook_patterns hp\nJOIN hook_variants hv ON hp.hook_pattern_id = hv.hook_pattern_id\nJOIN content c ON c.hook_variant_id = hv.hook_variant_id\nJOIN metrics_daily m ON c.content_id = m.content_id\nWHERE m.date >= CURRENT_DATE - INTERVAL '30 days'\nGROUP BY hp.hook_pattern_id, hp.pattern_name, hp.pattern\nHAVING COUNT(c.content_id) >= 3\nORDER BY avg_views DESC;"
       },
       "position": [
         0,
@@ -317,6 +317,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-16T19:55:54.931Z",
-  "versionId": "635d7bdb-36b4-420f-9063-07e61424b626"
+  "updatedAt": "2026-03-14T10:26:50.036Z",
+  "versionId": "29f77bff-63f6-4d94-8401-75d596089a82"
 }
