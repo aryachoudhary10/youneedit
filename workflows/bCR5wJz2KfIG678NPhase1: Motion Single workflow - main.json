@@ -1,7 +1,539 @@
 {
-  "active": false,
-  "activeVersion": null,
-  "activeVersionId": null,
+  "active": true,
+  "activeVersion": {
+    "authors": "Sukhneer Singh",
+    "autosaved": true,
+    "connections": {
+      "Call Phase 1: motion subworkflow": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Reels1",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Edit Fields1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Edit Fields1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Update row in sheet1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get row(s) in sheet": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Reels1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Loop Over Reels1": {
+        "main": [
+          [],
+          [
+            {
+              "index": 0,
+              "node": "Call Phase 1: motion subworkflow",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Submit image generation": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get row(s) in sheet",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Update row in sheet1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Reels1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "When clicking ‘Execute workflow’": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get row(s) in sheet",
+              "type": "main"
+            }
+          ]
+        ]
+      }
+    },
+    "createdAt": "2026-03-15T06:42:26.412Z",
+    "description": "",
+    "name": "Version c1d18556",
+    "nodes": [
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "fhIAilo8SGlashT9",
+            "name": "Google Sheets account 3"
+          }
+        },
+        "id": "dfe94cf6-9454-44a5-a29f-82080ebe53fb",
+        "name": "Get row(s) in sheet",
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "cachedResultName": "Short Video Generation DB- Jass Records",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+            "mode": "list",
+            "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+          },
+          "filtersUI": {
+            "values": [
+              {
+                "lookupColumn": "Reel Type",
+                "lookupValue": "Motion-SingleBack"
+              },
+              {
+                "lookupColumn": "Status of Automation",
+                "lookupValue": "to be picked"
+              }
+            ]
+          },
+          "options": {},
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": "Main DB",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+            "mode": "list",
+            "value": "gid=0"
+          }
+        },
+        "position": [
+          -2512,
+          -112
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7
+      },
+      {
+        "id": "2ab3d8f6-9f87-464c-a12f-3ad3418424f8",
+        "name": "When clicking ‘Execute workflow’",
+        "parameters": {},
+        "position": [
+          -2704,
+          -112
+        ],
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1
+      },
+      {
+        "id": "4d5b7368-729e-405a-8187-0ee3d3877d21",
+        "name": "Call Phase 1: motion subworkflow",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "options": {},
+          "workflowId": {
+            "__rl": true,
+            "cachedResultName": "Phase 1: motion subworkflow",
+            "cachedResultUrl": "/workflow/MJeIjYnOUP13Xaav",
+            "mode": "list",
+            "value": "MJeIjYnOUP13Xaav"
+          },
+          "workflowInputs": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [
+              "",
+              "_firstItem"
+            ],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "",
+                "id": "",
+                "removed": false,
+                "required": false
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "_firstItem",
+                "id": "_firstItem",
+                "removed": false,
+                "required": false
+              }
+            ],
+            "value": {
+              "": "={{ $('Get row(s) in sheet').item.json }}",
+              "_firstItem": "={{ $('Loop Over Reels1').item.json }}"
+            }
+          }
+        },
+        "position": [
+          -2032,
+          -112
+        ],
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2
+      },
+      {
+        "executeOnce": false,
+        "id": "af15db8c-9f70-4529-8aa3-dea2a27df417",
+        "name": "Loop Over Reels1",
+        "notes": "Processes one reel at a time. On error, updates sheet and continues to next reel.",
+        "parameters": {
+          "options": {}
+        },
+        "position": [
+          -2256,
+          -128
+        ],
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3
+      },
+      {
+        "id": "d23c30ab-c87b-4e93-99aa-6296b6453a6d",
+        "name": "Edit Fields1",
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "1429e5d8-40ee-40ec-9dfd-490faa157232",
+                "name": "error",
+                "type": "string",
+                "value": "={{ $json.error }}"
+              },
+              {
+                "id": "14cbeda9-84fa-40fe-babe-c5d1f69ab7dc",
+                "name": "Reel number",
+                "type": "number",
+                "value": "={{ $json['Reel number'] }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "position": [
+          -1840,
+          16
+        ],
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "fhIAilo8SGlashT9",
+            "name": "Google Sheets account 3"
+          }
+        },
+        "id": "f1d9b066-b4bf-4cf9-ae5d-d9916ab49a33",
+        "name": "Update row in sheet1",
+        "parameters": {
+          "columns": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [
+              "Reel number"
+            ],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Reel number",
+                "id": "Reel number",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Client(drive folder name)",
+                "id": "Client(drive folder name)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Account to post",
+                "id": "Account to post",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Avatars to use(comma seperated)",
+                "id": "Avatars to use(comma seperated)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Avtar Drive links(optional & bypasses Avatar to use field)",
+                "id": "Avtar Drive links(optional & bypasses Avatar to use field)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Reel Type",
+                "id": "Reel Type",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Concept input(optional)",
+                "id": "Concept input(optional)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Song link(direct download)",
+                "id": "Song link(direct download)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Start Time of Song",
+                "id": "Start Time of Song",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Total Time of Reel(Secs)",
+                "id": "Total Time of Reel(Secs)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Status of Automation",
+                "id": "Status of Automation",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Drive link for image approvals",
+                "id": "Drive link for image approvals",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Drive link for video approval",
+                "id": "Drive link for video approval",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Final Video Drive Download Link",
+                "id": "Final Video Drive Download Link",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Post Schedule Date",
+                "id": "Post Schedule Date",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Post Schedule Time",
+                "id": "Post Schedule Time",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Workflow execution link",
+                "id": "Workflow execution link",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Error Details",
+                "id": "Error Details",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "row_number",
+                "id": "row_number",
+                "readOnly": true,
+                "removed": true,
+                "required": false,
+                "type": "number"
+              }
+            ],
+            "value": {
+              "Error Details": "={{ $json.error }}",
+              "Reel number": "={{ $json['Reel number'] }}",
+              "Status of Automation": "error in image generation"
+            }
+          },
+          "documentId": {
+            "__rl": true,
+            "cachedResultName": "Short Video Generation DB- Jass Records",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+            "mode": "list",
+            "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+          },
+          "operation": "update",
+          "options": {},
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": "Main DB",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+            "mode": "list",
+            "value": "gid=0"
+          }
+        },
+        "position": [
+          -1632,
+          16
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7
+      },
+      {
+        "id": "d5f4ea66-a852-47b2-8f3d-ec3544f79300",
+        "name": "Submit image generation",
+        "parameters": {
+          "formDescription": "[IMAGE GENERATION] With this you will be able to submit job for Motion videos",
+          "formFields": {
+            "values": [
+              {
+                "fieldLabel": "Client Name",
+                "fieldOptions": {
+                  "values": [
+                    {
+                      "option": "Jass Records"
+                    }
+                  ]
+                },
+                "fieldType": "dropdown"
+              },
+              {
+                "fieldLabel": "Video Type",
+                "fieldOptions": {
+                  "values": [
+                    {
+                      "option": "Motion-SingleBack"
+                    }
+                  ]
+                },
+                "fieldType": "dropdown"
+              }
+            ]
+          },
+          "formTitle": "Submit Image Generation Workflow (Motion-SingleBack)",
+          "options": {}
+        },
+        "position": [
+          -2768,
+          96
+        ],
+        "type": "n8n-nodes-base.formTrigger",
+        "typeVersion": 2.5,
+        "webhookId": "c72d123f-8cac-473d-8246-6afdce455348"
+      }
+    ],
+    "updatedAt": "2026-03-15T06:42:29.000Z",
+    "versionId": "c1d18556-ad51-4e36-a32a-085eaa1247bc",
+    "workflowId": "bCR5wJz2KfIG678N"
+  },
+  "activeVersionId": "c1d18556-ad51-4e36-a32a-085eaa1247bc",
   "connections": {
     "Call Phase 1: motion subworkflow": {
       "main": [
@@ -50,6 +582,17 @@
           {
             "index": 0,
             "node": "Call Phase 1: motion subworkflow",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Submit image generation": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get row(s) in sheet",
             "type": "main"
           }
         ]
@@ -125,8 +668,8 @@
         }
       },
       "position": [
-        -2608,
-        -64
+        -2512,
+        -112
       ],
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7
@@ -136,8 +679,8 @@
       "name": "When clicking ‘Execute workflow’",
       "parameters": {},
       "position": [
-        -2800,
-        -64
+        -2704,
+        -112
       ],
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1
@@ -190,8 +733,8 @@
         }
       },
       "position": [
-        -2144,
-        -80
+        -2032,
+        -112
       ],
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2
@@ -205,8 +748,8 @@
         "options": {}
       },
       "position": [
-        -2368,
-        -96
+        -2256,
+        -128
       ],
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3
@@ -234,8 +777,8 @@
         "options": {}
       },
       "position": [
-        -1952,
-        48
+        -1840,
+        16
       ],
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4
@@ -472,11 +1015,53 @@
         }
       },
       "position": [
-        -1744,
-        48
+        -1632,
+        16
       ],
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7
+    },
+    {
+      "id": "d5f4ea66-a852-47b2-8f3d-ec3544f79300",
+      "name": "Submit image generation",
+      "parameters": {
+        "formDescription": "[IMAGE GENERATION] With this you will be able to submit job for Motion videos",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Client Name",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Jass Records"
+                  }
+                ]
+              },
+              "fieldType": "dropdown"
+            },
+            {
+              "fieldLabel": "Video Type",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Motion-SingleBack"
+                  }
+                ]
+              },
+              "fieldType": "dropdown"
+            }
+          ]
+        },
+        "formTitle": "Submit Image Generation Workflow (Motion-SingleBack)",
+        "options": {}
+      },
+      "position": [
+        -2768,
+        96
+      ],
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "webhookId": "c72d123f-8cac-473d-8246-6afdce455348"
     }
   ],
   "pinData": {},
@@ -496,7 +1081,7 @@
   ],
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2026-03-13T16:37:55.699Z",
-  "versionId": "d974289c-eb53-4283-9a32-23680c6cec7b"
+  "triggerCount": 1,
+  "updatedAt": "2026-03-15T06:42:26.411Z",
+  "versionId": "c1d18556-ad51-4e36-a32a-085eaa1247bc"
 }
