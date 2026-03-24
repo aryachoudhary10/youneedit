@@ -1,0 +1,3428 @@
+{
+  "active": true,
+  "activeVersion": {
+    "authors": "Sukhneer Singh",
+    "autosaved": true,
+    "connections": {
+      "Account Found in Registry?1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Is Instagram?1",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Log Skipped Account1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Build Upload Context1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Fetch Account Registry1",
+              "type": "main"
+            },
+            {
+              "index": 0,
+              "node": "Resolve Account Credentials1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Caption Provided?1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Use Provided Caption1",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Message a model",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "ClickUp: Update Status1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "ClickUp: Add Comment",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Collect Upload Results1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Source is ClickUp?1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Error Source ClickUp?1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "ClickUp: Mark Failed1",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Sheet: Mark Failed1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Facebook Graph API": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "If",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Fetch Cover from Drive": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Search files and folders",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Filter DNS Errors1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Format Error1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Format Error1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Error Source ClickUp?1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get Cover Image File": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Search files and folders1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "IG: Create Reel Container1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Facebook Graph API",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "IG: Format Result1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Collect Upload Results1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "IG: Publish Reel1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "IG: Format Result1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "If": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "IG: Publish Reel1",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Wait",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "If1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Stop and Error",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Facebook Graph API",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Is Instagram?1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "upload cover image1",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Is YouTube?1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Is LinkedIn?1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "LI: Format Result1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Is YouTube?1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "YT: Upload Short1",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Is LinkedIn?1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Merge Caption Branches1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Build Upload Context1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Message a model": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Set AI Caption1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Normalise Input1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Caption Provided?1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Resolve Account Credentials1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Account Found in Registry?1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Search files and folders": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get Cover Image File",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Search files and folders1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Search files and folders2",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Search files and folders2": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Set Cover URL",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Set AI Caption1": {
+        "main": [
+          [
+            {
+              "index": 1,
+              "node": "Merge Caption Branches1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Set Cover URL": {
+        "main": [
+          []
+        ]
+      },
+      "Source is ClickUp?1": {
+        "main": [
+          [],
+          [
+            {
+              "index": 0,
+              "node": "Update row in sheet1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Use Provided Caption1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Merge Caption Branches1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Wait": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "If1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "When Executed by Another Workflow": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Normalise Input1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "YT: Format Result1": {
+        "main": [
+          [
+            {
+              "index": 1,
+              "node": "Collect Upload Results1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "YT: Upload Short1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "YT: Format Result1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "upload cover image1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "upload reel1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "upload reel1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "IG: Create Reel Container1",
+              "type": "main"
+            }
+          ]
+        ]
+      }
+    },
+    "createdAt": "2026-03-18T07:54:08.754Z",
+    "description": "",
+    "name": "Version a7b68c38",
+    "nodes": [
+      {
+        "id": "2373b0b4-d346-41cc-beb4-25821bdbea99",
+        "name": "When Executed by Another Workflow",
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "loop_over_items",
+                "type": "any"
+              }
+            ]
+          }
+        },
+        "position": [
+          -5984,
+          1488
+        ],
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "950191e1-09e6-4fc2-ae1e-b82764b79df5",
+        "name": "Fetch Cover from Drive",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "cachedResultName": "Clients",
+              "cachedResultUrl": "https://drive.google.com/drive/folders/1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-",
+              "mode": "list",
+              "value": "1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-"
+            }
+          },
+          "limit": 1,
+          "options": {},
+          "queryString": "={{ $json.client }}",
+          "resource": "fileFolder"
+        },
+        "position": [
+          -6704,
+          1104
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "waitBetweenTries": 3000
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "b49b8091-7191-405f-9085-a07275cfd505",
+        "name": "Get Cover Image File",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "queryString": "={{ $('Normalise Input1').item.json.reel_no }}",
+          "resource": "fileFolder"
+        },
+        "position": [
+          -6320,
+          1104
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "waitBetweenTries": 3000
+      },
+      {
+        "id": "7cdfc41e-c62f-4403-9802-3b809a33a1ff",
+        "name": "Set Cover URL",
+        "parameters": {
+          "jsCode": "\nconst norm = $('Normalise Input1').first().json;\nconst coverFile = $input.first().json;\n\n// Build direct download URL from the Drive file ID\nconst coverUrl = coverFile.id\n  ? `https://drive.google.com/uc?export=download&id=${coverFile.id}`\n  : '';\n\nreturn [{\n  json: {\n    ...norm,\n    cover_url: coverUrl,\n    cover_file_id: coverFile.id || ''\n  }\n}];\n"
+        },
+        "position": [
+          -5680,
+          1120
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "8878ab9e-47db-4d7d-a523-109bf797b6f5",
+        "name": "Resolve Account Credentials1",
+        "parameters": {
+          "jsCode": "\nconst item = $json;\nconst registry = $('Fetch Account Registry1').all().map(r => r.json);\nconst norm = (v) => String(v || '').toLowerCase().trim();\n\n// Match by username only (platform comes FROM registry)\nconst match = registry.find(row =>\n  norm(row.account_name) === norm(item.username)\n);\n\nif (!match) {\n  return {\n    json: {\n      ...item,\n      _skip: true,\n      _skip_reason: `Username '${item.username}' not found in Account Registry`,\n      _available: registry.map(r => r.account_name).join(', ')\n    }\n  };\n}\n\n// if (norm(String(match.active)) !== 'true') {\n//   return {\n//     json: {\n//       ...item,\n//       _skip: true,\n//       _skip_reason: `Account '${item.username}' is inactive in registry`\n//     }\n//   };\n// }\n\n// Platform injected FROM registry\nreturn {\n  json: {\n    ...item,\n    _skip:           false,\n    platform:        norm(match.platform || 'instagram'),\n    ig_user_id:      match.ig_user_id      || '',\n    access_token:    match.access_token    || '',\n    credential_name: match.credential_name || ''\n  }\n};\n",
+          "mode": "runOnceForEachItem"
+        },
+        "position": [
+          -3280,
+          1392
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "9f581ad3-505c-43f0-8f3e-e5b5ba977673",
+        "name": "Account Found in Registry?1",
+        "parameters": {
+          "conditions": {
+            "boolean": [
+              {
+                "value1": "={{ $json._skip }}"
+              }
+            ]
+          }
+        },
+        "position": [
+          -3024,
+          1392
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1
+      },
+      {
+        "id": "9bb09d1a-a19d-4d3a-bdb4-28a3db0b8ba4",
+        "name": "Log Skipped Account1",
+        "parameters": {
+          "jsCode": "\nconsole.warn('Skipped:', $json.account, '|', $json._skip_reason);\nreturn { json: { skipped: true, account: $json.account, username: $json.username, platform: $json.platform, reason: $json._skip_reason } };\n",
+          "mode": "runOnceForEachItem"
+        },
+        "position": [
+          -2704,
+          960
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "f04fd536-9083-4f6e-8096-96e76136a030",
+        "name": "Sticky Note Registry1",
+        "parameters": {
+          "color": 5,
+          "content": "## Account Registry Sheet\n\nSheet name: `Account Registry Sheet`\n\n| account_name | platform | ig_user_id | access_token | active |\n|---|---|---|---|---|\n| avni | instagram | 17841474119999455 | EAABsbCS... | true |\n| avni | youtube |  | ya29.a0... | true |\n| jass | instagram | 17841477123456789 | EAACtx9... | true |\n\n**account_name = bare username only (e.g. \"avni\", NOT \"avni instagram\")**\nInput: `Account to post = \"avni\"` → matches registry → platform injected from registry\nIf avni has both instagram + youtube rows, use accounts array: [\"avni instagram\", \"avni youtube\"]\nOR add a platform column and match on both.\n\n**Adding new account = 1 new row. Zero n8n changes.**",
+          "height": 200,
+          "width": 820
+        },
+        "position": [
+          -3744,
+          -448
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "id": "e7876e2e-dd1a-4f9b-af07-74320457e0a6",
+        "name": "Sticky Note IG1",
+        "parameters": {
+          "color": 6,
+          "content": "placeholder_sticky_ig",
+          "height": 120,
+          "width": 300
+        },
+        "position": [
+          -2640,
+          -480
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "clickUpApi": {
+            "id": "hhu9tGDqvZPLy8iM",
+            "name": "ClickUp account"
+          }
+        },
+        "id": "bbd289d9-9672-4aa0-9504-06a3b9897565",
+        "name": "ClickUp: Add Comment",
+        "parameters": {
+          "operation": "__CUSTOM_API_CALL__",
+          "resource": "checklist"
+        },
+        "position": [
+          -128,
+          1680
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.clickUp",
+        "typeVersion": 1,
+        "waitBetweenTries": 5000
+      },
+      {
+        "id": "2525f713-7b46-4040-8d3f-8adc344bd5f0",
+        "name": "Normalise Input1",
+        "parameters": {
+          "jsCode": "\n// const d = $input.first().json;\n\n// // The parent workflow wraps data inside loop_over_items\n// const row = d.loop_over_items || d;\n\n// // Account to post is just a username e.g. \"avni\"\n// // Platform will be resolved from Account Registry\n// const accountUsername = (row['Account to post'] || '').trim();\n\n// // Caption from sheet (column not added yet — will be empty → AI generates it)\n// const caption = (row['Concept input(optional)'] || '').trim();\n\n// // reel_url is already a direct download link from the sheet\n// const reelUrl = (row['Final Video Drive Download Link'] || '').trim();\n\n// // Drive folder for this reel (contains Master_shot_reference subfolder)\n// const reelFolderUrl = (row['Drive link for video approval'] || '').trim();\n\n// // Extract Drive folder ID from the folder URL\n// const folderIdMatch = reelFolderUrl.match(/folders\\/([a-zA-Z0-9_-]+)/);\n// const reelFolderId = folderIdMatch ? folderIdMatch[1] : '';\n\n// return [{\n//   json: {\n//     source:           'sheet',\n//     source_id:        String(row.row_number || ''),\n//     reel_no:          String(row['Reel number'] || ''),\n//     client:           String(row['Client(drive folder name)'] || ''),\n//     account_username: accountUsername,\n//     accounts:         [accountUsername],   // single account, array for compatibility\n//     reel_url:         reelUrl,\n//     reel_folder_id:   reelFolderId,\n//     cover_url:        '',                  // resolved below via Drive API\n//     caption:          caption,\n//     title:            row['Concept input(optional)'] || ('Reel ' + (row['Reel number'] || '')),\n//     need_ai_caption:  (!caption || caption === '')\n//   }\n// }];\nconst d = $input.first().json;\n\n// The parent workflow wraps data inside loop_over_items\nconst row = d.loop_over_items || d;\n\n// --- SCHEDULING LOGIC ---\n// Extract date and time from the input fields\nconst scheduleDate = (row['Post Schedule Date'] || '').trim();\nconst scheduleTime = (row['Post Schedule Time'] || '').trim();\n\nlet scheduledTimestamp = null;\n\nif (scheduleDate && scheduleTime) {\n  try {\n    // Combine Date and Time (Assuming Format: YYYY-MM-DD and HH:mm)\n    // You may need to adjust the string concatenation based on your exact sheet format\n    const fullDateString = `${scheduleDate}T${scheduleTime}:00`;\n    const dateObj = new Date(fullDateString);\n    \n    // Convert to Unix Timestamp in seconds for Meta API\n    scheduledTimestamp = Math.floor(dateObj.getTime() / 1000);\n  } catch (e) {\n    scheduledTimestamp = scheduleDate; // Fallback if date parsing fails\n  }\n}\n// ------------------------\n\nconst accountUsername = (row['Account to post'] || '').trim();\nconst caption = (row['Caption)'] || '').trim();\nconst reelUrl = (row['reel_url'] || '').trim();\nconst reelFolderUrl = (row['Drive link for video approval'] || '').trim();\nconst coverUrl = (row['cover_url'] || '').trim();\n\nconst folderIdMatch = reelFolderUrl.match(/folders\\/([a-zA-Z0-9_-]+)/);\nconst reelFolderId = folderIdMatch ? folderIdMatch[1] : '';\n\nreturn [{\n  json: {\n    source:               'sheet',\n    source_id:            String(row.row_number || ''),\n    reel_no:              String(row['Reel number'] || ''),\n    client:               String(row['Client(drive folder name)'] || ''),\n    account_username:     accountUsername,\n    accounts:             [accountUsername],\n    reel_url:             reelUrl,\n    reel_folder_id:       reelFolderId,\n    cover_url:  coverUrl,\n    caption:              caption,\n    title:                row['Concept input(optional)'] || ('Reel ' + (row['Reel number'] || '')),\n    need_ai_caption:      (!caption || caption === ''),\n    // Add the calculated timestamp to your output\n    scheduled_publish_time: scheduledTimestamp \n  }\n}];"
+        },
+        "position": [
+          -5728,
+          1488
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "e707c479-022d-43d2-b1fb-2c3977caf45d",
+        "name": "Caption Provided?1",
+        "parameters": {
+          "conditions": {
+            "boolean": [
+              {
+                "value1": "={{ $json.need_ai_caption }}"
+              }
+            ]
+          }
+        },
+        "position": [
+          -5456,
+          1488
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1
+      },
+      {
+        "id": "8269183f-14de-4113-ab19-dd486b48ec88",
+        "name": "Use Provided Caption1",
+        "parameters": {
+          "jsCode": "\nconst d = $('Set Cover URL').first().json;\nreturn [{\n  json: {\n    source:         d.source,\n    source_id:      d.source_id,\n    reel_no:        d.reel_no,\n    client:         d.client,\n    accounts:       d.accounts,\n    reel_url:       d.reel_url,\n    cover_url:      d.cover_url,\n    title:          d.title,\n    final_caption:  d.caption\n  }\n}];\n"
+        },
+        "position": [
+          -4768,
+          1312
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "20a5a33b-c885-4073-828e-c5316eeaa32e",
+        "name": "Set AI Caption1",
+        "parameters": {
+          "jsCode": "\nconst base = $('Normalise Input1').first().json;\nconst captionNode = $('Message a model').first().json;\n\nconst caption = captionNode.content?.parts?.[0]?.text || '';\n\nreturn [{\n  json: {\n    source:        base.source,\n    source_id:     base.source_id,\n    reel_no:       base.reel_no,\n    client:        base.client,\n    accounts:      base.accounts,\n    reel_url:      base.reel_url,\n    cover_url:     base.cover_url,\n    title:         base.title,\n    final_caption: caption\n  }\n}];"
+        },
+        "position": [
+          -4464,
+          1616
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "ad7a0f61-346b-42fb-a2e1-e401ffb73cb9",
+        "name": "Merge Caption Branches1",
+        "parameters": {},
+        "position": [
+          -3904,
+          1424
+        ],
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 2.1
+      },
+      {
+        "id": "577a55f3-ce64-414a-adaa-b58017f2e6ca",
+        "name": "Build Upload Context1",
+        "parameters": {
+          "jsCode": "\nconst d = $input.first().json;\n\n// accounts is array of bare usernames e.g. [\"avni\"]\nconst accounts = Array.isArray(d.accounts)\n  ? d.accounts\n  : JSON.parse(d.accounts || '[]');\n\nreturn accounts.map(username => {\n  const trimmed = username.trim();\n  return {\n    json: {\n      source:         d.source,\n      source_id:      d.source_id,\n      reel_no:        d.reel_no,\n      client:         d.client,\n      account:        trimmed,\n      username:       trimmed,\n      platform:       'unknown',   // resolved from registry below\n      reel_url:       d.reel_url,\n      cover_url:      d.cover_url,\n      caption:        d.final_caption || d.caption || '',\n      title:          d.title\n    }\n  };\n});\n"
+        },
+        "position": [
+          -3632,
+          1392
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "5194ee58-dd86-4dba-b08a-bdda629b432c",
+        "name": "Detect Platform1",
+        "parameters": {
+          "jsCode": "\n// Platform resolved from registry in Resolve Account Credentials\n// Pass-through unchanged\nreturn $input.all().map(item => ({ json: item.json }));\n"
+        },
+        "position": [
+          -4608,
+          2016
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "f8d54e4b-aef7-4348-a2ae-7c4285669664",
+        "name": "Is Instagram?1",
+        "parameters": {
+          "conditions": {
+            "string": [
+              {
+                "value1": "={{ $json.platform }}",
+                "value2": "instagram"
+              }
+            ]
+          }
+        },
+        "position": [
+          -2720,
+          1392
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1
+      },
+      {
+        "id": "672aee20-3911-4142-8222-c758a189af54",
+        "name": "Is YouTube?1",
+        "parameters": {
+          "conditions": {
+            "string": [
+              {
+                "value1": "={{ $json.platform }}",
+                "value2": "youtube"
+              }
+            ]
+          }
+        },
+        "position": [
+          -2880,
+          1664
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1
+      },
+      {
+        "id": "a0b99930-d222-4f65-9800-8662eb7ba5e4",
+        "name": "Is LinkedIn?1",
+        "parameters": {
+          "conditions": {
+            "string": [
+              {
+                "value1": "={{ $json.platform }}",
+                "value2": "linkedin"
+              }
+            ]
+          }
+        },
+        "position": [
+          -2880,
+          1872
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "facebookGraphApi": {
+            "id": "SJstlJXO7E1CAbz8",
+            "name": "Facebook Graph account"
+          }
+        },
+        "id": "86c1155f-945e-40b5-964f-686d01b2cfba",
+        "name": "IG: Create Reel Container1",
+        "parameters": {
+          "edge": "media",
+          "graphApiVersion": "v23.0",
+          "httpRequestMethod": "POST",
+          "node": "={{ $('Is Instagram?1').item.json.ig_user_id }}",
+          "options": {
+            "queryParameters": {
+              "parameter": [
+                {
+                  "name": "caption",
+                  "value": "={{ $('Is Instagram?1').item.json.caption }}"
+                },
+                {
+                  "name": "media_type",
+                  "value": "REELS"
+                },
+                {
+                  "name": "video_url",
+                  "value": "={{ $json.url }}"
+                },
+                {
+                  "name": "cover_url",
+                  "value": "={{ $('upload cover image1').item.json.url }}"
+                }
+              ]
+            }
+          }
+        },
+        "position": [
+          -2080,
+          1312
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.facebookGraphApi",
+        "typeVersion": 1,
+        "waitBetweenTries": 5000
+      },
+      {
+        "credentials": {
+          "facebookGraphApi": {
+            "id": "SJstlJXO7E1CAbz8",
+            "name": "Facebook Graph account"
+          }
+        },
+        "id": "0bb178f0-595e-4a47-8ca0-c6de04cf3e38",
+        "maxTries": 4,
+        "name": "IG: Publish Reel1",
+        "parameters": {
+          "edge": "media_publish",
+          "graphApiVersion": "v23.0",
+          "httpRequestMethod": "POST",
+          "node": "={{ $('Is Instagram?1').item.json.ig_user_id }}",
+          "options": {
+            "queryParameters": {
+              "parameter": [
+                {
+                  "name": "creation_id",
+                  "value": "={{ $json.id }}"
+                }
+              ]
+            }
+          }
+        },
+        "position": [
+          -1376,
+          1296
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.facebookGraphApi",
+        "typeVersion": 1,
+        "waitBetweenTries": 5000
+      },
+      {
+        "id": "5f27b749-9938-4a79-928f-68fe84951a79",
+        "name": "IG: Format Result1",
+        "parameters": {
+          "jsCode": "\nconst upstream = $('IG: Create Reel Container1').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'instagram',\n    account:       upstream.account,\n    username:      upstream.username,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+        },
+        "position": [
+          -928,
+          1296
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "credentials": {
+          "youTubeOAuth2Api": {
+            "id": "KXxIBGEjUKl43IzP",
+            "name": "YouTube account"
+          }
+        },
+        "id": "d46fa169-d5e3-4ce6-afe8-f01d07043f2c",
+        "name": "YT: Upload Short1",
+        "parameters": {
+          "categoryId": "22",
+          "operation": "upload",
+          "options": {
+            "description": "={{ $json.caption }}",
+            "privacyStatus": "public"
+          },
+          "regionCode": "IN",
+          "resource": "video",
+          "title": "={{ $json.title.slice(0, 90) }}"
+        },
+        "position": [
+          -2528,
+          1664
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.youTube",
+        "typeVersion": 1,
+        "waitBetweenTries": 5000
+      },
+      {
+        "id": "b02885d8-3bae-4ef5-922f-02fc76cd1323",
+        "name": "YT: Format Result1",
+        "parameters": {
+          "jsCode": "\nconst upstream = $('YT: Upload Short1').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'youtube',\n    account:       upstream.account,\n    username:      upstream.username,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+        },
+        "position": [
+          -2272,
+          1664
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "54a463b0-9f82-49fb-9d70-f29537268e09",
+        "name": "LI: Format Result1",
+        "parameters": {
+          "jsCode": "\nconst upstream = $('LI: Post Video').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'linkedin',\n    account:       upstream.account,\n    username:      upstream.username,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+        },
+        "position": [
+          -2224,
+          1872
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "a950d0a2-e751-4584-a568-b1f594e81a44",
+        "name": "Collect Upload Results1",
+        "parameters": {},
+        "position": [
+          -1360,
+          1520
+        ],
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 2.1
+      },
+      {
+        "id": "78da3a69-3cdb-40a4-a9d3-17df78eb4daa",
+        "name": "Source is ClickUp?1",
+        "parameters": {
+          "conditions": {
+            "string": [
+              {
+                "value1": "={{ $json.source }}",
+                "value2": "clickup"
+              }
+            ]
+          }
+        },
+        "position": [
+          -672,
+          1808
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "clickUpApi": {
+            "id": "hhu9tGDqvZPLy8iM",
+            "name": "ClickUp account"
+          }
+        },
+        "id": "4ac5955f-e4d6-4958-b93d-63598f7662ba",
+        "name": "ClickUp: Update Status1",
+        "parameters": {
+          "id": "={{ $json.source_id }}",
+          "operation": "update",
+          "updateFields": {
+            "status": "Posted"
+          }
+        },
+        "position": [
+          -416,
+          1568
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.clickUp",
+        "typeVersion": 1,
+        "waitBetweenTries": 5000
+      },
+      {
+        "id": "ee0ebc9b-c117-4267-acda-0413207451b6",
+        "name": "Filter DNS Errors1",
+        "parameters": {
+          "conditions": {
+            "string": [
+              {
+                "operation": "notContains",
+                "value1": "={{ $json.execution.error.message }}",
+                "value2": "DNS"
+              }
+            ]
+          }
+        },
+        "position": [
+          -6304,
+          2000
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1
+      },
+      {
+        "id": "3180774c-f9a6-496e-80df-37ce991f2018",
+        "name": "Format Error1",
+        "parameters": {
+          "jsCode": "\nconst e = $input.first().json;\nconst runData = e.execution?.data?.resultData?.runData;\nconst normNode = runData?.['Normalise Input']?.[0]?.data?.main?.[0]?.[0]?.json;\nreturn [{\n  json: {\n    error_message: '❌ Upload failed | Workflow: ' + e.workflow.name + ' | Node: ' + e.execution.error.node.name + ' | ' + e.execution.error.message,\n    source_id:     normNode?.source_id || 'unknown',\n    source:        normNode?.source    || 'unknown'\n  }\n}];\n"
+        },
+        "position": [
+          -6000,
+          1984
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "5c5ce825-00c3-4244-bf6f-f88d204c608b",
+        "name": "Error Source ClickUp?1",
+        "parameters": {
+          "conditions": {
+            "string": [
+              {
+                "value1": "={{ $json.source }}",
+                "value2": "clickup"
+              }
+            ]
+          }
+        },
+        "position": [
+          -5696,
+          1984
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "clickUpApi": {
+            "id": "hhu9tGDqvZPLy8iM",
+            "name": "ClickUp account"
+          }
+        },
+        "id": "4660152a-b594-4d6a-8f29-7bc72a370240",
+        "name": "ClickUp: Mark Failed1",
+        "parameters": {
+          "id": "={{ $json.source_id }}",
+          "operation": "update",
+          "updateFields": {
+            "status": "Upload Failed"
+          }
+        },
+        "position": [
+          -5408,
+          1872
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.clickUp",
+        "typeVersion": 1,
+        "waitBetweenTries": 5000
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "OxLRVQBZ6UBxNsn3",
+            "name": "Google Sheets account Arya"
+          }
+        },
+        "id": "95007451-59d0-4a2e-b06a-ab39435123ac",
+        "name": "Sheet: Mark Failed1",
+        "parameters": {
+          "dataStartRow": 2,
+          "keyRow": 1,
+          "operation": "update",
+          "options": {
+            "valueInputMode": "RAW"
+          },
+          "range": "Sheet1",
+          "sheetId": "YOUR_SHEET_ID"
+        },
+        "position": [
+          -5408,
+          2064
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 2,
+        "waitBetweenTries": 5000
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "OxLRVQBZ6UBxNsn3",
+            "name": "Google Sheets account Arya"
+          }
+        },
+        "executeOnce": true,
+        "id": "216360e1-8228-419b-bd3f-1e37a8f45a68",
+        "name": "Fetch Account Registry1",
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "cachedResultName": "Competitor_Viral_Hook_Research",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE/edit?usp=drivesdk",
+            "mode": "list",
+            "value": "1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE"
+          },
+          "options": {},
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": " Account Registry Sheet",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE/edit#gid=812020385",
+            "mode": "list",
+            "value": 812020385
+          }
+        },
+        "position": [
+          -3488,
+          1184
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7
+      },
+      {
+        "id": "0503b3d3-7a14-4526-a4ff-4451e2a02995",
+        "name": "HTTP Request1",
+        "parameters": {
+          "options": {},
+          "url": "={{ $json.reel_url }}"
+        },
+        "position": [
+          -2208,
+          -624
+        ],
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4
+      },
+      {
+        "credentials": {
+          "cloudinaryApi": {
+            "id": "HH5jyu6i5yhqQTwG",
+            "name": "Cloudinary account"
+          }
+        },
+        "id": "eb86fd0f-a194-4c99-b0f4-652133c9041b",
+        "name": "upload cover image1",
+        "parameters": {
+          "additionalFields": {},
+          "url": "={{ $json.cover_url }}"
+        },
+        "position": [
+          -2464,
+          1312
+        ],
+        "type": "n8n-nodes-cloudinary.cloudinary",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "cloudinaryApi": {
+            "id": "HH5jyu6i5yhqQTwG",
+            "name": "Cloudinary account"
+          }
+        },
+        "id": "41027577-695f-45b1-8e6d-a6dd593b798d",
+        "name": "upload reel1",
+        "parameters": {
+          "additionalFields": {},
+          "resource_type": "video",
+          "url": "={{ $('Is Instagram?1').item.json.reel_url }}"
+        },
+        "position": [
+          -2256,
+          1312
+        ],
+        "type": "n8n-nodes-cloudinary.cloudinary",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "fhIAilo8SGlashT9",
+            "name": "Google Sheets account 3"
+          }
+        },
+        "id": "fa8a4c3e-9c07-4dba-b537-df693fef1141",
+        "name": "Update row in sheet1",
+        "parameters": {
+          "columns": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [
+              "Reel number"
+            ],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Reel number",
+                "id": "Reel number",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Client(drive folder name)",
+                "id": "Client(drive folder name)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Account to post",
+                "id": "Account to post",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Avatars to use(comma seperated)",
+                "id": "Avatars to use(comma seperated)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Avtar Drive links(optional & bypasses Avatar to use field)",
+                "id": "Avtar Drive links(optional & bypasses Avatar to use field)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Reel Type",
+                "id": "Reel Type",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Concept input(optional)",
+                "id": "Concept input(optional)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Song link(direct download)",
+                "id": "Song link(direct download)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Start Time of Song",
+                "id": "Start Time of Song",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Total Time of Reel(Secs)",
+                "id": "Total Time of Reel(Secs)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Status of Automation",
+                "id": "Status of Automation",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Drive link for image approvals",
+                "id": "Drive link for image approvals",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Drive link for video approval",
+                "id": "Drive link for video approval",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Final Video Drive Download Link",
+                "id": "Final Video Drive Download Link",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Post Schedule Date",
+                "id": "Post Schedule Date",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Post Schedule Time",
+                "id": "Post Schedule Time",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Workflow execution link",
+                "id": "Workflow execution link",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Error Details",
+                "id": "Error Details",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "row_number",
+                "id": "row_number",
+                "readOnly": true,
+                "removed": true,
+                "required": false,
+                "type": "number"
+              }
+            ],
+            "value": {
+              "Reel number": "={{ $('When Executed by Another Workflow').item.json.loop_over_items['Reel number'] }}",
+              "Status of Automation": "Video posted"
+            }
+          },
+          "documentId": {
+            "__rl": true,
+            "cachedResultName": "Short Video Generation DB- Jass Records",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+            "mode": "list",
+            "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+          },
+          "operation": "update",
+          "options": {},
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": "Main DB",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+            "mode": "list",
+            "value": "gid=0"
+          }
+        },
+        "position": [
+          -320,
+          1824
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "0f2a3bf2-6048-44c2-8097-53dc75bfcb54",
+        "name": "Search files and folders",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "resource": "fileFolder"
+        },
+        "position": [
+          -6560,
+          1104
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "4995fb11-38a9-4bc8-b751-3afbae14435b",
+        "name": "Search files and folders1",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "queryString": "Master_shot_reference",
+          "resource": "fileFolder"
+        },
+        "position": [
+          -6112,
+          1104
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "3a27b57c-5ce5-4b9e-a369-a89a87aa9d34",
+        "name": "Search files and folders2",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "queryString": "Master_Reference_image",
+          "resource": "fileFolder"
+        },
+        "position": [
+          -5904,
+          1104
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googlePalmApi": {
+            "id": "4HPFYHEHxx2JZFUX",
+            "name": "Google Gemini(PaLM) Api account"
+          }
+        },
+        "id": "eae5e574-f3ac-4eac-9e17-8e4c5b464e40",
+        "name": "Message a model",
+        "parameters": {
+          "builtInTools": {},
+          "messages": {
+            "values": [
+              {
+                "content": "=You are a professional Instagram content strategist and viral reel copywriter.\n\nYour task is to generate a highly engaging Instagram caption based on the given reel concept.\n\nINPUT:\nConcept: {{ $('When Executed by Another Workflow').item.json.loop_over_items['Concept input(optional)'] }}\n\nOUTPUT REQUIREMENTS:\n\n1. Write a catchy, scroll-stopping caption (2–4 lines max)\n2. Tone: engaging, trendy, slightly emotional or relatable (based on concept)\n3. Add emojis naturally (not excessive)\n4. Include a strong hook in the first line\n5. Add a CTA (e.g., \"Follow for more\", \"Tag someone\", etc.)\n\n6. Generate 12–18 relevant hashtags:\n   - Mix of trending + niche hashtags\n   - Include audience-specific + content-specific tags\n   - Format: all hashtags in one line\n\n7. Keep everything concise and Instagram-ready\n8. ONLY GIVE THE BELOW OUTPUT I.E CAPTION\nOUTPUT FORMAT:\n\n<caption text>\n\n#tag1 #tag2 #tag3 ..."
+              }
+            ]
+          },
+          "modelId": {
+            "__rl": true,
+            "cachedResultName": "models/gemini-2.0-flash",
+            "mode": "list",
+            "value": "models/gemini-2.0-flash"
+          },
+          "options": {}
+        },
+        "position": [
+          -5024,
+          1616
+        ],
+        "type": "@n8n/n8n-nodes-langchain.googleGemini",
+        "typeVersion": 1.1
+      },
+      {
+        "credentials": {
+          "facebookGraphApi": {
+            "id": "SJstlJXO7E1CAbz8",
+            "name": "Facebook Graph account"
+          }
+        },
+        "id": "5edd325d-563f-4f82-9a63-07c7a08acd0c",
+        "name": "Facebook Graph API",
+        "parameters": {
+          "graphApiVersion": "v23.0",
+          "node": "={{ $json.id }}",
+          "options": {
+            "fields": {
+              "field": [
+                {
+                  "name": "status_code"
+                }
+              ]
+            }
+          }
+        },
+        "position": [
+          -1872,
+          1312
+        ],
+        "type": "n8n-nodes-base.facebookGraphApi",
+        "typeVersion": 1
+      },
+      {
+        "id": "fbedc6c6-4cb0-4b4d-bf1e-011dd30056d9",
+        "name": "If",
+        "parameters": {
+          "conditions": {
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "074c1dca-f500-4559-89aa-0e96fdf2e991",
+                "leftValue": "={{ $json.status_code }}",
+                "operator": {
+                  "operation": "equals",
+                  "type": "string"
+                },
+                "rightValue": "FINISHED"
+              }
+            ],
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            }
+          },
+          "options": {}
+        },
+        "position": [
+          -1712,
+          1312
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3
+      },
+      {
+        "id": "eb641df8-875e-4dd6-adcf-2c917287c44f",
+        "name": "If1",
+        "parameters": {
+          "conditions": {
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "f232c451-5fb8-4de4-9a02-4ec93eb5eebd",
+                "leftValue": "={{ $json.status_code }}",
+                "operator": {
+                  "operation": "equals",
+                  "type": "string"
+                },
+                "rightValue": "ERROR"
+              }
+            ],
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            }
+          },
+          "options": {}
+        },
+        "position": [
+          -1632,
+          1728
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3
+      },
+      {
+        "id": "42ac7b35-9422-44c3-9bda-30888c1bd179",
+        "name": "Wait",
+        "parameters": {
+          "amount": 15
+        },
+        "position": [
+          -1680,
+          1536
+        ],
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "webhookId": "f6858fc3-3243-42a2-ad20-057347182219"
+      },
+      {
+        "id": "f363bfa3-3761-4a98-8e3b-bdeac55f2970",
+        "name": "Stop and Error",
+        "parameters": {
+          "errorMessage": "error in posting video on instagram"
+        },
+        "position": [
+          -1408,
+          1728
+        ],
+        "type": "n8n-nodes-base.stopAndError",
+        "typeVersion": 1
+      }
+    ],
+    "updatedAt": "2026-03-18T07:54:24.000Z",
+    "versionId": "a7b68c38-eb3a-4dbb-a4fc-bc4dd6ba8853",
+    "workflowId": "lJm9YPTgJH5MFBRt"
+  },
+  "activeVersionId": "a7b68c38-eb3a-4dbb-a4fc-bc4dd6ba8853",
+  "connections": {
+    "Account Found in Registry?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Is Instagram?1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Log Skipped Account1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Build Upload Context1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Fetch Account Registry1",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Resolve Account Credentials1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Caption Provided?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Use Provided Caption1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Message a model",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "ClickUp: Update Status1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ClickUp: Add Comment",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Collect Upload Results1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Source is ClickUp?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Error Source ClickUp?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ClickUp: Mark Failed1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Sheet: Mark Failed1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Facebook Graph API": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Cover from Drive": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search files and folders",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Filter DNS Errors1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Format Error1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Format Error1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Error Source ClickUp?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Cover Image File": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search files and folders1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "IG: Create Reel Container1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Facebook Graph API",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "IG: Format Result1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Collect Upload Results1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "IG: Publish Reel1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "IG: Format Result1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "IG: Publish Reel1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Wait",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Stop and Error",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Facebook Graph API",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Is Instagram?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "upload cover image1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Is YouTube?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Is LinkedIn?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "LI: Format Result1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Is YouTube?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "YT: Upload Short1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Is LinkedIn?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge Caption Branches1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Build Upload Context1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Set AI Caption1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Normalise Input1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Caption Provided?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Resolve Account Credentials1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Account Found in Registry?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search files and folders": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Cover Image File",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search files and folders1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search files and folders2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search files and folders2": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Set Cover URL",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Set AI Caption1": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge Caption Branches1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Set Cover URL": {
+      "main": [
+        []
+      ]
+    },
+    "Source is ClickUp?1": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Update row in sheet1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Use Provided Caption1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge Caption Branches1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "If1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Normalise Input1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "YT: Format Result1": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Collect Upload Results1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "YT: Upload Short1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "YT: Format Result1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "upload cover image1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "upload reel1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "upload reel1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "IG: Create Reel Container1",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-15T14:43:11.346Z",
+  "id": "lJm9YPTgJH5MFBRt",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "SUB: Social Media Upload",
+  "nodes": [
+    {
+      "id": "2373b0b4-d346-41cc-beb4-25821bdbea99",
+      "name": "When Executed by Another Workflow",
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "loop_over_items",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "position": [
+        -5984,
+        1488
+      ],
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "950191e1-09e6-4fc2-ae1e-b82764b79df5",
+      "name": "Fetch Cover from Drive",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "cachedResultName": "Clients",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-",
+            "mode": "list",
+            "value": "1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-"
+          }
+        },
+        "limit": 1,
+        "options": {},
+        "queryString": "={{ $json.client }}",
+        "resource": "fileFolder"
+      },
+      "position": [
+        -6704,
+        1104
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "b49b8091-7191-405f-9085-a07275cfd505",
+      "name": "Get Cover Image File",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "={{ $('Normalise Input1').item.json.reel_no }}",
+        "resource": "fileFolder"
+      },
+      "position": [
+        -6320,
+        1104
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "id": "7cdfc41e-c62f-4403-9802-3b809a33a1ff",
+      "name": "Set Cover URL",
+      "parameters": {
+        "jsCode": "\nconst norm = $('Normalise Input1').first().json;\nconst coverFile = $input.first().json;\n\n// Build direct download URL from the Drive file ID\nconst coverUrl = coverFile.id\n  ? `https://drive.google.com/uc?export=download&id=${coverFile.id}`\n  : '';\n\nreturn [{\n  json: {\n    ...norm,\n    cover_url: coverUrl,\n    cover_file_id: coverFile.id || ''\n  }\n}];\n"
+      },
+      "position": [
+        -5680,
+        1120
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "8878ab9e-47db-4d7d-a523-109bf797b6f5",
+      "name": "Resolve Account Credentials1",
+      "parameters": {
+        "jsCode": "\nconst item = $json;\nconst registry = $('Fetch Account Registry1').all().map(r => r.json);\nconst norm = (v) => String(v || '').toLowerCase().trim();\n\n// Match by username only (platform comes FROM registry)\nconst match = registry.find(row =>\n  norm(row.account_name) === norm(item.username)\n);\n\nif (!match) {\n  return {\n    json: {\n      ...item,\n      _skip: true,\n      _skip_reason: `Username '${item.username}' not found in Account Registry`,\n      _available: registry.map(r => r.account_name).join(', ')\n    }\n  };\n}\n\n// if (norm(String(match.active)) !== 'true') {\n//   return {\n//     json: {\n//       ...item,\n//       _skip: true,\n//       _skip_reason: `Account '${item.username}' is inactive in registry`\n//     }\n//   };\n// }\n\n// Platform injected FROM registry\nreturn {\n  json: {\n    ...item,\n    _skip:           false,\n    platform:        norm(match.platform || 'instagram'),\n    ig_user_id:      match.ig_user_id      || '',\n    access_token:    match.access_token    || '',\n    credential_name: match.credential_name || ''\n  }\n};\n",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        -3280,
+        1392
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "9f581ad3-505c-43f0-8f3e-e5b5ba977673",
+      "name": "Account Found in Registry?1",
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json._skip }}"
+            }
+          ]
+        }
+      },
+      "position": [
+        -3024,
+        1392
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "9bb09d1a-a19d-4d3a-bdb4-28a3db0b8ba4",
+      "name": "Log Skipped Account1",
+      "parameters": {
+        "jsCode": "\nconsole.warn('Skipped:', $json.account, '|', $json._skip_reason);\nreturn { json: { skipped: true, account: $json.account, username: $json.username, platform: $json.platform, reason: $json._skip_reason } };\n",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        -2704,
+        960
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "f04fd536-9083-4f6e-8096-96e76136a030",
+      "name": "Sticky Note Registry1",
+      "parameters": {
+        "color": 5,
+        "content": "## Account Registry Sheet\n\nSheet name: `Account Registry Sheet`\n\n| account_name | platform | ig_user_id | access_token | active |\n|---|---|---|---|---|\n| avni | instagram | 17841474119999455 | EAABsbCS... | true |\n| avni | youtube |  | ya29.a0... | true |\n| jass | instagram | 17841477123456789 | EAACtx9... | true |\n\n**account_name = bare username only (e.g. \"avni\", NOT \"avni instagram\")**\nInput: `Account to post = \"avni\"` → matches registry → platform injected from registry\nIf avni has both instagram + youtube rows, use accounts array: [\"avni instagram\", \"avni youtube\"]\nOR add a platform column and match on both.\n\n**Adding new account = 1 new row. Zero n8n changes.**",
+        "height": 200,
+        "width": 820
+      },
+      "position": [
+        -3744,
+        -448
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "e7876e2e-dd1a-4f9b-af07-74320457e0a6",
+      "name": "Sticky Note IG1",
+      "parameters": {
+        "color": 6,
+        "content": "placeholder_sticky_ig",
+        "height": 120,
+        "width": 300
+      },
+      "position": [
+        -2640,
+        -480
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "bbd289d9-9672-4aa0-9504-06a3b9897565",
+      "name": "ClickUp: Add Comment",
+      "parameters": {
+        "operation": "__CUSTOM_API_CALL__",
+        "resource": "checklist"
+      },
+      "position": [
+        -128,
+        1680
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "2525f713-7b46-4040-8d3f-8adc344bd5f0",
+      "name": "Normalise Input1",
+      "parameters": {
+        "jsCode": "\n// const d = $input.first().json;\n\n// // The parent workflow wraps data inside loop_over_items\n// const row = d.loop_over_items || d;\n\n// // Account to post is just a username e.g. \"avni\"\n// // Platform will be resolved from Account Registry\n// const accountUsername = (row['Account to post'] || '').trim();\n\n// // Caption from sheet (column not added yet — will be empty → AI generates it)\n// const caption = (row['Concept input(optional)'] || '').trim();\n\n// // reel_url is already a direct download link from the sheet\n// const reelUrl = (row['Final Video Drive Download Link'] || '').trim();\n\n// // Drive folder for this reel (contains Master_shot_reference subfolder)\n// const reelFolderUrl = (row['Drive link for video approval'] || '').trim();\n\n// // Extract Drive folder ID from the folder URL\n// const folderIdMatch = reelFolderUrl.match(/folders\\/([a-zA-Z0-9_-]+)/);\n// const reelFolderId = folderIdMatch ? folderIdMatch[1] : '';\n\n// return [{\n//   json: {\n//     source:           'sheet',\n//     source_id:        String(row.row_number || ''),\n//     reel_no:          String(row['Reel number'] || ''),\n//     client:           String(row['Client(drive folder name)'] || ''),\n//     account_username: accountUsername,\n//     accounts:         [accountUsername],   // single account, array for compatibility\n//     reel_url:         reelUrl,\n//     reel_folder_id:   reelFolderId,\n//     cover_url:        '',                  // resolved below via Drive API\n//     caption:          caption,\n//     title:            row['Concept input(optional)'] || ('Reel ' + (row['Reel number'] || '')),\n//     need_ai_caption:  (!caption || caption === '')\n//   }\n// }];\nconst d = $input.first().json;\n\n// The parent workflow wraps data inside loop_over_items\nconst row = d.loop_over_items || d;\n\n// --- SCHEDULING LOGIC ---\n// Extract date and time from the input fields\nconst scheduleDate = (row['Post Schedule Date'] || '').trim();\nconst scheduleTime = (row['Post Schedule Time'] || '').trim();\n\nlet scheduledTimestamp = null;\n\nif (scheduleDate && scheduleTime) {\n  try {\n    // Combine Date and Time (Assuming Format: YYYY-MM-DD and HH:mm)\n    // You may need to adjust the string concatenation based on your exact sheet format\n    const fullDateString = `${scheduleDate}T${scheduleTime}:00`;\n    const dateObj = new Date(fullDateString);\n    \n    // Convert to Unix Timestamp in seconds for Meta API\n    scheduledTimestamp = Math.floor(dateObj.getTime() / 1000);\n  } catch (e) {\n    scheduledTimestamp = scheduleDate; // Fallback if date parsing fails\n  }\n}\n// ------------------------\n\nconst accountUsername = (row['Account to post'] || '').trim();\nconst caption = (row['Caption)'] || '').trim();\nconst reelUrl = (row['reel_url'] || '').trim();\nconst reelFolderUrl = (row['Drive link for video approval'] || '').trim();\nconst coverUrl = (row['cover_url'] || '').trim();\n\nconst folderIdMatch = reelFolderUrl.match(/folders\\/([a-zA-Z0-9_-]+)/);\nconst reelFolderId = folderIdMatch ? folderIdMatch[1] : '';\n\nreturn [{\n  json: {\n    source:               'sheet',\n    source_id:            String(row.row_number || ''),\n    reel_no:              String(row['Reel number'] || ''),\n    client:               String(row['Client(drive folder name)'] || ''),\n    account_username:     accountUsername,\n    accounts:             [accountUsername],\n    reel_url:             reelUrl,\n    reel_folder_id:       reelFolderId,\n    cover_url:  coverUrl,\n    caption:              caption,\n    title:                row['Concept input(optional)'] || ('Reel ' + (row['Reel number'] || '')),\n    need_ai_caption:      (!caption || caption === ''),\n    // Add the calculated timestamp to your output\n    scheduled_publish_time: scheduledTimestamp \n  }\n}];"
+      },
+      "position": [
+        -5728,
+        1488
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "e707c479-022d-43d2-b1fb-2c3977caf45d",
+      "name": "Caption Provided?1",
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.need_ai_caption }}"
+            }
+          ]
+        }
+      },
+      "position": [
+        -5456,
+        1488
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "8269183f-14de-4113-ab19-dd486b48ec88",
+      "name": "Use Provided Caption1",
+      "parameters": {
+        "jsCode": "\nconst d = $('Set Cover URL').first().json;\nreturn [{\n  json: {\n    source:         d.source,\n    source_id:      d.source_id,\n    reel_no:        d.reel_no,\n    client:         d.client,\n    accounts:       d.accounts,\n    reel_url:       d.reel_url,\n    cover_url:      d.cover_url,\n    title:          d.title,\n    final_caption:  d.caption\n  }\n}];\n"
+      },
+      "position": [
+        -4768,
+        1312
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "20a5a33b-c885-4073-828e-c5316eeaa32e",
+      "name": "Set AI Caption1",
+      "parameters": {
+        "jsCode": "\nconst base = $('Normalise Input1').first().json;\nconst captionNode = $('Message a model').first().json;\n\nconst caption = captionNode.content?.parts?.[0]?.text || '';\n\nreturn [{\n  json: {\n    source:        base.source,\n    source_id:     base.source_id,\n    reel_no:       base.reel_no,\n    client:        base.client,\n    accounts:      base.accounts,\n    reel_url:      base.reel_url,\n    cover_url:     base.cover_url,\n    title:         base.title,\n    final_caption: caption\n  }\n}];"
+      },
+      "position": [
+        -4464,
+        1616
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "ad7a0f61-346b-42fb-a2e1-e401ffb73cb9",
+      "name": "Merge Caption Branches1",
+      "parameters": {},
+      "position": [
+        -3904,
+        1424
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1
+    },
+    {
+      "id": "577a55f3-ce64-414a-adaa-b58017f2e6ca",
+      "name": "Build Upload Context1",
+      "parameters": {
+        "jsCode": "\nconst d = $input.first().json;\n\n// accounts is array of bare usernames e.g. [\"avni\"]\nconst accounts = Array.isArray(d.accounts)\n  ? d.accounts\n  : JSON.parse(d.accounts || '[]');\n\nreturn accounts.map(username => {\n  const trimmed = username.trim();\n  return {\n    json: {\n      source:         d.source,\n      source_id:      d.source_id,\n      reel_no:        d.reel_no,\n      client:         d.client,\n      account:        trimmed,\n      username:       trimmed,\n      platform:       'unknown',   // resolved from registry below\n      reel_url:       d.reel_url,\n      cover_url:      d.cover_url,\n      caption:        d.final_caption || d.caption || '',\n      title:          d.title\n    }\n  };\n});\n"
+      },
+      "position": [
+        -3632,
+        1392
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "5194ee58-dd86-4dba-b08a-bdda629b432c",
+      "name": "Detect Platform1",
+      "parameters": {
+        "jsCode": "\n// Platform resolved from registry in Resolve Account Credentials\n// Pass-through unchanged\nreturn $input.all().map(item => ({ json: item.json }));\n"
+      },
+      "position": [
+        -4608,
+        2016
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "f8d54e4b-aef7-4348-a2ae-7c4285669664",
+      "name": "Is Instagram?1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "value2": "instagram"
+            }
+          ]
+        }
+      },
+      "position": [
+        -2720,
+        1392
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "672aee20-3911-4142-8222-c758a189af54",
+      "name": "Is YouTube?1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "value2": "youtube"
+            }
+          ]
+        }
+      },
+      "position": [
+        -2880,
+        1664
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "a0b99930-d222-4f65-9800-8662eb7ba5e4",
+      "name": "Is LinkedIn?1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "value2": "linkedin"
+            }
+          ]
+        }
+      },
+      "position": [
+        -2880,
+        1872
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "SJstlJXO7E1CAbz8",
+          "name": "Facebook Graph account"
+        }
+      },
+      "id": "86c1155f-945e-40b5-964f-686d01b2cfba",
+      "name": "IG: Create Reel Container1",
+      "parameters": {
+        "edge": "media",
+        "graphApiVersion": "v23.0",
+        "httpRequestMethod": "POST",
+        "node": "={{ $('Is Instagram?1').item.json.ig_user_id }}",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "caption",
+                "value": "={{ $('Is Instagram?1').item.json.caption }}"
+              },
+              {
+                "name": "media_type",
+                "value": "REELS"
+              },
+              {
+                "name": "video_url",
+                "value": "={{ $json.url }}"
+              },
+              {
+                "name": "cover_url",
+                "value": "={{ $('upload cover image1').item.json.url }}"
+              }
+            ]
+          }
+        }
+      },
+      "position": [
+        -2080,
+        1312
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "SJstlJXO7E1CAbz8",
+          "name": "Facebook Graph account"
+        }
+      },
+      "id": "0bb178f0-595e-4a47-8ca0-c6de04cf3e38",
+      "maxTries": 4,
+      "name": "IG: Publish Reel1",
+      "parameters": {
+        "edge": "media_publish",
+        "graphApiVersion": "v23.0",
+        "httpRequestMethod": "POST",
+        "node": "={{ $('Is Instagram?1').item.json.ig_user_id }}",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "creation_id",
+                "value": "={{ $json.id }}"
+              }
+            ]
+          }
+        }
+      },
+      "position": [
+        -1376,
+        1296
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "5f27b749-9938-4a79-928f-68fe84951a79",
+      "name": "IG: Format Result1",
+      "parameters": {
+        "jsCode": "\nconst upstream = $('IG: Create Reel Container1').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'instagram',\n    account:       upstream.account,\n    username:      upstream.username,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+      },
+      "position": [
+        -928,
+        1296
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "KXxIBGEjUKl43IzP",
+          "name": "YouTube account"
+        }
+      },
+      "id": "d46fa169-d5e3-4ce6-afe8-f01d07043f2c",
+      "name": "YT: Upload Short1",
+      "parameters": {
+        "categoryId": "22",
+        "operation": "upload",
+        "options": {
+          "description": "={{ $json.caption }}",
+          "privacyStatus": "public"
+        },
+        "regionCode": "IN",
+        "resource": "video",
+        "title": "={{ $json.title.slice(0, 90) }}"
+      },
+      "position": [
+        -2528,
+        1664
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "b02885d8-3bae-4ef5-922f-02fc76cd1323",
+      "name": "YT: Format Result1",
+      "parameters": {
+        "jsCode": "\nconst upstream = $('YT: Upload Short1').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'youtube',\n    account:       upstream.account,\n    username:      upstream.username,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+      },
+      "position": [
+        -2272,
+        1664
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "54a463b0-9f82-49fb-9d70-f29537268e09",
+      "name": "LI: Format Result1",
+      "parameters": {
+        "jsCode": "\nconst upstream = $('LI: Post Video').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'linkedin',\n    account:       upstream.account,\n    username:      upstream.username,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+      },
+      "position": [
+        -2224,
+        1872
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "a950d0a2-e751-4584-a568-b1f594e81a44",
+      "name": "Collect Upload Results1",
+      "parameters": {},
+      "position": [
+        -1360,
+        1520
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1
+    },
+    {
+      "id": "78da3a69-3cdb-40a4-a9d3-17df78eb4daa",
+      "name": "Source is ClickUp?1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.source }}",
+              "value2": "clickup"
+            }
+          ]
+        }
+      },
+      "position": [
+        -672,
+        1808
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "4ac5955f-e4d6-4958-b93d-63598f7662ba",
+      "name": "ClickUp: Update Status1",
+      "parameters": {
+        "id": "={{ $json.source_id }}",
+        "operation": "update",
+        "updateFields": {
+          "status": "Posted"
+        }
+      },
+      "position": [
+        -416,
+        1568
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "ee0ebc9b-c117-4267-acda-0413207451b6",
+      "name": "Filter DNS Errors1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "operation": "notContains",
+              "value1": "={{ $json.execution.error.message }}",
+              "value2": "DNS"
+            }
+          ]
+        }
+      },
+      "position": [
+        -6304,
+        2000
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "3180774c-f9a6-496e-80df-37ce991f2018",
+      "name": "Format Error1",
+      "parameters": {
+        "jsCode": "\nconst e = $input.first().json;\nconst runData = e.execution?.data?.resultData?.runData;\nconst normNode = runData?.['Normalise Input']?.[0]?.data?.main?.[0]?.[0]?.json;\nreturn [{\n  json: {\n    error_message: '❌ Upload failed | Workflow: ' + e.workflow.name + ' | Node: ' + e.execution.error.node.name + ' | ' + e.execution.error.message,\n    source_id:     normNode?.source_id || 'unknown',\n    source:        normNode?.source    || 'unknown'\n  }\n}];\n"
+      },
+      "position": [
+        -6000,
+        1984
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "5c5ce825-00c3-4244-bf6f-f88d204c608b",
+      "name": "Error Source ClickUp?1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.source }}",
+              "value2": "clickup"
+            }
+          ]
+        }
+      },
+      "position": [
+        -5696,
+        1984
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "4660152a-b594-4d6a-8f29-7bc72a370240",
+      "name": "ClickUp: Mark Failed1",
+      "parameters": {
+        "id": "={{ $json.source_id }}",
+        "operation": "update",
+        "updateFields": {
+          "status": "Upload Failed"
+        }
+      },
+      "position": [
+        -5408,
+        1872
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "id": "95007451-59d0-4a2e-b06a-ab39435123ac",
+      "name": "Sheet: Mark Failed1",
+      "parameters": {
+        "dataStartRow": 2,
+        "keyRow": 1,
+        "operation": "update",
+        "options": {
+          "valueInputMode": "RAW"
+        },
+        "range": "Sheet1",
+        "sheetId": "YOUR_SHEET_ID"
+      },
+      "position": [
+        -5408,
+        2064
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 2,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "executeOnce": true,
+      "id": "216360e1-8228-419b-bd3f-1e37a8f45a68",
+      "name": "Fetch Account Registry1",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Competitor_Viral_Hook_Research",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE"
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": " Account Registry Sheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE/edit#gid=812020385",
+          "mode": "list",
+          "value": 812020385
+        }
+      },
+      "position": [
+        -3488,
+        1184
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "0503b3d3-7a14-4526-a4ff-4451e2a02995",
+      "name": "HTTP Request1",
+      "parameters": {
+        "options": {},
+        "url": "={{ $json.reel_url }}"
+      },
+      "position": [
+        -2208,
+        -624
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "credentials": {
+        "cloudinaryApi": {
+          "id": "HH5jyu6i5yhqQTwG",
+          "name": "Cloudinary account"
+        }
+      },
+      "id": "eb86fd0f-a194-4c99-b0f4-652133c9041b",
+      "name": "upload cover image1",
+      "parameters": {
+        "additionalFields": {},
+        "url": "={{ $json.cover_url }}"
+      },
+      "position": [
+        -2464,
+        1312
+      ],
+      "type": "n8n-nodes-cloudinary.cloudinary",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "cloudinaryApi": {
+          "id": "HH5jyu6i5yhqQTwG",
+          "name": "Cloudinary account"
+        }
+      },
+      "id": "41027577-695f-45b1-8e6d-a6dd593b798d",
+      "name": "upload reel1",
+      "parameters": {
+        "additionalFields": {},
+        "resource_type": "video",
+        "url": "={{ $('Is Instagram?1').item.json.reel_url }}"
+      },
+      "position": [
+        -2256,
+        1312
+      ],
+      "type": "n8n-nodes-cloudinary.cloudinary",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "fa8a4c3e-9c07-4dba-b537-df693fef1141",
+      "name": "Update row in sheet1",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "Reel number"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel number",
+              "id": "Reel number",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Client(drive folder name)",
+              "id": "Client(drive folder name)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Account to post",
+              "id": "Account to post",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Avatars to use(comma seperated)",
+              "id": "Avatars to use(comma seperated)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Avtar Drive links(optional & bypasses Avatar to use field)",
+              "id": "Avtar Drive links(optional & bypasses Avatar to use field)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel Type",
+              "id": "Reel Type",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Concept input(optional)",
+              "id": "Concept input(optional)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Song link(direct download)",
+              "id": "Song link(direct download)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Start Time of Song",
+              "id": "Start Time of Song",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Total Time of Reel(Secs)",
+              "id": "Total Time of Reel(Secs)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Status of Automation",
+              "id": "Status of Automation",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Drive link for image approvals",
+              "id": "Drive link for image approvals",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Drive link for video approval",
+              "id": "Drive link for video approval",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Final Video Drive Download Link",
+              "id": "Final Video Drive Download Link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Post Schedule Date",
+              "id": "Post Schedule Date",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Post Schedule Time",
+              "id": "Post Schedule Time",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Workflow execution link",
+              "id": "Workflow execution link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Error Details",
+              "id": "Error Details",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "row_number",
+              "id": "row_number",
+              "readOnly": true,
+              "removed": true,
+              "required": false,
+              "type": "number"
+            }
+          ],
+          "value": {
+            "Reel number": "={{ $('When Executed by Another Workflow').item.json.loop_over_items['Reel number'] }}",
+            "Status of Automation": "Video posted"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Short Video Generation DB- Jass Records",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+        },
+        "operation": "update",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Main DB",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        -320,
+        1824
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "0f2a3bf2-6048-44c2-8097-53dc75bfcb54",
+      "name": "Search files and folders",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "resource": "fileFolder"
+      },
+      "position": [
+        -6560,
+        1104
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "4995fb11-38a9-4bc8-b751-3afbae14435b",
+      "name": "Search files and folders1",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "Master_shot_reference",
+        "resource": "fileFolder"
+      },
+      "position": [
+        -6112,
+        1104
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "3a27b57c-5ce5-4b9e-a369-a89a87aa9d34",
+      "name": "Search files and folders2",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "Master_Reference_image",
+        "resource": "fileFolder"
+      },
+      "position": [
+        -5904,
+        1104
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googlePalmApi": {
+          "id": "4HPFYHEHxx2JZFUX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "id": "eae5e574-f3ac-4eac-9e17-8e4c5b464e40",
+      "name": "Message a model",
+      "parameters": {
+        "builtInTools": {},
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a professional Instagram content strategist and viral reel copywriter.\n\nYour task is to generate a highly engaging Instagram caption based on the given reel concept.\n\nINPUT:\nConcept: {{ $('When Executed by Another Workflow').item.json.loop_over_items['Concept input(optional)'] }}\n\nOUTPUT REQUIREMENTS:\n\n1. Write a catchy, scroll-stopping caption (2–4 lines max)\n2. Tone: engaging, trendy, slightly emotional or relatable (based on concept)\n3. Add emojis naturally (not excessive)\n4. Include a strong hook in the first line\n5. Add a CTA (e.g., \"Follow for more\", \"Tag someone\", etc.)\n\n6. Generate 12–18 relevant hashtags:\n   - Mix of trending + niche hashtags\n   - Include audience-specific + content-specific tags\n   - Format: all hashtags in one line\n\n7. Keep everything concise and Instagram-ready\n8. ONLY GIVE THE BELOW OUTPUT I.E CAPTION\nOUTPUT FORMAT:\n\n<caption text>\n\n#tag1 #tag2 #tag3 ..."
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "models/gemini-2.0-flash",
+          "mode": "list",
+          "value": "models/gemini-2.0-flash"
+        },
+        "options": {}
+      },
+      "position": [
+        -5024,
+        1616
+      ],
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1
+    },
+    {
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "SJstlJXO7E1CAbz8",
+          "name": "Facebook Graph account"
+        }
+      },
+      "id": "5edd325d-563f-4f82-9a63-07c7a08acd0c",
+      "name": "Facebook Graph API",
+      "parameters": {
+        "graphApiVersion": "v23.0",
+        "node": "={{ $json.id }}",
+        "options": {
+          "fields": {
+            "field": [
+              {
+                "name": "status_code"
+              }
+            ]
+          }
+        }
+      },
+      "position": [
+        -1872,
+        1312
+      ],
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1
+    },
+    {
+      "id": "fbedc6c6-4cb0-4b4d-bf1e-011dd30056d9",
+      "name": "If",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "074c1dca-f500-4559-89aa-0e96fdf2e991",
+              "leftValue": "={{ $json.status_code }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "FINISHED"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -1712,
+        1312
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "eb641df8-875e-4dd6-adcf-2c917287c44f",
+      "name": "If1",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "f232c451-5fb8-4de4-9a02-4ec93eb5eebd",
+              "leftValue": "={{ $json.status_code }}",
+              "operator": {
+                "operation": "equals",
+                "type": "string"
+              },
+              "rightValue": "ERROR"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -1632,
+        1728
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "42ac7b35-9422-44c3-9bda-30888c1bd179",
+      "name": "Wait",
+      "parameters": {
+        "amount": 15
+      },
+      "position": [
+        -1680,
+        1536
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "f6858fc3-3243-42a2-ad20-057347182219"
+    },
+    {
+      "id": "f363bfa3-3761-4a98-8e3b-bdeac55f2970",
+      "name": "Stop and Error",
+      "parameters": {
+        "errorMessage": "error in posting video on instagram"
+      },
+      "position": [
+        -1408,
+        1728
+      ],
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "loop_over_items": {
+            "Account to post": "meher",
+            "Avatars to use(comma seperated)": "Avatar1_Female, Avatar2_Male",
+            "Avtar Drive links(optional & bypasses Avatar to use field)": "",
+            "Client(drive folder name)": "Jass Records",
+            "Concept input(optional)": "girl with her cabin luggage at airport , saying goodbye to the man, they both are talking but also emotional. final scene where girl is walking and guy in behind looking at girl.. natural scene and textures",
+            "Drive link for image approvals": "",
+            "Drive link for video approval": "https://drive.google.com/drive/u/1/folders/17jcfl7egvjrJCdCSpDdlq2eSAENDKr5Y",
+            "Error Details": "",
+            "Final Video Drive Download Link": "https://drive.google.com/uc?id=1W2Z1XuCX3k6JNRQR4fI0zbveRi66EH77&export=download",
+            "Post Schedule Date": "",
+            "Post Schedule Time": "",
+            "Reel Type": "Story",
+            "Reel number": 143,
+            "Song link(direct download)": "https://s320.djpunjab.is/data/128/59158/310025/Maa%20Warga%20-%20Singhjeet.mp3",
+            "Start Time of Song": "0:00:12",
+            "Status of Automation": "Video_scheduled",
+            "Total Time of Reel(Secs)": 20,
+            "Workflow execution link": "",
+            "cover_file_id": "1nArKTZgouKJXrH1NbvaT_AqWrWm2DsA5",
+            "cover_url": "https://drive.google.com/uc?export=download&id=1nArKTZgouKJXrH1NbvaT_AqWrWm2DsA5",
+            "reel_url": "https://drive.google.com/uc?export=download&id=1UHKaggRLVTs05ttSdt9IXOU_bmnL_v7e",
+            "row_number": 26
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-15T14:43:11.351Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-15T14:43:11.351Z",
+      "workflowId": "lJm9YPTgJH5MFBRt"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-18T07:54:08.752Z",
+  "versionId": "a7b68c38-eb3a-4dbb-a4fc-bc4dd6ba8853"
+}
