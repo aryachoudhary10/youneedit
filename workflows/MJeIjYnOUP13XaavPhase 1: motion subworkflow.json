@@ -466,7 +466,7 @@
           [
             {
               "index": 0,
-              "node": "Get Avatar Folder name and Id",
+              "node": "check if Avatar name is in input list",
               "type": "main"
             }
           ]
@@ -690,6 +690,24 @@
           []
         ]
       },
+      "check if Avatar name is in input list": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get Avatar Folder name and Id",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Items",
+              "type": "main"
+            }
+          ]
+        ]
+      },
       "check if directory exists": {
         "main": [
           [
@@ -903,9 +921,9 @@
         ]
       }
     },
-    "createdAt": "2026-03-14T13:18:27.356Z",
+    "createdAt": "2026-03-17T16:11:49.712Z",
     "description": "",
-    "name": "Version 196d40f1",
+    "name": "Version 5bbffdea",
     "nodes": [
       {
         "credentials": {
@@ -2234,8 +2252,8 @@
           "options": {}
         },
         "position": [
-          368,
-          736
+          624,
+          784
         ],
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4
@@ -2294,8 +2312,8 @@
           "returnAll": true
         },
         "position": [
-          -96,
-          656
+          160,
+          704
         ],
         "type": "n8n-nodes-base.googleDrive",
         "typeVersion": 3
@@ -2323,8 +2341,8 @@
           "options": {}
         },
         "position": [
-          -336,
-          656
+          32,
+          704
         ],
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4
@@ -3326,13 +3344,46 @@
         ],
         "type": "n8n-nodes-base.sort",
         "typeVersion": 1
+      },
+      {
+        "id": "64244d64-fbd1-4189-b996-683818ec7ddd",
+        "name": "check if Avatar name is in input list",
+        "parameters": {
+          "conditions": {
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "bfe7c668-7a42-486d-9226-b5882c0d7fc3",
+                "leftValue": "={{ $('2. Extract Reel Data').item.json.avtarList }}",
+                "operator": {
+                  "operation": "contains",
+                  "type": "string"
+                },
+                "rightValue": "={{ $json.name }}"
+              }
+            ],
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            }
+          },
+          "options": {}
+        },
+        "position": [
+          -432,
+          720
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3
       }
     ],
-    "updatedAt": "2026-03-14T13:18:31.000Z",
-    "versionId": "196d40f1-9979-4a79-b06c-91d2f55aee88",
+    "updatedAt": "2026-03-17T16:12:21.000Z",
+    "versionId": "5bbffdea-51f8-4ebe-b49f-ead4459490e8",
     "workflowId": "MJeIjYnOUP13Xaav"
   },
-  "activeVersionId": "196d40f1-9979-4a79-b06c-91d2f55aee88",
+  "activeVersionId": "5bbffdea-51f8-4ebe-b49f-ead4459490e8",
   "connections": {
     "2. Extract Reel Data": {
       "main": [
@@ -3796,7 +3847,7 @@
         [
           {
             "index": 0,
-            "node": "Get Avatar Folder name and Id",
+            "node": "check if Avatar name is in input list",
             "type": "main"
           }
         ]
@@ -4018,6 +4069,24 @@
           }
         ],
         []
+      ]
+    },
+    "check if Avatar name is in input list": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Avatar Folder name and Id",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
       ]
     },
     "check if directory exists": {
@@ -5566,8 +5635,8 @@
         "options": {}
       },
       "position": [
-        368,
-        736
+        624,
+        784
       ],
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4
@@ -5626,8 +5695,8 @@
         "returnAll": true
       },
       "position": [
-        -96,
-        656
+        160,
+        704
       ],
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3
@@ -5655,8 +5724,8 @@
         "options": {}
       },
       "position": [
-        -336,
-        656
+        32,
+        704
       ],
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4
@@ -6658,6 +6727,39 @@
       ],
       "type": "n8n-nodes-base.sort",
       "typeVersion": 1
+    },
+    {
+      "id": "64244d64-fbd1-4189-b996-683818ec7ddd",
+      "name": "check if Avatar name is in input list",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "bfe7c668-7a42-486d-9226-b5882c0d7fc3",
+              "leftValue": "={{ $('2. Extract Reel Data').item.json.avtarList }}",
+              "operator": {
+                "operation": "contains",
+                "type": "string"
+              },
+              "rightValue": "={{ $json.name }}"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -432,
+        720
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
     }
   ],
   "pinData": {
@@ -6666,7 +6768,7 @@
         "json": {
           "_firstItem": {
             "Account to post": "amayra",
-            "Avatars to use(comma seperated)": "Avatar1_Female, Avatar2_Male",
+            "Avatars to use(comma seperated)": "Avatar1_Female",
             "Avtar Drive links(optional & bypasses Avatar to use field)": "",
             "Client(drive folder name)": "Jass Records",
             "Concept input(optional)": "women and man travelling in himachal seeing different sights like river, mountains having chai.",
@@ -6704,6 +6806,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-03-14T13:18:27.354Z",
-  "versionId": "196d40f1-9979-4a79-b06c-91d2f55aee88"
+  "updatedAt": "2026-03-17T16:11:49.711Z",
+  "versionId": "5bbffdea-51f8-4ebe-b49f-ead4459490e8"
 }
