@@ -414,9 +414,9 @@
         ]
       }
     },
-    "createdAt": "2026-03-12T10:38:16.757Z",
+    "createdAt": "2026-03-18T14:10:49.194Z",
     "description": "",
-    "name": "Version 98fa1c06",
+    "name": "Version f0332760",
     "nodes": [
       {
         "id": "fd8e028a-632a-44fd-ab1e-aa4bb34232ba",
@@ -493,8 +493,8 @@
                 "canBeUsedToMatch": true,
                 "defaultMatch": false,
                 "display": true,
-                "displayName": "Client(drive folder name)",
-                "id": "Client(drive folder name)",
+                "displayName": "Account to post",
+                "id": "Account to post",
                 "removed": true,
                 "required": false,
                 "type": "string"
@@ -503,8 +503,8 @@
                 "canBeUsedToMatch": true,
                 "defaultMatch": false,
                 "display": true,
-                "displayName": "Account to post",
-                "id": "Account to post",
+                "displayName": "Client(drive folder name)",
+                "id": "Client(drive folder name)",
                 "removed": true,
                 "required": false,
                 "type": "string"
@@ -633,6 +633,26 @@
                 "display": true,
                 "displayName": "Post Schedule Time",
                 "id": "Post Schedule Time",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Workflow execution link",
+                "id": "Workflow execution link",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Error Details",
+                "id": "Error Details",
                 "removed": true,
                 "required": false,
                 "type": "string"
@@ -960,7 +980,7 @@
           "options": {},
           "sendBody": true,
           "specifyBody": "json",
-          "url": "=https://fal.run/fal-ai/kling-video/v2.1/standard/image-to-video"
+          "url": "=https://fal.run/fal-ai/kling-video/v2.1/pro/image-to-video"
         },
         "position": [
           3168,
@@ -1760,11 +1780,11 @@
         "typeVersion": 1.1
       }
     ],
-    "updatedAt": "2026-03-12T10:38:23.000Z",
-    "versionId": "98fa1c06-bb23-46cd-8650-2b29c0379ffc",
+    "updatedAt": "2026-03-18T14:10:51.000Z",
+    "versionId": "f0332760-2e4c-455e-bb23-63c86a8e64a8",
     "workflowId": "9mDONMwJehpvBckt"
   },
-  "activeVersionId": "98fa1c06-bb23-46cd-8650-2b29c0379ffc",
+  "activeVersionId": "f0332760-2e4c-455e-bb23-63c86a8e64a8",
   "connections": {
     "Call 'video render v1'": {
       "main": [
@@ -2257,8 +2277,8 @@
               "canBeUsedToMatch": true,
               "defaultMatch": false,
               "display": true,
-              "displayName": "Client(drive folder name)",
-              "id": "Client(drive folder name)",
+              "displayName": "Account to post",
+              "id": "Account to post",
               "removed": true,
               "required": false,
               "type": "string"
@@ -2267,8 +2287,8 @@
               "canBeUsedToMatch": true,
               "defaultMatch": false,
               "display": true,
-              "displayName": "Account to post",
-              "id": "Account to post",
+              "displayName": "Client(drive folder name)",
+              "id": "Client(drive folder name)",
               "removed": true,
               "required": false,
               "type": "string"
@@ -2397,6 +2417,26 @@
               "display": true,
               "displayName": "Post Schedule Time",
               "id": "Post Schedule Time",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Workflow execution link",
+              "id": "Workflow execution link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Error Details",
+              "id": "Error Details",
               "removed": true,
               "required": false,
               "type": "string"
@@ -2724,7 +2764,7 @@
         "options": {},
         "sendBody": true,
         "specifyBody": "json",
-        "url": "=https://fal.run/fal-ai/kling-video/v2.1/standard/image-to-video"
+        "url": "=https://fal.run/fal-ai/kling-video/v2.1/pro/image-to-video"
       },
       "position": [
         3168,
@@ -3568,6 +3608,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-03-12T10:38:16.755Z",
-  "versionId": "98fa1c06-bb23-46cd-8650-2b29c0379ffc"
+  "updatedAt": "2026-03-18T14:10:49.193Z",
+  "versionId": "f0332760-2e4c-455e-bb23-63c86a8e64a8"
 }
