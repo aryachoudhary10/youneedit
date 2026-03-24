@@ -1,0 +1,2583 @@
+{
+  "active": true,
+  "activeVersion": {
+    "authors": "Sukhneer Singh",
+    "autosaved": true,
+    "connections": {
+      "Call 'SUB: Social Media Upload — Dynamic Multi-Account v5'": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Items",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Update row in sheet",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "ClickUp: Is Ready to Post?": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "ClickUp: Parse Task Fields",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "ClickUp: Parse Task Fields": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "ClickUp: Validate Required Fields",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "ClickUp: Validate Required Fields": {
+        "main": [
+          [],
+          []
+        ]
+      },
+      "Fetch Cover from Drive": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Search files and folders",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get Cover Image File": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Search files and folders1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get row(s) in sheet": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Items",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Get the client folder": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "get the folder in client folder",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Inject Test Payload": {
+        "main": [
+          []
+        ]
+      },
+      "Loop Over Items": {
+        "main": [
+          [],
+          [
+            {
+              "index": 0,
+              "node": "Get the client folder",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Manual Test Trigger": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get row(s) in sheet",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Merge Valid Tasks": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Call 'SUB: Social Media Upload — Dynamic Multi-Account v5'",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Replace Me": {
+        "main": [
+          []
+        ]
+      },
+      "Search files and folders": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get Cover Image File",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Search files and folders1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Search files and folders2",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Search files and folders5": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Set Cover URL",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Set Cover URL": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Sheet: Validate Required Fields",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Sheet: Mark Processing": {
+        "main": [
+          []
+        ]
+      },
+      "Sheet: Parse Row Fields": {
+        "main": [
+          []
+        ]
+      },
+      "Sheet: Validate Required Fields": {
+        "main": [
+          [
+            {
+              "index": 1,
+              "node": "Merge Valid Tasks",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Update row in sheet",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Submit Online Form": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get row(s) in sheet",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Update row in sheet": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Items",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "final video id": {
+        "main": [
+          []
+        ]
+      },
+      "get final video folder": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "final video id",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "get mastershot reference ": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Search files and folders5",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "get the folder in client folder": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "get the reel folder",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "get the reel folder": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "get final video folder",
+              "type": "main"
+            },
+            {
+              "index": 0,
+              "node": "get mastershot reference ",
+              "type": "main"
+            }
+          ]
+        ]
+      }
+    },
+    "createdAt": "2026-03-20T10:31:31.032Z",
+    "description": "",
+    "name": "Version 51b677c1",
+    "nodes": [
+      {
+        "id": "7b73f70f-79ec-4605-b974-f5589d56af55",
+        "name": "Sticky Note",
+        "parameters": {
+          "color": 4,
+          "content": "## Main Workflow — Social Media Upload Orchestrator\n\n**Two trigger sources:**\n- ClickUp: task moves to status `Ready to Post`\n- Google Sheet: row has Status = `Ready to Post`\n\n**Flow:**\n1. Fetch task/row data (accounts, urls, caption, title)\n2. Validate required fields\n3. For each valid task → call Sub-Workflow\n4. Sub-workflow handles platform routing + upload + status writeback\n\n**Sub-workflow ID:** `aWlKSOQzwTtC5K3Z`\n\n**Required ClickUp task fields:**\n- Accounts (text): comma-separated e.g. `arya instagram, arya youtube`\n- Reel URL (text): Google Drive share URL\n- Cover URL (text): Google Drive share URL\n- Caption (text): leave empty for AI generation\n- Title (text): video title\n\n**Required Google Sheet columns:**\nAccounts | Reel URL | Cover URL | Caption | Title | Status | Posted At | Post ID | Platform | Account | Error",
+          "height": 300,
+          "width": 760
+        },
+        "position": [
+          0,
+          0
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "id": "f5d3aee9-ef33-402c-b669-613afb44a743",
+        "name": "Sticky Note2",
+        "parameters": {
+          "color": 6,
+          "content": "## Branch A — ClickUp\nTriggers when a task status changes to `Ready to Post`.\nFetches full task details including custom fields.",
+          "height": 100,
+          "width": 400
+        },
+        "position": [
+          -1088,
+          32
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "id": "28c18ce7-0fed-4cd7-8f39-5a00cc303511",
+        "name": "ClickUp: Is Ready to Post?",
+        "parameters": {
+          "conditions": {
+            "string": [
+              {
+                "value1": "={{ $json.task_status.status.toLowerCase() }}",
+                "value2": "ready to post"
+              }
+            ]
+          }
+        },
+        "position": [
+          512,
+          480
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1
+      },
+      {
+        "id": "c0698997-ae1d-4502-9489-e5274fc15f90",
+        "name": "ClickUp: Parse Task Fields",
+        "parameters": {
+          "jsCode": "\nconst task = $input.first().json;\n\n// Helper: get custom field value by name\nfunction getField(name) {\n  const fields = task.custom_fields || [];\n  const f = fields.find(f => f.name.toLowerCase() === name.toLowerCase());\n  if (!f) return '';\n  return f.value || '';\n}\n\n// Accounts: comma-separated string → array\nconst accountsRaw = getField('Accounts');\nconst accounts = accountsRaw\n  ? accountsRaw.split(',').map(a => a.trim()).filter(Boolean)\n  : [];\n\nreturn [{\n  json: {\n    source:     'clickup',\n    source_id:  task.id,\n    task_name:  task.name,\n    accounts:   accounts,\n    reel_url:   getField('Reel URL'),\n    cover_url:  getField('Cover URL'),\n    caption:    getField('Caption'),\n    title:      getField('Title') || task.name\n  }\n}];\n"
+        },
+        "position": [
+          1104,
+          480
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "b270abd9-0b71-4c58-b8cb-a6700720ee8f",
+        "name": "ClickUp: Validate Required Fields",
+        "parameters": {
+          "conditions": {
+            "boolean": [
+              {
+                "value1": "={{ $json.accounts.length > 0 }}",
+                "value2": true
+              }
+            ],
+            "string": [
+              {
+                "operation": "isNotEmpty",
+                "value1": "={{ $json.reel_url }}"
+              }
+            ]
+          }
+        },
+        "position": [
+          1408,
+          480
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1
+      },
+      {
+        "id": "049eeb10-987d-4c3e-9848-c4160b238df6",
+        "name": "Sticky Note3",
+        "parameters": {
+          "color": 3,
+          "content": "## Branch B — Google Sheet\nPolls every minute for rows where Status = `Ready to Post`.\nUpdates Status to `Processing` immediately to avoid double-processing.\n\n**Sheet columns required (row 1 headers):**\nAccounts | Reel URL | Cover URL | Caption | Title | Status | Posted At | Post ID | Platform | Account | Error",
+          "height": 210,
+          "width": 500
+        },
+        "position": [
+          -544,
+          32
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "iNhS3q0aVZB4guX8",
+            "name": "Google Sheets account"
+          }
+        },
+        "id": "3e6bfa94-adc2-48b5-aaed-90a4dc75c6bd",
+        "name": "Sheet: Mark Processing",
+        "parameters": {
+          "dataStartRow": 2,
+          "keyRow": 1,
+          "operation": "update",
+          "options": {
+            "valueInputMode": "RAW"
+          },
+          "range": "Sheet1",
+          "sheetId": "YOUR_SHEET_ID"
+        },
+        "position": [
+          1472,
+          1584
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 2,
+        "waitBetweenTries": 3000
+      },
+      {
+        "id": "c0c0c874-5c85-4d0e-a4de-e67044b75bb4",
+        "name": "Sheet: Parse Row Fields",
+        "parameters": {
+          "jsCode": "\nconst row = $json;\n\n// row_number is auto-added by n8n Sheets node as the actual row index\nconst rowId = String($itemIndex + 2); // +2 because row 1 = header\n\n// Accounts: comma-separated → array\nconst accountsRaw = row['Accounts'] || '';\nconst accounts = accountsRaw\n  .split(',')\n  .map(a => a.trim())\n  .filter(Boolean);\n\nreturn {\n  json: {\n    source:     'sheet',\n    source_id:  rowId,\n    task_name:  row['Title'] || 'Row ' + rowId,\n    accounts:   accounts,\n    reel_url:   row['Reel URL'] || '',\n    cover_url:  row['Cover URL'] || '',\n    caption:    row['Caption'] || '',\n    title:      row['Title'] || 'Video'\n  }\n};\n",
+          "mode": "runOnceForEachItem"
+        },
+        "position": [
+          1680,
+          1584
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "a914b9ab-d258-480b-9e30-14b950f3169d",
+        "name": "Sheet: Validate Required Fields",
+        "parameters": {
+          "conditions": {
+            "boolean": [
+              {
+                "value1": "={{ $json[\"Account to post\"].length > 0 }}",
+                "value2": true
+              }
+            ],
+            "string": []
+          }
+        },
+        "position": [
+          1712,
+          928
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "iNhS3q0aVZB4guX8",
+            "name": "Google Sheets account"
+          }
+        },
+        "id": "9cc1bf84-5208-4571-b5db-dac9854aaf8b",
+        "name": "Sheet: Mark Missing Fields",
+        "parameters": {
+          "dataStartRow": 2,
+          "keyRow": 1,
+          "operation": "update",
+          "options": {
+            "valueInputMode": "RAW"
+          },
+          "range": "Sheet1",
+          "sheetId": "YOUR_SHEET_ID"
+        },
+        "position": [
+          2112,
+          1552
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 2
+      },
+      {
+        "id": "9f6f2107-16d1-4a10-9d30-bca9778c02e2",
+        "name": "Merge Valid Tasks",
+        "parameters": {},
+        "position": [
+          2240,
+          848
+        ],
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 2.1
+      },
+      {
+        "id": "8fd00a2d-608a-4e21-b060-2ebf2d993931",
+        "name": "Log Completion",
+        "parameters": {
+          "jsCode": "\nconst results = $input.all();\nconst summary = results.map(r => {\n  const d = r.json;\n  return `✅ ${d.platform} | ${d.account} | post: ${d.post_id} | at: ${d.posted_at}`;\n}).join('\\n');\n\nconsole.log('Upload batch complete:\\n' + summary);\nreturn results;\n"
+        },
+        "position": [
+          2928,
+          832
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "52cdae7b-6b6c-43e3-9c2c-5b4f9a055597",
+        "name": "Manual Test Trigger",
+        "parameters": {},
+        "position": [
+          176,
+          784
+        ],
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1
+      },
+      {
+        "id": "1351daac-b917-447d-b121-9b8b9ce989c0",
+        "name": "Inject Test Payload",
+        "parameters": {
+          "jsCode": "\n// Edit this to test different scenarios\nreturn [{\n  json: {\n    source:     'clickup',\n    source_id:  'task_test_001',\n    accounts:   ['arya instagram', 'arya youtube', 'arya linkedin'],\n    reel_url:   'https://drive.google.com/file/d/YOUR_REEL_FILE_ID/view?usp=sharing',\n    cover_url:  'https://drive.google.com/file/d/YOUR_COVER_FILE_ID/view?usp=sharing',\n    caption:    'Test caption from main workflow! #test #reels',\n    title:      'Test Upload Video'\n  }\n}];\n"
+        },
+        "position": [
+          592,
+          1360
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "fhIAilo8SGlashT9",
+            "name": "Google Sheets account 3"
+          }
+        },
+        "id": "14b0a46a-b70e-4cef-aa70-7e3796a7421b",
+        "name": "Get row(s) in sheet",
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "cachedResultName": "Short Video Generation DB- Jass Records",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+            "mode": "list",
+            "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+          },
+          "filtersUI": {
+            "values": [
+              {
+                "lookupColumn": "Status of Automation",
+                "lookupValue": "Video_scheduled"
+              }
+            ]
+          },
+          "options": {},
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": "Main DB",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+            "mode": "list",
+            "value": "gid=0"
+          }
+        },
+        "position": [
+          384,
+          848
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7
+      },
+      {
+        "id": "a7c3eeb3-26a3-4c1e-96cd-94ab41a8046a",
+        "name": "Loop Over Items",
+        "parameters": {
+          "options": {}
+        },
+        "position": [
+          672,
+          784
+        ],
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3
+      },
+      {
+        "id": "97a5458e-37d8-4ea4-aa09-0a0d063ed763",
+        "name": "Replace Me",
+        "parameters": {},
+        "position": [
+          1888,
+          1568
+        ],
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "fhIAilo8SGlashT9",
+            "name": "Google Sheets account 3"
+          }
+        },
+        "id": "cfa76234-a8ff-4a85-8bdc-6197e425d7cd",
+        "name": "Update row in sheet",
+        "parameters": {
+          "columns": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [
+              "Reel number"
+            ],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Reel number",
+                "id": "Reel number",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Client(drive folder name)",
+                "id": "Client(drive folder name)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Account to post",
+                "id": "Account to post",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Avatars to use(comma seperated)",
+                "id": "Avatars to use(comma seperated)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Avtar Drive links(optional & bypasses Avatar to use field)",
+                "id": "Avtar Drive links(optional & bypasses Avatar to use field)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Reel Type",
+                "id": "Reel Type",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Concept input(optional)",
+                "id": "Concept input(optional)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Song link(direct download)",
+                "id": "Song link(direct download)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Start Time of Song",
+                "id": "Start Time of Song",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Total Time of Reel(Secs)",
+                "id": "Total Time of Reel(Secs)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Status of Automation",
+                "id": "Status of Automation",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Drive link for image approvals",
+                "id": "Drive link for image approvals",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Drive link for video approval",
+                "id": "Drive link for video approval",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Final Video Drive Download Link",
+                "id": "Final Video Drive Download Link",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Post Schedule Date",
+                "id": "Post Schedule Date",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Post Schedule Time",
+                "id": "Post Schedule Time",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Workflow execution link",
+                "id": "Workflow execution link",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Error Details",
+                "id": "Error Details",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "row_number",
+                "id": "row_number",
+                "readOnly": true,
+                "removed": true,
+                "required": false,
+                "type": "number"
+              }
+            ],
+            "value": {
+              "Reel number": "={{ $json[\"Reel number\"] }}",
+              "Status of Automation": "error in scheduling"
+            }
+          },
+          "documentId": {
+            "__rl": true,
+            "cachedResultName": "Short Video Generation DB- Jass Records",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+            "mode": "list",
+            "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+          },
+          "operation": "update",
+          "options": {},
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": "Main DB",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+            "mode": "list",
+            "value": "gid=0"
+          }
+        },
+        "position": [
+          3072,
+          1104
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7
+      },
+      {
+        "id": "bee8ffce-c018-475a-b80b-052c4abebc0f",
+        "name": "Call 'SUB: Social Media Upload — Dynamic Multi-Account v5'",
+        "onError": "continueErrorOutput",
+        "parameters": {
+          "options": {
+            "waitForSubWorkflow": true
+          },
+          "workflowId": {
+            "__rl": true,
+            "cachedResultName": "SUB: Social Media Upload",
+            "cachedResultUrl": "/workflow/lJm9YPTgJH5MFBRt",
+            "mode": "list",
+            "value": "lJm9YPTgJH5MFBRt"
+          },
+          "workflowInputs": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [
+              "loop_over_items"
+            ],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "loop_over_items",
+                "id": "loop_over_items",
+                "removed": false,
+                "required": false
+              }
+            ],
+            "value": {
+              "loop_over_items": "={{ $('Merge Valid Tasks').item.json }}"
+            }
+          }
+        },
+        "position": [
+          2576,
+          896
+        ],
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "bff78a5c-8792-401c-8e31-dbe55a271804",
+        "name": "Fetch Cover from Drive",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "cachedResultName": "Clients",
+              "cachedResultUrl": "https://drive.google.com/drive/folders/1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-",
+              "mode": "list",
+              "value": "1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-"
+            }
+          },
+          "limit": 1,
+          "options": {},
+          "queryString": "={{ $json.client }}",
+          "resource": "fileFolder"
+        },
+        "position": [
+          2384,
+          1712
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "waitBetweenTries": 3000
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "fc46c69b-269e-48c3-83ff-45bada89a9e5",
+        "name": "Get Cover Image File",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "queryString": "={{ $('Normalise Input1').item.json.reel_no }}",
+          "resource": "fileFolder"
+        },
+        "position": [
+          2832,
+          1712
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "waitBetweenTries": 3000
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "f37df9ba-d56f-4600-a923-8d7a71d46851",
+        "name": "Search files and folders",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "resource": "fileFolder"
+        },
+        "position": [
+          2592,
+          1712
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "03c6dd70-8c5d-4055-a137-cf5072ea143f",
+        "name": "Search files and folders1",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "queryString": "Master_shot_reference",
+          "resource": "fileFolder"
+        },
+        "position": [
+          3040,
+          1712
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "202a8ab1-f5d0-4317-b50b-32ada3c1cf62",
+        "name": "Search files and folders2",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "queryString": "Master_Reference_image",
+          "resource": "fileFolder"
+        },
+        "position": [
+          3248,
+          1712
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "34266ea8-764c-4d40-b2ba-708cb64d9367",
+        "name": "Search files and folders5",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "queryString": "Master_Reference_image",
+          "resource": "fileFolder"
+        },
+        "position": [
+          2112,
+          656
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "id": "425c1f04-ab3d-4efd-a873-c62911fe8f2c",
+        "name": "Set Cover URL",
+        "parameters": {
+          "jsCode": "\nconst norm = $('Loop Over Items').first().json;\nconst coverFile = $input.first().json;\n\nconst reelurl = $('final video id').first().json;\n// Build direct download URL from the Drive file ID\nconst coverUrl = coverFile.id\n  ? `https://drive.google.com/uc?export=download&id=${coverFile.id}`\n  : '';\n\nconst reelUrl = coverFile.id\n  ? `https://drive.google.com/uc?export=download&id=${reelurl.id}`\n  : '';\n\n\n\nreturn [{\n  json: {\n    ...norm,\n    reel_url:reelUrl,\n    cover_url: coverUrl,\n    cover_file_id: coverFile.id || ''\n  }\n}];\n"
+        },
+        "position": [
+          2400,
+          640
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "85775108-f186-41b6-a6ab-3eb6af3889bf",
+        "name": "Submit Online Form",
+        "parameters": {
+          "formDescription": "With this you will be able to upload the video on instagram",
+          "formFields": {
+            "values": [
+              {
+                "fieldLabel": "Client Name",
+                "fieldOptions": {
+                  "values": [
+                    {
+                      "option": "Jass Records"
+                    }
+                  ]
+                },
+                "fieldType": "dropdown"
+              }
+            ]
+          },
+          "formTitle": "Reel upload form",
+          "options": {}
+        },
+        "position": [
+          160,
+          1136
+        ],
+        "type": "n8n-nodes-base.formTrigger",
+        "typeVersion": 2.5,
+        "webhookId": "80466db2-bcae-49ff-a56e-409907df395c"
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "e3830b75-350b-49df-a479-a097773be131",
+        "name": "Get the client folder",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "cachedResultName": "Clients",
+              "cachedResultUrl": "https://drive.google.com/drive/folders/1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-",
+              "mode": "list",
+              "value": "1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-"
+            }
+          },
+          "limit": 1,
+          "options": {},
+          "queryString": "={{ $json['Client(drive folder name)'] }}",
+          "resource": "fileFolder"
+        },
+        "position": [
+          992,
+          784
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "waitBetweenTries": 3000
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "fcbd0661-eea0-4236-8555-c4426e4b8c8f",
+        "name": "get the folder in client folder",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "resource": "fileFolder"
+        },
+        "position": [
+          1248,
+          784
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "26e8cab1-6628-456e-88ac-6cd8736175c2",
+        "name": "get the reel folder",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "queryString": "={{ $('Loop Over Items').item.json['Reel number'] }}",
+          "resource": "fileFolder"
+        },
+        "position": [
+          1472,
+          768
+        ],
+        "retryOnFail": true,
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "waitBetweenTries": 3000
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "4b2ea27e-946f-4c96-b39a-8582bcc416df",
+        "name": "get mastershot reference ",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "queryString": "Master_shot_reference",
+          "resource": "fileFolder"
+        },
+        "position": [
+          1808,
+          656
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "7f30593e-158e-4318-b4b6-801c544ba195",
+        "name": "get final video folder",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            }
+          },
+          "options": {},
+          "queryString": "Final_video",
+          "resource": "fileFolder"
+        },
+        "position": [
+          1712,
+          416
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "bd903745-0857-4fcf-844a-b88def9be5df",
+        "name": "final video id",
+        "parameters": {
+          "filter": {
+            "folderId": {
+              "__rl": true,
+              "mode": "id",
+              "value": "={{ $json.id }}"
+            },
+            "whatToSearch": "files"
+          },
+          "options": {},
+          "queryString": "={{ $('Loop Over Items').item.json['Reel number'] }}",
+          "resource": "fileFolder",
+          "returnAll": true
+        },
+        "position": [
+          1920,
+          416
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      }
+    ],
+    "updatedAt": "2026-03-20T10:31:37.000Z",
+    "versionId": "51b677c1-baab-4658-af42-db83c40bddbe",
+    "workflowId": "H9nUNZo5LvRc6ttz"
+  },
+  "activeVersionId": "51b677c1-baab-4658-af42-db83c40bddbe",
+  "connections": {
+    "Call 'SUB: Social Media Upload — Dynamic Multi-Account v5'": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Update row in sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "ClickUp: Is Ready to Post?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ClickUp: Parse Task Fields",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "ClickUp: Parse Task Fields": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ClickUp: Validate Required Fields",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "ClickUp: Validate Required Fields": {
+      "main": [
+        [],
+        []
+      ]
+    },
+    "Fetch Cover from Drive": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search files and folders",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get Cover Image File": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search files and folders1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Get the client folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "get the folder in client folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Inject Test Payload": {
+      "main": [
+        []
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Get the client folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Manual Test Trigger": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get row(s) in sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge Valid Tasks": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Call 'SUB: Social Media Upload — Dynamic Multi-Account v5'",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        []
+      ]
+    },
+    "Search files and folders": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Cover Image File",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search files and folders1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search files and folders2",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Search files and folders5": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Set Cover URL",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Set Cover URL": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Sheet: Validate Required Fields",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Sheet: Mark Processing": {
+      "main": [
+        []
+      ]
+    },
+    "Sheet: Parse Row Fields": {
+      "main": [
+        []
+      ]
+    },
+    "Sheet: Validate Required Fields": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge Valid Tasks",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Update row in sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Submit Online Form": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get row(s) in sheet",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "final video id": {
+      "main": [
+        []
+      ]
+    },
+    "get final video folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "final video id",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "get mastershot reference ": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Search files and folders5",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "get the folder in client folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "get the reel folder",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "get the reel folder": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "get final video folder",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "get mastershot reference ",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-15T14:09:43.120Z",
+  "id": "H9nUNZo5LvRc6ttz",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Social media upload main",
+  "nodes": [
+    {
+      "id": "7b73f70f-79ec-4605-b974-f5589d56af55",
+      "name": "Sticky Note",
+      "parameters": {
+        "color": 4,
+        "content": "## Main Workflow — Social Media Upload Orchestrator\n\n**Two trigger sources:**\n- ClickUp: task moves to status `Ready to Post`\n- Google Sheet: row has Status = `Ready to Post`\n\n**Flow:**\n1. Fetch task/row data (accounts, urls, caption, title)\n2. Validate required fields\n3. For each valid task → call Sub-Workflow\n4. Sub-workflow handles platform routing + upload + status writeback\n\n**Sub-workflow ID:** `aWlKSOQzwTtC5K3Z`\n\n**Required ClickUp task fields:**\n- Accounts (text): comma-separated e.g. `arya instagram, arya youtube`\n- Reel URL (text): Google Drive share URL\n- Cover URL (text): Google Drive share URL\n- Caption (text): leave empty for AI generation\n- Title (text): video title\n\n**Required Google Sheet columns:**\nAccounts | Reel URL | Cover URL | Caption | Title | Status | Posted At | Post ID | Platform | Account | Error",
+        "height": 300,
+        "width": 760
+      },
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "f5d3aee9-ef33-402c-b669-613afb44a743",
+      "name": "Sticky Note2",
+      "parameters": {
+        "color": 6,
+        "content": "## Branch A — ClickUp\nTriggers when a task status changes to `Ready to Post`.\nFetches full task details including custom fields.",
+        "height": 100,
+        "width": 400
+      },
+      "position": [
+        -1088,
+        32
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "28c18ce7-0fed-4cd7-8f39-5a00cc303511",
+      "name": "ClickUp: Is Ready to Post?",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.task_status.status.toLowerCase() }}",
+              "value2": "ready to post"
+            }
+          ]
+        }
+      },
+      "position": [
+        512,
+        480
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "c0698997-ae1d-4502-9489-e5274fc15f90",
+      "name": "ClickUp: Parse Task Fields",
+      "parameters": {
+        "jsCode": "\nconst task = $input.first().json;\n\n// Helper: get custom field value by name\nfunction getField(name) {\n  const fields = task.custom_fields || [];\n  const f = fields.find(f => f.name.toLowerCase() === name.toLowerCase());\n  if (!f) return '';\n  return f.value || '';\n}\n\n// Accounts: comma-separated string → array\nconst accountsRaw = getField('Accounts');\nconst accounts = accountsRaw\n  ? accountsRaw.split(',').map(a => a.trim()).filter(Boolean)\n  : [];\n\nreturn [{\n  json: {\n    source:     'clickup',\n    source_id:  task.id,\n    task_name:  task.name,\n    accounts:   accounts,\n    reel_url:   getField('Reel URL'),\n    cover_url:  getField('Cover URL'),\n    caption:    getField('Caption'),\n    title:      getField('Title') || task.name\n  }\n}];\n"
+      },
+      "position": [
+        1104,
+        480
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "b270abd9-0b71-4c58-b8cb-a6700720ee8f",
+      "name": "ClickUp: Validate Required Fields",
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.accounts.length > 0 }}",
+              "value2": true
+            }
+          ],
+          "string": [
+            {
+              "operation": "isNotEmpty",
+              "value1": "={{ $json.reel_url }}"
+            }
+          ]
+        }
+      },
+      "position": [
+        1408,
+        480
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "049eeb10-987d-4c3e-9848-c4160b238df6",
+      "name": "Sticky Note3",
+      "parameters": {
+        "color": 3,
+        "content": "## Branch B — Google Sheet\nPolls every minute for rows where Status = `Ready to Post`.\nUpdates Status to `Processing` immediately to avoid double-processing.\n\n**Sheet columns required (row 1 headers):**\nAccounts | Reel URL | Cover URL | Caption | Title | Status | Posted At | Post ID | Platform | Account | Error",
+        "height": 210,
+        "width": 500
+      },
+      "position": [
+        -544,
+        32
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "iNhS3q0aVZB4guX8",
+          "name": "Google Sheets account"
+        }
+      },
+      "id": "3e6bfa94-adc2-48b5-aaed-90a4dc75c6bd",
+      "name": "Sheet: Mark Processing",
+      "parameters": {
+        "dataStartRow": 2,
+        "keyRow": 1,
+        "operation": "update",
+        "options": {
+          "valueInputMode": "RAW"
+        },
+        "range": "Sheet1",
+        "sheetId": "YOUR_SHEET_ID"
+      },
+      "position": [
+        1472,
+        1584
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 2,
+      "waitBetweenTries": 3000
+    },
+    {
+      "id": "c0c0c874-5c85-4d0e-a4de-e67044b75bb4",
+      "name": "Sheet: Parse Row Fields",
+      "parameters": {
+        "jsCode": "\nconst row = $json;\n\n// row_number is auto-added by n8n Sheets node as the actual row index\nconst rowId = String($itemIndex + 2); // +2 because row 1 = header\n\n// Accounts: comma-separated → array\nconst accountsRaw = row['Accounts'] || '';\nconst accounts = accountsRaw\n  .split(',')\n  .map(a => a.trim())\n  .filter(Boolean);\n\nreturn {\n  json: {\n    source:     'sheet',\n    source_id:  rowId,\n    task_name:  row['Title'] || 'Row ' + rowId,\n    accounts:   accounts,\n    reel_url:   row['Reel URL'] || '',\n    cover_url:  row['Cover URL'] || '',\n    caption:    row['Caption'] || '',\n    title:      row['Title'] || 'Video'\n  }\n};\n",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        1680,
+        1584
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "a914b9ab-d258-480b-9e30-14b950f3169d",
+      "name": "Sheet: Validate Required Fields",
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"Account to post\"].length > 0 }}",
+              "value2": true
+            }
+          ],
+          "string": []
+        }
+      },
+      "position": [
+        1712,
+        928
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "iNhS3q0aVZB4guX8",
+          "name": "Google Sheets account"
+        }
+      },
+      "id": "9cc1bf84-5208-4571-b5db-dac9854aaf8b",
+      "name": "Sheet: Mark Missing Fields",
+      "parameters": {
+        "dataStartRow": 2,
+        "keyRow": 1,
+        "operation": "update",
+        "options": {
+          "valueInputMode": "RAW"
+        },
+        "range": "Sheet1",
+        "sheetId": "YOUR_SHEET_ID"
+      },
+      "position": [
+        2112,
+        1552
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 2
+    },
+    {
+      "id": "9f6f2107-16d1-4a10-9d30-bca9778c02e2",
+      "name": "Merge Valid Tasks",
+      "parameters": {},
+      "position": [
+        2240,
+        848
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1
+    },
+    {
+      "id": "8fd00a2d-608a-4e21-b060-2ebf2d993931",
+      "name": "Log Completion",
+      "parameters": {
+        "jsCode": "\nconst results = $input.all();\nconst summary = results.map(r => {\n  const d = r.json;\n  return `✅ ${d.platform} | ${d.account} | post: ${d.post_id} | at: ${d.posted_at}`;\n}).join('\\n');\n\nconsole.log('Upload batch complete:\\n' + summary);\nreturn results;\n"
+      },
+      "position": [
+        2928,
+        832
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "52cdae7b-6b6c-43e3-9c2c-5b4f9a055597",
+      "name": "Manual Test Trigger",
+      "parameters": {},
+      "position": [
+        176,
+        784
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "1351daac-b917-447d-b121-9b8b9ce989c0",
+      "name": "Inject Test Payload",
+      "parameters": {
+        "jsCode": "\n// Edit this to test different scenarios\nreturn [{\n  json: {\n    source:     'clickup',\n    source_id:  'task_test_001',\n    accounts:   ['arya instagram', 'arya youtube', 'arya linkedin'],\n    reel_url:   'https://drive.google.com/file/d/YOUR_REEL_FILE_ID/view?usp=sharing',\n    cover_url:  'https://drive.google.com/file/d/YOUR_COVER_FILE_ID/view?usp=sharing',\n    caption:    'Test caption from main workflow! #test #reels',\n    title:      'Test Upload Video'\n  }\n}];\n"
+      },
+      "position": [
+        592,
+        1360
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "14b0a46a-b70e-4cef-aa70-7e3796a7421b",
+      "name": "Get row(s) in sheet",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Short Video Generation DB- Jass Records",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status of Automation",
+              "lookupValue": "Video_scheduled"
+            }
+          ]
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Main DB",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        384,
+        848
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "a7c3eeb3-26a3-4c1e-96cd-94ab41a8046a",
+      "name": "Loop Over Items",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        672,
+        784
+      ],
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3
+    },
+    {
+      "id": "97a5458e-37d8-4ea4-aa09-0a0d063ed763",
+      "name": "Replace Me",
+      "parameters": {},
+      "position": [
+        1888,
+        1568
+      ],
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "cfa76234-a8ff-4a85-8bdc-6197e425d7cd",
+      "name": "Update row in sheet",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "Reel number"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel number",
+              "id": "Reel number",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Client(drive folder name)",
+              "id": "Client(drive folder name)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Account to post",
+              "id": "Account to post",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Avatars to use(comma seperated)",
+              "id": "Avatars to use(comma seperated)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Avtar Drive links(optional & bypasses Avatar to use field)",
+              "id": "Avtar Drive links(optional & bypasses Avatar to use field)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel Type",
+              "id": "Reel Type",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Concept input(optional)",
+              "id": "Concept input(optional)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Song link(direct download)",
+              "id": "Song link(direct download)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Start Time of Song",
+              "id": "Start Time of Song",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Total Time of Reel(Secs)",
+              "id": "Total Time of Reel(Secs)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Status of Automation",
+              "id": "Status of Automation",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Drive link for image approvals",
+              "id": "Drive link for image approvals",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Drive link for video approval",
+              "id": "Drive link for video approval",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Final Video Drive Download Link",
+              "id": "Final Video Drive Download Link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Post Schedule Date",
+              "id": "Post Schedule Date",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Post Schedule Time",
+              "id": "Post Schedule Time",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Workflow execution link",
+              "id": "Workflow execution link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Error Details",
+              "id": "Error Details",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "row_number",
+              "id": "row_number",
+              "readOnly": true,
+              "removed": true,
+              "required": false,
+              "type": "number"
+            }
+          ],
+          "value": {
+            "Reel number": "={{ $json[\"Reel number\"] }}",
+            "Status of Automation": "error in scheduling"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Short Video Generation DB- Jass Records",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+        },
+        "operation": "update",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Main DB",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        3072,
+        1104
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "bee8ffce-c018-475a-b80b-052c4abebc0f",
+      "name": "Call 'SUB: Social Media Upload — Dynamic Multi-Account v5'",
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "options": {
+          "waitForSubWorkflow": true
+        },
+        "workflowId": {
+          "__rl": true,
+          "cachedResultName": "SUB: Social Media Upload",
+          "cachedResultUrl": "/workflow/lJm9YPTgJH5MFBRt",
+          "mode": "list",
+          "value": "lJm9YPTgJH5MFBRt"
+        },
+        "workflowInputs": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "loop_over_items"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "loop_over_items",
+              "id": "loop_over_items",
+              "removed": false,
+              "required": false
+            }
+          ],
+          "value": {
+            "loop_over_items": "={{ $('Merge Valid Tasks').item.json }}"
+          }
+        }
+      },
+      "position": [
+        2576,
+        896
+      ],
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "bff78a5c-8792-401c-8e31-dbe55a271804",
+      "name": "Fetch Cover from Drive",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "cachedResultName": "Clients",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-",
+            "mode": "list",
+            "value": "1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-"
+          }
+        },
+        "limit": 1,
+        "options": {},
+        "queryString": "={{ $json.client }}",
+        "resource": "fileFolder"
+      },
+      "position": [
+        2384,
+        1712
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "fc46c69b-269e-48c3-83ff-45bada89a9e5",
+      "name": "Get Cover Image File",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "={{ $('Normalise Input1').item.json.reel_no }}",
+        "resource": "fileFolder"
+      },
+      "position": [
+        2832,
+        1712
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "f37df9ba-d56f-4600-a923-8d7a71d46851",
+      "name": "Search files and folders",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "resource": "fileFolder"
+      },
+      "position": [
+        2592,
+        1712
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "03c6dd70-8c5d-4055-a137-cf5072ea143f",
+      "name": "Search files and folders1",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "Master_shot_reference",
+        "resource": "fileFolder"
+      },
+      "position": [
+        3040,
+        1712
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "202a8ab1-f5d0-4317-b50b-32ada3c1cf62",
+      "name": "Search files and folders2",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "Master_Reference_image",
+        "resource": "fileFolder"
+      },
+      "position": [
+        3248,
+        1712
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "34266ea8-764c-4d40-b2ba-708cb64d9367",
+      "name": "Search files and folders5",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "Master_Reference_image",
+        "resource": "fileFolder"
+      },
+      "position": [
+        2112,
+        656
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "425c1f04-ab3d-4efd-a873-c62911fe8f2c",
+      "name": "Set Cover URL",
+      "parameters": {
+        "jsCode": "\nconst norm = $('Loop Over Items').first().json;\nconst coverFile = $input.first().json;\n\nconst reelurl = $('final video id').first().json;\n// Build direct download URL from the Drive file ID\nconst coverUrl = coverFile.id\n  ? `https://drive.google.com/uc?export=download&id=${coverFile.id}`\n  : '';\n\nconst reelUrl = coverFile.id\n  ? `https://drive.google.com/uc?export=download&id=${reelurl.id}`\n  : '';\n\n\n\nreturn [{\n  json: {\n    ...norm,\n    reel_url:reelUrl,\n    cover_url: coverUrl,\n    cover_file_id: coverFile.id || ''\n  }\n}];\n"
+      },
+      "position": [
+        2400,
+        640
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "85775108-f186-41b6-a6ab-3eb6af3889bf",
+      "name": "Submit Online Form",
+      "parameters": {
+        "formDescription": "With this you will be able to upload the video on instagram",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Client Name",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Jass Records"
+                  }
+                ]
+              },
+              "fieldType": "dropdown"
+            }
+          ]
+        },
+        "formTitle": "Reel upload form",
+        "options": {}
+      },
+      "position": [
+        160,
+        1136
+      ],
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "webhookId": "80466db2-bcae-49ff-a56e-409907df395c"
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "e3830b75-350b-49df-a479-a097773be131",
+      "name": "Get the client folder",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "cachedResultName": "Clients",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-",
+            "mode": "list",
+            "value": "1qUxlo9bKPUUoD4vVLR66SZm6LOEHLLc-"
+          }
+        },
+        "limit": 1,
+        "options": {},
+        "queryString": "={{ $json['Client(drive folder name)'] }}",
+        "resource": "fileFolder"
+      },
+      "position": [
+        992,
+        784
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "fcbd0661-eea0-4236-8555-c4426e4b8c8f",
+      "name": "get the folder in client folder",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "resource": "fileFolder"
+      },
+      "position": [
+        1248,
+        784
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "26e8cab1-6628-456e-88ac-6cd8736175c2",
+      "name": "get the reel folder",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "={{ $('Loop Over Items').item.json['Reel number'] }}",
+        "resource": "fileFolder"
+      },
+      "position": [
+        1472,
+        768
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "4b2ea27e-946f-4c96-b39a-8582bcc416df",
+      "name": "get mastershot reference ",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "Master_shot_reference",
+        "resource": "fileFolder"
+      },
+      "position": [
+        1808,
+        656
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "7f30593e-158e-4318-b4b6-801c544ba195",
+      "name": "get final video folder",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          }
+        },
+        "options": {},
+        "queryString": "Final_video",
+        "resource": "fileFolder"
+      },
+      "position": [
+        1712,
+        416
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "bd903745-0857-4fcf-844a-b88def9be5df",
+      "name": "final video id",
+      "parameters": {
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "={{ $json.id }}"
+          },
+          "whatToSearch": "files"
+        },
+        "options": {},
+        "queryString": "={{ $('Loop Over Items').item.json['Reel number'] }}",
+        "resource": "fileFolder",
+        "returnAll": true
+      },
+      "position": [
+        1920,
+        416
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-15T14:09:43.125Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-15T14:09:43.125Z",
+      "workflowId": "H9nUNZo5LvRc6ttz"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-03-20T10:31:31.030Z",
+  "versionId": "51b677c1-baab-4658-af42-db83c40bddbe"
+}
