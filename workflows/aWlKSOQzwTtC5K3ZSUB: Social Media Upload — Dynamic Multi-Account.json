@@ -1,0 +1,2297 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Account Found in Registry?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Is Instagram?",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Log Skipped Account",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Build Upload Context": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Detect Platform",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Build Upload Context1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Detect Platform1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Caption Provided?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Use Provided Caption",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Download Reel for Transcription",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Caption Provided?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Use Provided Caption1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Download Reel for Transcription1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "ClickUp: Update Status": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ClickUp: Add Comment1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "ClickUp: Update Status1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ClickUp: Add Comment",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Collect Upload Results": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Source is ClickUp?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Collect Upload Results1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Source is ClickUp?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Detect Platform": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Fetch Account Registry",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Resolve Account Credentials",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Detect Platform1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Is Instagram?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download Reel for Transcription": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Transcribe Audio",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Download Reel for Transcription1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Transcribe Audio1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Error Source ClickUp?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ClickUp: Mark Failed",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Sheet: Mark Failed",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Error Source ClickUp?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ClickUp: Mark Failed1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Sheet: Mark Failed1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Filter DNS Errors1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Fetch Account Registry": {
+      "main": [
+        []
+      ]
+    },
+    "Filter DNS Errors": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Format Error",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Filter DNS Errors1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Format Error1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Format Error": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Error Source ClickUp?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Format Error1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Error Source ClickUp?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Generate Caption via GPT-4o": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Set AI Caption",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Generate Caption via GPT-4o1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Set AI Caption1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "IG: Create Reel Container": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "IG: Wait 30s1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "IG: Create Reel Container1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "IG: Wait 30s",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "IG: Format Result": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Collect Upload Results",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "IG: Format Result1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Collect Upload Results1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "IG: Publish Reel": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "IG: Format Result",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "IG: Publish Reel1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "IG: Format Result1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "IG: Wait 30s": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "IG: Publish Reel1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "IG: Wait 30s1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "IG: Publish Reel",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Is Instagram?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "IG: Create Reel Container",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Is YouTube?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Is Instagram?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "IG: Create Reel Container1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Is YouTube?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Is LinkedIn?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "LI: Post Video",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Is LinkedIn?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "LI: Post Video1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Is YouTube?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "YT: Upload Short",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Is LinkedIn?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Is YouTube?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "YT: Upload Short1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Is LinkedIn?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "LI: Post Video": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "LI: Format Result",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "LI: Post Video1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "LI: Format Result1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge Caption Branches": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Build Upload Context",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Merge Caption Branches1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Build Upload Context1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Normalise Input": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Caption Provided?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Normalise Input1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Caption Provided?1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Resolve Account Credentials": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Account Found in Registry?",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Set AI Caption": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge Caption Branches",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Set AI Caption1": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Merge Caption Branches1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Source is ClickUp?": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ClickUp: Update Status",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Sheet: Write Status",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Source is ClickUp?1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "ClickUp: Update Status1",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Sheet: Write Status1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Sub-Workflow Trigger": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Normalise Input",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Transcribe Audio": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Generate Caption via GPT-4o",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Transcribe Audio1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Generate Caption via GPT-4o1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Use Provided Caption": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge Caption Branches",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Use Provided Caption1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Merge Caption Branches1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "YT: Format Result": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Collect Upload Results",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "YT: Format Result1": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Collect Upload Results1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "YT: Upload Short": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "YT: Format Result",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "YT: Upload Short1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "YT: Format Result1",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-15T07:12:04.746Z",
+  "id": "aWlKSOQzwTtC5K3Z",
+  "isArchived": true,
+  "meta": null,
+  "name": "SUB: Social Media Upload — Dynamic Multi-Account",
+  "nodes": [
+    {
+      "id": "6a78edf7-3be6-4601-97e1-7359befc67f1",
+      "name": "Sub-Workflow Trigger",
+      "parameters": {},
+      "position": [
+        544,
+        3776
+      ],
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "d491a379-4ee9-49f6-8acb-d70fcfeaa93d",
+      "name": "Sticky Note",
+      "parameters": {
+        "content": "## Social Media Upload Sub-Workflow\n\n**Input payload from parent workflow:**\n```\n{\n  source: 'clickup' | 'sheet',\n  source_id: '<task_id or row_id>',\n  accounts: ['arya instagram', 'arya youtube', 'arya linkedin'],\n  reel_url: '<google drive share url>',\n  cover_url: '<google drive share url>',\n  caption: '<pre-written or empty string>',\n  title: '<video title>'\n}\n```\n\nPlatforms: Instagram Reels, YouTube Shorts, LinkedIn Video\nCredentials: Named in n8n exactly as account name\nAI Caption: Auto-generated if caption field is empty\nStatus writeback: Updates ClickUp task or Google Sheet row",
+        "height": 416,
+        "width": 616
+      },
+      "position": [
+        -1200,
+        -400
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "dd288598-e019-45c5-a817-f016094c8fd4",
+      "name": "Error Trigger",
+      "parameters": {},
+      "position": [
+        1152,
+        1968
+      ],
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "16618502-0bda-4696-b89b-9242bb2c85ba",
+      "name": "Sticky Note1",
+      "parameters": {
+        "content": "## Setup Checklist\n\n**Step 1 — n8n Credentials**\nCreate credentials named exactly like your accounts:\n- Facebook Graph API → `arya instagram` (one per IG account)\n- YouTube OAuth2 → `arya youtube`\n- LinkedIn OAuth2 → `arya linkedin`\n\n**Step 2 — Replace placeholder IDs in nodes**\n- YOUR_OPENAI_CRED_ID\n- YOUR_FB_CRED_ID\n- YOUR_YT_CRED_ID\n- YOUR_LI_CRED_ID\n- YOUR_CLICKUP_CRED_ID\n- YOUR_GSHEET_CRED_ID\n- YOUR_SHEET_ID\n\n**Step 3 — Instagram IG Business Account ID**\nIn 'IG: Create Reel Container' node, the `node` field needs your real IG Business Account numeric ID (not the account name). You can get it from Graph API /me/accounts.\n\n**Step 4 — Google Sheet columns needed**\nStatus | Posted At | Post ID | Platform | Account | Error\n\n**Step 5 — Parent workflow payload**\n```\n{\n  source: 'clickup',\n  source_id: 'abc123',\n  accounts: ['arya instagram', 'arya youtube'],\n  reel_url: 'https://drive.google.com/file/d/FILE_ID/view',\n  cover_url: 'https://drive.google.com/file/d/FILE_ID/view',\n  caption: '',\n  title: 'My Video'\n}\n```",
+        "height": 480,
+        "width": 700
+      },
+      "position": [
+        -752,
+        832
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "88c53e9a-972b-4030-83a9-5ede6448895a",
+      "name": "IG: Wait 30s",
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      },
+      "position": [
+        4832,
+        1296
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "ig-wait-001"
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "1a50c01b-4a41-4a97-aa95-53a13725fdea",
+      "name": "ClickUp: Add Comment",
+      "parameters": {
+        "resource": "taskComment"
+      },
+      "position": [
+        6624,
+        1440
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "f2d704b2-d1a9-40a4-8c38-b926c06ce5c6",
+      "name": "Sticky Note2",
+      "parameters": {
+        "content": "## Social Media Upload Sub-Workflow\n\n**Input payload from parent workflow:**\n```\n{\n  source: 'clickup' | 'sheet',\n  source_id: '<task_id or row_id>',\n  accounts: ['arya instagram', 'arya youtube', 'arya linkedin'],\n  reel_url: '<google drive share url>',\n  cover_url: '<google drive share url>',\n  caption: '<pre-written or empty string>',\n  title: '<video title>'\n}\n```\n\nPlatforms: Instagram Reels, YouTube Shorts, LinkedIn Video\nCredentials: Named in n8n exactly as account name\nAI Caption: Auto-generated if caption field is empty\nStatus writeback: Updates ClickUp task or Google Sheet row",
+        "height": 512,
+        "width": 696
+      },
+      "position": [
+        1136,
+        880
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "176084b2-c533-4dc1-bb13-a4fbbdab82a4",
+      "name": "Normalise Input1",
+      "parameters": {
+        "jsCode": "\nconst d = $input.first().json;\n\nreturn [{\n  json: {\n    source:          d.source || 'clickup',\n    source_id:       String(d.source_id || ''),\n    accounts:        Array.isArray(d.accounts) ? d.accounts : JSON.parse(d.accounts || '[]'),\n    reel_url:        d.reel_url || '',\n    cover_url:       d.cover_url || '',\n    caption:         d.caption || '',\n    title:           d.title || 'Video',\n    need_ai_caption: (!d.caption || d.caption.trim() === '')\n  }\n}];\n"
+      },
+      "position": [
+        1504,
+        1456
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "dd0731e3-1dc3-45fb-aa25-1f1f8c5bf22a",
+      "name": "Caption Provided?1",
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.need_ai_caption }}"
+            }
+          ]
+        }
+      },
+      "position": [
+        1776,
+        1456
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "31910f74-094a-4a2a-a525-9a38673af202",
+      "name": "Use Provided Caption1",
+      "parameters": {
+        "jsCode": "\nconst d = $('Normalise Input1').first().json;\nreturn [{\n  json: {\n    source:        d.source,\n    source_id:     d.source_id,\n    accounts:      d.accounts,\n    reel_url:      d.reel_url,\n    cover_url:     d.cover_url,\n    title:         d.title,\n    final_caption: d.caption\n  }\n}];\n"
+      },
+      "position": [
+        2080,
+        1296
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "e4323dce-6d2f-49ee-8f35-9bc939e4a776",
+      "name": "Download Reel for Transcription1",
+      "parameters": {
+        "options": {},
+        "url": "={{ 'https://drive.google.com/uc?export=download&id=' + $('Normalise Input1').first().json.reel_url.match(/[-\\w]{25,}/)[0] }}"
+      },
+      "position": [
+        2080,
+        1616
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "openAiApi": {
+          "id": "HtC3pXdXhNPajOpZ",
+          "name": "OpenAi account"
+        }
+      },
+      "id": "324c094c-69b1-4365-b5af-be43781f7dbe",
+      "name": "Transcribe Audio1",
+      "parameters": {
+        "operation": "transcribe",
+        "options": {},
+        "resource": "audio"
+      },
+      "position": [
+        2368,
+        1616
+      ],
+      "retryOnFail": true,
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "openAiApi": {
+          "id": "HtC3pXdXhNPajOpZ",
+          "name": "OpenAi account"
+        }
+      },
+      "id": "b21ecf66-1c7a-41fe-b32a-d5c6bda91f39",
+      "name": "Generate Caption via GPT-4o1",
+      "parameters": {
+        "messages": {
+          "values": [
+            {
+              "content": "You are an expert social media copywriter. Write punchy engaging captions for Instagram Reels, YouTube Shorts and LinkedIn video posts. End with 5-8 relevant hashtags.",
+              "role": "system"
+            },
+            {
+              "content": "=Write a caption for this video.\n\nTitle: {{ $('Normalise Input1').first().json.title }}\nTranscript: {{ $json.text }}\n\nReply ONLY with the caption and hashtags. Nothing else."
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "GPT-4O",
+          "mode": "list",
+          "value": "gpt-4o"
+        },
+        "options": {}
+      },
+      "position": [
+        2672,
+        1616
+      ],
+      "retryOnFail": true,
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "de853737-0e8a-464f-84d3-5501730f28fc",
+      "name": "Set AI Caption1",
+      "parameters": {
+        "jsCode": "\nconst d = $('Normalise Input1').first().json;\nreturn [{\n  json: {\n    source:        d.source,\n    source_id:     d.source_id,\n    accounts:      d.accounts,\n    reel_url:      d.reel_url,\n    cover_url:     d.cover_url,\n    title:         d.title,\n    final_caption: $input.first().json.message.content\n  }\n}];\n"
+      },
+      "position": [
+        2976,
+        1616
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "52dcf278-a1e6-419d-b373-690e949f1904",
+      "name": "Merge Caption Branches1",
+      "parameters": {},
+      "position": [
+        3280,
+        1456
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1
+    },
+    {
+      "id": "db6dbaae-01b3-4a1f-bcdc-82c78ae86885",
+      "name": "Build Upload Context1",
+      "parameters": {
+        "jsCode": "\nconst d = $input.first().json;\nconst accounts = Array.isArray(d.accounts) ? d.accounts : JSON.parse(d.accounts || '[]');\n\nreturn accounts.map(account => ({\n  json: {\n    source:        d.source,\n    source_id:     d.source_id,\n    account:       account,\n    reel_url:      d.reel_url,\n    cover_url:     d.cover_url,\n    caption:       d.final_caption,\n    title:         d.title\n  }\n}));\n"
+      },
+      "position": [
+        3568,
+        1456
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "1eac3a51-7804-4aa0-a483-5dde75bb17e8",
+      "name": "Detect Platform1",
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nreturn items.map(item => {\n  const account = (item.json.account || '').toString().toLowerCase();\n\n  let platform = 'unknown';\n\n  if (account.includes('instagram')) platform = 'instagram';\n  else if (account.includes('youtube')) platform = 'youtube';\n  else if (account.includes('linkedin')) platform = 'linkedin';\n\n  return {\n    json: {\n      ...item.json,\n      platform\n    }\n  };\n});"
+      },
+      "position": [
+        3824,
+        1456
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "ad8b819c-a20e-46a8-8b51-e484d37cd122",
+      "name": "Is Instagram?1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "value2": "instagram"
+            }
+          ]
+        }
+      },
+      "position": [
+        4176,
+        1456
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "b24709e6-baf0-4429-844c-0dc68c455b8b",
+      "name": "Is YouTube?1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "value2": "youtube"
+            }
+          ]
+        }
+      },
+      "position": [
+        4176,
+        1648
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "e2c538b1-d315-4a5a-9ffe-fcbe045a55bf",
+      "name": "Is LinkedIn?1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "value2": "linkedin"
+            }
+          ]
+        }
+      },
+      "position": [
+        4176,
+        1856
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "SJstlJXO7E1CAbz8",
+          "name": "Facebook Graph account"
+        }
+      },
+      "id": "37dc8f63-db14-44b1-8504-ec4957e8ed07",
+      "name": "IG: Create Reel Container1",
+      "parameters": {
+        "edge": "media",
+        "graphApiVersion": "v23.0",
+        "httpRequestMethod": "POST",
+        "node": "=17841474119999455",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "video_url",
+                "value": "=https://res.cloudinary.com/di5t9fm4m/video/upload/v1771614455/Reels/WIN_20260129_18_34_39_Pro.mp4"
+              },
+              {
+                "name": "caption",
+                "value": "={{ $json.caption }}"
+              },
+              {
+                "name": "media_type",
+                "value": "REELS"
+              }
+            ]
+          }
+        }
+      },
+      "position": [
+        4528,
+        1296
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "SJstlJXO7E1CAbz8",
+          "name": "Facebook Graph account"
+        }
+      },
+      "id": "0c5c3836-a8db-4a5c-a312-34916a58a685",
+      "name": "IG: Publish Reel1",
+      "parameters": {
+        "edge": "media_publish",
+        "graphApiVersion": "v23.0",
+        "httpRequestMethod": "POST",
+        "node": "=17841474119999455",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "creation_id",
+                "value": "={{ $json.id }}"
+              }
+            ]
+          }
+        }
+      },
+      "position": [
+        5120,
+        1296
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "c0054c4e-f387-4bac-bd4b-592fbcab73e7",
+      "name": "IG: Format Result1",
+      "parameters": {
+        "jsCode": "\nconst upstream = $('IG: Create Reel Container1').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'instagram',\n    account:       upstream.account,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+      },
+      "position": [
+        5424,
+        1296
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "KXxIBGEjUKl43IzP",
+          "name": "YouTube account"
+        }
+      },
+      "id": "e4bb88e9-92ce-4cf6-b2a7-8b7bae80be86",
+      "name": "YT: Upload Short1",
+      "parameters": {
+        "categoryId": "22",
+        "operation": "upload",
+        "options": {
+          "description": "={{ $json.caption }}",
+          "privacyStatus": "public"
+        },
+        "regionCode": "IN",
+        "resource": "video",
+        "title": "={{ $json.title.slice(0, 90) }}"
+      },
+      "position": [
+        4528,
+        1648
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "2b6f97b0-dfef-4541-8171-5535258f8804",
+      "name": "YT: Format Result1",
+      "parameters": {
+        "jsCode": "\nconst upstream = $('YT: Upload Short1').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'youtube',\n    account:       upstream.account,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+      },
+      "position": [
+        4832,
+        1648
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "ed9f66d4-c66e-45f5-af0c-58070d017f62",
+      "name": "LI: Post Video1",
+      "parameters": {
+        "additionalFields": {},
+        "person": "={{ $json.account }}",
+        "text": "={{ $json.caption }}"
+      },
+      "position": [
+        4528,
+        1856
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "44d4dd2c-c1f8-43ec-a6d1-d61ed4cc83c1",
+      "name": "LI: Format Result1",
+      "parameters": {
+        "jsCode": "\nconst upstream = $('LI: Post Video1').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'linkedin',\n    account:       upstream.account,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+      },
+      "position": [
+        4832,
+        1856
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "fb4d5414-f1bc-4a5c-8a2c-f30460a7a716",
+      "name": "Collect Upload Results1",
+      "parameters": {},
+      "position": [
+        5728,
+        1552
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1
+    },
+    {
+      "id": "cb95e097-1a43-438e-9472-e1e46ed40115",
+      "name": "Source is ClickUp?1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.source }}",
+              "value2": "clickup"
+            }
+          ]
+        }
+      },
+      "position": [
+        6032,
+        1552
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "8e4dd61b-7e93-43cd-aad1-cd42558e37b6",
+      "name": "ClickUp: Update Status1",
+      "parameters": {
+        "id": "={{ $json.source_id }}",
+        "operation": "update",
+        "updateFields": {
+          "status": "Posted"
+        }
+      },
+      "position": [
+        6320,
+        1440
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "id": "a45a9d94-5211-4227-9a16-f026e4bc74d3",
+      "name": "Sheet: Write Status1",
+      "parameters": {
+        "dataStartRow": 2,
+        "keyRow": 1,
+        "operation": "update",
+        "options": {
+          "valueInputMode": "RAW"
+        },
+        "range": "Sheet1",
+        "sheetId": "YOUR_SHEET_ID"
+      },
+      "position": [
+        6320,
+        1680
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 2,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "414316ca-e3e5-4322-a76f-f98542e95e74",
+      "name": "Filter DNS Errors1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "operation": "notContains",
+              "value1": "={{ $json.execution.error.message }}",
+              "value2": "DNS"
+            }
+          ]
+        }
+      },
+      "position": [
+        1392,
+        1952
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "5c22b302-edbf-412e-921c-78259e31c8e4",
+      "name": "Format Error1",
+      "parameters": {
+        "jsCode": "\nconst e = $input.first().json;\nconst runData = e.execution?.data?.resultData?.runData;\nconst normNode = runData?.['Normalise Input']?.[0]?.data?.main?.[0]?.[0]?.json;\nreturn [{\n  json: {\n    error_message: '❌ Upload failed | Workflow: ' + e.workflow.name + ' | Node: ' + e.execution.error.node.name + ' | ' + e.execution.error.message,\n    source_id:     normNode?.source_id || 'unknown',\n    source:        normNode?.source    || 'unknown'\n  }\n}];\n"
+      },
+      "position": [
+        1696,
+        1936
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "94f340da-ea24-486f-aa1d-23f382d7c639",
+      "name": "Error Source ClickUp?1",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.source }}",
+              "value2": "clickup"
+            }
+          ]
+        }
+      },
+      "position": [
+        2000,
+        1936
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "e18254f6-1292-472a-a7c9-d9f11c93818b",
+      "name": "ClickUp: Mark Failed1",
+      "parameters": {
+        "id": "={{ $json.source_id }}",
+        "operation": "update",
+        "updateFields": {
+          "status": "Upload Failed"
+        }
+      },
+      "position": [
+        2288,
+        1856
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "id": "501c1b14-c59e-4bf8-a098-c9a322776312",
+      "name": "Sheet: Mark Failed1",
+      "parameters": {
+        "dataStartRow": 2,
+        "keyRow": 1,
+        "operation": "update",
+        "options": {
+          "valueInputMode": "RAW"
+        },
+        "range": "Sheet1",
+        "sheetId": "YOUR_SHEET_ID"
+      },
+      "position": [
+        2288,
+        2016
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 2,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "cb65a1b1-b248-4df4-8067-d3e1eef5cef5",
+      "name": "Sticky Note3",
+      "parameters": {
+        "content": "## Setup Checklist\n\n**Step 1 — n8n Credentials (name them exactly like account names)**\n- Facebook Graph API  →  `arya instagram`\n- YouTube OAuth2      →  `arya youtube`\n- LinkedIn OAuth2     →  `arya linkedin`\n\n**Step 2 — Replace placeholder IDs in nodes**\n- YOUR_OPENAI_CRED_ID\n- YOUR_FB_CRED_ID\n- YOUR_YT_CRED_ID\n- YOUR_LI_CRED_ID\n- YOUR_CLICKUP_CRED_ID\n- YOUR_GSHEET_CRED_ID\n- YOUR_SHEET_ID\n\n**Step 3 — Instagram**\nReplace the `node` field value in IG nodes with your actual IG Business Account numeric ID.\n\n**Step 4 — Google Sheet columns needed**\nStatus | Posted At | Post ID | Platform | Account | Error\n\n**Step 5 — Parent workflow mock payload**\n```json\n{\n  \"source\": \"clickup\",\n  \"source_id\": \"task_abc123\",\n  \"accounts\": [\"arya instagram\", \"arya youtube\"],\n  \"reel_url\": \"https://drive.google.com/file/d/FILE_ID/view\",\n  \"cover_url\": \"https://drive.google.com/file/d/FILE_ID/view\",\n  \"caption\": \"\",\n  \"title\": \"My Video\"\n}\n```",
+        "height": 460,
+        "width": 680
+      },
+      "position": [
+        1168,
+        2112
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "instagramApi": {
+          "id": "W4khjnVzMig7ISny",
+          "name": "Instagram account"
+        }
+      },
+      "id": "147c0dbb-7709-4dea-ac8b-b74932b163c3",
+      "name": "Publish",
+      "parameters": {
+        "additionalFields": {},
+        "caption": "hii",
+        "node": "17841474119999455",
+        "resource": "reels",
+        "videoUrl": "https://res.cloudinary.com/di5t9fm4m/video/upload/v1771614455/Reels/WIN_20260129_18_34_39_Pro.mp4"
+      },
+      "position": [
+        6800,
+        2128
+      ],
+      "type": "@mookielianhd/n8n-nodes-instagram.instagram",
+      "typeVersion": 1
+    },
+    {
+      "id": "82dbd6cb-5b5f-47ef-9574-6b2180dc624b",
+      "name": "Resolve Account Credentials",
+      "parameters": {
+        "jsCode": "\n// Current item = one account to post to (has .account and .platform)\nconst item = $json;\n\n// Registry = all rows from Account Registry sheet\nconst registry = $('Fetch Account Registry').all().map(r => r.json);\n\n// Find matching registry row\nconst match = registry.find(row =>\n  row.account_name?.toLowerCase().trim() === item.account?.toLowerCase().trim()\n  && row.active?.toLowerCase() === 'true'\n);\n\nif (!match) {\n  // No registry entry — skip this account gracefully\n  return {\n    json: {\n      ...item,\n      _skip: true,\n      _skip_reason: `Account '${item.account}' not found in registry or is inactive`\n    }\n  };\n}\n\nreturn {\n  json: {\n    ...item,\n    _skip:        false,\n    ig_user_id:   match.ig_user_id   || '',\n    access_token: match.access_token || '',\n    credential_name: match.credential_name || ''\n  }\n};\n",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        3104,
+        3728
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "1ed54633-f20e-4471-8f9e-5a5830384d9d",
+      "name": "Account Found in Registry?",
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json._skip }}"
+            }
+          ]
+        }
+      },
+      "position": [
+        3456,
+        3728
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "d8b5638f-15f1-4cd2-bc98-5fcbae015e8d",
+      "name": "Log Skipped Account",
+      "parameters": {
+        "jsCode": "\nconsole.warn('⚠️ Skipped account:', $json.account, '|', $json._skip_reason);\n// Optionally write back to sheet here\nreturn { json: { skipped: true, account: $json.account, reason: $json._skip_reason } };\n",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        3600,
+        3504
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "4425a6e3-2c56-46b9-9ee5-181431ad3cf1",
+      "name": "Sticky Note Registry",
+      "parameters": {
+        "color": 5,
+        "content": "## Account Registry Sheet\n\nSheet name: `AccountRegistry`\n\n| account_name | platform | ig_user_id | access_token | credential_name | active |\n|---|---|---|---|---|---|\n| arya instagram | instagram | 17841474119999455 | EAABsbCS... | arya fb graph | true |\n| arya youtube | youtube | | ya29.a0... | arya youtube | true |\n| arya linkedin | linkedin | | AQX... | arya linkedin | true |\n| brand instagram | instagram | 17841477123456789 | EAABsbCS... | brand fb graph | true |\n\n**Adding a new account = just add a row. No n8n changes needed.**\n**Rotating a token = update 1 cell.**\n**Disabling an account = set active = false.**",
+        "height": 200,
+        "width": 820
+      },
+      "position": [
+        2608,
+        3344
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "5ab00278-5e66-4500-b717-184e65a20804",
+      "name": "Sticky Note IG",
+      "parameters": {
+        "color": 6,
+        "content": "## Instagram\n`ig_user_id` and `access_token` are resolved\ndynamically from the Account Registry sheet.\n\nNo hardcoded IDs. Adding a new IG account\n= add 1 row to the registry sheet.",
+        "height": 120,
+        "width": 300
+      },
+      "position": [
+        3824,
+        3440
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "e283e1d3-e971-4a0f-851d-15275989bc3d",
+      "name": "Sticky Note4",
+      "parameters": {
+        "content": "## Social Media Upload Sub-Workflow\n\n**Input payload from parent workflow:**\n```\n{\n  source: 'clickup' | 'sheet',\n  source_id: '<task_id or row_id>',\n  accounts: ['arya instagram', 'arya youtube', 'arya linkedin'],\n  reel_url: '<google drive share url>',\n  cover_url: '<google drive share url>',\n  caption: '<pre-written or empty string>',\n  title: '<video title>'\n}\n```\n\nPlatforms: Instagram Reels, YouTube Shorts, LinkedIn Video\nCredentials: Named in n8n exactly as account name\nAI Caption: Auto-generated if caption field is empty\nStatus writeback: Updates ClickUp task or Google Sheet row",
+        "height": 416,
+        "width": 616
+      },
+      "position": [
+        -1904,
+        1920
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "4e640bef-a9bc-412d-b789-ef3bab93eac8",
+      "name": "Sticky Note5",
+      "parameters": {
+        "content": "## Setup Checklist\n\n**Step 1 — n8n Credentials**\nCreate credentials named exactly like your accounts:\n- Facebook Graph API → `arya instagram` (one per IG account)\n- YouTube OAuth2 → `arya youtube`\n- LinkedIn OAuth2 → `arya linkedin`\n\n**Step 2 — Replace placeholder IDs in nodes**\n- YOUR_OPENAI_CRED_ID\n- YOUR_FB_CRED_ID\n- YOUR_YT_CRED_ID\n- YOUR_LI_CRED_ID\n- YOUR_CLICKUP_CRED_ID\n- YOUR_GSHEET_CRED_ID\n- YOUR_SHEET_ID\n\n**Step 3 — Instagram IG Business Account ID**\nIn 'IG: Create Reel Container' node, the `node` field needs your real IG Business Account numeric ID (not the account name). You can get it from Graph API /me/accounts.\n\n**Step 4 — Google Sheet columns needed**\nStatus | Posted At | Post ID | Platform | Account | Error\n\n**Step 5 — Parent workflow payload**\n```\n{\n  source: 'clickup',\n  source_id: 'abc123',\n  accounts: ['arya instagram', 'arya youtube'],\n  reel_url: 'https://drive.google.com/file/d/FILE_ID/view',\n  cover_url: 'https://drive.google.com/file/d/FILE_ID/view',\n  caption: '',\n  title: 'My Video'\n}\n```",
+        "height": 480,
+        "width": 700
+      },
+      "position": [
+        -1456,
+        3152
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "81191552-2852-4781-a5d3-df737ca4f402",
+      "name": "IG: Wait 30s1",
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      },
+      "position": [
+        4128,
+        3616
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "webhookId": "ig-wait-001"
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "08952d16-6470-4f33-85fd-800523220c6a",
+      "name": "ClickUp: Add Comment1",
+      "parameters": {
+        "resource": "taskComment"
+      },
+      "position": [
+        5920,
+        3760
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "fc33c405-d45d-4703-98e5-66816c519602",
+      "name": "Sticky Note6",
+      "parameters": {
+        "content": "## Social Media Upload Sub-Workflow\n\n**Input payload from parent workflow:**\n```\n{\n  source: 'clickup' | 'sheet',\n  source_id: '<task_id or row_id>',\n  accounts: ['arya instagram', 'arya youtube', 'arya linkedin'],\n  reel_url: '<google drive share url>',\n  cover_url: '<google drive share url>',\n  caption: '<pre-written or empty string>',\n  title: '<video title>'\n}\n```\n\nPlatforms: Instagram Reels, YouTube Shorts, LinkedIn Video\nCredentials: Named in n8n exactly as account name\nAI Caption: Auto-generated if caption field is empty\nStatus writeback: Updates ClickUp task or Google Sheet row",
+        "height": 512,
+        "width": 696
+      },
+      "position": [
+        432,
+        3200
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "66c9dbcd-1efb-454e-b140-08d0213ef166",
+      "name": "Normalise Input",
+      "parameters": {
+        "jsCode": "\nconst d = $input.first().json;\n\nreturn [{\n  json: {\n    source:          d.source || 'clickup',\n    source_id:       String(d.source_id || ''),\n    accounts:        Array.isArray(d.accounts) ? d.accounts : JSON.parse(d.accounts || '[]'),\n    reel_url:        d.reel_url || '',\n    cover_url:       d.cover_url || '',\n    caption:         d.caption || '',\n    title:           d.title || 'Video',\n    need_ai_caption: (!d.caption || d.caption.trim() === '')\n  }\n}];\n"
+      },
+      "position": [
+        800,
+        3776
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "6ac7adb5-23d5-47f9-84c8-13aac8ba296b",
+      "name": "Caption Provided?",
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.need_ai_caption }}"
+            }
+          ]
+        }
+      },
+      "position": [
+        1072,
+        3776
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "d112e942-3850-476a-a304-dc9efb2a73ad",
+      "name": "Use Provided Caption",
+      "parameters": {
+        "jsCode": "\nconst d = $('Normalise Input').first().json;\nreturn [{\n  json: {\n    source:        d.source,\n    source_id:     d.source_id,\n    accounts:      d.accounts,\n    reel_url:      d.reel_url,\n    cover_url:     d.cover_url,\n    title:         d.title,\n    final_caption: d.caption\n  }\n}];\n"
+      },
+      "position": [
+        1376,
+        3616
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "2e04723a-af8a-43f2-8ee0-b19509a87482",
+      "name": "Download Reel for Transcription",
+      "parameters": {
+        "options": {},
+        "url": "={{ 'https://drive.google.com/uc?export=download&id=' + $('Normalise Input').first().json.reel_url.match(/[-\\w]{25,}/)[0] }}"
+      },
+      "position": [
+        1376,
+        3936
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "openAiApi": {
+          "id": "HtC3pXdXhNPajOpZ",
+          "name": "OpenAi account"
+        }
+      },
+      "id": "e9601234-ca59-4345-a3b3-2d154f8e549d",
+      "name": "Transcribe Audio",
+      "parameters": {
+        "operation": "transcribe",
+        "options": {},
+        "resource": "audio"
+      },
+      "position": [
+        1664,
+        3936
+      ],
+      "retryOnFail": true,
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "openAiApi": {
+          "id": "HtC3pXdXhNPajOpZ",
+          "name": "OpenAi account"
+        }
+      },
+      "id": "f123a2a5-c69e-499e-9a4f-639273171b34",
+      "name": "Generate Caption via GPT-4o",
+      "parameters": {
+        "messages": {
+          "values": [
+            {
+              "content": "You are an expert social media copywriter. Write punchy engaging captions for Instagram Reels, YouTube Shorts and LinkedIn video posts. End with 5-8 relevant hashtags.",
+              "role": "system"
+            },
+            {
+              "content": "=Write a caption for this video.\n\nTitle: {{ $('Normalise Input').first().json.title }}\nTranscript: {{ $json.text }}\n\nReply ONLY with the caption and hashtags. Nothing else."
+            }
+          ]
+        },
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "GPT-4O",
+          "mode": "list",
+          "value": "gpt-4o"
+        },
+        "options": {}
+      },
+      "position": [
+        1968,
+        3936
+      ],
+      "retryOnFail": true,
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "6b62bb22-04d3-45e3-a288-5878426156cd",
+      "name": "Set AI Caption",
+      "parameters": {
+        "jsCode": "\nconst d = $('Normalise Input').first().json;\nreturn [{\n  json: {\n    source:        d.source,\n    source_id:     d.source_id,\n    accounts:      d.accounts,\n    reel_url:      d.reel_url,\n    cover_url:     d.cover_url,\n    title:         d.title,\n    final_caption: $input.first().json.message.content\n  }\n}];\n"
+      },
+      "position": [
+        2272,
+        3936
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "21f22ac9-9b61-4fcd-bd34-dc8c2e1c5ceb",
+      "name": "Merge Caption Branches",
+      "parameters": {},
+      "position": [
+        2448,
+        3728
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1
+    },
+    {
+      "id": "13e2aa26-92fa-4507-a388-9b01fac25b5a",
+      "name": "Build Upload Context",
+      "parameters": {
+        "jsCode": "\nconst d = $input.first().json;\nconst accounts = Array.isArray(d.accounts) ? d.accounts : JSON.parse(d.accounts || '[]');\n\nreturn accounts.map(account => ({\n  json: {\n    source:        d.source,\n    source_id:     d.source_id,\n    account:       account,\n    reel_url:      d.reel_url,\n    cover_url:     d.cover_url,\n    caption:       d.final_caption,\n    title:         d.title\n  }\n}));\n"
+      },
+      "position": [
+        2624,
+        3728
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "e8faa7ea-3b5e-4870-a7e2-e1e2ecad90af",
+      "name": "Detect Platform",
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nreturn items.map(item => {\n  const account = (item.json.account || '').toString().toLowerCase();\n\n  let platform = 'unknown';\n\n  if (account.includes('instagram')) platform = 'instagram';\n  else if (account.includes('youtube')) platform = 'youtube';\n  else if (account.includes('linkedin')) platform = 'linkedin';\n\n  return {\n    json: {\n      ...item.json,\n      platform\n    }\n  };\n});"
+      },
+      "position": [
+        2848,
+        3728
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "d1797813-0ec8-485f-884a-b44c06db834c",
+      "name": "Is Instagram?",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "value2": "instagram"
+            }
+          ]
+        }
+      },
+      "position": [
+        3632,
+        3712
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "90cb8d7f-5553-42b5-ab1d-e0e0948efa43",
+      "name": "Is YouTube?",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "value2": "youtube"
+            }
+          ]
+        }
+      },
+      "position": [
+        3472,
+        3968
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "0aca1645-0aea-4208-b841-9d9d7a94b69a",
+      "name": "Is LinkedIn?",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.platform }}",
+              "value2": "linkedin"
+            }
+          ]
+        }
+      },
+      "position": [
+        3472,
+        4176
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "SJstlJXO7E1CAbz8",
+          "name": "Facebook Graph account"
+        }
+      },
+      "id": "4cd79baa-fc8a-4d4a-a4a0-a3aac872685a",
+      "name": "IG: Create Reel Container",
+      "parameters": {
+        "edge": "media",
+        "graphApiVersion": "v23.0",
+        "httpRequestMethod": "POST",
+        "node": "={{ $json.ig_user_id }}",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "video_url",
+                "value": "={{ $json.reel_url }}"
+              },
+              {
+                "name": "cover_url",
+                "value": "={{ $json.cover_url }}"
+              },
+              {
+                "name": "caption",
+                "value": "={{ $json.caption }}"
+              },
+              {
+                "name": "media_type",
+                "value": "REELS"
+              },
+              {
+                "name": "access_token",
+                "value": "={{ $json.access_token }}"
+              }
+            ]
+          }
+        }
+      },
+      "position": [
+        3824,
+        3616
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "SJstlJXO7E1CAbz8",
+          "name": "Facebook Graph account"
+        }
+      },
+      "id": "5b245268-f162-4104-8805-ae0bec9b2261",
+      "name": "IG: Publish Reel",
+      "parameters": {
+        "edge": "media_publish",
+        "graphApiVersion": "v23.0",
+        "httpRequestMethod": "POST",
+        "node": "={{ $('IG: Create Reel Container').item.json.ig_user_id }}",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "creation_id",
+                "value": "={{ $json.id }}"
+              },
+              {
+                "name": "access_token",
+                "value": "={{ $('IG: Create Reel Container').item.json.access_token }}"
+              }
+            ]
+          }
+        }
+      },
+      "position": [
+        4416,
+        3616
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "9bf99102-bf38-477a-9598-63eafec34ec3",
+      "name": "IG: Format Result",
+      "parameters": {
+        "jsCode": "\nconst upstream = $('IG: Create Reel Container').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'instagram',\n    account:       upstream.account,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+      },
+      "position": [
+        4720,
+        3616
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "KXxIBGEjUKl43IzP",
+          "name": "YouTube account"
+        }
+      },
+      "id": "cac3a4a6-66c0-4846-9be4-05c70b65b168",
+      "name": "YT: Upload Short",
+      "notes": "Credential must be named exactly as credential_name in registry. For 100% dynamic token use, replace with HTTP Request node using access_token from registry.",
+      "parameters": {
+        "categoryId": "22",
+        "operation": "upload",
+        "options": {
+          "description": "={{ $json.caption }}",
+          "privacyStatus": "public"
+        },
+        "regionCode": "IN",
+        "resource": "video",
+        "title": "={{ $json.title.slice(0, 90) }}"
+      },
+      "position": [
+        3824,
+        3968
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "e6fd2cf7-deba-448d-9b3d-9034b863e07e",
+      "name": "YT: Format Result",
+      "parameters": {
+        "jsCode": "\nconst upstream = $('YT: Upload Short').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'youtube',\n    account:       upstream.account,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+      },
+      "position": [
+        4368,
+        3968
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "8795eea3-56c2-4c95-9722-1e12af311449",
+      "name": "LI: Post Video",
+      "parameters": {
+        "additionalFields": {},
+        "person": "={{ $json.account }}",
+        "text": "={{ $json.caption }}"
+      },
+      "position": [
+        3824,
+        4176
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "4f6372bc-5081-48b2-8f65-a721f9844eb0",
+      "name": "LI: Format Result",
+      "parameters": {
+        "jsCode": "\nconst upstream = $('LI: Post Video').first().json;\nreturn [{\n  json: {\n    upload_status: 'posted',\n    platform:      'linkedin',\n    account:       upstream.account,\n    source:        upstream.source,\n    source_id:     upstream.source_id,\n    post_id:       $input.first().json.id || 'n/a',\n    posted_at:     new Date().toISOString()\n  }\n}];\n"
+      },
+      "position": [
+        4128,
+        4176
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "d9e0db4a-7e89-48c7-97ab-0184a1c0c3a2",
+      "name": "Collect Upload Results",
+      "parameters": {},
+      "position": [
+        5024,
+        3872
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1
+    },
+    {
+      "id": "a8cd5d44-76f9-4e70-b315-eaf44267bcf0",
+      "name": "Source is ClickUp?",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.source }}",
+              "value2": "clickup"
+            }
+          ]
+        }
+      },
+      "position": [
+        5328,
+        3872
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "clickUpApi": {
+          "id": "hhu9tGDqvZPLy8iM",
+          "name": "ClickUp account"
+        }
+      },
+      "id": "c51727ba-827f-4484-a775-20a69cf76b2a",
+      "name": "ClickUp: Update Status",
+      "parameters": {
+        "id": "={{ $json.source_id }}",
+        "operation": "update",
+        "updateFields": {
+          "status": "Posted"
+        }
+      },
+      "position": [
+        5616,
+        3760
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "id": "f790c74d-380b-4bb5-b344-31cfce8e12e7",
+      "name": "Sheet: Write Status",
+      "parameters": {
+        "dataStartRow": 2,
+        "keyRow": 1,
+        "operation": "update",
+        "options": {
+          "valueInputMode": "RAW"
+        },
+        "range": "Sheet1",
+        "sheetId": "YOUR_SHEET_ID"
+      },
+      "position": [
+        5616,
+        4000
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 2,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "3befe5a4-f1be-472e-83df-e211c6d62d4f",
+      "name": "Filter DNS Errors",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "operation": "notContains",
+              "value1": "={{ $json.execution.error.message }}",
+              "value2": "DNS"
+            }
+          ]
+        }
+      },
+      "position": [
+        768,
+        4176
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "83b13f8b-a080-437c-9bb4-4998e68fc96d",
+      "name": "Format Error",
+      "parameters": {
+        "jsCode": "\nconst e = $input.first().json;\nconst runData = e.execution?.data?.resultData?.runData;\nconst normNode = runData?.['Normalise Input']?.[0]?.data?.main?.[0]?.[0]?.json;\nreturn [{\n  json: {\n    error_message: '❌ Upload failed | Workflow: ' + e.workflow.name + ' | Node: ' + e.execution.error.node.name + ' | ' + e.execution.error.message,\n    source_id:     normNode?.source_id || 'unknown',\n    source:        normNode?.source    || 'unknown'\n  }\n}];\n"
+      },
+      "position": [
+        1072,
+        4160
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "95665470-7abc-4028-bb5b-732818870768",
+      "name": "Error Source ClickUp?",
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.source }}",
+              "value2": "clickup"
+            }
+          ]
+        }
+      },
+      "position": [
+        1376,
+        4160
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1
+    },
+    {
+      "id": "975d3240-98c7-4f37-83f2-74d214f7e96d",
+      "name": "ClickUp: Mark Failed",
+      "parameters": {
+        "id": "={{ $json.source_id }}",
+        "operation": "update",
+        "updateFields": {
+          "status": "Upload Failed"
+        }
+      },
+      "position": [
+        1664,
+        4080
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "waitBetweenTries": 5000
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "id": "773a4561-e92a-4502-9b00-469fd1b3837f",
+      "name": "Sheet: Mark Failed",
+      "parameters": {
+        "dataStartRow": 2,
+        "keyRow": 1,
+        "operation": "update",
+        "options": {
+          "valueInputMode": "RAW"
+        },
+        "range": "Sheet1",
+        "sheetId": "YOUR_SHEET_ID"
+      },
+      "position": [
+        1664,
+        4240
+      ],
+      "retryOnFail": true,
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 2,
+      "waitBetweenTries": 5000
+    },
+    {
+      "id": "a3dd0126-cb74-4b59-8a88-b3d5c9962e0c",
+      "name": "Sticky Note7",
+      "parameters": {
+        "content": "## Setup Checklist\n\n**Step 1 — n8n Credentials (name them exactly like account names)**\n- Facebook Graph API  →  `arya instagram`\n- YouTube OAuth2      →  `arya youtube`\n- LinkedIn OAuth2     →  `arya linkedin`\n\n**Step 2 — Replace placeholder IDs in nodes**\n- YOUR_OPENAI_CRED_ID\n- YOUR_FB_CRED_ID\n- YOUR_YT_CRED_ID\n- YOUR_LI_CRED_ID\n- YOUR_CLICKUP_CRED_ID\n- YOUR_GSHEET_CRED_ID\n- YOUR_SHEET_ID\n\n**Step 3 — Instagram**\nReplace the `node` field value in IG nodes with your actual IG Business Account numeric ID.\n\n**Step 4 — Google Sheet columns needed**\nStatus | Posted At | Post ID | Platform | Account | Error\n\n**Step 5 — Parent workflow mock payload**\n```json\n{\n  \"source\": \"clickup\",\n  \"source_id\": \"task_abc123\",\n  \"accounts\": [\"arya instagram\", \"arya youtube\"],\n  \"reel_url\": \"https://drive.google.com/file/d/FILE_ID/view\",\n  \"cover_url\": \"https://drive.google.com/file/d/FILE_ID/view\",\n  \"caption\": \"\",\n  \"title\": \"My Video\"\n}\n```",
+        "height": 460,
+        "width": 680
+      },
+      "position": [
+        464,
+        4432
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "instagramApi": {
+          "id": "W4khjnVzMig7ISny",
+          "name": "Instagram account"
+        }
+      },
+      "id": "b83db933-21d5-4188-869b-e90a29c96955",
+      "name": "Publish1",
+      "parameters": {
+        "additionalFields": {},
+        "caption": "hii",
+        "node": "17841474119999455",
+        "resource": "reels",
+        "videoUrl": "https://res.cloudinary.com/di5t9fm4m/video/upload/v1771614455/Reels/WIN_20260129_18_34_39_Pro.mp4"
+      },
+      "position": [
+        6096,
+        4448
+      ],
+      "type": "@mookielianhd/n8n-nodes-instagram.instagram",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OxLRVQBZ6UBxNsn3",
+          "name": "Google Sheets account Arya"
+        }
+      },
+      "executeOnce": true,
+      "id": "acdecff0-68de-41b2-9e9b-77ce0a2787d2",
+      "name": "Fetch Account Registry",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Competitor_Viral_Hook_Research",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE"
+        },
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": " Account Registry Sheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r69CdNcSCPLjR7BU-9m3JT9RAK67xEPJOZUUc-cnDoE/edit#gid=812020385",
+          "mode": "list",
+          "value": 812020385
+        }
+      },
+      "position": [
+        3008,
+        3552
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    }
+  ],
+  "pinData": {
+    "Sub-Workflow Trigger": [
+      {
+        "json": {
+          "accounts": [
+            "autoupload_reels instagram",
+            "arya youtube",
+            "arya linkedin"
+          ],
+          "caption": "This is my pre-written caption for the reel! 🔥\n\n#reels #instagram #youtube #linkedin #viral",
+          "cover_url": "https://drive.google.com/file/d/1xKp9mNqRsTuVwXyZaBcDeFgHiJkLmNo/view?usp=sharing",
+          "reel_url": "https://drive.google.com/file/d/1gsVjjvCmLcYUl3BIZFwk6R0gUOVc_-DR/view?usp=sharing",
+          "source": "clickup",
+          "source_id": "task_abc123xyz",
+          "title": "My Awesome Reel - March 2026"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2026-03-15T07:12:04.751Z",
+      "projectId": "xgOOcboctxelndaF",
+      "role": "workflow:owner",
+      "updatedAt": "2026-03-15T07:12:04.751Z",
+      "workflowId": "aWlKSOQzwTtC5K3Z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-16T15:37:10.000Z",
+  "versionId": "1913f5b2-3b72-4501-84c6-86ad1f7f108d"
+}
