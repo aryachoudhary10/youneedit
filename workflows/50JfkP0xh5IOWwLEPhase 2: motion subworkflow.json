@@ -489,9 +489,9 @@
         ]
       }
     },
-    "createdAt": "2026-03-13T16:34:16.834Z",
+    "createdAt": "2026-03-18T14:12:39.257Z",
     "description": "",
-    "name": "Version 519c0941",
+    "name": "Version eed64143",
     "nodes": [
       {
         "credentials": {
@@ -555,8 +555,8 @@
                 "canBeUsedToMatch": true,
                 "defaultMatch": false,
                 "display": true,
-                "displayName": "Client(drive folder name)",
-                "id": "Client(drive folder name)",
+                "displayName": "Account to post",
+                "id": "Account to post",
                 "removed": true,
                 "required": false,
                 "type": "string"
@@ -565,8 +565,8 @@
                 "canBeUsedToMatch": true,
                 "defaultMatch": false,
                 "display": true,
-                "displayName": "Account to post",
-                "id": "Account to post",
+                "displayName": "Client(drive folder name)",
+                "id": "Client(drive folder name)",
                 "removed": true,
                 "required": false,
                 "type": "string"
@@ -695,6 +695,26 @@
                 "display": true,
                 "displayName": "Post Schedule Time",
                 "id": "Post Schedule Time",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Workflow execution link",
+                "id": "Workflow execution link",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Error Details",
+                "id": "Error Details",
                 "removed": true,
                 "required": false,
                 "type": "string"
@@ -1977,11 +1997,11 @@
         "typeVersion": 1.1
       }
     ],
-    "updatedAt": "2026-03-13T16:38:35.000Z",
-    "versionId": "519c0941-5a29-42c1-abf5-b1f933a99e94",
+    "updatedAt": "2026-03-18T14:12:42.000Z",
+    "versionId": "eed64143-5a56-4cd9-a2b7-c6eb59ce9b24",
     "workflowId": "50JfkP0xh5IOWwLE"
   },
-  "activeVersionId": "519c0941-5a29-42c1-abf5-b1f933a99e94",
+  "activeVersionId": "eed64143-5a56-4cd9-a2b7-c6eb59ce9b24",
   "connections": {
     "Call 'video render v1'": {
       "main": [
@@ -2536,8 +2556,8 @@
               "canBeUsedToMatch": true,
               "defaultMatch": false,
               "display": true,
-              "displayName": "Client(drive folder name)",
-              "id": "Client(drive folder name)",
+              "displayName": "Account to post",
+              "id": "Account to post",
               "removed": true,
               "required": false,
               "type": "string"
@@ -2546,8 +2566,8 @@
               "canBeUsedToMatch": true,
               "defaultMatch": false,
               "display": true,
-              "displayName": "Account to post",
-              "id": "Account to post",
+              "displayName": "Client(drive folder name)",
+              "id": "Client(drive folder name)",
               "removed": true,
               "required": false,
               "type": "string"
@@ -2676,6 +2696,26 @@
               "display": true,
               "displayName": "Post Schedule Time",
               "id": "Post Schedule Time",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Workflow execution link",
+              "id": "Workflow execution link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Error Details",
+              "id": "Error Details",
               "removed": true,
               "required": false,
               "type": "string"
@@ -4002,6 +4042,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-03-13T16:34:16.832Z",
-  "versionId": "519c0941-5a29-42c1-abf5-b1f933a99e94"
+  "updatedAt": "2026-03-18T14:12:39.256Z",
+  "versionId": "eed64143-5a56-4cd9-a2b7-c6eb59ce9b24"
 }
