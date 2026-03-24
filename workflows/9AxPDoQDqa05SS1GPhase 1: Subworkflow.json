@@ -89,6 +89,11 @@
           ]
         ]
       },
+      "Code in JavaScript1": {
+        "main": [
+          []
+        ]
+      },
       "Create Approved_images Folder": {
         "main": [
           [
@@ -168,6 +173,38 @@
             }
           ],
           []
+        ]
+      },
+      "Edit Fields": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "get image based on url1",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Edit Image": {
+        "main": [
+          []
+        ]
+      },
+      "Edit Image1": {
+        "main": [
+          []
+        ]
+      },
+      "Edit Image2": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "upload images for review",
+              "type": "main"
+            }
+          ]
         ]
       },
       "Generate Master Image": {
@@ -362,6 +399,18 @@
           ]
         ]
       },
+      "If3": {
+        "main": [
+          [],
+          [
+            {
+              "index": 0,
+              "node": "Merge",
+              "type": "main"
+            }
+          ]
+        ]
+      },
       "Loop Over Items": {
         "main": [
           [
@@ -374,7 +423,7 @@
           [
             {
               "index": 0,
-              "node": "Get Avatar Folder name and Id",
+              "node": "check if Avatar name is in input list",
               "type": "main"
             }
           ]
@@ -414,7 +463,7 @@
           [
             {
               "index": 0,
-              "node": "Generate Master Image",
+              "node": "Set the avatar names",
               "type": "main"
             }
           ]
@@ -501,6 +550,17 @@
           []
         ]
       },
+      "Set the avatar names": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Generate Master Image",
+              "type": "main"
+            }
+          ]
+        ]
+      },
       "Split for story shots": {
         "main": [
           [
@@ -566,6 +626,24 @@
             }
           ],
           []
+        ]
+      },
+      "check if Avatar name is in input list": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Get Avatar Folder name and Id",
+              "type": "main"
+            }
+          ],
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Items",
+              "type": "main"
+            }
+          ]
         ]
       },
       "check if directory exists": {
@@ -660,11 +738,22 @@
           [
             {
               "index": 0,
-              "node": "upload images for review",
+              "node": "Edit Image2",
               "type": "main"
             }
           ],
           []
+        ]
+      },
+      "get image based on url1": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Edit Image",
+              "type": "main"
+            }
+          ]
         ]
       },
       "if in progress?": {
@@ -743,9 +832,9 @@
         ]
       }
     },
-    "createdAt": "2026-03-14T15:37:37.572Z",
+    "createdAt": "2026-03-23T18:02:17.182Z",
     "description": "",
-    "name": "Version 1f7e358a",
+    "name": "Version a6189735",
     "nodes": [
       {
         "credentials": {
@@ -979,7 +1068,7 @@
           }
         },
         "position": [
-          2448,
+          2592,
           960
         ],
         "type": "n8n-nodes-base.googleSheets",
@@ -1021,7 +1110,7 @@
           "options": {}
         },
         "position": [
-          2176,
+          2384,
           960
         ],
         "type": "n8n-nodes-base.googleDrive",
@@ -1073,6 +1162,7 @@
           1936,
           960
         ],
+        "retryOnFail": true,
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.4
       },
@@ -1242,7 +1332,7 @@
               }
             ]
           },
-          "jsonBody": "={\n  \"prompt\": \"{{ $json.kling_prompt }}, keep clothing exaclty as in <image:0>, refer the background vibe from <image:0> but not exactly like it Maintain natural skin textures and keep the exact skin texture and micro-texture as in <image:1>. Make sure to have atleast one face in the image. \",\n  \"image_urls\":{{ $json.image_urls.toJsonString() }} ,\n  \"elements\": [{}],\n  \"resolution\": \"2K\",\n  \"result_type\": \"single\",\n  \"num_images\": 1,\n  \"aspect_ratio\": \"9:16\",\n  \"output_format\": \"png\"\n}\n",
+          "jsonBody": "={\n  \"prompt\": \"{{ $json.kling_prompt }}, keep clothing exaclty as in <image:0>, refer the background vibe from <image:0> ,use it for reference Maintain natural skin textures and keep the exact skin texture and micro-texture as in <image:1>. Make sure to have atleast one face in the image. \",\n  \"image_urls\":{{ $json.image_urls.toJsonString() }} ,\n  \"elements\": [{}],\n  \"resolution\": \"2K\",\n  \"result_type\": \"single\",\n  \"num_images\": 1,\n  \"aspect_ratio\": \"9:16\",\n  \"output_format\": \"png\"\n}\n",
           "method": "POST",
           "options": {},
           "sendBody": true,
@@ -2110,7 +2200,7 @@
           "resource": "fileFolder"
         },
         "position": [
-          -1824,
+          -2240,
           -192
         ],
         "type": "n8n-nodes-base.googleDrive",
@@ -2198,7 +2288,7 @@
           "returnAll": true
         },
         "position": [
-          -1584,
+          -2000,
           -208
         ],
         "type": "n8n-nodes-base.googleDrive",
@@ -2228,7 +2318,7 @@
           "returnAll": true
         },
         "position": [
-          -1392,
+          -1808,
           -208
         ],
         "type": "n8n-nodes-base.googleDrive",
@@ -2257,7 +2347,7 @@
           "returnAll": true
         },
         "position": [
-          -1200,
+          -1616,
           -208
         ],
         "type": "n8n-nodes-base.googleDrive",
@@ -2270,7 +2360,7 @@
           "options": {}
         },
         "position": [
-          -992,
+          -1264,
           -208
         ],
         "type": "n8n-nodes-base.splitInBatches",
@@ -2280,10 +2370,10 @@
         "id": "513c25dc-660e-424a-8b10-61c02e801210",
         "name": "Get All Avatar names and total",
         "parameters": {
-          "jsCode": "// Get all incoming items\nconst inputData = items.map(item => item.json);\n\n// Extract names\nconst allNames = inputData.map(avatar => avatar[\"Avatar Name\"]);\n\n// Extract the \"Front\" or \"Fallback\" URLs\nconst referenceUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  \n  // 1. Try to find the image that contains \"grid\" (case-insensitive)\n  const frontImage = images.find(img => \n    img[\"Image Name\"].toLowerCase().includes('grid')\n  );\n\n  // 2. If found, return its link. If not, take the first image link available.\n  if (frontImage) {\n    return frontImage[\"Download Link\"];\n  } else if (images.length > 0) {\n    return images[0][\"Download Link\"]; // Random/First fallback\n  }\n  \n  return null; // No images found at all\n});\n\n// NEW: Extract all URLs for each avatar as a list of lists\nconst elementUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  // Return an array of just the \"Download Link\" strings for this specific avatar\n  return images.map(img => img[\"Download Link\"]);\n});\n\n// Return a single object with the consolidated lists\nreturn [{\n  \"Avatar Names\": allNames,\n  \"Total Avatars\": allNames.length,\n  \"Reference URLs\": referenceUrls,\n  \"Element URLs\": elementUrls // The list of lists containing all links\n}];"
+          "jsCode": "// 1. Get all incoming items using the correct n8n syntax\nconst items = $input.all();\nconst inputData = items.map(item => item.json);\n\n// 2. Extract names\nconst allNames = inputData.map(avatar => avatar[\"Avatar Name\"]);\n\n// 3. Extract the \"Front\" or \"Fallback\" URLs\nconst referenceUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  \n  // Safety Check: Use ?.toLowerCase() to prevent crashing if Image Name is missing\n  const frontImage = images.find(img => \n    img[\"image name\"]?.toLowerCase().includes('grid')\n  );\n\n  if (frontImage) {\n    return frontImage[\"Download Link\"];\n  } else if (images.length > 0) {\n    return images[0][\"Download Link\"]; \n  }\n  \n  return null; \n});\n\n// 4. Extract all URLs for each avatar\nconst elementUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  return images.map(img => img[\"Download Link\"]);\n});\n\n// 5. Return a single object with the consolidated lists\nreturn [{\n  json: {\n    \"Avatar Names\": allNames,\n    \"Total Avatars\": allNames.length,\n    \"Reference URLs\": referenceUrls,\n    \"Element URLs\": elementUrls\n  }\n}];"
         },
         "position": [
-          -576,
+          -336,
           -400
         ],
         "type": "n8n-nodes-base.code",
@@ -2293,10 +2383,10 @@
         "id": "97d27aa3-3206-4061-9173-f4a2f91457b8",
         "name": "Group the Avtar & Image links",
         "parameters": {
-          "jsCode": "// 1. Get the raw string from your specific node\n// Replace '2. Extract Reel Data' with the exact name if different\nconst rawList = $node[\"2. Extract Reel Data\"].json[\"avtarList\"] || \"\";\n\n// 2. Clean the list: split by comma, trim whitespace, and remove empty values\nconst targetAvatars = rawList.split(',')\n  .map(name => name.trim())\n  .filter(name => name.length > 0);\n\n// 3. Get all the input items (the list of image rows you provided)\nconst allRows = items.map(item => item.json);\n\n// 4. Group data by Avatar Name\nconst grouped = {};\n\nallRows.forEach(row => {\n  const name = row[\"Avatar Name\"];\n  \n  // Only process if this name exists in our target list\n  if (targetAvatars.includes(name)) {\n    if (!grouped[name]) {\n      grouped[name] = {\n        \"Avatar Name\": name,\n        \"Avatar Id\": row[\"Avatar Id\"],\n        \"Images\": []\n      };\n    }\n    \n    // Construct the Google Drive download link\n    const downloadLink = `https://drive.google.com/uc?export=download&id=${row[\"Image Id\"]}`;\n    \n    grouped[name].Images.push({\n      \"Image Name\": row[\"Image name\"],\n      \"Download Link\": downloadLink\n    });\n  }\n});\n\n// 5. Convert the grouped object back into an array for n8n output\nreturn Object.values(grouped);"
+          "jsCode": "// 1. Initialize an empty object to hold our groups\nconst groupedData = {};\n\n// 2. Get all items entering the node\nconst allItems = $input.all();\n\n// 3. Process each item (row from your Google Sheet)\nallItems.forEach(item => {\n  const row = item.json;\n  const avatarName = row[\"Avatar Name\"];\n  const imageId = row[\"Image Id\"];\n\n  // Safety check: skip row if essential data is missing\n  if (!avatarName || !imageId) return;\n\n  // 4. DYNAMIC INITIALIZATION: \n  if (!groupedData[avatarName]) {\n    groupedData[avatarName] = {\n      \"Avatar Name\": avatarName,\n      \"Avatar Id\": row[\"Avatar Id\"] || \"N/A\",\n      \"Images\": []\n    };\n  }\n\n  // 5. FIX: Look for \"Image name\" (Capital N) OR \"image name\"\n  const fileName = row[\"Image name\"] || row[\"image name\"] || \"untitled\";\n\n  groupedData[avatarName].Images.push({\n    \"image name\": fileName, // Keeping the output key lowercase for your next node\n    \"Download Link\": `https://drive.google.com/uc?export=download&id=${imageId}`\n  });\n});\n\n// 6. Convert back to n8n array format\nreturn Object.values(groupedData).map(avatarGroup => {\n  return {\n    json: avatarGroup\n  };\n});"
         },
         "position": [
-          -848,
+          -816,
           -400
         ],
         "type": "n8n-nodes-base.code",
@@ -2319,19 +2409,16 @@
           "messages": {
             "values": [
               {
-                "content": "=Think like a director of the short video wwhere based on avtars and given concept\nyour job is to define prompt for \nMaster shot \nDetails of cloths for all avatars\nMultishot JSON which has 4-5 prompts for mulitple shots defining action, camera angle, action of the avatars\nRules\n1. Wherever avatar/person/male female name is to be mentioned- start and end with <<>>, example for  {{ $json['Avatar Names'][0] }} make it << {{ $json['Avatar Names'][0] }}>> \n2. No Turning shots\n3. No 360 Shots, no entering in frame shot.\n4. for every framePrompt do mention in the end 'Dont change the face of <<av_name>> keep it same.'\n5. add variations in camera angle and characters action as story proceeds.\n6. framePrompt's Camera angles can be - mid shot from eyeline, OTS shots(if 2 avatars), wide shots, long shot angle, low angle shots, closeups of emotions, variation as avatar(s) have moved to another place in the same scene.\n7. not 2 consecutive shot to have same camera angle to add interesting feels\n8. Make sure you dont mention same avatar such that double role is created. avoid issues of double role of avatar\n\nJson output only as:\n{\n\"MasterShot\":\"\",\n\"ClothingDetails\":\"\",\n\"LocationDetails:\"\",\n\"StoryShots\":[\n{\"framePrompt\":<detailed prompt for changed frame basis the master shot given the storyline, which utilises camera angles inspirations mentioned above>,\n\"cameraAndActionPrompt\":<detailed prompt for subtle camera angle and motion along with the actions of avatars, define subtle camera movements.>\n},\n{\"framePrompt\":\"\",\n\"cameraAndActionPrompt\":\"\"\n}\n... so on]\n\n}",
+                "content": "=Role: You are a Lifestyle Director and Continuity Supervisor. Your goal is to generate a seamless 4-5-shot narrative storyboard that forms a connected story sequence, all rendered with the natural, vibrant, high-fidelity realism.\n\nInput Context:\n\nAvatars: {{ $json['Avatar Names'] }}\n\nTotal Avatars: {{ $json['Total Avatars'] }} (if more than 1, all leads must be accounted for).\n\nConcept: {{ $json.Concept }}\n\n<image:0> (Master Shot Reference): This is for reference for background information, new camera positions needs to refer this.\n\nNarrative Thread: The sequence shots must form a meaningful story arc (e.g., waiting together for a bus). While the text for each prompt is standalone, the action described in each frame must logically follow the previous frame to advance the physical interaction as per story you have thought of.\n\nThe Continuity & Anchoring Strategy (MANDATORY):\n\nMaster Reference: EVERY framePrompt MUST end with the instruction: \"for this new camera position do refer for inpsiration on the layout, object positions, and lighting established in the master shot <image:0>, dont keep exactly same background bring variations understading the scene .\"\n\nSpatial Anchoring: Define the absolute position of key objects (e.g., the bench, props, shops, mulitple objects) relative to <image:0> . on change of the camera position make sure that background feel from the same scene of <image:0>. Anchor character positions based on these objects. (e.g., \"The bench/prop/shop/chair etc is on the left, as seen in <image:0>, and <<Avatar1>> is standing just to the right of it\"). Never swap their relative positions.also if they are holding something make sure to keep it exactly same in all the shots.\n\n\n\nThe Density Rules (MANDATORY):\n\nMasterShot (Minimum 100 words): Describe the \"vibe\" and environment, focusing on a bright, natural daylight phone look.\n\nAvatar Presence Rule: Describe the exact position and action of single or both avatar leads in every shot (except Extreme Close-ups). They must never \"disappear.\" No back shot or turn around shot.\n\nframePrompt (Phone Aesthetics): * Standalone: High-resolution mobile photography, natural skin tones, sharp focus. shot type has to mix of closeup, wide, lowangle, eyeline, midshot. No transitional narrative (no \"then\" or \"next\").\nShot Type: Should be mix of low angle, eyeline angle, closeup, OTS, mid, wide , and also define in words how the angle would be for the shot type and what details or background would be visible based on shot type.\nCamera position: play with mulitple camera positions such that all framePrompt doesnt feel like from fixed camera position, bring variation in position but props, objects should feel anchored as per master shot <image:0> . this variation in camera poistion is important to avoid monotonous storytelling. bring variation in background keeping the scene same.\nProps: dont change the props in hand and refer from the <image:0> for prop position, color and usage.\nPersistence: Restate clothing, location, and key objects, always referencing <image:0> for placement.\nmake sure of to mention Spatial Anchoring as defined above. for framePrompt.\nframePrompt model for image generation will be nanobana2 so you can optimise prompt as per that model.\n\ncameraAndActionPrompt: Handheld or gimbal motion forward, arc, tilt etc.. Actions for BOTH avatars must be realistic (checking phone, laughing, fixing hair) AND should follow the story. Define micro-actions that share a consistent spatial context.\n\nDirectorial Constraints:\n\nAvatar Tags: ALWAYS wrap in << >>.\n\nFace Consistency: End every framePrompt with: \"Dont change the face of <<av_name>> keep it same.\"\n\nBanned: No 360-degree spins, no entering-frame shots, no artificial studio haze.\nJSON output:\n{\n  \"MasterShot\": \"A 100-word summary of the setting. Establish the 'Narrative Thread' (e.g., 'A couple waiting at a bright urban bus stop'). Define the clear, natural daylight and iPhone-style HDR vibrancy.\",\n  \"ClothingDetails\": \"Full technical description of clothing for ALL avatars to ensure zero mid-story color changes.\",\n  \"LocationDetails\": \"Deep dive into the 3D environment (sidewalk textures, glass panels, distant traffic).\",\n  \"StoryShots\": [\n    {\n      \"framePrompt\": \"A high-density standalone image prompt.[Shot Type]  + [Both Avatars' Exact Poses] + [Current Narrative Action] + [Clothing Check] + [Background]. End with: Dont change the face of <<AvatarName>> keep it same.\",\n      \"cameraAndActionPrompt\": \"1. Camera: [Natural handheld motion, left, right, move in or out, arc etc can be done]. 2. Avatar Motion: [Describe how BOTH avatars move to advance the story: e.g., <<Avatar1>> checks her watch while <<Avatar2>> looks down the street for the bus].\"\n    }\n  ]\n}",
                 "role": "model"
-              },
-              {
-                "content": "=Here is the list of avatars names: {{ $json['Avatar Names'] }} total number of avatars to use in concept is {{ $json['Total Avatars'] }}, make sure that you have understood the names of avatars well, which is  {{ $json['Avatar Names'] }} hence use exactly these in <<>>\n\nhighllevel concept: {{ $json.Concept }}"
               }
             ]
           },
           "modelId": {
             "__rl": true,
-            "cachedResultName": "models/gemini-3-flash-preview",
+            "cachedResultName": "models/gemini-3-pro-preview",
             "mode": "list",
-            "value": "models/gemini-3-flash-preview"
+            "value": "models/gemini-3-pro-preview"
           },
           "options": {}
         },
@@ -2347,7 +2434,7 @@
         "id": "56876efa-c4d7-441f-82dd-4eede7010ac6",
         "name": "Parse Gemini Output",
         "parameters": {
-          "jsCode": "// Get the items from the previous node\nconst input = items[0].json;\n\n// 1. Navigate to the deeply nested 'text' property\nconst rawString = input.content.parts[0].text;\n\n// 2. Parse the string into a real JSON object\nconst parsedData = JSON.parse(rawString);\n\n// 3. Return the parsed object as the new output\nreturn [\n  {\n    json: parsedData\n  }\n];"
+          "jsCode": "// // Get the items from the previous node\n// const input = items[0].json;\n\n// // 1. Navigate to the deeply nested 'text' property\n// const rawString = input.content.parts[0].text;\n\n// // 2. Parse the string into a real JSON object\n// const parsedData = JSON.parse(rawString);\n\n// // 3. Return the parsed object as the new output\n// return [\n//   {\n//     json: parsedData\n//   }\n// ];\n\nconst rawString = items[0].json.content.parts[0].text;\n\nconst cleaned = rawString.trim();\n\nconst parsedData = JSON.parse(cleaned);\n\n//  Handle both object and array\nif (Array.isArray(parsedData)) {\n  return parsedData.map(item => ({\n    json: item\n  }));\n} else {\n  return [\n    {\n      json: parsedData\n    }\n  ];\n}"
         },
         "position": [
           816,
@@ -2892,13 +2979,228 @@
         ],
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "typeVersion": 1.1
+      },
+      {
+        "id": "7e303693-a6b1-4984-ba29-a4dbe402a4f6",
+        "name": "Set the avatar names",
+        "parameters": {
+          "jsCode": "// 1. CONFIGURATION: Priority list (Female first to avoid \"male\" in \"female\" issues)\nconst MAPPING_RULES = {\n  female: [\"avatar1_female\", \"avatar2_female\", \"female\", \"woman\", \"girl\", \"lady\"],\n  male: [\"avatar1_male\", \"avatar2_male\", \"male\", \"man\", \"boy\", \"guy\"]\n};\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const data = item.json;\n  const validNames = data[\"Avatar Names\"] || [];\n  \n  // Get the correct IDs from the input list\n  const correctMale = validNames.find(n => n.toLowerCase().includes('male')) || \"Avatar_Male\";\n  const correctFemale = validNames.find(n => n.toLowerCase().includes('female')) || \"Avatar_Female\";\n\n  const rectifyText = (text) => {\n    if (typeof text !== 'string') return text;\n\n    let processed = text;\n\n    // STEP A: Fix existing <<tags>> first\n    processed = processed.replace(/<<([^>>]+)>>/g, (match, p1) => {\n      const lower = p1.toLowerCase().trim();\n      if (MAPPING_RULES.female.some(f => lower.includes(f))) return `<<${correctFemale}>>`;\n      if (MAPPING_RULES.male.some(m => lower.includes(m))) return `<<${correctMale}>>`;\n      return match;\n    });\n\n    // STEP B: Replace \"naked\" words and wrap them in << >>\n    // We use \\b to ensure we only match whole words (stops \"human\" becoming \"hu<<Avatar_Male>>\")\n    \n    // Check Female words first\n    MAPPING_RULES.female.forEach(word => {\n      const regex = new RegExp(`\\\\b${word}\\\\b`, 'gi');\n      processed = processed.replace(regex, `<<${correctFemale}>>`);\n    });\n\n    // Check Male words second\n    MAPPING_RULES.male.forEach(word => {\n      const regex = new RegExp(`\\\\b${word}\\\\b`, 'gi');\n      processed = processed.replace(regex, `<<${correctMale}>>`);\n    });\n\n    // STEP C: Clean up any accidental double-nesting (e.g., << <<Avatar>> >>)\n    return processed.replace(/<<\\s*<<([^>>]+)>>\\s*>>/g, '<<$1>>');\n  };\n\n  // 2. APPLY TO ALL FIELDS\n  data.MasterShot = rectifyText(data.MasterShot);\n  data.ClothingDetails = rectifyText(data.ClothingDetails);\n  data.LocationDetails = rectifyText(data.LocationDetails);\n\n  if (Array.isArray(data.StoryShots)) {\n    data.StoryShots = data.StoryShots.map(shot => ({\n      ...shot,\n      framePrompt: rectifyText(shot.framePrompt),\n      cameraAndActionPrompt: rectifyText(shot.cameraAndActionPrompt)\n    }));\n  }\n\n  return { json: data };\n});"
+        },
+        "position": [
+          1520,
+          -112
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "76d643d0-f539-4503-8761-16872482609b",
+        "name": "Code in JavaScript1",
+        "parameters": {
+          "jsCode": "const sharp = require(\"sharp\");\n\nconst MAX_SIZE = 10 * 1024 * 1024; // 10MB\nconst TARGET_SIZE = 9 * 1024 * 1024;\n\nconst item = $input.item;\nconst binaryProperty = Object.keys(item.binary)[0];\nconst binary = item.binary[binaryProperty];\n\nlet buffer = Buffer.from(binary.data, \"base64\");\n\n// If already under limit → return unchanged\nif (buffer.length <= MAX_SIZE) {\n  return [item];\n}\n\nlet quality = 90;\n\nwhile (buffer.length > TARGET_SIZE && quality > 30) {\n  buffer = await sharp(buffer)\n    .jpeg({ quality })\n    .toBuffer();\n\n  quality -= 10;\n}\n\n// keep original file name\nconst originalName = binary.fileName || \"image.jpg\";\n\nitem.binary[binaryProperty] = {\n  ...binary,\n  data: buffer.toString(\"base64\"),\n  mimeType: \"image/jpeg\",\n  fileName: originalName\n};\n\nreturn [item];",
+          "mode": "runOnceForEachItem"
+        },
+        "position": [
+          2608,
+          2144
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "4131c303-098b-45d6-946c-e7c61c5e19cd",
+        "name": "get image based on url1",
+        "parameters": {
+          "options": {},
+          "url": "={{ $json.url }}"
+        },
+        "position": [
+          2320,
+          1408
+        ],
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4
+      },
+      {
+        "id": "c480dd50-306c-460f-9d43-ae10834fad78",
+        "name": "Edit Fields",
+        "parameters": {
+          "options": {}
+        },
+        "position": [
+          2128,
+          1408
+        ],
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4
+      },
+      {
+        "id": "6a2da808-78ea-4937-8902-9ab8e8c3a575",
+        "name": "Edit Image",
+        "parameters": {
+          "height": 10000,
+          "operation": "resize",
+          "options": {
+            "format": "png",
+            "quality": 80
+          },
+          "resizeOption": "onlyIfLarger",
+          "width": 10000
+        },
+        "position": [
+          2784,
+          1216
+        ],
+        "type": "n8n-nodes-base.editImage",
+        "typeVersion": 1
+      },
+      {
+        "id": "3c8a9454-2e12-4d73-907d-05fc1a2abe4f",
+        "name": "If3",
+        "parameters": {
+          "conditions": {
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "f7ce647f-baab-4a95-ac5e-654cafc73d04",
+                "leftValue": "={{ Number($binary.data.fileSize.replace(' MB','')) >= 10 }}",
+                "operator": {
+                  "operation": "true",
+                  "singleValue": true,
+                  "type": "boolean"
+                },
+                "rightValue": "=true"
+              }
+            ],
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            }
+          },
+          "options": {}
+        },
+        "position": [
+          2544,
+          1392
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3
+      },
+      {
+        "id": "f23f180c-e0f5-4059-a137-f8a24808930e",
+        "name": "Edit Image1",
+        "parameters": {
+          "operation": "information"
+        },
+        "position": [
+          2496,
+          1552
+        ],
+        "type": "n8n-nodes-base.editImage",
+        "typeVersion": 1
+      },
+      {
+        "id": "57c466a4-d65d-4aec-97b1-1edcc369c5c9",
+        "name": "Merge",
+        "parameters": {},
+        "position": [
+          3072,
+          1600
+        ],
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2
+      },
+      {
+        "id": "9a1f1963-ab92-47bc-a651-1f44cb495f21",
+        "name": "Edit Image2",
+        "parameters": {
+          "height": 10000,
+          "operation": "resize",
+          "options": {
+            "format": "png",
+            "quality": 80
+          },
+          "resizeOption": "onlyIfLarger",
+          "width": 10000
+        },
+        "position": [
+          2160,
+          960
+        ],
+        "type": "n8n-nodes-base.editImage",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "V3dLSPaQzHr78Y7i",
+            "name": "Google Drive account"
+          }
+        },
+        "id": "dc128dfe-a209-4ced-aa34-7fe2fb376933",
+        "name": "upload images for review1",
+        "parameters": {
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "=11gaBwjTVGjPAGfW636GRepF_6JxW1ibN"
+          },
+          "name": "=reel_126_shotno_{{ $position + 1 }}",
+          "options": {}
+        },
+        "position": [
+          3056,
+          1296
+        ],
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3
+      },
+      {
+        "id": "f1e9fcdd-7cb3-4b26-87ea-8d50955965d8",
+        "name": "check if Avatar name is in input list",
+        "parameters": {
+          "conditions": {
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "bfe7c668-7a42-486d-9226-b5882c0d7fc3",
+                "leftValue": "={{ $('2. Extract Reel Data').item.json.avtarList }}",
+                "operator": {
+                  "operation": "contains",
+                  "type": "string"
+                },
+                "rightValue": "={{ $json.name }}"
+              }
+            ],
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            }
+          },
+          "options": {}
+        },
+        "position": [
+          -1056,
+          -176
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3
       }
     ],
-    "updatedAt": "2026-03-14T15:40:43.000Z",
-    "versionId": "1f7e358a-273c-4e33-bf07-0af050c3a1af",
+    "updatedAt": "2026-03-23T18:02:21.000Z",
+    "versionId": "a6189735-a18f-494f-8393-d804a1eb7ef2",
     "workflowId": "9AxPDoQDqa05SS1G"
   },
-  "activeVersionId": "1f7e358a-273c-4e33-bf07-0af050c3a1af",
+  "activeVersionId": "a6189735-a18f-494f-8393-d804a1eb7ef2",
   "connections": {
     "2. Extract Reel Data": {
       "main": [
@@ -2985,6 +3287,11 @@
         ]
       ]
     },
+    "Code in JavaScript1": {
+      "main": [
+        []
+      ]
+    },
     "Create Approved_images Folder": {
       "main": [
         [
@@ -3064,6 +3371,38 @@
           }
         ],
         []
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "get image based on url1",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Edit Image": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Image1": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Image2": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "upload images for review",
+            "type": "main"
+          }
+        ]
       ]
     },
     "Generate Master Image": {
@@ -3258,6 +3597,18 @@
         ]
       ]
     },
+    "If3": {
+      "main": [
+        [],
+        [
+          {
+            "index": 0,
+            "node": "Merge",
+            "type": "main"
+          }
+        ]
+      ]
+    },
     "Loop Over Items": {
       "main": [
         [
@@ -3270,7 +3621,7 @@
         [
           {
             "index": 0,
-            "node": "Get Avatar Folder name and Id",
+            "node": "check if Avatar name is in input list",
             "type": "main"
           }
         ]
@@ -3310,7 +3661,7 @@
         [
           {
             "index": 0,
-            "node": "Generate Master Image",
+            "node": "Set the avatar names",
             "type": "main"
           }
         ]
@@ -3397,6 +3748,17 @@
         []
       ]
     },
+    "Set the avatar names": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Generate Master Image",
+            "type": "main"
+          }
+        ]
+      ]
+    },
     "Split for story shots": {
       "main": [
         [
@@ -3462,6 +3824,24 @@
           }
         ],
         []
+      ]
+    },
+    "check if Avatar name is in input list": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Get Avatar Folder name and Id",
+            "type": "main"
+          }
+        ],
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Items",
+            "type": "main"
+          }
+        ]
       ]
     },
     "check if directory exists": {
@@ -3556,11 +3936,22 @@
         [
           {
             "index": 0,
-            "node": "upload images for review",
+            "node": "Edit Image2",
             "type": "main"
           }
         ],
         []
+      ]
+    },
+    "get image based on url1": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Edit Image",
+            "type": "main"
+          }
+        ]
       ]
     },
     "if in progress?": {
@@ -3879,7 +4270,7 @@
         }
       },
       "position": [
-        2448,
+        2592,
         960
       ],
       "type": "n8n-nodes-base.googleSheets",
@@ -3921,7 +4312,7 @@
         "options": {}
       },
       "position": [
-        2176,
+        2384,
         960
       ],
       "type": "n8n-nodes-base.googleDrive",
@@ -3973,6 +4364,7 @@
         1936,
         960
       ],
+      "retryOnFail": true,
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4
     },
@@ -4142,7 +4534,7 @@
             }
           ]
         },
-        "jsonBody": "={\n  \"prompt\": \"{{ $json.kling_prompt }}, keep clothing exaclty as in <image:0>, refer the background vibe from <image:0> but not exactly like it Maintain natural skin textures and keep the exact skin texture and micro-texture as in <image:1>. Make sure to have atleast one face in the image. \",\n  \"image_urls\":{{ $json.image_urls.toJsonString() }} ,\n  \"elements\": [{}],\n  \"resolution\": \"2K\",\n  \"result_type\": \"single\",\n  \"num_images\": 1,\n  \"aspect_ratio\": \"9:16\",\n  \"output_format\": \"png\"\n}\n",
+        "jsonBody": "={\n  \"prompt\": \"{{ $json.kling_prompt }}, keep clothing exaclty as in <image:0>, refer the background vibe from <image:0> ,use it for reference Maintain natural skin textures and keep the exact skin texture and micro-texture as in <image:1>. Make sure to have atleast one face in the image. \",\n  \"image_urls\":{{ $json.image_urls.toJsonString() }} ,\n  \"elements\": [{}],\n  \"resolution\": \"2K\",\n  \"result_type\": \"single\",\n  \"num_images\": 1,\n  \"aspect_ratio\": \"9:16\",\n  \"output_format\": \"png\"\n}\n",
         "method": "POST",
         "options": {},
         "sendBody": true,
@@ -4161,7 +4553,7 @@
       "id": "532f6d80-cb30-4171-ad18-60262799017e",
       "name": "create generate model prompts",
       "parameters": {
-        "jsCode": "// Get avatar data\nconst data = $items(\"Merge for concept and Avatar Data\", 0, 0)[0].json;\n\nconst avatarNames = data[\"Avatar Names\"];\nconst urls = data[\"Reference URLs\"];\n\n// Get master shot URL safely\nconst masterShotUrl = $items(\"Upload file\", 0, 0)[0].json.webContentLink;\n\n// Build mapping\nconst mapping = {};\nconst image_urls = [];\n\n// Add master shot at index 0\nimage_urls.push(masterShotUrl);\n\n// Avatar images start from index 1\navatarNames.forEach((name, index) => {\n  const imageIndex = index + 1;\n  mapping[name] = `<image:${imageIndex}>`;\n  image_urls.push(urls[index]);\n});\n\n// Get fields\nconst storyShot = $json.StoryShots.framePrompt || \"\";\nconst clothing = $json.ClothingDetails || \"\";\n\n// Combine prompt\nlet combinedPrompt = `${storyShot} , ${clothing} `;\n\n// Replace placeholders\navatarNames.forEach((name, index) => {\n  const imageIndex = index + 1;\n  const placeholder1 = `<<${name}>>`;\n  const placeholder2 = `<<${name.replace(/[0-9]/g,\"\")}>>`;\n\n  combinedPrompt = combinedPrompt.replaceAll(placeholder1, `<image:${imageIndex}>`);\n  combinedPrompt = combinedPrompt.replaceAll(placeholder2, `<image:${imageIndex}>`);\n});\n\n// Determine the shot number based on the item's position in the loop\n// We add 1 so the first row starts at 1 instead of 0\nconst shot_num = $itemIndex + 1;\n\nreturn {\n  json: {\n    ...$json,\n    shot_num, // Added the new key here\n    shot_prompt: storyShot,\n    kling_prompt: combinedPrompt,\n    image_urls,\n    mapping\n  }\n};",
+        "jsCode": "// Get avatar data\nconst data = $items(\"Merge for concept and Avatar Data\", 0, 0)[0].json;\n\nconst avatarNames = data[\"Avatar Names\"];\nconst urls = data[\"Reference URLs\"];\n\n// Get master shot URL safely\nconst masterShotUrl = $items(\"Upload file\", 0, 0)[0].json.webContentLink;\n\n// Build mapping\nconst mapping = {};\nconst image_urls = [];\n\n// Add master shot at index 0\nimage_urls.push(masterShotUrl);\n\n// Avatar images start from index 1\navatarNames.forEach((name, index) => {\n  const imageIndex = index + 1;\n  mapping[name] = `<image:${imageIndex}>`;\n  image_urls.push(urls[index]);\n});\n\n// Get fields\nconst storyShot = $json.StoryShots.framePrompt || \"\";\nconst clothing = $json.ClothingDetails || \"\";\n\n// Combine prompt\nlet combinedPrompt = `${storyShot}`;\n\n// Replace placeholders\navatarNames.forEach((name, index) => {\n  const imageIndex = index + 1;\n  const placeholder1 = `<<${name}>>`;\n  const placeholder2 = `<<${name.replace(/[0-9]/g,\"\")}>>`;\n\n  combinedPrompt = combinedPrompt.replaceAll(placeholder1, `<image:${imageIndex}>`);\n  combinedPrompt = combinedPrompt.replaceAll(placeholder2, `<image:${imageIndex}>`);\n});\n\n// Determine the shot number based on the item's position in the loop\n// We add 1 so the first row starts at 1 instead of 0\nconst shot_num = $itemIndex + 1;\n\nreturn {\n  json: {\n    ...$json,\n    shot_num, // Added the new key here\n    shot_prompt: storyShot,\n    kling_prompt: combinedPrompt,\n    image_urls,\n    mapping\n  }\n};",
         "mode": "runOnceForEachItem"
       },
       "position": [
@@ -5010,7 +5402,7 @@
         "resource": "fileFolder"
       },
       "position": [
-        -1824,
+        -2240,
         -192
       ],
       "type": "n8n-nodes-base.googleDrive",
@@ -5098,7 +5490,7 @@
         "returnAll": true
       },
       "position": [
-        -1584,
+        -2000,
         -208
       ],
       "type": "n8n-nodes-base.googleDrive",
@@ -5128,7 +5520,7 @@
         "returnAll": true
       },
       "position": [
-        -1392,
+        -1808,
         -208
       ],
       "type": "n8n-nodes-base.googleDrive",
@@ -5157,7 +5549,7 @@
         "returnAll": true
       },
       "position": [
-        -1200,
+        -1616,
         -208
       ],
       "type": "n8n-nodes-base.googleDrive",
@@ -5170,7 +5562,7 @@
         "options": {}
       },
       "position": [
-        -992,
+        -1264,
         -208
       ],
       "type": "n8n-nodes-base.splitInBatches",
@@ -5180,10 +5572,10 @@
       "id": "513c25dc-660e-424a-8b10-61c02e801210",
       "name": "Get All Avatar names and total",
       "parameters": {
-        "jsCode": "// Get all incoming items\nconst inputData = items.map(item => item.json);\n\n// Extract names\nconst allNames = inputData.map(avatar => avatar[\"Avatar Name\"]);\n\n// Extract the \"Front\" or \"Fallback\" URLs\nconst referenceUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  \n  // 1. Try to find the image that contains \"grid\" (case-insensitive)\n  const frontImage = images.find(img => \n    img[\"Image Name\"].toLowerCase().includes('grid')\n  );\n\n  // 2. If found, return its link. If not, take the first image link available.\n  if (frontImage) {\n    return frontImage[\"Download Link\"];\n  } else if (images.length > 0) {\n    return images[0][\"Download Link\"]; // Random/First fallback\n  }\n  \n  return null; // No images found at all\n});\n\n// NEW: Extract all URLs for each avatar as a list of lists\nconst elementUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  // Return an array of just the \"Download Link\" strings for this specific avatar\n  return images.map(img => img[\"Download Link\"]);\n});\n\n// Return a single object with the consolidated lists\nreturn [{\n  \"Avatar Names\": allNames,\n  \"Total Avatars\": allNames.length,\n  \"Reference URLs\": referenceUrls,\n  \"Element URLs\": elementUrls // The list of lists containing all links\n}];"
+        "jsCode": "// 1. Get all incoming items using the correct n8n syntax\nconst items = $input.all();\nconst inputData = items.map(item => item.json);\n\n// 2. Extract names\nconst allNames = inputData.map(avatar => avatar[\"Avatar Name\"]);\n\n// 3. Extract the \"Front\" or \"Fallback\" URLs\nconst referenceUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  \n  // Safety Check: Use ?.toLowerCase() to prevent crashing if Image Name is missing\n  const frontImage = images.find(img => \n    img[\"image name\"]?.toLowerCase().includes('grid')\n  );\n\n  if (frontImage) {\n    return frontImage[\"Download Link\"];\n  } else if (images.length > 0) {\n    return images[0][\"Download Link\"]; \n  }\n  \n  return null; \n});\n\n// 4. Extract all URLs for each avatar\nconst elementUrls = inputData.map(avatar => {\n  const images = avatar[\"Images\"] || [];\n  return images.map(img => img[\"Download Link\"]);\n});\n\n// 5. Return a single object with the consolidated lists\nreturn [{\n  json: {\n    \"Avatar Names\": allNames,\n    \"Total Avatars\": allNames.length,\n    \"Reference URLs\": referenceUrls,\n    \"Element URLs\": elementUrls\n  }\n}];"
       },
       "position": [
-        -576,
+        -336,
         -400
       ],
       "type": "n8n-nodes-base.code",
@@ -5193,10 +5585,10 @@
       "id": "97d27aa3-3206-4061-9173-f4a2f91457b8",
       "name": "Group the Avtar & Image links",
       "parameters": {
-        "jsCode": "// 1. Get the raw string from your specific node\n// Replace '2. Extract Reel Data' with the exact name if different\nconst rawList = $node[\"2. Extract Reel Data\"].json[\"avtarList\"] || \"\";\n\n// 2. Clean the list: split by comma, trim whitespace, and remove empty values\nconst targetAvatars = rawList.split(',')\n  .map(name => name.trim())\n  .filter(name => name.length > 0);\n\n// 3. Get all the input items (the list of image rows you provided)\nconst allRows = items.map(item => item.json);\n\n// 4. Group data by Avatar Name\nconst grouped = {};\n\nallRows.forEach(row => {\n  const name = row[\"Avatar Name\"];\n  \n  // Only process if this name exists in our target list\n  if (targetAvatars.includes(name)) {\n    if (!grouped[name]) {\n      grouped[name] = {\n        \"Avatar Name\": name,\n        \"Avatar Id\": row[\"Avatar Id\"],\n        \"Images\": []\n      };\n    }\n    \n    // Construct the Google Drive download link\n    const downloadLink = `https://drive.google.com/uc?export=download&id=${row[\"Image Id\"]}`;\n    \n    grouped[name].Images.push({\n      \"Image Name\": row[\"Image name\"],\n      \"Download Link\": downloadLink\n    });\n  }\n});\n\n// 5. Convert the grouped object back into an array for n8n output\nreturn Object.values(grouped);"
+        "jsCode": "// 1. Initialize an empty object to hold our groups\nconst groupedData = {};\n\n// 2. Get all items entering the node\nconst allItems = $input.all();\n\n// 3. Process each item (row from your Google Sheet)\nallItems.forEach(item => {\n  const row = item.json;\n  const avatarName = row[\"Avatar Name\"];\n  const imageId = row[\"Image Id\"];\n\n  // Safety check: skip row if essential data is missing\n  if (!avatarName || !imageId) return;\n\n  // 4. DYNAMIC INITIALIZATION: \n  if (!groupedData[avatarName]) {\n    groupedData[avatarName] = {\n      \"Avatar Name\": avatarName,\n      \"Avatar Id\": row[\"Avatar Id\"] || \"N/A\",\n      \"Images\": []\n    };\n  }\n\n  // 5. FIX: Look for \"Image name\" (Capital N) OR \"image name\"\n  const fileName = row[\"Image name\"] || row[\"image name\"] || \"untitled\";\n\n  groupedData[avatarName].Images.push({\n    \"image name\": fileName, // Keeping the output key lowercase for your next node\n    \"Download Link\": `https://drive.google.com/uc?export=download&id=${imageId}`\n  });\n});\n\n// 6. Convert back to n8n array format\nreturn Object.values(groupedData).map(avatarGroup => {\n  return {\n    json: avatarGroup\n  };\n});"
       },
       "position": [
-        -848,
+        -816,
         -400
       ],
       "type": "n8n-nodes-base.code",
@@ -5219,19 +5611,16 @@
         "messages": {
           "values": [
             {
-              "content": "=Think like a director of the short video wwhere based on avtars and given concept\nyour job is to define prompt for \nMaster shot \nDetails of cloths for all avatars\nMultishot JSON which has 4-5 prompts for mulitple shots defining action, camera angle, action of the avatars\nRules\n1. Wherever avatar/person/male female name is to be mentioned- start and end with <<>>, example for  {{ $json['Avatar Names'][0] }} make it << {{ $json['Avatar Names'][0] }}>> \n2. No Turning shots\n3. No 360 Shots, no entering in frame shot.\n4. for every framePrompt do mention in the end 'Dont change the face of <<av_name>> keep it same.'\n5. add variations in camera angle and characters action as story proceeds.\n6. framePrompt's Camera angles can be - mid shot from eyeline, OTS shots(if 2 avatars), wide shots, long shot angle, low angle shots, closeups of emotions, variation as avatar(s) have moved to another place in the same scene.\n7. not 2 consecutive shot to have same camera angle to add interesting feels\n8. Make sure you dont mention same avatar such that double role is created. avoid issues of double role of avatar\n\nJson output only as:\n{\n\"MasterShot\":\"\",\n\"ClothingDetails\":\"\",\n\"LocationDetails:\"\",\n\"StoryShots\":[\n{\"framePrompt\":<detailed prompt for changed frame basis the master shot given the storyline, which utilises camera angles inspirations mentioned above>,\n\"cameraAndActionPrompt\":<detailed prompt for subtle camera angle and motion along with the actions of avatars, define subtle camera movements.>\n},\n{\"framePrompt\":\"\",\n\"cameraAndActionPrompt\":\"\"\n}\n... so on]\n\n}",
+              "content": "=Role: You are a Lifestyle Director and Continuity Supervisor. Your goal is to generate a seamless 4-5-shot narrative storyboard that forms a connected story sequence, all rendered with the natural, vibrant, high-fidelity realism.\n\nInput Context:\n\nAvatars: {{ $json['Avatar Names'] }}\n\nTotal Avatars: {{ $json['Total Avatars'] }} (if more than 1, all leads must be accounted for).\n\nConcept: {{ $json.Concept }}\n\n<image:0> (Master Shot Reference): This is for reference for background information, new camera positions needs to refer this.\n\nNarrative Thread: The sequence shots must form a meaningful story arc (e.g., waiting together for a bus). While the text for each prompt is standalone, the action described in each frame must logically follow the previous frame to advance the physical interaction as per story you have thought of.\n\nThe Continuity & Anchoring Strategy (MANDATORY):\n\nMaster Reference: EVERY framePrompt MUST end with the instruction: \"for this new camera position do refer for inpsiration on the layout, object positions, and lighting established in the master shot <image:0>, dont keep exactly same background bring variations understading the scene .\"\n\nSpatial Anchoring: Define the absolute position of key objects (e.g., the bench, props, shops, mulitple objects) relative to <image:0> . on change of the camera position make sure that background feel from the same scene of <image:0>. Anchor character positions based on these objects. (e.g., \"The bench/prop/shop/chair etc is on the left, as seen in <image:0>, and <<Avatar1>> is standing just to the right of it\"). Never swap their relative positions.also if they are holding something make sure to keep it exactly same in all the shots.\n\n\n\nThe Density Rules (MANDATORY):\n\nMasterShot (Minimum 100 words): Describe the \"vibe\" and environment, focusing on a bright, natural daylight phone look.\n\nAvatar Presence Rule: Describe the exact position and action of single or both avatar leads in every shot (except Extreme Close-ups). They must never \"disappear.\" No back shot or turn around shot.\n\nframePrompt (Phone Aesthetics): * Standalone: High-resolution mobile photography, natural skin tones, sharp focus. shot type has to mix of closeup, wide, lowangle, eyeline, midshot. No transitional narrative (no \"then\" or \"next\").\nShot Type: Should be mix of low angle, eyeline angle, closeup, OTS, mid, wide , and also define in words how the angle would be for the shot type and what details or background would be visible based on shot type.\nCamera position: play with mulitple camera positions such that all framePrompt doesnt feel like from fixed camera position, bring variation in position but props, objects should feel anchored as per master shot <image:0> . this variation in camera poistion is important to avoid monotonous storytelling. bring variation in background keeping the scene same.\nProps: dont change the props in hand and refer from the <image:0> for prop position, color and usage.\nPersistence: Restate clothing, location, and key objects, always referencing <image:0> for placement.\nmake sure of to mention Spatial Anchoring as defined above. for framePrompt.\nframePrompt model for image generation will be nanobana2 so you can optimise prompt as per that model.\n\ncameraAndActionPrompt: Handheld or gimbal motion forward, arc, tilt etc.. Actions for BOTH avatars must be realistic (checking phone, laughing, fixing hair) AND should follow the story. Define micro-actions that share a consistent spatial context.\n\nDirectorial Constraints:\n\nAvatar Tags: ALWAYS wrap in << >>.\n\nFace Consistency: End every framePrompt with: \"Dont change the face of <<av_name>> keep it same.\"\n\nBanned: No 360-degree spins, no entering-frame shots, no artificial studio haze.\nJSON output:\n{\n  \"MasterShot\": \"A 100-word summary of the setting. Establish the 'Narrative Thread' (e.g., 'A couple waiting at a bright urban bus stop'). Define the clear, natural daylight and iPhone-style HDR vibrancy.\",\n  \"ClothingDetails\": \"Full technical description of clothing for ALL avatars to ensure zero mid-story color changes.\",\n  \"LocationDetails\": \"Deep dive into the 3D environment (sidewalk textures, glass panels, distant traffic).\",\n  \"StoryShots\": [\n    {\n      \"framePrompt\": \"A high-density standalone image prompt.[Shot Type]  + [Both Avatars' Exact Poses] + [Current Narrative Action] + [Clothing Check] + [Background]. End with: Dont change the face of <<AvatarName>> keep it same.\",\n      \"cameraAndActionPrompt\": \"1. Camera: [Natural handheld motion, left, right, move in or out, arc etc can be done]. 2. Avatar Motion: [Describe how BOTH avatars move to advance the story: e.g., <<Avatar1>> checks her watch while <<Avatar2>> looks down the street for the bus].\"\n    }\n  ]\n}",
               "role": "model"
-            },
-            {
-              "content": "=Here is the list of avatars names: {{ $json['Avatar Names'] }} total number of avatars to use in concept is {{ $json['Total Avatars'] }}, make sure that you have understood the names of avatars well, which is  {{ $json['Avatar Names'] }} hence use exactly these in <<>>\n\nhighllevel concept: {{ $json.Concept }}"
             }
           ]
         },
         "modelId": {
           "__rl": true,
-          "cachedResultName": "models/gemini-3-flash-preview",
+          "cachedResultName": "models/gemini-3-pro-preview",
           "mode": "list",
-          "value": "models/gemini-3-flash-preview"
+          "value": "models/gemini-3-pro-preview"
         },
         "options": {}
       },
@@ -5247,7 +5636,7 @@
       "id": "56876efa-c4d7-441f-82dd-4eede7010ac6",
       "name": "Parse Gemini Output",
       "parameters": {
-        "jsCode": "// Get the items from the previous node\nconst input = items[0].json;\n\n// 1. Navigate to the deeply nested 'text' property\nconst rawString = input.content.parts[0].text;\n\n// 2. Parse the string into a real JSON object\nconst parsedData = JSON.parse(rawString);\n\n// 3. Return the parsed object as the new output\nreturn [\n  {\n    json: parsedData\n  }\n];"
+        "jsCode": "// // Get the items from the previous node\n// const input = items[0].json;\n\n// // 1. Navigate to the deeply nested 'text' property\n// const rawString = input.content.parts[0].text;\n\n// // 2. Parse the string into a real JSON object\n// const parsedData = JSON.parse(rawString);\n\n// // 3. Return the parsed object as the new output\n// return [\n//   {\n//     json: parsedData\n//   }\n// ];\n\nconst rawString = items[0].json.content.parts[0].text;\n\nconst cleaned = rawString.trim();\n\nconst parsedData = JSON.parse(cleaned);\n\n//  Handle both object and array\nif (Array.isArray(parsedData)) {\n  return parsedData.map(item => ({\n    json: item\n  }));\n} else {\n  return [\n    {\n      json: parsedData\n    }\n  ];\n}"
       },
       "position": [
         816,
@@ -5792,17 +6181,284 @@
       ],
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1
+    },
+    {
+      "id": "7e303693-a6b1-4984-ba29-a4dbe402a4f6",
+      "name": "Set the avatar names",
+      "parameters": {
+        "jsCode": "// 1. CONFIGURATION: Priority list (Female first to avoid \"male\" in \"female\" issues)\nconst MAPPING_RULES = {\n  female: [\"avatar1_female\", \"avatar2_female\", \"female\", \"woman\", \"girl\", \"lady\"],\n  male: [\"avatar1_male\", \"avatar2_male\", \"male\", \"man\", \"boy\", \"guy\"]\n};\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const data = item.json;\n  const validNames = data[\"Avatar Names\"] || [];\n  \n  // Get the correct IDs from the input list\n  const correctMale = validNames.find(n => n.toLowerCase().includes('male')) || \"Avatar_Male\";\n  const correctFemale = validNames.find(n => n.toLowerCase().includes('female')) || \"Avatar_Female\";\n\n  const rectifyText = (text) => {\n    if (typeof text !== 'string') return text;\n\n    let processed = text;\n\n    // STEP A: Fix existing <<tags>> first\n    processed = processed.replace(/<<([^>>]+)>>/g, (match, p1) => {\n      const lower = p1.toLowerCase().trim();\n      if (MAPPING_RULES.female.some(f => lower.includes(f))) return `<<${correctFemale}>>`;\n      if (MAPPING_RULES.male.some(m => lower.includes(m))) return `<<${correctMale}>>`;\n      return match;\n    });\n\n    // STEP B: Replace \"naked\" words and wrap them in << >>\n    // We use \\b to ensure we only match whole words (stops \"human\" becoming \"hu<<Avatar_Male>>\")\n    \n    // Check Female words first\n    MAPPING_RULES.female.forEach(word => {\n      const regex = new RegExp(`\\\\b${word}\\\\b`, 'gi');\n      processed = processed.replace(regex, `<<${correctFemale}>>`);\n    });\n\n    // Check Male words second\n    MAPPING_RULES.male.forEach(word => {\n      const regex = new RegExp(`\\\\b${word}\\\\b`, 'gi');\n      processed = processed.replace(regex, `<<${correctMale}>>`);\n    });\n\n    // STEP C: Clean up any accidental double-nesting (e.g., << <<Avatar>> >>)\n    return processed.replace(/<<\\s*<<([^>>]+)>>\\s*>>/g, '<<$1>>');\n  };\n\n  // 2. APPLY TO ALL FIELDS\n  data.MasterShot = rectifyText(data.MasterShot);\n  data.ClothingDetails = rectifyText(data.ClothingDetails);\n  data.LocationDetails = rectifyText(data.LocationDetails);\n\n  if (Array.isArray(data.StoryShots)) {\n    data.StoryShots = data.StoryShots.map(shot => ({\n      ...shot,\n      framePrompt: rectifyText(shot.framePrompt),\n      cameraAndActionPrompt: rectifyText(shot.cameraAndActionPrompt)\n    }));\n  }\n\n  return { json: data };\n});"
+      },
+      "position": [
+        1520,
+        -112
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "76d643d0-f539-4503-8761-16872482609b",
+      "name": "Code in JavaScript1",
+      "parameters": {
+        "jsCode": "const sharp = require(\"sharp\");\n\nconst MAX_SIZE = 10 * 1024 * 1024; // 10MB\nconst TARGET_SIZE = 9 * 1024 * 1024;\n\nconst item = $input.item;\nconst binaryProperty = Object.keys(item.binary)[0];\nconst binary = item.binary[binaryProperty];\n\nlet buffer = Buffer.from(binary.data, \"base64\");\n\n// If already under limit → return unchanged\nif (buffer.length <= MAX_SIZE) {\n  return [item];\n}\n\nlet quality = 90;\n\nwhile (buffer.length > TARGET_SIZE && quality > 30) {\n  buffer = await sharp(buffer)\n    .jpeg({ quality })\n    .toBuffer();\n\n  quality -= 10;\n}\n\n// keep original file name\nconst originalName = binary.fileName || \"image.jpg\";\n\nitem.binary[binaryProperty] = {\n  ...binary,\n  data: buffer.toString(\"base64\"),\n  mimeType: \"image/jpeg\",\n  fileName: originalName\n};\n\nreturn [item];",
+        "mode": "runOnceForEachItem"
+      },
+      "position": [
+        2608,
+        2144
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "4131c303-098b-45d6-946c-e7c61c5e19cd",
+      "name": "get image based on url1",
+      "parameters": {
+        "options": {},
+        "url": "={{ $json.url }}"
+      },
+      "position": [
+        2320,
+        1408
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4
+    },
+    {
+      "id": "c480dd50-306c-460f-9d43-ae10834fad78",
+      "name": "Edit Fields",
+      "parameters": {
+        "options": {}
+      },
+      "position": [
+        2128,
+        1408
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "6a2da808-78ea-4937-8902-9ab8e8c3a575",
+      "name": "Edit Image",
+      "parameters": {
+        "height": 10000,
+        "operation": "resize",
+        "options": {
+          "format": "png",
+          "quality": 80
+        },
+        "resizeOption": "onlyIfLarger",
+        "width": 10000
+      },
+      "position": [
+        2784,
+        1216
+      ],
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1
+    },
+    {
+      "id": "3c8a9454-2e12-4d73-907d-05fc1a2abe4f",
+      "name": "If3",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "f7ce647f-baab-4a95-ac5e-654cafc73d04",
+              "leftValue": "={{ Number($binary.data.fileSize.replace(' MB','')) >= 10 }}",
+              "operator": {
+                "operation": "true",
+                "singleValue": true,
+                "type": "boolean"
+              },
+              "rightValue": "=true"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        2544,
+        1392
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
+    },
+    {
+      "id": "f23f180c-e0f5-4059-a137-f8a24808930e",
+      "name": "Edit Image1",
+      "parameters": {
+        "operation": "information"
+      },
+      "position": [
+        2496,
+        1552
+      ],
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1
+    },
+    {
+      "id": "57c466a4-d65d-4aec-97b1-1edcc369c5c9",
+      "name": "Merge",
+      "parameters": {},
+      "position": [
+        3072,
+        1600
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "9a1f1963-ab92-47bc-a651-1f44cb495f21",
+      "name": "Edit Image2",
+      "parameters": {
+        "height": 10000,
+        "operation": "resize",
+        "options": {
+          "format": "png",
+          "quality": 80
+        },
+        "resizeOption": "onlyIfLarger",
+        "width": 10000
+      },
+      "position": [
+        2160,
+        960
+      ],
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "V3dLSPaQzHr78Y7i",
+          "name": "Google Drive account"
+        }
+      },
+      "id": "dc128dfe-a209-4ced-aa34-7fe2fb376933",
+      "name": "upload images for review1",
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "=11gaBwjTVGjPAGfW636GRepF_6JxW1ibN"
+        },
+        "name": "=reel_126_shotno_{{ $position + 1 }}",
+        "options": {}
+      },
+      "position": [
+        3056,
+        1296
+      ],
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3
+    },
+    {
+      "id": "f1e9fcdd-7cb3-4b26-87ea-8d50955965d8",
+      "name": "check if Avatar name is in input list",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "bfe7c668-7a42-486d-9226-b5882c0d7fc3",
+              "leftValue": "={{ $('2. Extract Reel Data').item.json.avtarList }}",
+              "operator": {
+                "operation": "contains",
+                "type": "string"
+              },
+              "rightValue": "={{ $json.name }}"
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        -1056,
+        -176
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3
     }
   ],
   "pinData": {
+    "Edit Fields": [
+      {
+        "json": {
+          "content_type": "image/png",
+          "file_name": "QNcwoGitwhTxpZpqlfn9n_Nm4olOyr.png",
+          "file_size": null,
+          "height": null,
+          "url": "https://v3b.fal.media/files/b/0a925c66/QNbIMv-x8HveCRhz8uL3e_KTFsOhOQ.png",
+          "width": null
+        }
+      },
+      {
+        "json": {
+          "content_type": "image/png",
+          "file_name": "g-P0sUJ9QBysdxpDikYjB_cwTrpaLO.png",
+          "file_size": null,
+          "height": null,
+          "url": "https://v3b.fal.media/files/b/0a925d9c/g-P0sUJ9QBysdxpDikYjB_cwTrpaLO.png",
+          "width": null
+        }
+      },
+      {
+        "json": {
+          "content_type": "image/png",
+          "file_name": "XqnYBN0npPIp_QUOhSQw8_SPqQdwKz.png",
+          "file_size": null,
+          "height": null,
+          "url": "https://v3b.fal.media/files/b/0a925d9c/XqnYBN0npPIp_QUOhSQw8_SPqQdwKz.png",
+          "width": null
+        }
+      },
+      {
+        "json": {
+          "content_type": "image/png",
+          "file_name": "nzxHfIc5gjKEXDgnF8ghB_3KIOU02Y.png",
+          "file_size": null,
+          "height": null,
+          "url": "https://v3b.fal.media/files/b/0a925d9c/nzxHfIc5gjKEXDgnF8ghB_3KIOU02Y.png",
+          "width": null
+        }
+      },
+      {
+        "json": {
+          "content_type": "image/png",
+          "file_name": "J8bsE-6Lc3R7dgRwC1hnG_X2zZaUSl.png",
+          "file_size": null,
+          "height": null,
+          "url": "https://v3b.fal.media/files/b/0a925d9c/J8bsE-6Lc3R7dgRwC1hnG_X2zZaUSl.png",
+          "width": null
+        }
+      }
+    ],
     "Message a model1": [
       {
         "json": {
           "content": {
             "parts": [
               {
-                "text": "{\n  \"MasterShot\": \"A breathtaking cinematic vista of the Himachal Pradesh mountains featuring a sparkling blue river cutting through a valley. <<Avatar2_Male>> and <<Avatar1_Female>> are positioned in the landscape, surrounded by pine trees and snow-capped peaks in the distance under a clear sunny sky.\",\n  \"ClothingDetails\": \"<<Avatar2_Male>> is wearing a thick olive green parka jacket with a fur hood, dark denim jeans, and sturdy brown hiking boots. <<Avatar1_Female>> is dressed in a bright red puffer jacket, a multi-colored traditional Himachali woollen scarf wrapped around her neck, and black thermal leggings with trekking boots.\",\n  \"LocationDetails\": \"The scene is set in a high-altitude Himalayan valley near Manali. A rushing river with crystal clear water flows over smooth grey boulders. Nearby, a rustic wooden mountain tea stall (dhaba) with smoke rising from a small chimney sits against a backdrop of steep, pine-covered slopes.\",\n  \"StoryShots\": [\n    {\n      \"framePrompt\": \"A wide shot of the vast Himalayan landscape where <<Avatar2_Male>> and <<Avatar1_Female>> stand by the edge of a rushing turquoise river, looking out at the massive snow peaks. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same.\",\n      \"cameraAndActionPrompt\": \"A slow, majestic drone-like pull back from a wide angle, showcasing the scale of the mountains while the avatars stand still admiring the view.\"\n    },\n    {\n      \"framePrompt\": \"A mid shot from eyeline level of <<Avatar1_Female>> and <<Avatar2_Male>> sitting comfortably on large sun-warmed river stones. They are sharing a lighthearted conversation with the flowing water behind them. Dont change the face of <<Avatar1_Female>> keep it same. Dont change the face of <<Avatar2_Male>> keep it same.\",\n      \"cameraAndActionPrompt\": \"A static mid shot with a subtle handheld sway to create an organic feel as the avatars gesture naturally while talking.\"\n    },\n    {\n      \"framePrompt\": \"An over-the-shoulder (OTS) shot from behind <<Avatar2_Male>>, focusing on <<Avatar1_Female>> as she points towards a distant mountain eagle soaring above the ridges. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same.\",\n      \"cameraAndActionPrompt\": \"The camera stays fixed behind the shoulder of <<Avatar2_Male>>, with a slight rack focus from his shoulder to the excited expression on the face of <<Avatar1_Female>>.\"\n    },\n    {\n      \"framePrompt\": \"A close-up shot showing the joyful expressions of <<Avatar2_Male>> and <<Avatar1_Female>> as they both hold steaming hot glass tumblers of chai, the steam rising into the cold mountain air. Dont change the face of <<Avatar2_Male>> keep it same. Dont change the face of <<Avatar1_Female>> keep it same.\",\n      \"cameraAndActionPrompt\": \"A tight close-up moving slowly in a horizontal slide (dolly left to right), capturing the steam and the warmth in their eyes.\"\n    },\n    {\n      \"framePrompt\": \"A low angle shot of <<Avatar1_Female>> and <<Avatar2_Male>> walking slowly along a narrow dirt path lined with pine needles, with the towering trees reaching toward the sky above them. Dont change the face of <<Avatar1_Female>> keep it same. Dont change the face of <<Avatar2_Male>> keep it same.\",\n      \"cameraAndActionPrompt\": \"A low-angle tracking shot moving forward at the same pace as the avatars, looking up to emphasize the height of the trees and the grandeur of the environment.\"\n    }\n  ]\n}",
-                "thoughtSignature": "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"
+                "text": "{\n  \"MasterShot\": \"A bright, vibrant high-fidelity iPhone snapshot of a rustic Himachali tea stall perched on a scenic mountain cliffside. The setting establishes a shared narrative thread: a couple taking a break to drink hot chai while admiring the breathtaking natural valley view. The scene is bathed in crisp, natural daylight, featuring towering green mountains and a sparkling blue river deep in the background. A weathered wooden bench sits firmly on the left side of the frame, while a vibrant, local tea counter with hanging snack packets anchors the right side.\",\n  \"ClothingDetails\": \"<<Avatar1_Female>> wears a bright mustard-yellow chunky knit woolen sweater, light blue denim jeans, brown hiking boots, and a colorful patterned neck scarf. <<Avatar2_Male>> wears an olive green padded puffer jacket, dark grey cargo pants, a black ribbed beanie, and sturdy brown trekking shoes. Clothing remains perfectly consistent in color and fit throughout all shots.\",\n  \"LocationDetails\": \"A roadside mountain dhaba (tea stall) in Himachal Pradesh. The ground is a mix of packed dirt and loose gravel. On the left side stands a thick, rustic wooden bench. On the right side is a wooden tea counter covered with colorful hanging chip packets and a steaming aluminum kettle. In the distant background, lush pine-covered mountains slope down into a winding, vibrant blue river under a clear daytime sky.\",\n  \"StoryShots\": [\n    {\n      \"framePrompt\": \"Wide shot, 26mm lens. <<Avatar1_Female>> in a mustard-yellow sweater and scarf stands on the left side near the wooden bench, holding a clear glass cup of steaming chai. <<Avatar2_Male>> in an olive green jacket and black beanie stands just to her right, also holding a glass cup of chai. Both are facing slightly diagonally towards the camera, looking amazed at the mountain and river view behind them. The wooden bench is on the left, the rustic tea counter is on the right, and the mountain river valley is in the background. Bright natural daylight, vibrant iPhone photography, sharp focus. Refer to the spatial layout, object positions, and lighting established in the master shot at position <image:0>. Dont change the face of <<Avatar1_Female>> keep it same. Dont change the face of <<Avatar2_Male>> keep it same.\",\n      \"cameraAndActionPrompt\": \"1. Camera: Gentle handheld gimbal motion pushing in slightly. 2. Avatar Motion: <<Avatar1_Female>> points excitedly at the distant river valley with her free hand, while <<Avatar2_Male>> nods in agreement, lifting his chai cup slightly to blow on the steam.\"\n    },\n    {\n      \"framePrompt\": \"Mid shot, 50mm lens, eyeline angle. <<Avatar1_Female>> in her yellow sweater sits on the wooden bench on the left side of the frame, holding her glass cup of chai on her lap. <<Avatar2_Male>> in his olive jacket sits right beside her on the bench, holding his glass of chai near his chest. They are looking directly at each other, engaged in conversation. The lush mountain background and distant river are slightly out of focus. The wooden bench is solidly anchored on the left, and the edge of the tea counter is visible on the far right. Crisp, natural daylight, high-resolution mobile photography. Refer to the spatial layout, object positions, and lighting established in the master shot at position <image:0>. Dont change the face of <<Avatar1_Female>> keep it same. Dont change the face of <<Avatar2_Male>> keep it same.\",\n      \"cameraAndActionPrompt\": \"1. Camera: Subtle lateral tracking shot from left to right. 2. Avatar Motion: <<Avatar1_Female>> turns her head to speak and smiles broadly, while <<Avatar2_Male>> leans in to listen, swirling the hot tea in his glass cup to cool it down.\"\n    },\n    {\n      \"framePrompt\": \"Over-the-shoulder shot, 35mm lens. Seen past the blurred edge of the tea counter on the right, <<Avatar1_Female>> and <<Avatar2_Male>> remain seated on the left-side wooden bench. <<Avatar1_Female>> in her yellow sweater lifts her glass cup of chai to her lips. <<Avatar2_Male>> in his olive jacket and beanie is looking at the tea counter on the right, raising his free hand in a friendly gesture. The mountain valley fills the background. Natural skin tones, vivid iPhone HDR. Refer to the spatial layout, object positions, and lighting established in the master shot at position <image:0>. Dont change the face of <<Avatar1_Female>> keep it same. Dont change the face of <<Avatar2_Male>> keep it same.\",\n      \"cameraAndActionPrompt\": \"1. Camera: Slight handheld tilt up from the counter towards the seated couple. 2. Avatar Motion: <<Avatar1_Female>> takes a small, careful sip of her hot chai, while <<Avatar2_Male>> gives a thumbs-up gesture towards the tea stall vendor off-screen to the right.\"\n    },\n    {\n      \"framePrompt\": \"Low angle shot, 26mm lens. <<Avatar1_Female>> in a bright yellow sweater now stands just to the right of the wooden bench on the left side, holding her glass cup of chai near her shoulder. <<Avatar2_Male>> in an olive green jacket remains seated on the bench on the left, looking up at her with a smile, holding his chai in both hands. Clear blue sky, towering green mountains, and the tea shack roof on the right fill the majestic background. High-fidelity realism, sharp focus. Refer to the spatial layout, object positions, and lighting established in the master shot at position <image:0>. Dont change the face of <<Avatar1_Female>> keep it same. Dont change the face of <<Avatar2_Male>> keep it same.\",\n      \"cameraAndActionPrompt\": \"1. Camera: Slow pedestal up movement to emphasize the towering mountains behind them. 2. Avatar Motion: <<Avatar1_Female>> stretches her back after standing up, exhaling a visible breath of cool mountain air, while <<Avatar2_Male>> looks up at her affectionately, adjusting his beanie.\"\n    },\n    {\n      \"framePrompt\": \"Close-up shot, 77mm lens, eyeline angle. <<Avatar1_Female>> in her yellow sweater and <<Avatar2_Male>> in his olive jacket and beanie are standing closely together near the center-left, with the wooden bench slightly visible behind them on the left. Both are looking directly toward the camera side with bright, joyful expressions, holding their glass cups of chai near their faces. The right side shows the softly blurred hanging snacks of the tea counter. Sunlight catches the steam rising from their cups. Beautiful natural iPhone portrait lighting. Refer to the spatial layout, object positions, and lighting established in the master shot at position <image:0>. Dont change the face of <<Avatar1_Female>> keep it same. Dont change the face of <<Avatar2_Male>> keep it same.\",\n      \"cameraAndActionPrompt\": \"1. Camera: Static handheld float with subtle breathing movement. 2. Avatar Motion: <<Avatar1_Female>> laughs heartily, playfully bumping her shoulder against <<Avatar2_Male>>, who chuckles warmly and takes a final, satisfying sip from his glass cup.\"\n    }\n  ]\n}",
+                "thoughtSignature": "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"
               }
             ],
             "role": "model"
@@ -5858,6 +6514,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-03-14T15:46:23.080Z",
-  "versionId": "aad9397b-f44f-4ef5-bd3f-34061110fb0c"
+  "updatedAt": "2026-03-23T18:02:17.180Z",
+  "versionId": "a6189735-a18f-494f-8393-d804a1eb7ef2"
 }
