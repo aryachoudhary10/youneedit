@@ -2,7 +2,7 @@
   "active": true,
   "activeVersion": {
     "authors": "Sukhneer Singh",
-    "autosaved": false,
+    "autosaved": true,
     "connections": {
       "Call 'video render v1' for motion videos stiching": {
         "main": [
@@ -49,7 +49,12 @@
           [
             {
               "index": 0,
-              "node": "Loop Over Reels",
+              "node": "update in progess status",
+              "type": "main"
+            },
+            {
+              "index": 0,
+              "node": "Wait till status is updated",
               "type": "main"
             }
           ]
@@ -148,6 +153,17 @@
           ]
         ]
       },
+      "Wait till status is updated": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Loop Over Reels",
+              "type": "main"
+            }
+          ]
+        ]
+      },
       "When clicking ‘Execute workflow’": {
         "main": [
           [
@@ -170,11 +186,22 @@
           ],
           []
         ]
+      },
+      "update in progess status": {
+        "main": [
+          [
+            {
+              "index": 1,
+              "node": "Wait till status is updated",
+              "type": "main"
+            }
+          ]
+        ]
       }
     },
-    "createdAt": "2026-03-15T06:43:50.492Z",
+    "createdAt": "2026-03-17T17:21:56.514Z",
     "description": "",
-    "name": "Version 6e09fe22",
+    "name": "Version 85088e96",
     "nodes": [
       {
         "credentials": {
@@ -207,7 +234,7 @@
         "name": "When clicking ‘Execute workflow’",
         "parameters": {},
         "position": [
-          -1840,
+          -2304,
           304
         ],
         "type": "n8n-nodes-base.manualTrigger",
@@ -326,7 +353,7 @@
                 "lookupValue": "Approved_for_video_generation"
               },
               {
-                "lookupColumn": "Status of Automation",
+                "lookupColumn": "Reel Type",
                 "lookupValue": "Motion-SingleBack"
               }
             ]
@@ -341,7 +368,7 @@
           }
         },
         "position": [
-          -1584,
+          -2048,
           304
         ],
         "type": "n8n-nodes-base.googleSheets",
@@ -929,19 +956,270 @@
           "options": {}
         },
         "position": [
-          -1904,
-          576
+          -2480,
+          560
         ],
         "type": "n8n-nodes-base.formTrigger",
         "typeVersion": 2.5,
         "webhookId": "7a6b2119-6530-40c0-8e1b-bf2272c31cf1"
+      },
+      {
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "fhIAilo8SGlashT9",
+            "name": "Google Sheets account 3"
+          }
+        },
+        "id": "89ca3000-7c40-4a97-befa-1add7eb43962",
+        "name": "update in progess status",
+        "parameters": {
+          "columns": {
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false,
+            "mappingMode": "defineBelow",
+            "matchingColumns": [
+              "Reel number"
+            ],
+            "schema": [
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Reel number",
+                "id": "Reel number",
+                "removed": false,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Client(drive folder name)",
+                "id": "Client(drive folder name)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Account to post",
+                "id": "Account to post",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Avatars to use(comma seperated)",
+                "id": "Avatars to use(comma seperated)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Avtar Drive links(optional & bypasses Avatar to use field)",
+                "id": "Avtar Drive links(optional & bypasses Avatar to use field)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Reel Type",
+                "id": "Reel Type",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Concept input(optional)",
+                "id": "Concept input(optional)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Song link(direct download)",
+                "id": "Song link(direct download)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Start Time of Song",
+                "id": "Start Time of Song",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Total Time of Reel(Secs)",
+                "id": "Total Time of Reel(Secs)",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Status of Automation",
+                "id": "Status of Automation",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Drive link for image approvals",
+                "id": "Drive link for image approvals",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Drive link for video approval",
+                "id": "Drive link for video approval",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Final Video Drive Download Link",
+                "id": "Final Video Drive Download Link",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Post Schedule Date",
+                "id": "Post Schedule Date",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Post Schedule Time",
+                "id": "Post Schedule Time",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Workflow execution link",
+                "id": "Workflow execution link",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "Error Details",
+                "id": "Error Details",
+                "removed": true,
+                "required": false,
+                "type": "string"
+              },
+              {
+                "canBeUsedToMatch": true,
+                "defaultMatch": false,
+                "display": true,
+                "displayName": "row_number",
+                "id": "row_number",
+                "readOnly": true,
+                "removed": true,
+                "required": false,
+                "type": "number"
+              }
+            ],
+            "value": {
+              "Reel number": "={{ $json['Reel number'] }}",
+              "Status of Automation": "In Progress"
+            }
+          },
+          "documentId": {
+            "__rl": true,
+            "cachedResultName": "Short Video Generation DB- Jass Records",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+            "mode": "list",
+            "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+          },
+          "operation": "update",
+          "options": {},
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": "Main DB",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+            "mode": "list",
+            "value": "gid=0"
+          }
+        },
+        "position": [
+          -1824,
+          688
+        ],
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7
+      },
+      {
+        "id": "29c2c673-33c6-447d-93d3-dacde5cf6698",
+        "name": "Wait till status is updated",
+        "parameters": {
+          "mode": "chooseBranch"
+        },
+        "position": [
+          -1632,
+          336
+        ],
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2
       }
     ],
-    "updatedAt": "2026-03-15T06:43:51.000Z",
-    "versionId": "6e09fe22-99d1-42dd-8f51-1f47578ed16f",
+    "updatedAt": "2026-03-17T17:21:57.000Z",
+    "versionId": "85088e96-6be6-45ca-a33a-876883c8d08d",
     "workflowId": "2YG8YdGNTawzKLeW"
   },
-  "activeVersionId": "6e09fe22-99d1-42dd-8f51-1f47578ed16f",
+  "activeVersionId": "85088e96-6be6-45ca-a33a-876883c8d08d",
   "connections": {
     "Call 'video render v1' for motion videos stiching": {
       "main": [
@@ -988,7 +1266,12 @@
         [
           {
             "index": 0,
-            "node": "Loop Over Reels",
+            "node": "update in progess status",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "Wait till status is updated",
             "type": "main"
           }
         ]
@@ -1087,6 +1370,17 @@
         ]
       ]
     },
+    "Wait till status is updated": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Loop Over Reels",
+            "type": "main"
+          }
+        ]
+      ]
+    },
     "When clicking ‘Execute workflow’": {
       "main": [
         [
@@ -1108,6 +1402,17 @@
           }
         ],
         []
+      ]
+    },
+    "update in progess status": {
+      "main": [
+        [
+          {
+            "index": 1,
+            "node": "Wait till status is updated",
+            "type": "main"
+          }
+        ]
       ]
     }
   },
@@ -1150,7 +1455,7 @@
       "name": "When clicking ‘Execute workflow’",
       "parameters": {},
       "position": [
-        -1840,
+        -2304,
         304
       ],
       "type": "n8n-nodes-base.manualTrigger",
@@ -1269,7 +1574,7 @@
               "lookupValue": "Approved_for_video_generation"
             },
             {
-              "lookupColumn": "Status of Automation",
+              "lookupColumn": "Reel Type",
               "lookupValue": "Motion-SingleBack"
             }
           ]
@@ -1284,7 +1589,7 @@
         }
       },
       "position": [
-        -1584,
+        -2048,
         304
       ],
       "type": "n8n-nodes-base.googleSheets",
@@ -1872,12 +2177,263 @@
         "options": {}
       },
       "position": [
-        -1904,
-        576
+        -2480,
+        560
       ],
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.5,
       "webhookId": "7a6b2119-6530-40c0-8e1b-bf2272c31cf1"
+    },
+    {
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fhIAilo8SGlashT9",
+          "name": "Google Sheets account 3"
+        }
+      },
+      "id": "89ca3000-7c40-4a97-befa-1add7eb43962",
+      "name": "update in progess status",
+      "parameters": {
+        "columns": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "Reel number"
+          ],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel number",
+              "id": "Reel number",
+              "removed": false,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Client(drive folder name)",
+              "id": "Client(drive folder name)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Account to post",
+              "id": "Account to post",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Avatars to use(comma seperated)",
+              "id": "Avatars to use(comma seperated)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Avtar Drive links(optional & bypasses Avatar to use field)",
+              "id": "Avtar Drive links(optional & bypasses Avatar to use field)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Reel Type",
+              "id": "Reel Type",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Concept input(optional)",
+              "id": "Concept input(optional)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Song link(direct download)",
+              "id": "Song link(direct download)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Start Time of Song",
+              "id": "Start Time of Song",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Total Time of Reel(Secs)",
+              "id": "Total Time of Reel(Secs)",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Status of Automation",
+              "id": "Status of Automation",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Drive link for image approvals",
+              "id": "Drive link for image approvals",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Drive link for video approval",
+              "id": "Drive link for video approval",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Final Video Drive Download Link",
+              "id": "Final Video Drive Download Link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Post Schedule Date",
+              "id": "Post Schedule Date",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Post Schedule Time",
+              "id": "Post Schedule Time",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Workflow execution link",
+              "id": "Workflow execution link",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "Error Details",
+              "id": "Error Details",
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "row_number",
+              "id": "row_number",
+              "readOnly": true,
+              "removed": true,
+              "required": false,
+              "type": "number"
+            }
+          ],
+          "value": {
+            "Reel number": "={{ $json['Reel number'] }}",
+            "Status of Automation": "In Progress"
+          }
+        },
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "Short Video Generation DB- Jass Records",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc"
+        },
+        "operation": "update",
+        "options": {},
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "Main DB",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10gg8UdCG1cX5yF4gepwQVeUwGQt0u0ww7hSNvcO8Unc/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        -1824,
+        688
+      ],
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7
+    },
+    {
+      "id": "29c2c673-33c6-447d-93d3-dacde5cf6698",
+      "name": "Wait till status is updated",
+      "parameters": {
+        "mode": "chooseBranch"
+      },
+      "position": [
+        -1632,
+        336
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
     }
   ],
   "pinData": {
@@ -2875,6 +3431,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-03-15T06:43:50.490Z",
-  "versionId": "6e09fe22-99d1-42dd-8f51-1f47578ed16f"
+  "updatedAt": "2026-03-17T17:21:56.512Z",
+  "versionId": "85088e96-6be6-45ca-a33a-876883c8d08d"
 }
